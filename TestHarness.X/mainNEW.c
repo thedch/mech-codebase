@@ -27,19 +27,26 @@ int main(void) {
     LED_AddBanks(LED_BANK2);
     LED_AddBanks(LED_BANK3);
 
-    LED_SetBank(LED_BANK1, 0x0F);
-    LED_SetBank(LED_BANK2, 0x0F);
-    LED_SetBank(LED_BANK3, 0x0F);
+    LED_SetBank(LED_BANK1, 0xFF);
+    LED_SetBank(LED_BANK2, 0xFF);
+    LED_SetBank(LED_BANK3, 0xFF);
 
     PORTZ03_TRIS = 1; // set Z3 to be input
 
-    printf("Hello World!\r\n");
+    printf("Hello World! I'm Daniel...\r\n");
 
     while (1) {
-        if (PORTZ03_BIT == 1) {
-            printf("Track Wire High\r\n");
-        }
-        myDelay(SHORT_DELAY);
+//        if (PORTZ03_BIT == 1) {
+//            printf("Track Wire High\r\n");
+//        }
+        myDelay(MED_DELAY);
+        LED_SetBank(LED_BANK1, 0b0001);
+        myDelay(MED_DELAY);
+        LED_SetBank(LED_BANK1, 0b0010);
+        myDelay(MED_DELAY);
+        LED_SetBank(LED_BANK1, 0b0100);
+        myDelay(MED_DELAY);
+        LED_SetBank(LED_BANK1, 0b1000);
     }
     return 0;
 }

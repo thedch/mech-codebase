@@ -15,6 +15,10 @@
 #include <LED.h>
 #include <pwm.h>
 
+/*******************************************************************************
+ * PUBLIC FUNCTIONS                                                           *
+ ******************************************************************************/
+
 void myDelay(int delayLength) {
     while (delayLength > 0) {
         delayLength--;

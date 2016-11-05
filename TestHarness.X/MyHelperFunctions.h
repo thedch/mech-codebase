@@ -25,17 +25,35 @@
 #define MED_DELAY 100000
 #define LONG_DELAY 1000000
 
+
 /*******************************************************************************
  * PUBLIC FUNCTION PROTOTYPES                                                  *
  ******************************************************************************/
 
 /**
  * @Function myDelay
- * @param delayLength, sets the length of the delay in clock cycles
+ * @param delayLength - sets the length of the delay in clock cycles
  * @return None
  * @brief  Extremely simple function to 'pause' the chip for testing purposes.
  * @author Daniel Hunter, 4 Nov 2016 */
 void myDelay(int delayLength);
+
+/**
+ * @Function frontTrackWireInit
+ * @param None
+ * @return None
+ * @brief Inits the pin for the front track wire sensor
+ * @author Daniel Hunter, 4 Nov 2016 */
+int frontTrackWireInit(void);
+
+/**
+ * @Function frontTrackWireStatus
+ * @param None
+ * @return Returns 1 if the front track wire sensor is in the presence of a 
+ * wire, 0 otherwise
+ * @brief Function to get the status of the front track wire sensor
+ * @author Daniel Hunter, 4 Nov 2016 */
+int frontTrackWireStatus(void);
 
 
 

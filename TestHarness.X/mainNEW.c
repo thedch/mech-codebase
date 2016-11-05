@@ -16,7 +16,6 @@
 #include "MyHelperFunctions.h"
 
 // Track Wire Sensor Port: Z3
-// #define 
 
 int main(void) {
 
@@ -27,9 +26,9 @@ int main(void) {
     LED_AddBanks(LED_BANK2);
     LED_AddBanks(LED_BANK3);
 
-    LED_SetBank(LED_BANK1, 0xFF);
-    LED_SetBank(LED_BANK2, 0xFF);
-    LED_SetBank(LED_BANK3, 0xFF);
+    LED_SetBank(LED_BANK1, 0x00);
+    LED_SetBank(LED_BANK2, 0x00);
+    LED_SetBank(LED_BANK3, 0x00);
 
     PORTZ03_TRIS = 1; // set Z3 to be input
 
@@ -37,16 +36,12 @@ int main(void) {
 
     while (1) {
 //        if (PORTZ03_BIT == 1) {
-//            printf("Track Wire High\r\n");
+//            printf("Track Wire High: %d\r\n", PORTZ03_BIT);
+//        } else if (PORTZ03_BIT == 0) {
+//            printf("Track Wire Low: %d\r\n", PORTZ03_BIT);
 //        }
         myDelay(MED_DELAY);
-        LED_SetBank(LED_BANK1, 0b0001);
-        myDelay(MED_DELAY);
-        LED_SetBank(LED_BANK1, 0b0010);
-        myDelay(MED_DELAY);
-        LED_SetBank(LED_BANK1, 0b0100);
-        myDelay(MED_DELAY);
-        LED_SetBank(LED_BANK1, 0b1000);
+//        LED_InvertBank(LED_BANK1, 0xF);
     }
     return 0;
 }

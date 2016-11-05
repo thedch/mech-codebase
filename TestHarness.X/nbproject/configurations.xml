@@ -9,6 +9,8 @@
       <itemPath>C:/CMPE118/include/pwm.h</itemPath>
       <itemPath>C:/CMPE118/include/serial.h</itemPath>
       <itemPath>C:/CMPE118/include/LED.h</itemPath>
+      <itemPath>C:/CMPE118/include/IO_Ports.h</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/TestHarness.X/MyHelperFunctions.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -24,6 +26,8 @@
       <itemPath>C:/CMPE118/src/pwm.c</itemPath>
       <itemPath>C:/CMPE118/src/serial.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/TestHarness.X/mainNEW.c</itemPath>
+      <itemPath>C:/CMPE118/src/IO_Ports.c</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/TestHarness.X/MyHelperFunctions.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -33,6 +37,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>C:\CMPE118</Elem>
+    <Elem>C:\Users\dchunter\MPLABXProjects\TestHarness.X</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=C:/CMPE118/src/AD.c C:/CMPE118/src/BOARD.c C:/CMPE118/src/LED.c C:/CMPE118/src/pwm.c C:/CMPE118/src/serial.c C:/Users/dchunter/MPLABXProjects/TestHarness.X/mainNEW.c
+SOURCEFILES_QUOTED_IF_SPACED=C:/CMPE118/src/AD.c C:/CMPE118/src/BOARD.c C:/CMPE118/src/LED.c C:/CMPE118/src/pwm.c C:/CMPE118/src/serial.c C:/Users/dchunter/MPLABXProjects/TestHarness.X/mainNEW.c C:/CMPE118/src/IO_Ports.c C:/Users/dchunter/MPLABXProjects/TestHarness.X/MyHelperFunctions.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/331920610/AD.o ${OBJECTDIR}/_ext/331920610/BOARD.o ${OBJECTDIR}/_ext/331920610/LED.o ${OBJECTDIR}/_ext/331920610/pwm.o ${OBJECTDIR}/_ext/331920610/serial.o ${OBJECTDIR}/_ext/1649442850/mainNEW.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/331920610/AD.o.d ${OBJECTDIR}/_ext/331920610/BOARD.o.d ${OBJECTDIR}/_ext/331920610/LED.o.d ${OBJECTDIR}/_ext/331920610/pwm.o.d ${OBJECTDIR}/_ext/331920610/serial.o.d ${OBJECTDIR}/_ext/1649442850/mainNEW.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/331920610/AD.o ${OBJECTDIR}/_ext/331920610/BOARD.o ${OBJECTDIR}/_ext/331920610/LED.o ${OBJECTDIR}/_ext/331920610/pwm.o ${OBJECTDIR}/_ext/331920610/serial.o ${OBJECTDIR}/_ext/1649442850/mainNEW.o ${OBJECTDIR}/_ext/331920610/IO_Ports.o ${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/331920610/AD.o.d ${OBJECTDIR}/_ext/331920610/BOARD.o.d ${OBJECTDIR}/_ext/331920610/LED.o.d ${OBJECTDIR}/_ext/331920610/pwm.o.d ${OBJECTDIR}/_ext/331920610/serial.o.d ${OBJECTDIR}/_ext/1649442850/mainNEW.o.d ${OBJECTDIR}/_ext/331920610/IO_Ports.o.d ${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/331920610/AD.o ${OBJECTDIR}/_ext/331920610/BOARD.o ${OBJECTDIR}/_ext/331920610/LED.o ${OBJECTDIR}/_ext/331920610/pwm.o ${OBJECTDIR}/_ext/331920610/serial.o ${OBJECTDIR}/_ext/1649442850/mainNEW.o
+OBJECTFILES=${OBJECTDIR}/_ext/331920610/AD.o ${OBJECTDIR}/_ext/331920610/BOARD.o ${OBJECTDIR}/_ext/331920610/LED.o ${OBJECTDIR}/_ext/331920610/pwm.o ${OBJECTDIR}/_ext/331920610/serial.o ${OBJECTDIR}/_ext/1649442850/mainNEW.o ${OBJECTDIR}/_ext/331920610/IO_Ports.o ${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o
 
 # Source Files
-SOURCEFILES=C:/CMPE118/src/AD.c C:/CMPE118/src/BOARD.c C:/CMPE118/src/LED.c C:/CMPE118/src/pwm.c C:/CMPE118/src/serial.c C:/Users/dchunter/MPLABXProjects/TestHarness.X/mainNEW.c
+SOURCEFILES=C:/CMPE118/src/AD.c C:/CMPE118/src/BOARD.c C:/CMPE118/src/LED.c C:/CMPE118/src/pwm.c C:/CMPE118/src/serial.c C:/Users/dchunter/MPLABXProjects/TestHarness.X/mainNEW.c C:/CMPE118/src/IO_Ports.c C:/Users/dchunter/MPLABXProjects/TestHarness.X/MyHelperFunctions.c
 
 
 CFLAGS=
@@ -136,6 +136,18 @@ ${OBJECTDIR}/_ext/1649442850/mainNEW.o: C:/Users/dchunter/MPLABXProjects/TestHar
 	@${RM} ${OBJECTDIR}/_ext/1649442850/mainNEW.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1649442850/mainNEW.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"." -I"C:/CMPE118/include" -MMD -MF "${OBJECTDIR}/_ext/1649442850/mainNEW.o.d" -o ${OBJECTDIR}/_ext/1649442850/mainNEW.o C:/Users/dchunter/MPLABXProjects/TestHarness.X/mainNEW.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
+${OBJECTDIR}/_ext/331920610/IO_Ports.o: C:/CMPE118/src/IO_Ports.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/331920610" 
+	@${RM} ${OBJECTDIR}/_ext/331920610/IO_Ports.o.d 
+	@${RM} ${OBJECTDIR}/_ext/331920610/IO_Ports.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/331920610/IO_Ports.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"." -I"C:/CMPE118/include" -MMD -MF "${OBJECTDIR}/_ext/331920610/IO_Ports.o.d" -o ${OBJECTDIR}/_ext/331920610/IO_Ports.o C:/CMPE118/src/IO_Ports.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o: C:/Users/dchunter/MPLABXProjects/TestHarness.X/MyHelperFunctions.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1649442850" 
+	@${RM} ${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"." -I"C:/CMPE118/include" -MMD -MF "${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o.d" -o ${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o C:/Users/dchunter/MPLABXProjects/TestHarness.X/MyHelperFunctions.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
 else
 ${OBJECTDIR}/_ext/331920610/AD.o: C:/CMPE118/src/AD.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/331920610" 
@@ -172,6 +184,18 @@ ${OBJECTDIR}/_ext/1649442850/mainNEW.o: C:/Users/dchunter/MPLABXProjects/TestHar
 	@${RM} ${OBJECTDIR}/_ext/1649442850/mainNEW.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1649442850/mainNEW.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1649442850/mainNEW.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"." -I"C:/CMPE118/include" -MMD -MF "${OBJECTDIR}/_ext/1649442850/mainNEW.o.d" -o ${OBJECTDIR}/_ext/1649442850/mainNEW.o C:/Users/dchunter/MPLABXProjects/TestHarness.X/mainNEW.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/331920610/IO_Ports.o: C:/CMPE118/src/IO_Ports.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/331920610" 
+	@${RM} ${OBJECTDIR}/_ext/331920610/IO_Ports.o.d 
+	@${RM} ${OBJECTDIR}/_ext/331920610/IO_Ports.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/331920610/IO_Ports.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"." -I"C:/CMPE118/include" -MMD -MF "${OBJECTDIR}/_ext/331920610/IO_Ports.o.d" -o ${OBJECTDIR}/_ext/331920610/IO_Ports.o C:/CMPE118/src/IO_Ports.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o: C:/Users/dchunter/MPLABXProjects/TestHarness.X/MyHelperFunctions.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1649442850" 
+	@${RM} ${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"." -I"C:/CMPE118/include" -MMD -MF "${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o.d" -o ${OBJECTDIR}/_ext/1649442850/MyHelperFunctions.o C:/Users/dchunter/MPLABXProjects/TestHarness.X/MyHelperFunctions.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
 endif
 

@@ -14,7 +14,9 @@ C:/CMPE118/include/ES_Port.h  \
 C:/CMPE118/include/ES_PriorTables.h  \
  C:/CMPE118/include/ES_Queue.h  \
 C:/CMPE118/include/ES_ServiceHeaders.h  \
- C:/CMPE118/include/ES_TattleTale.h  \
+ TemplateHSM.h  \
+ES_Configure.h  \
 C:/CMPE118/include/ES_TattleTale.h  \
- C:/CMPE118/include/ES_KeyboardInput.h  \
-C:/CMPE118/include/serial.h 
+ C:/CMPE118/include/ES_TattleTale.h  \
+C:/CMPE118/include/ES_KeyboardInput.h  \
+ C:/CMPE118/include/serial.h 

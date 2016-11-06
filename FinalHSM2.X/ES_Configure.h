@@ -44,25 +44,27 @@ typedef enum {
     ES_TIMERACTIVE, /* signals that a timer has become active */
     ES_TIMERSTOPPED, /* signals that a timer has stopped*/
     /* User-defined events start here */
+    BUMPED,
+    /* User-defined events end here */
     BATTERY_CONNECTED,
     BATTERY_DISCONNECTED,
     NUMBEROFEVENTS,
 } ES_EventTyp_t;
 
 static const char *EventNames[] = {
-	"ES_NO_EVENT",
-	"ES_ERROR",
-	"ES_INIT",
-	"ES_ENTRY",
-	"ES_EXIT",
-	"ES_KEYINPUT",
-	"ES_LISTEVENTS",
-	"ES_TIMEOUT",
-	"ES_TIMERACTIVE",
-	"ES_TIMERSTOPPED",
-	"BATTERY_CONNECTED",
-	"BATTERY_DISCONNECTED",
-	"NUMBEROFEVENTS",
+    "ES_NO_EVENT",
+    "ES_ERROR",
+    "ES_INIT",
+    "ES_ENTRY",
+    "ES_EXIT",
+    "ES_KEYINPUT",
+    "ES_LISTEVENTS",
+    "ES_TIMEOUT",
+    "ES_TIMERACTIVE",
+    "ES_TIMERSTOPPED",
+    "BATTERY_CONNECTED",
+    "BATTERY_DISCONNECTED",
+    "NUMBEROFEVENTS",
 };
 
 /****************************************************************************/
@@ -97,7 +99,7 @@ static const char *EventNames[] = {
 
 
 /****************************************************************************/
-// Give the timer numbers symbolc names to make it easier to move them
+// Give the timer numbers symbolic names to make it easier to move them
 // to different timers if the need arises. Keep these definitons close to the
 // definitions for the response functions to make it easire to check that
 // the timer number matches where the timer event will be routed
@@ -114,7 +116,7 @@ static const char *EventNames[] = {
 /****************************************************************************/
 // This macro determines that nuber of services that are *actually* used in
 // a particular application. It will vary in value from 1 to MAX_NUM_SERVICES
-#define NUM_SERVICES 1
+#define NUM_SERVICES 2
 
 /****************************************************************************/
 // These are the definitions for Service 0, the lowest priority service

@@ -5,4 +5,6 @@ ES_Configure.h  \
 C:/CMPE118/include/ES_PostList.h  \
  C:/CMPE118/include/ES_Events.h  \
 C:/CMPE118/include/ES_ServiceHeaders.h  \
- C:/CMPE118/include/ES_KeyboardInput.h 
+ C:/CMPE118/include/ES_KeyboardInput.h  \
+TemplateHSM.h  \
+ES_Configure.h 

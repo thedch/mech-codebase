@@ -14,7 +14,9 @@ C:/CMPE118/include/ES_PriorTables.h  \
  C:/CMPE118/include/ES_Queue.h  \
 C:/CMPE118/include/ES_ServiceHeaders.h  \
  ES_Configure.h  \
-C:/CMPE118/include/ES_TattleTale.h  \
- C:/CMPE118/include/BOARD.h  \
+TemplateHSM.h  \
+ES_Configure.h  \
+ C:/CMPE118/include/ES_TattleTale.h  \
+C:/CMPE118/include/BOARD.h  \
  C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateHSM.h  \
  C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateSubHSM.h 

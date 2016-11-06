@@ -54,3 +54,44 @@ void driveForward(int dutyCycle) {
     PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
     PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
 }
+
+void driveBackward(int dutyCycle) {
+    // this function currently has no error checking, as assume PWM pins have
+    // been correctly set up. I will probably fix this.
+    PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+
+    PORTY11_BIT = 0;
+    PORTY09_BIT = 1;
+
+    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+}
+
+void fiftyPercentLeftTurn(int dutyCycle) {
+    // this function currently has no error checking, as assume PWM pins have
+    // been correctly set up. I will probably fix this.
+    PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+
+    PORTY11_BIT = 1;
+    PORTY09_BIT = 0;
+
+    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, (dutyCycle * 0.5));
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+}
+
+void fiftyPercentRightTurn(int dutyCycle) {
+    // this function currently has no error checking, as assume PWM pins have
+    // been correctly set up. I will probably fix this.
+    PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+
+    PORTY11_BIT = 1;
+    PORTY09_BIT = 0;
+
+    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 0.5);
+}
+
+

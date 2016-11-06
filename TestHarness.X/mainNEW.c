@@ -41,21 +41,10 @@ int main(void) {
     printf("Current PWM pins %d\r\n", PWM_ListPins());
     printf("Current PWM freq %d\r\n", PWM_GetFrequency());
 
-    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, 1000);
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, 1000);
-
-    // Y9 and Y 11
-
-    PORTY11_TRIS = 0;
-    PORTY09_TRIS = 0;
-    
-    PORTY11_BIT = 1;
-    PORTY09_BIT = 0;
+    driveBackward(1000);
 
     printf("Current duty cycle for Left Motor is %d\r\n", PWM_GetDutyCycle(LEFT_MOTOR_PWM_PIN));
     printf("Current duty cycle for Right Motor is %d\r\n", PWM_GetDutyCycle(RIGHT_MOTOR_PWM_PIN));
-
-    //    printf("Hello World! I'm Daniel...\r\n");
 
     while (1) {
         //        PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, 700);

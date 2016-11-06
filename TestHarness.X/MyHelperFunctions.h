@@ -28,6 +28,9 @@
 #define LEFT_MOTOR_PWM_PIN PWM_PORTY12
 #define RIGHT_MOTOR_PWM_PIN PWM_PORTY10
 
+// Left Motor Directional Pin: Y11
+// Right Motor Directional Pin: Y9
+
 /*******************************************************************************
  * PUBLIC FUNCTION PROTOTYPES                                                  *
  ******************************************************************************/
@@ -62,8 +65,32 @@ int frontTrackWireStatus(void);
  * @param dutyCycle - the desired PWM duty cycle
  * @return None
  * @brief Helper function used to drive the robot forward at various speeds
- * @author Daniel Hunter, 4 Nov 2016 */
+ * @author Daniel Hunter, 5 Nov 2016 */
 void driveForward(int dutyCycle);
+
+/**
+ * @Function driveBackward
+ * @param dutyCycle - the desired PWM duty cycle
+ * @return None
+ * @brief Helper function used to drive the robot backward at various speeds
+ * @author Daniel Hunter, 5 Nov 2016 */
+void driveBackward(int dutyCycle);
+
+/**
+ * @Function fiftyPercentLeftTurn
+ * @param dutyCycle - the desired PWM duty cycle of the full speed wheel
+ * @return None
+ * @brief Helper function used turn the robot gradually
+ * @author Daniel Hunter, 5 Nov 2016 */
+void fiftyPercentLeftTurn(int dutyCycle);
+
+/**
+ * @Function fiftyPercentRightTurn
+ * @param dutyCycle - the desired PWM duty cycle of the full speed wheel
+ * @return None
+ * @brief Helper function used turn the robot gradually
+ * @author Daniel Hunter, 5 Nov 2016 */
+void fiftyPercentRightTurn(int dutyCycle);
 
 
 

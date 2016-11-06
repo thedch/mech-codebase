@@ -6,4 +6,5 @@ C:/CMPE118/include/ES_General.h  \
  C:/CMPE118/include/ES_CheckEvents.h  \
 C:/CMPE118/include/BOARD.h  \
  TemplateEventChecker.h  \
-ES_Configure.h 
+ES_Configure.h  \
+

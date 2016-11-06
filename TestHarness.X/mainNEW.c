@@ -26,26 +26,40 @@ int main(void) {
     LED_AddBanks(LED_BANK2);
     LED_AddBanks(LED_BANK3);
 
-    LED_SetBank(LED_BANK1, 0x00);
+    LED_SetBank(LED_BANK1, 0b0110);
     LED_SetBank(LED_BANK2, 0x00);
     LED_SetBank(LED_BANK3, 0x00);
 
     //    PORTZ03_TRIS = 1; // set Z3 to be input
 
     PWM_Init();
-    PWM_AddPins(LEFT_MOTOR_PWM_PIN);
-    PWM_AddPins(RIGHT_MOTOR_PWM_PIN);
+    PWM_AddPins(LEFT_MOTOR_PWM_PIN | RIGHT_MOTOR_PWM_PIN);
+
+    //    PWM_AddPins(RIGHT_MOTOR_PWM_PIN);
     PWM_SetFrequency(PWM_DEFAULT_FREQUENCY);
-    
+
     printf("Current PWM pins %d\r\n", PWM_ListPins());
     printf("Current PWM freq %d\r\n", PWM_GetFrequency());
-    
+
     PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, 1000);
     PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, 1000);
 
-//    printf("Hello World! I'm Daniel...\r\n");
+    // Y9 and Y 11
+
+    PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+    
+    PORTY11_BIT = 1;
+    PORTY09_BIT = 0;
+
+    printf("Current duty cycle for Left Motor is %d\r\n", PWM_GetDutyCycle(LEFT_MOTOR_PWM_PIN));
+    printf("Current duty cycle for Right Motor is %d\r\n", PWM_GetDutyCycle(RIGHT_MOTOR_PWM_PIN));
+
+    //    printf("Hello World! I'm Daniel...\r\n");
 
     while (1) {
+        //        PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, 700);
+        //        PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, 700);
         //        if (PORTZ03_BIT == 1) {
         //            printf("Track Wire High: %d\r\n", PORTZ03_BIT);
         //        } else if (PORTZ03_BIT == 0) {

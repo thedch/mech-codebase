@@ -14,6 +14,7 @@
 #include <IO_Ports.h>
 #include <LED.h>
 #include <pwm.h>
+#include "MyHelperFunctions.h"
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                           *
@@ -39,4 +40,17 @@ int frontTrackWireStatus(void) {
     } else if (PORTZ03_BIT == 0) {
         return 1; // In the presence of a track wire
     }
+}
+
+void driveForward(int dutyCycle) {
+    // this function currently has no error checking, as assume PWM pins have
+    // been correctly set up. I will probably fix this.
+    PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+
+    PORTY11_BIT = 1;
+    PORTY09_BIT = 0;
+
+    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
 }

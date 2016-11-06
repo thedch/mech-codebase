@@ -46,7 +46,7 @@ void myDelay(int delayLength);
  * @return None
  * @brief Inits the pin for the front track wire sensor
  * @author Daniel Hunter, 4 Nov 2016 */
-int frontTrackWireInit(void);
+void frontTrackWireInit(void);
 
 /**
  * @Function frontTrackWireStatus
@@ -56,6 +56,14 @@ int frontTrackWireInit(void);
  * @brief Function to get the status of the front track wire sensor
  * @author Daniel Hunter, 4 Nov 2016 */
 int frontTrackWireStatus(void);
+
+/**
+ * @Function driveForward
+ * @param dutyCycle - the desired PWM duty cycle
+ * @return None
+ * @brief Helper function used to drive the robot forward at various speeds
+ * @author Daniel Hunter, 4 Nov 2016 */
+void driveForward(int dutyCycle);
 
 
 

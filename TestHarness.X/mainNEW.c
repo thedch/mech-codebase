@@ -32,6 +32,12 @@ int main(void) {
 
     //    PORTZ03_TRIS = 1; // set Z3 to be input
 
+    PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+
+    PORTY11_BIT = 1; // how is this possibly correct
+    PORTY09_BIT = 0;
+
     PWM_Init();
     PWM_AddPins(LEFT_MOTOR_PWM_PIN | RIGHT_MOTOR_PWM_PIN);
 
@@ -41,21 +47,22 @@ int main(void) {
     printf("Current PWM pins %d\r\n", PWM_ListPins());
     printf("Current PWM freq %d\r\n", PWM_GetFrequency());
 
-    driveBackward(1000);
+    //    driveBackward(1000);
+    PORTV03_TRIS = 1; // Set V3 (light sensor pin) to be input
 
     printf("Current duty cycle for Left Motor is %d\r\n", PWM_GetDutyCycle(LEFT_MOTOR_PWM_PIN));
     printf("Current duty cycle for Right Motor is %d\r\n", PWM_GetDutyCycle(RIGHT_MOTOR_PWM_PIN));
 
     while (1) {
-        //        PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, 700);
-        //        PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, 700);
-        //        if (PORTZ03_BIT == 1) {
-        //            printf("Track Wire High: %d\r\n", PORTZ03_BIT);
-        //        } else if (PORTZ03_BIT == 0) {
-        //            printf("Track Wire Low: %d\r\n", PORTZ03_BIT);
-        //        }
-        myDelay(MED_DELAY);
-        //        LED_InvertBank(LED_BANK1, 0xF);
+        if (PORTV03_BIT == 1) { // light sensor reads HIGH
+            PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, 1000);
+            PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, 500);
+        } else {
+            PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, 500);
+            PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, 1000);
+        }
+        myDelay(SHORT_DELAY);
+        LED_InvertBank(LED_BANK1, 0b1010);
     }
     return 0;
 }

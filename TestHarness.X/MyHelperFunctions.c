@@ -48,7 +48,7 @@ void driveForward(int dutyCycle) {
     PORTY11_TRIS = 0;
     PORTY09_TRIS = 0;
 
-    PORTY11_BIT = 1;
+    PORTY11_BIT = 1; // how is this possibly correct
     PORTY09_BIT = 0;
 
     PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);

@@ -30,6 +30,7 @@
 
 // Left Motor Directional Pin: Y11
 // Right Motor Directional Pin: Y9
+// Light Sensor 1 Pin: V3
 
 /*******************************************************************************
  * PUBLIC FUNCTION PROTOTYPES                                                  *

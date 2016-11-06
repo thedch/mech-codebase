@@ -30,18 +30,29 @@ int main(void) {
     LED_SetBank(LED_BANK2, 0x00);
     LED_SetBank(LED_BANK3, 0x00);
 
-    PORTZ03_TRIS = 1; // set Z3 to be input
+    //    PORTZ03_TRIS = 1; // set Z3 to be input
 
-    printf("Hello World! I'm Daniel...\r\n");
+    PWM_Init();
+    PWM_AddPins(LEFT_MOTOR_PWM_PIN);
+    PWM_AddPins(RIGHT_MOTOR_PWM_PIN);
+    PWM_SetFrequency(PWM_DEFAULT_FREQUENCY);
+    
+    printf("Current PWM pins %d\r\n", PWM_ListPins());
+    printf("Current PWM freq %d\r\n", PWM_GetFrequency());
+    
+    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, 1000);
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, 1000);
+
+//    printf("Hello World! I'm Daniel...\r\n");
 
     while (1) {
-//        if (PORTZ03_BIT == 1) {
-//            printf("Track Wire High: %d\r\n", PORTZ03_BIT);
-//        } else if (PORTZ03_BIT == 0) {
-//            printf("Track Wire Low: %d\r\n", PORTZ03_BIT);
-//        }
+        //        if (PORTZ03_BIT == 1) {
+        //            printf("Track Wire High: %d\r\n", PORTZ03_BIT);
+        //        } else if (PORTZ03_BIT == 0) {
+        //            printf("Track Wire Low: %d\r\n", PORTZ03_BIT);
+        //        }
         myDelay(MED_DELAY);
-//        LED_InvertBank(LED_BANK1, 0xF);
+        //        LED_InvertBank(LED_BANK1, 0xF);
     }
     return 0;
 }

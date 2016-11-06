@@ -25,6 +25,8 @@
 #define MED_DELAY 100000
 #define LONG_DELAY 1000000
 
+#define LEFT_MOTOR_PWM_PIN PWM_PORTY12
+#define RIGHT_MOTOR_PWM_PIN PWM_PORTY10
 
 /*******************************************************************************
  * PUBLIC FUNCTION PROTOTYPES                                                  *

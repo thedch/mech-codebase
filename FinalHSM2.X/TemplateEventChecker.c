@@ -122,7 +122,7 @@ uint8_t CheckBumpers(void) {
     } else if (FRONT_LEFT_LIMIT_SWITCH_PIN) {
         curEvent = FRONT_LEFT_BUMPER_HIT;
     } else if (FRONT_RIGHT_LIMIT_SWITCH_PIN) {
-        curEvent = FRONT_RIHGT_BUMPER_HIT;
+        curEvent = FRONT_RIGHT_BUMPER_HIT;
     } else if (BACK_LIMIT_SWITCH_PIN) {
         curEvent = BACK_BUMPER_HIT;
     } else {
@@ -150,15 +150,41 @@ uint8_t CheckTrackWireSensors(void) {
     ES_Event thisEvent;
     uint8_t returnVal = FALSE;
 
-    // Check the three limit switches
-    if (FRONT_LEFT_LIMIT_SWITCH_PIN && FRONT_RIGHT_LIMIT_SWITCH_PIN) {
-        curEvent = FRONT_BUMPERS_HIT;
-    } else if (FRONT_LEFT_LIMIT_SWITCH_PIN) {
-        curEvent = FRONT_LEFT_BUMPER_HIT;
-    } else if (FRONT_RIGHT_LIMIT_SWITCH_PIN) {
-        curEvent = FRONT_RIHGT_BUMPER_HIT;
-    } else if (BACK_LIMIT_SWITCH_PIN) {
-        curEvent = BACK_BUMPER_HIT;
+    // Check the two track wire sensors
+    if (BACK_TRACK_WIRE_SENSOR_PIN && FRONT_TRACK_WIRE_SENSOR_PIN) {
+        curEvent = BOTH_TRACK_WIRES_DETECTED;
+    } else if (FRONT_TRACK_WIRE_SENSOR_PIN) {
+        curEvent = FRONT_TRACK_WIRE_DETECTED;
+    } else if (BACK_TRACK_WIRE_SENSOR_PIN) {
+        curEvent = BACK_TRACK_WIRE_DETECTED;
+    } else {
+        curEvent = ES_NO_EVENT;
+    }
+
+    if (curEvent != lastEvent) { // check for change from last time
+        thisEvent.EventType = curEvent;
+//        thisEvent.EventParam = bumped;
+        returnVal = TRUE;
+        lastEvent = curEvent; // update history
+#ifndef EVENTCHECKER_TEST           // keep this as is for test harness
+        PostTemplateHSM(thisEvent);
+#else
+        SaveEvent(thisEvent);
+#endif   
+    }
+    return (returnVal);
+}
+
+uint8_t CheckBeaconDetector(void) {
+    // Init Code
+    static ES_EventTyp_t lastEvent = ES_NO_EVENT;
+    ES_EventTyp_t curEvent;
+    ES_Event thisEvent;
+    uint8_t returnVal = FALSE;
+
+    // Check the two track wire sensors
+    if (BEACON_DETECTOR_PIN) {
+        curEvent = BEACON_DETECTED;
     } else {
         curEvent = ES_NO_EVENT;
     }

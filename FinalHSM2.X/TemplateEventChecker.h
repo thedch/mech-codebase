@@ -79,7 +79,17 @@ uint8_t CheckBumpers(void);
  * event, FALSE otherwise.
  * @author Daniel Hunter, Nov 6 2016
  */
-uint8_t CheckBumpers(void);
+uint8_t CheckTrackWireSensors(void);
+
+/**
+ * @Function CheckBeaconDetector(void)
+ * @param none
+ * @return TRUE or FALSE
+ * @brief Event checker that posts BEACON_DETECTED. Returns TRUE if there was 
+ * an event, FALSE otherwise.
+ * @author Daniel Hunter, Nov 6 2016
+ */
+uint8_t CheckBeaconDetector(void);
 
 #endif	/* TEMPLATEEVENTCHECKER_H */
 

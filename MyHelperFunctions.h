@@ -31,6 +31,11 @@
 #define FRONT_RIGHT_LIMIT_SWITCH_PIN 0
 #define BACK_LIMIT_SWITCH_PIN 0
 
+#define BACK_TRACK_WIRE_SENSOR_PIN 0
+#define FRONT_TRACK_WIRE_SENSOR_PIN 0
+
+#define BEACON_DETECTOR_PIN 0
+
 // Left Motor Directional Pin: Y11
 // Right Motor Directional Pin: Y9
 // Light Sensor 1 Pin: V3

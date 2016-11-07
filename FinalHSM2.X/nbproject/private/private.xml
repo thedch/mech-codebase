@@ -5,13 +5,11 @@
         <group>
             <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateEventChecker.h</file>
             <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateHSM.c</file>
-            <file>file:/C:/CMPE118/src/ES_KeyboardInput.c</file>
-            <file>file:/C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.h</file>
             <file>file:/C:/CMPE118/include/IO_Ports.h</file>
+            <file>file:/C:/Users/dchunter/MPLABXProjects/TestHarness.X/MyHelperFunctions.h</file>
             <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/ES_Configure.h</file>
             <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateSubHSM.c</file>
-            <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateEventChecker.c</file>
-            <file>file:/C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.c</file>
+            <file>file:/C:/Users/dchunter/MPLABXProjects/TestHarness.X/MyHelperFunctions.c</file>
         </group>
     </open-files>
 </project-private>

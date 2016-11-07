@@ -182,7 +182,7 @@ uint8_t CheckBeaconDetector(void) {
     ES_Event thisEvent;
     uint8_t returnVal = FALSE;
 
-    // Check the two track wire sensors
+    // Check the beacon detector
     if (BEACON_DETECTOR_PIN) {
         curEvent = BEACON_DETECTED;
     } else {

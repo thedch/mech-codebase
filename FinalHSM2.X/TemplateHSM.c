@@ -171,17 +171,28 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
 
         case FirstState: // in the first state, replace this with correct names
             // run sub-state machine for this state
-            // NOTE: the SubState Machine runs and responds to events before anything in the this
-            // state machine does
+            // NOTE: the SubState Machine runs and responds to events 
+            //before anything in the this state machine does
             printf("\r\nEntering First State\r\n");
             ThisEvent = RunTemplateSubHSM(ThisEvent);
+//            ES_Timer_InitTimer(1, 1500);
             switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    printf("Currently in ES entry, just set a timer \r\n");
+                    ES_Timer_InitTimer(1, 1500);
+                    break;
                 case TAPE_FOUND:
                     nextState = LineFollowing;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                case ES_TIMEOUT:
+                    printf("Just got a time out event \r\n");
+                    break;
                 case ES_NO_EVENT:
+                    break;
+                case ES_TIMERACTIVE:
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default:
                     break;

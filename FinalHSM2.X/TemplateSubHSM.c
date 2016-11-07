@@ -32,6 +32,8 @@
 #include "BOARD.h"
 #include "TemplateHSM.h"
 #include "TemplateSubHSM.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /*******************************************************************************
  * MODULE #DEFINES                                                             *
@@ -39,11 +41,15 @@
 typedef enum {
     InitPSubState,
     SubFirstState,
+    BackingUp,
+    TurningRight,
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
 	"InitPSubState",
 	"SubFirstState",
+	"BackingUp",
+	"TurningRight",
 };
 
 
@@ -63,7 +69,6 @@ static const char *StateNames[] = {
 static TemplateSubHSMState_t CurrentState = InitPSubState; // <- change name to match ENUM
 static uint8_t MyPriority;
 
-
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                            *
  ******************************************************************************/
@@ -78,8 +83,7 @@ static uint8_t MyPriority;
  *        to rename this to something appropriate.
  *        Returns TRUE if successful, FALSE otherwise
  * @author J. Edward Carryer, 2011.10.23 19:25 */
-uint8_t InitTemplateSubHSM(void)
-{
+uint8_t InitTemplateSubHSM(void) {
     ES_Event returnEvent;
 
     CurrentState = InitPSubState;
@@ -105,38 +109,82 @@ uint8_t InitTemplateSubHSM(void)
  *       not consumed as these need to pass pack to the higher level state machine.
  * @author J. Edward Carryer, 2011.10.23 19:25
  * @author Gabriel H Elkaim, 2011.10.23 19:25 */
-ES_Event RunTemplateSubHSM(ES_Event ThisEvent)
-{
+ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
     uint8_t makeTransition = FALSE; // use to flag transition
     TemplateSubHSMState_t nextState; // <- change type to correct enum
 
     ES_Tattle(); // trace call stack
 
     switch (CurrentState) {
-    case InitPSubState: // If current state is initial Psedudo State
-        if (ThisEvent.EventType == ES_INIT)// only respond to ES_Init
-        {
-            // this is where you would put any actions associated with the
-            // transition from the initial pseudo-state into the actual
-            // initial state
+        case InitPSubState: // If current state is initial Psedudo State
+            if (ThisEvent.EventType == ES_INIT)// only respond to ES_Init
+            {
+                // this is where you would put any actions associated with the
+                // transition from the initial pseudo-state into the actual
+                // initial state
+                printf("Inside SubHSM->InitPSubState, with case ES_INIT\r\n");
 
-            // now put the machine into the actual initial state
-            nextState = SubFirstState;
-            makeTransition = TRUE;
-            ThisEvent.EventType = ES_NO_EVENT;
-        }
-        break;
-
-    case SubFirstState: // in the first state, replace this with correct names
-        switch (ThisEvent.EventType) {
-        case ES_NO_EVENT:
-        default: // all unhandled events pass the event back up to the next level
+                // now put the machine into the actual initial state
+                nextState = SubFirstState;
+                makeTransition = TRUE;
+                ThisEvent.EventType = ES_NO_EVENT;
+            }
             break;
-        }
-        break;
-        
-    default: // all unhandled states fall into here
-        break;
+
+        case SubFirstState: // in the first state, replace this with correct names
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    printf("We've just entered SubFirstState\r\n");
+                    break;
+                case FRONT_BUMPERS_HIT:
+                    //                    printf("Case is 'BUMPED', apparently\r\n");
+                    nextState = BackingUp;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_NO_EVENT:
+                    //                    printf("Inside SubHSM->SubFirstState, with case ES_NO_EVENT\r\n");
+                    break;
+                default: // all unhandled events pass the event back up to the next level
+                    break;
+            }
+            break;
+
+        case BackingUp:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    printf("\r\nWe've just been bumped, backing up...\r\n");
+                case ES_NO_EVENT:
+                    //                    printf("Inside SubHSM->SubFirstState, with case ES_NO_EVENT\r\n");
+                    break;
+                case ES_TIMEOUT:
+                    printf("\r\nTimer has expired, let's go to the 'turn right' state\r\n");
+                    nextState = TurningRight;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                default: // all unhandled events pass the event back up to the next level
+                    break;
+            }
+            break;
+
+        case TurningRight:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    printf("\r\nEntering TurningRight, let's turn right!\r\n");
+                    break;
+                case ES_TIMEOUT:
+                    printf("\r\nTimer has expired, so we're done turning. Let's go back to the default state\r\n");
+                    nextState = SubFirstState;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                default: // all unhandled events pass the event back up to the next level
+                    break;
+
+            }
+        default: // all unhandled states fall into here
+            break;
     } // end switch on Current State
 
     if (makeTransition == TRUE) { // making a state transition, send EXIT and ENTRY

@@ -44,7 +44,13 @@ typedef enum {
     ES_TIMERACTIVE, /* signals that a timer has become active */
     ES_TIMERSTOPPED, /* signals that a timer has stopped*/
     /* User-defined events start here */
-    BUMPED,
+    FRONT_BUMPERS_HIT,
+    FRONT_LEFT_BUMPER_HIT,
+    FRONT_RIHGT_BUMPER_HIT,
+    BACK_BUMPER_HIT,
+    TAPE_FOUND,
+    FRONT_TRACK_WIRE_DETECTED,
+    BACK_TRACK_WIRE_DETECTED,
     /* User-defined events end here */
     BATTERY_CONNECTED,
     BATTERY_DISCONNECTED,
@@ -52,28 +58,35 @@ typedef enum {
 } ES_EventTyp_t;
 
 static const char *EventNames[] = {
-    "ES_NO_EVENT",
-    "ES_ERROR",
-    "ES_INIT",
-    "ES_ENTRY",
-    "ES_EXIT",
-    "ES_KEYINPUT",
-    "ES_LISTEVENTS",
-    "ES_TIMEOUT",
-    "ES_TIMERACTIVE",
-    "ES_TIMERSTOPPED",
-    "BATTERY_CONNECTED",
-    "BATTERY_DISCONNECTED",
-    "NUMBEROFEVENTS",
+	"ES_NO_EVENT",
+	"ES_ERROR",
+	"ES_INIT",
+	"ES_ENTRY",
+	"ES_EXIT",
+	"ES_KEYINPUT",
+	"ES_LISTEVENTS",
+	"ES_TIMEOUT",
+	"ES_TIMERACTIVE",
+	"ES_TIMERSTOPPED",
+	"FRONT_BUMPERS_HIT",
+	"FRONT_LEFT_BUMPER_HIT",
+	"FRONT_RIHGT_BUMPER_HIT",
+	"BACK_BUMPER_HIT",
+	"TAPE_FOUND",
+	"FRONT_TRACK_WIRE_DETECTED",
+	"BACK_TRACK_WIRE_DETECTED",
+	"BATTERY_CONNECTED",
+	"BATTERY_DISCONNECTED",
+	"NUMBEROFEVENTS",
 };
 
 /****************************************************************************/
 // This are the name of the Event checking function header file.
-#define EVENT_CHECK_HEADER "ES_Configure.h"
+#define EVENT_CHECK_HEADER "TemplateEventChecker.h"
 
 /****************************************************************************/
 // This is the list of event checking functions
-#define EVENT_CHECK_LIST
+#define EVENT_CHECK_LIST TemplateCheckBattery
 
 /****************************************************************************/
 // These are the definitions for the post functions to be executed when the
@@ -81,7 +94,7 @@ static const char *EventNames[] = {
 // a timers, then you can use TIMER_UNUSED
 #define TIMER_UNUSED ((pPostFunc)0)
 #define TIMER0_RESP_FUNC TIMER_UNUSED
-#define TIMER1_RESP_FUNC TIMER_UNUSED
+#define TIMER1_RESP_FUNC PostTemplateHSM
 #define TIMER2_RESP_FUNC TIMER_UNUSED
 #define TIMER3_RESP_FUNC TIMER_UNUSED
 #define TIMER4_RESP_FUNC TIMER_UNUSED
@@ -97,7 +110,6 @@ static const char *EventNames[] = {
 #define TIMER14_RESP_FUNC TIMER_UNUSED
 #define TIMER15_RESP_FUNC TIMER_UNUSED
 
-
 /****************************************************************************/
 // Give the timer numbers symbolic names to make it easier to move them
 // to different timers if the need arises. Keep these definitons close to the
@@ -106,7 +118,6 @@ static const char *EventNames[] = {
 
 #define GENERIC_NAMED_TIMER 0 /*make sure this is enabled above and posting to the correct state machine*/
 
-
 /****************************************************************************/
 // The maximum number of services sets an upper bound on the number of 
 // services that the framework will handle. Reasonable values are 8 and 16
@@ -114,7 +125,7 @@ static const char *EventNames[] = {
 #define MAX_NUM_SERVICES 8
 
 /****************************************************************************/
-// This macro determines that nuber of services that are *actually* used in
+// This macro determines that number of services that are *actually* used in
 // a particular application. It will vary in value from 1 to MAX_NUM_SERVICES
 #define NUM_SERVICES 2
 
@@ -123,7 +134,7 @@ static const char *EventNames[] = {
 // every Events and Services application must have a Service 0. Further 
 // services are added in numeric sequence (1,2,3,...) with increasing 
 // priorities
-// the header file with the public fuction prototypes
+// the header file with the public function prototypes
 #define SERV_0_HEADER "ES_KeyboardInput.h"
 // the name of the Init function
 #define SERV_0_INIT InitKeyboardInput
@@ -135,7 +146,7 @@ static const char *EventNames[] = {
 /****************************************************************************/
 // These are the definitions for Service 1
 #if NUM_SERVICES > 1
-// the header file with the public fuction prototypes
+// the header file with the public function prototypes
 #define SERV_1_HEADER "TemplateHSM.h"
 // the name of the Init function
 #define SERV_1_INIT InitTemplateHSM
@@ -147,7 +158,7 @@ static const char *EventNames[] = {
 
 // These are the definitions for Service 2
 #if NUM_SERVICES > 2
-// the header file with the public fuction prototypes
+// the header file with the public function prototypes
 #define SERV_2_HEADER "TestService.h"
 // the name of the Init function
 #define SERV_2_INIT TestServiceInit
@@ -162,7 +173,7 @@ static const char *EventNames[] = {
 /****************************************************************************/
 // These are the definitions for Service 3
 #if NUM_SERVICES > 3
-// the header file with the public fuction prototypes
+// the header file with the public function prototypes
 #define SERV_3_HEADER "TestService.h"
 // the name of the Init function
 #define SERV_3_INIT TestServiceInit
@@ -175,7 +186,7 @@ static const char *EventNames[] = {
 /****************************************************************************/
 // These are the definitions for Service 4
 #if NUM_SERVICES > 4
-// the header file with the public fuction prototypes
+// the header file with the public function prototypes
 #define SERV_4_HEADER "TestService.h"
 // the name of the Init function
 #define SERV_4_INIT TestServiceInit
@@ -188,7 +199,7 @@ static const char *EventNames[] = {
 /****************************************************************************/
 // These are the definitions for Service 5
 #if NUM_SERVICES > 5
-// the header file with the public fuction prototypes
+// the header file with the public function prototypes
 #define SERV_5_HEADER "TestService.h"
 // the name of the Init function
 #define SERV_5_INIT TestServiceInit
@@ -201,7 +212,7 @@ static const char *EventNames[] = {
 /****************************************************************************/
 // These are the definitions for Service 6
 #if NUM_SERVICES > 6
-// the header file with the public fuction prototypes
+// the header file with the public function prototypes
 #define SERV_6_HEADER "TestService.h"
 // the name of the Init function
 #define SERV_6_INIT TestServiceInit
@@ -214,7 +225,7 @@ static const char *EventNames[] = {
 /****************************************************************************/
 // These are the definitions for Service 7
 #if NUM_SERVICES > 7
-// the header file with the public fuction prototypes
+// the header file with the public function prototypes
 #define SERV_7_HEADER "TestService.h"
 // the name of the Init function
 #define SERV_7_INIT TestServiceInit
@@ -229,8 +240,6 @@ static const char *EventNames[] = {
 // keystroke is detected.
 // The default initialization distributes keystrokes to all state machines
 #define POST_KEY_FUNC ES_PostAll
-
-
 
 /****************************************************************************/
 // These are the definitions for the Distribution lists. Each definition
@@ -261,7 +270,5 @@ static const char *EventNames[] = {
 #if NUM_DIST_LISTS > 7 
 #define DIST_LIST7 PostTemplateFSM
 #endif
-
-
 
 #endif /* CONFIGURE_H */

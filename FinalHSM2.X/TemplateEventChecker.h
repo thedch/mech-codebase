@@ -59,7 +59,27 @@
  * @modified Gabriel H Elkaim/Max Dunne, 2016.09.12 20:08 */
 uint8_t TemplateCheckBattery(void);
 
+/**
+ * @Function CheckBumpers(void)
+ * @param none
+ * @return TRUE or FALSE
+ * @brief Event checker that posts FRONT_LEFT_BUMPER_HIT, 
+ * FRONT_RIHGT_BUMPER_HIT, or BACK_BUMPER_HIT. Returns TRUE if there was an 
+ * event, FALSE otherwise.
+ * @author Daniel Hunter, Nov 6 2016
+ */
+uint8_t CheckBumpers(void);
 
+/**
+ * @Function CheckTrackWireSensors(void)
+ * @param none
+ * @return TRUE or FALSE
+ * @brief Event checker that posts FRONT_TRACK_WIRE_DETECTED or
+ * BACK_TRACK_WIRE_DETECTED. Returns TRUE if there was an 
+ * event, FALSE otherwise.
+ * @author Daniel Hunter, Nov 6 2016
+ */
+uint8_t CheckBumpers(void);
 
 #endif	/* TEMPLATEEVENTCHECKER_H */
 

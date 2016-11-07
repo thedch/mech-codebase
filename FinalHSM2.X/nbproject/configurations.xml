@@ -24,6 +24,10 @@
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/ES_Configure.h</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateHSM.h</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateSubHSM.h</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.h</itemPath>
+      <itemPath>C:/CMPE118/include/LED.h</itemPath>
+      <itemPath>C:/CMPE118/include/IO_Ports.h</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateEventChecker.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -48,6 +52,9 @@
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateES_Main.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateHSM.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateSubHSM.c</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.c</itemPath>
+      <itemPath>C:/CMPE118/src/LED.c</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateEventChecker.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -57,7 +64,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>C:\CMPE118</Elem>
-    <Elem>C:\Users\dchunter\MPLABXProjects\FinalHSM2.X</Elem>
+    <Elem>C:\Users\dchunter\MPLABXProjects</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -102,7 +109,8 @@
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
-        <property key="extra-include-directories" value=".;C:\CMPE118\include"/>
+        <property key="extra-include-directories"
+                  value=".;C:\CMPE118\include;C:\Users\dchunter\MPLABXProjects"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="false"/>
@@ -111,7 +119,7 @@
         <property key="place-data-into-section" value="false"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
-        <property key="preprocessor-macros" value="EVENTCHECKER_TEST"/>
+        <property key="preprocessor-macros" value=""/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
         <property key="toplevel-reordering" value=""/>

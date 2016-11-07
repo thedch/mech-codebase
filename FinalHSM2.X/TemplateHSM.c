@@ -32,7 +32,14 @@
 #include "ES_Framework.h"
 #include "BOARD.h"
 #include "TemplateHSM.h"
-#include "TemplateSubHSM.h" //#include all sub state machines called
+#include "TemplateSubHSM.h" // #include all sub state machines called
+#include "MyHelperFunctions.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <AD.h>
+#include <IO_Ports.h>
+#include <LED.h>
+#include <pwm.h>
 /*******************************************************************************
  * PRIVATE #DEFINES                                                            *
  ******************************************************************************/
@@ -46,11 +53,13 @@
 typedef enum {
     InitPState,
     FirstState,
+    LineFollowing,
 } TemplateHSMState_t;
 
 static const char *StateNames[] = {
 	"InitPState",
 	"FirstState",
+	"LineFollowing",
 };
 
 
@@ -83,8 +92,7 @@ static uint8_t MyPriority;
  *        to rename this to something appropriate.
  *        Returns TRUE if successful, FALSE otherwise
  * @author J. Edward Carryer, 2011.10.23 19:25 */
-uint8_t InitTemplateHSM(uint8_t Priority)
-{
+uint8_t InitTemplateHSM(uint8_t Priority) {
     MyPriority = Priority;
     // put us into the Initial PseudoState
     CurrentState = InitPState;
@@ -105,8 +113,7 @@ uint8_t InitTemplateHSM(uint8_t Priority)
  *        be posted to. Remember to rename to something appropriate.
  *        Returns TRUE if successful, FALSE otherwise
  * @author J. Edward Carryer, 2011.10.23 19:25 */
-uint8_t PostTemplateHSM(ES_Event ThisEvent)
-{
+uint8_t PostTemplateHSM(ES_Event ThisEvent) {
     return ES_PostToService(MyPriority, ThisEvent);
 }
 
@@ -125,43 +132,88 @@ uint8_t PostTemplateHSM(ES_Event ThisEvent)
  *       not consumed as these need to pass pack to the higher level state machine.
  * @author J. Edward Carryer, 2011.10.23 19:25
  * @author Gabriel H Elkaim, 2011.10.23 19:25 */
-ES_Event RunTemplateHSM(ES_Event ThisEvent)
-{
+ES_Event RunTemplateHSM(ES_Event ThisEvent) {
     uint8_t makeTransition = FALSE; // use to flag transition
     TemplateHSMState_t nextState; // <- change type to correct enum
 
     ES_Tattle(); // trace call stack
 
     switch (CurrentState) {
-    case InitPState: // If current state is initial Pseudo State
-        if (ThisEvent.EventType == ES_INIT)// only respond to ES_Init
-        {
-            // this is where you would put any actions associated with the
-            // transition from the initial pseudo-state into the actual
-            // initial state
-            // Initialize all sub-state machines
-            InitTemplateSubHSM();
-            // now put the machine into the actual initial state
-            nextState = FirstState;
-            makeTransition = TRUE;
-            ThisEvent.EventType = ES_NO_EVENT;
-            ;
-        }
-        break;
+        case InitPState: // If current state is initial Pseudo State
+            if (ThisEvent.EventType == ES_INIT)// only respond to ES_Init
+            {
+                // this is where you would put any actions associated with the
+                // transition from the initial pseudo-state into the actual
+                // initial state
+                // Initialize all sub-state machines
 
-    case FirstState: // in the first state, replace this with correct names
-        // run sub-state machine for this state
-        //NOTE: the SubState Machine runs and responds to events before anything in the this
-        //state machine does
-        ThisEvent = RunTemplateSubHSM(ThisEvent);
-        switch (ThisEvent.EventType) {
-        case ES_NO_EVENT:
-        default:
+                // Init Code
+                PWM_Init();
+                PWM_SetFrequency(PWM_DEFAULT_FREQUENCY);
+                PWM_AddPins(LEFT_MOTOR_PWM_PIN | RIGHT_MOTOR_PWM_PIN);
+
+                LED_Init();
+                LED_AddBanks(LED_BANK1); // init all the LEDs
+                LED_AddBanks(LED_BANK2);
+                LED_AddBanks(LED_BANK3);
+
+                LED_SetBank(LED_BANK1, 0b0110);
+                LED_SetBank(LED_BANK2, 0x00);
+                LED_SetBank(LED_BANK3, 0x00);
+
+                InitTemplateSubHSM();
+                // now put the machine into the actual initial state
+                nextState = FirstState;
+                makeTransition = TRUE;
+                ThisEvent.EventType = ES_NO_EVENT;
+            }
             break;
-        }
-        break;
-    default: // all unhandled states fall into here
-        break;
+
+        case FirstState: // in the first state, replace this with correct names
+            // run sub-state machine for this state
+            // NOTE: the SubState Machine runs and responds to events before anything in the this
+            // state machine does
+            printf("\r\nEntering First State\r\n");
+            ThisEvent = RunTemplateSubHSM(ThisEvent);
+            switch (ThisEvent.EventType) {
+                case TAPE_FOUND:
+                    nextState = LineFollowing;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_NO_EVENT:
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case LineFollowing:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    printf("\r\nEntering LineFollowing, setting timer\r\n");
+                    ES_Timer_InitTimer(1, 1500);
+                    driveForward(800);
+                    break;
+                case ES_TIMEOUT:
+                    printf("\r\nTIMER EXPIRED, returning to FirstState\r\n");
+                    motorsOff();
+                    nextState = FirstState;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_TIMERACTIVE:
+                    printf("\r\nTimer is now active\r\n");
+                    break;
+                case ES_TIMERSTOPPED:
+                    break;
+                case ES_NO_EVENT:
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default: // all unhandled states fall into here
+            break;
     } // end switch on Current State
 
     if (makeTransition == TRUE) { // making a state transition, send EXIT and ENTRY

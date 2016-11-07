@@ -31,6 +31,7 @@
 #include "ES_Events.h"
 #include "serial.h"
 #include "AD.h"
+#include "MyHelperFunctions.h"
 
 /*******************************************************************************
  * MODULE #DEFINES                                                             *
@@ -100,7 +101,75 @@ uint8_t TemplateCheckBattery(void) {
         returnVal = TRUE;
         lastEvent = curEvent; // update history
 #ifndef EVENTCHECKER_TEST           // keep this as is for test harness
-        PostGenericService(thisEvent);
+        PostTemplateHSM(thisEvent);
+#else
+        SaveEvent(thisEvent);
+#endif   
+    }
+    return (returnVal);
+}
+
+uint8_t CheckBumpers(void) {
+    // Init Code
+    static ES_EventTyp_t lastEvent = ES_NO_EVENT;
+    ES_EventTyp_t curEvent;
+    ES_Event thisEvent;
+    uint8_t returnVal = FALSE;
+
+    // Check the three limit switches
+    if (FRONT_LEFT_LIMIT_SWITCH_PIN && FRONT_RIGHT_LIMIT_SWITCH_PIN) {
+        curEvent = FRONT_BUMPERS_HIT;
+    } else if (FRONT_LEFT_LIMIT_SWITCH_PIN) {
+        curEvent = FRONT_LEFT_BUMPER_HIT;
+    } else if (FRONT_RIGHT_LIMIT_SWITCH_PIN) {
+        curEvent = FRONT_RIHGT_BUMPER_HIT;
+    } else if (BACK_LIMIT_SWITCH_PIN) {
+        curEvent = BACK_BUMPER_HIT;
+    } else {
+        curEvent = ES_NO_EVENT;
+    }
+
+    if (curEvent != lastEvent) { // check for change from last time
+        thisEvent.EventType = curEvent;
+//        thisEvent.EventParam = bumped;
+        returnVal = TRUE;
+        lastEvent = curEvent; // update history
+#ifndef EVENTCHECKER_TEST           // keep this as is for test harness
+        PostTemplateHSM(thisEvent);
+#else
+        SaveEvent(thisEvent);
+#endif   
+    }
+    return (returnVal);
+}
+
+uint8_t CheckTrackWireSensors(void) {
+    // Init Code
+    static ES_EventTyp_t lastEvent = ES_NO_EVENT;
+    ES_EventTyp_t curEvent;
+    ES_Event thisEvent;
+    uint8_t returnVal = FALSE;
+
+    // Check the three limit switches
+    if (FRONT_LEFT_LIMIT_SWITCH_PIN && FRONT_RIGHT_LIMIT_SWITCH_PIN) {
+        curEvent = FRONT_BUMPERS_HIT;
+    } else if (FRONT_LEFT_LIMIT_SWITCH_PIN) {
+        curEvent = FRONT_LEFT_BUMPER_HIT;
+    } else if (FRONT_RIGHT_LIMIT_SWITCH_PIN) {
+        curEvent = FRONT_RIHGT_BUMPER_HIT;
+    } else if (BACK_LIMIT_SWITCH_PIN) {
+        curEvent = BACK_BUMPER_HIT;
+    } else {
+        curEvent = ES_NO_EVENT;
+    }
+
+    if (curEvent != lastEvent) { // check for change from last time
+        thisEvent.EventType = curEvent;
+//        thisEvent.EventParam = bumped;
+        returnVal = TRUE;
+        lastEvent = curEvent; // update history
+#ifndef EVENTCHECKER_TEST           // keep this as is for test harness
+        PostTemplateHSM(thisEvent);
 #else
         SaveEvent(thisEvent);
 #endif   
@@ -125,7 +194,7 @@ uint8_t TemplateCheckBattery(void) {
  * Remember that events are detectable changes, not a state in itself.
  * 
  * Once you have fully tested your event checking code, you can leave it in its own
- * project and point to it from your other projects. If the EVENTCHECKER_TEST marco is
+ * project and point to it from your other projects. If the EVENTCHECKER_TEST macro is
  * defined in the project, no changes are necessary for your event checkers to work
  * with your other projects.
  */

@@ -11,6 +11,7 @@
       <itemPath>C:/CMPE118/include/LED.h</itemPath>
       <itemPath>C:/CMPE118/include/IO_Ports.h</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/TestHarness.X/MyHelperFunctions.h</itemPath>
+      <itemPath>C:/CMPE118/include/RC_Servo.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -28,6 +29,7 @@
       <itemPath>C:/Users/dchunter/MPLABXProjects/TestHarness.X/mainNEW.c</itemPath>
       <itemPath>C:/CMPE118/src/IO_Ports.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/TestHarness.X/MyHelperFunctions.c</itemPath>
+      <itemPath>C:/CMPE118/src/RC_Servo.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

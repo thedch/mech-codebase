@@ -94,4 +94,15 @@ void fiftyPercentRightTurn(int dutyCycle) {
     PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 0.5);
 }
 
+void leftTankTurn (int dutyCycle) {
+        PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+
+    PORTY11_BIT = 0;
+    PORTY09_BIT = 0;
+
+    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+}
+
 

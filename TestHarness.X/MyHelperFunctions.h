@@ -24,9 +24,12 @@
 #define SHORT_DELAY 10000
 #define MED_DELAY 100000
 #define LONG_DELAY 1000000
+#define EXTRA_LONG_DELAY 2500000
 
 #define LEFT_MOTOR_PWM_PIN PWM_PORTY12
 #define RIGHT_MOTOR_PWM_PIN PWM_PORTY10
+
+// Servo exactly straight = 1270
 
 // Left Motor Directional Pin: Y11
 // Right Motor Directional Pin: Y9
@@ -92,6 +95,15 @@ void fiftyPercentLeftTurn(int dutyCycle);
  * @brief Helper function used turn the robot gradually
  * @author Daniel Hunter, 5 Nov 2016 */
 void fiftyPercentRightTurn(int dutyCycle);
+
+/**
+ * @Function leftTankTurn
+ * @param dutyCycle - the desired PWM duty cycle wheels
+ * @return None
+ * @brief Turn right wheel forward and left wheel backwards at the given duty 
+ * cycle
+ * @author Daniel Hunter, 8 Nov 2016 */
+void leftTankTurn (int dutyCycle);
 
 
 

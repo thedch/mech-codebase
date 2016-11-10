@@ -10,8 +10,8 @@
       <itemPath>C:/CMPE118/include/serial.h</itemPath>
       <itemPath>C:/CMPE118/include/LED.h</itemPath>
       <itemPath>C:/CMPE118/include/IO_Ports.h</itemPath>
-      <itemPath>C:/Users/dchunter/MPLABXProjects/TestHarness.X/MyHelperFunctions.h</itemPath>
       <itemPath>C:/CMPE118/include/RC_Servo.h</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -28,8 +28,8 @@
       <itemPath>C:/CMPE118/src/serial.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/TestHarness.X/mainNEW.c</itemPath>
       <itemPath>C:/CMPE118/src/IO_Ports.c</itemPath>
-      <itemPath>C:/Users/dchunter/MPLABXProjects/TestHarness.X/MyHelperFunctions.c</itemPath>
       <itemPath>C:/CMPE118/src/RC_Servo.c</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -39,7 +39,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>C:\CMPE118</Elem>
-    <Elem>C:\Users\dchunter\MPLABXProjects\TestHarness.X</Elem>
+    <Elem>C:\Users\dchunter\MPLABXProjects</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -84,7 +84,8 @@
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
-        <property key="extra-include-directories" value=".;C:\CMPE118\include"/>
+        <property key="extra-include-directories"
+                  value=".;C:\CMPE118\include;C:\Users\dchunter\MPLABXProjects"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="false"/>

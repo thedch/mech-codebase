@@ -34,6 +34,10 @@
 #define BACK_TRACK_WIRE_SENSOR_PIN 0
 #define FRONT_TRACK_WIRE_SENSOR_PIN 0
 
+#define LEFT_TAPE_SENSOR_DATA_PIN PORTZ03_BIT
+#define CENTER_TAPE_SENSOR_DATA_PIN PORTZ05_BIT
+#define RIGHT_TAPE_SENSOR_DATA_PIN PORTZ07_BIT
+
 #define BEACON_DETECTOR_PIN 0
 
 // Left Motor Directional Pin: Y11
@@ -118,5 +122,20 @@ void fiftyPercentRightTurn(int dutyCycle);
  * @author Daniel Hunter, 6 Nov 2016 */
 void postLEDMessage(int LEDstring);
 
+/**
+ * @Function tapeSensorInit
+ * @param None
+ * @return None
+ * @brief Sets the correct ports to read data from the tape sensors.
+ * Use the given #defines.
+ * @author Daniel Hunter, 9 Nov 2016 */
+void tapeSensorInit();
 
-
+/**
+ * @Function bumperInit
+ * @param None
+ * @return None
+ * @brief Sets the correct ports to read data from the bump sensors.
+ * Use the given #defines.
+ * @author Daniel Hunter, 9 Nov 2016 */
+void bumperInit();

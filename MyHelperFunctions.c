@@ -53,7 +53,7 @@ void driveForward(int dutyCycle) {
     PORTY11_TRIS = 0;
     PORTY09_TRIS = 0;
 
-    PORTY11_BIT = 1; // how is this possibly correct
+    PORTY11_BIT = 0; // how is this possibly correct
     PORTY09_BIT = 0;
 
     PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
@@ -66,8 +66,8 @@ void driveBackward(int dutyCycle) {
     PORTY11_TRIS = 0;
     PORTY09_TRIS = 0;
 
-    PORTY11_BIT = 0;
-    PORTY09_BIT = 1;
+    PORTY11_LAT = 1;
+    PORTY09_LAT = 1;
 
     PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
     PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
@@ -79,7 +79,7 @@ void fiftyPercentLeftTurn(int dutyCycle) {
     PORTY11_TRIS = 0;
     PORTY09_TRIS = 0;
 
-    PORTY11_BIT = 1;
+    PORTY11_BIT = 0;
     PORTY09_BIT = 0;
 
     PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, (dutyCycle * 0.5));
@@ -92,7 +92,7 @@ void fiftyPercentRightTurn(int dutyCycle) {
     PORTY11_TRIS = 0;
     PORTY09_TRIS = 0;
 
-    PORTY11_BIT = 1;
+    PORTY11_BIT = 0;
     PORTY09_BIT = 0;
 
     PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
@@ -104,7 +104,7 @@ void postLEDMessage(int LEDstring) {
      * Those ports are usually used for onboard LEDs, so replacing them will
      * work nicely. 
      */
-    
+
     // Set all the ports to be output
     // This will be done redundantly, but I think I'll leave it here as a
     // safety measure
@@ -112,13 +112,13 @@ void postLEDMessage(int LEDstring) {
     PORTX05_TRIS = 0;
     PORTX07_TRIS = 0;
     PORTX09_TRIS = 0;
-    
+
     // reset all the LEDs to clear any previous string
     PORTX03_LAT = 0;
     PORTX05_LAT = 0;
     PORTX07_LAT = 0;
     PORTX09_LAT = 0;
-    
+
     // set the LEDs to be high based on the string
     if (LEDstring & 0b0001) {
         PORTX03_LAT = 1;
@@ -132,4 +132,19 @@ void postLEDMessage(int LEDstring) {
     if (LEDstring & 0b1000) {
         PORTX09_LAT = 1;
     }
+}
+
+void tapeSensorInit() {
+    // Set power port to be output (Y4)
+    PORTY08_TRIS = 0;
+    // Set data ports to be input
+    PORTZ03_TRIS = 1;
+    PORTZ05_TRIS = 1;
+    PORTZ07_TRIS = 1;
+    // Set power port to high
+    PORTY08_LAT = 1;
+}
+
+void bumperInit() {
+    
 }

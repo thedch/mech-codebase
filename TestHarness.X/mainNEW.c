@@ -29,7 +29,7 @@ int main(void) {
     LED_AddBanks(LED_BANK2);
     LED_AddBanks(LED_BANK3);
 
-    LED_SetBank(LED_BANK1, 0b1010);
+    LED_SetBank(LED_BANK1, 0x00);
     LED_SetBank(LED_BANK2, 0x00);
     LED_SetBank(LED_BANK3, 0x00);
 
@@ -58,7 +58,7 @@ int main(void) {
     //    PORTW04_LAT = 1; // Set the light sensor power pin to be high
 
     RC_AddPins(RC_PORTX03);
-    printf("Hello, Daniel!\r\n");
+    printf("Hello World\r\n");
     //    printf("Hello, Daniel!\r\n");
     //    printf("Hello, Daniel!\r\n");
     //    printf("Hello, Daniel!\r\n");
@@ -66,25 +66,29 @@ int main(void) {
     //    printf("Current duty cycle for Left Motor is %d\r\n", PWM_GetDutyCycle(LEFT_MOTOR_PWM_PIN));
     //    printf("Current duty cycle for Right Motor is %d\r\n", PWM_GetDutyCycle(RIGHT_MOTOR_PWM_PIN));
 
-
     int tempVar = 1;
+    //    tapeSensorInit();
+    PORTZ11_TRIS = 0; // output
+    PORTZ04_TRIS = 1; // input
+
+    PORTZ11_TRIS = 1; // set output power to be high    
 
     while (1) {
         switch (tempVar) {
             case 1:
-                //                driveForward(800);
                 RC_SetPulseTime(RC_PORTX03, 1000);
                 tempVar = 2;
+                myDelay(LONG_DELAY);
+                myDelay(LONG_DELAY);
+                myDelay(LONG_DELAY);
                 break;
             case 2:
-                //                leftTankTurn(800);
-                RC_SetPulseTime(RC_PORTX03, 1500);
+                RC_SetPulseTime(RC_PORTX03, 2000);
                 tempVar = 1;
+                myDelay(MED_DELAY);
+                myDelay(MED_DELAY);
                 break;
         }
-        myDelay(LONG_DELAY);
-        LED_InvertBank(LED_BANK1, 0b1010);
-
     }
     return 0;
 }

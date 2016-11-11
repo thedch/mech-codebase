@@ -53,15 +53,17 @@
 typedef enum {
     InitPState,
     LineTracking,
-    LineFollowing,
-    Bumped,
+    AvoidingCollision,
+    FollowingTrackWire,
+    BeaconHunting,
 } TemplateHSMState_t;
 
 static const char *StateNames[] = {
 	"InitPState",
 	"LineTracking",
-	"LineFollowing",
-	"Bumped",
+	"AvoidingCollision",
+	"FollowingTrackWire",
+	"BeaconHunting",
 };
 
 
@@ -195,8 +197,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 ThisEvent.EventType = ES_NO_EVENT;
             }
             break;
-
-        case LineTracking: // Init State
+        case LineTracking:
             // run sub-state machine for this state
             // NOTE: the SubState Machine runs and responds to events 
             //before anything in the this state machine does
@@ -204,52 +205,29 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     break;
-
                 case ES_TIMEOUT:
                     break;
-
                 case ES_NO_EVENT:
                     break;
-
                 case ES_TIMERACTIVE:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-
                 case FRONT_BUMPERS_HIT:
+                    break;
                 case FRONT_LEFT_BUMPER_HIT:
+                    break;
                 case FRONT_RIGHT_BUMPER_HIT:
+                    break;
                 case BACK_BUMPER_HIT:
                     //                    nextState = Bumped;
                     //                    makeTransition = TRUE;
                     //                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
-
                 default:
                     break;
-
             }
             break;
-            //        case LineFollowing:
-            //            switch (ThisEvent.EventType) {
-            //                case ES_ENTRY:
-            //                    break;
-            //                case ES_TIMEOUT:
-            //                    motorsOff();
-            //                    nextState = LineTracking;
-            //                    makeTransition = TRUE;
-            //                    ThisEvent.EventType = ES_NO_EVENT;
-            //                    break;
-            //                case ES_TIMERACTIVE:
-            //                    break;
-            //                case ES_TIMERSTOPPED:
-            //                    break;
-            //                case ES_NO_EVENT:
-            //                    break;
-            //                default:
-            //                    break;
-            //            }
-            //            break;
-        case Bumped:
+        case AvoidingCollision:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     motorsOff();
@@ -259,7 +237,21 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 default:
                     break;
             }
-
+            break;
+        case FollowingTrackWire:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    break;
+                case ES_EXIT:
+                    break;
+                case ES_TIMEOUT:
+                    break;
+                case ES_NO_EVENT:
+                    break;
+                default:
+                    break;
+            }
+            break;
         default: // all unhandled states fall into here
             break;
     } // end switch on Current State

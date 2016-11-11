@@ -137,12 +137,11 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     // tank turn until you get a light sensor event
                     rightTankTurn(750);
-                    printf("\r\nCurrently TANK TURNING\r\n");
                     break;
                 case TAPE_FOUND:
                     // stop and begin line tracking
                     // make transition to LineTracking
-                    motorsOff();
+                    //                    motorsOff();
                     nextState = LineTracking;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -153,7 +152,7 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                     //                    makeTransition = TRUE;
                     //                    ThisEvent.EventType = ES_NO_EVENT;
                     //                    break;
-                case ES_EXIT: 
+                case ES_EXIT:
                     break;
                 case ES_NO_EVENT:
                     break;
@@ -165,16 +164,16 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
         case LineTracking:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    motorsOff();
+                    //                    motorsOff();
                     break;
                 case TAPE_FOUND:
                     // turn right gently
-//                    fiftyPercentLeftTurn(750);
+                    fiftyPercentLeftTurn(750);
                     printf("\r\nOn Tape");
                     break;
                 case ON_WHITE:
                     // turn left gently
-//                    fiftyPercentRightTurn(750);
+                    fiftyPercentRightTurn(750);
                     printf("\r\nOn White");
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
@@ -188,13 +187,14 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                 default:
                     break;
             }
+            break;
 
         case BackingUp:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     // back up and set a timer
                     driveBackward(750);
-                    //                    ES_Timer_InitTimer(1, 1500);
+                    ES_Timer_InitTimer(1, 1500);
                 case ES_NO_EVENT:
                     //                    printf("Inside SubHSM->SubFirstState, with case ES_NO_EVENT\r\n");
                     break;

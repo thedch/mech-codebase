@@ -1,5 +1,5 @@
-build/default/production/_ext/418869798/TemplateSubHSM.o:  \
- C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateSubHSM.c  \
+build/default/production/_ext/418869798/TapeTrackingSubHSM.o:  \
+ C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TapeTrackingSubHSM.c  \
  C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/ES_Configure.h  \
  C:/CMPE118/include/ES_Framework.h  \
 C:/CMPE118/include/ES_Events.h  \

@@ -36,7 +36,7 @@ int main(void) {
     LED_SetBank(LED_BANK3, 0x00);
 
     AD_Init();
-    AD_AddPins(AD_PORTV4 | AD_PORTV8 | AD_PORTV6);
+    AD_AddPins(AD_PORTV4 | AD_PORTV8 | AD_PORTV6 | AD_PORTV3);
 
     //    PORTZ03_TRIS = 1; // set Z3 to be input
 
@@ -88,13 +88,25 @@ int main(void) {
     //    IO_PortsSetPortInputs(PORTX, PIN4);
     //    IO_PortsSetPortInputs(PORTX, PIN11);
 
-    IO_PortsSetPortOutputs(PORTY, PIN8);
-    IO_PortsSetPortBits(PORTY, PIN8);
+    //    IO_PortsSetPortOutputs(PORTY, PIN8);
+    //    IO_PortsSetPortBits(PORTY, PIN8);
+
+    PORTX03_TRIS = 1; // input
+
+    driveForward(750);
+
+    myDelay(LONG_DELAY);
 
 
     while (1) {
-//        checkTapeSensors();
-        leftTankTurn(750);
+        printf("%d\r\n", AD_ReadADPin(AD_PORTV3));
+
+        if (AD_ReadADPin(AD_PORTV3) < 700) {
+            motorsOff();
+        }
+        myDelay(LONG_DELAY);
+
+        //        checkTapeSensors();
         //        if (IO_PortsReadPort(PORTX) & PIN10) {
         //            printf("%d\r\n", (IO_PortsReadPort(PORTX) & PIN9));
         //        if (PORTX09_BIT) {
@@ -122,7 +134,7 @@ int main(void) {
         //                myDelay(MED_DELAY);
         //                break;
         //        }
-        myDelay(LONG_DELAY);
+
     }
     return 0;
 }

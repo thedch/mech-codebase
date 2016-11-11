@@ -91,5 +91,15 @@ uint8_t CheckTrackWireSensors(void);
  */
 uint8_t CheckBeaconDetector(void);
 
+/**
+ * @Function CheckTapeSensors(void)
+ * @param none
+ * @return TRUE or FALSE
+ * @brief Event checker that posts LEFT_TAPE_FOUND, CENTER_TAPE_FOUND, or 
+ * RIGHT_TAPE_FOUND. Returns TRUE if there was an event, FALSE otherwise.
+ * @author Daniel Hunter, Nov 10 2016
+ */
+uint8_t CheckTapeSensors(void);
+
 #endif	/* TEMPLATEEVENTCHECKER_H */
 

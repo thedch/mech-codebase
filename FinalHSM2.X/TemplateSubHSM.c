@@ -40,14 +40,14 @@
  ******************************************************************************/
 typedef enum {
     InitPSubState,
-    SubFirstState,
+    FindingTape,
     BackingUp,
     TurningRight,
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
 	"InitPSubState",
-	"SubFirstState",
+	"FindingTape",
 	"BackingUp",
 	"TurningRight",
 };
@@ -122,19 +122,17 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                 // this is where you would put any actions associated with the
                 // transition from the initial pseudo-state into the actual
                 // initial state
-                printf("Inside SubHSM->InitPSubState, with case ES_INIT\r\n");
 
                 // now put the machine into the actual initial state
-                nextState = SubFirstState;
+                nextState = FindingTape;
                 makeTransition = TRUE;
                 ThisEvent.EventType = ES_NO_EVENT;
             }
             break;
-
-        case SubFirstState: // in the first state, replace this with correct names
+        case FindingTape:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    printf("We've just entered SubFirstState\r\n");
+                    // tank turn until you get a light sensor event
                     break;
                 case FRONT_BUMPERS_HIT:
                     //                    printf("Case is 'BUMPED', apparently\r\n");
@@ -159,7 +157,7 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                     break;
                 case ES_TIMEOUT:
                     printf("\r\nTimer has expired, let's go to the 'turn right' state\r\n");
-                    nextState = TurningRight;
+                    nextState = FindingTape;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -167,22 +165,6 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-
-        case TurningRight:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    printf("\r\nEntering TurningRight, let's turn right!\r\n");
-                    break;
-                case ES_TIMEOUT:
-                    printf("\r\nTimer has expired, so we're done turning. Let's go back to the default state\r\n");
-                    nextState = SubFirstState;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                default: // all unhandled events pass the event back up to the next level
-                    break;
-
-            }
         default: // all unhandled states fall into here
             break;
     } // end switch on Current State

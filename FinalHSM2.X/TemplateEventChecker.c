@@ -31,6 +31,7 @@
 #include "ES_Events.h"
 #include "serial.h"
 #include "AD.h"
+#include "IO_Ports.h"
 #include "MyHelperFunctions.h"
 
 /*******************************************************************************
@@ -131,7 +132,7 @@ uint8_t CheckBumpers(void) {
 
     if (curEvent != lastEvent) { // check for change from last time
         thisEvent.EventType = curEvent;
-//        thisEvent.EventParam = bumped;
+        //        thisEvent.EventParam = bumped;
         returnVal = TRUE;
         lastEvent = curEvent; // update history
 #ifndef EVENTCHECKER_TEST           // keep this as is for test harness
@@ -163,7 +164,7 @@ uint8_t CheckTrackWireSensors(void) {
 
     if (curEvent != lastEvent) { // check for change from last time
         thisEvent.EventType = curEvent;
-//        thisEvent.EventParam = bumped;
+        //        thisEvent.EventParam = bumped;
         returnVal = TRUE;
         lastEvent = curEvent; // update history
 #ifndef EVENTCHECKER_TEST           // keep this as is for test harness
@@ -191,7 +192,7 @@ uint8_t CheckBeaconDetector(void) {
 
     if (curEvent != lastEvent) { // check for change from last time
         thisEvent.EventType = curEvent;
-//        thisEvent.EventParam = bumped;
+        //        thisEvent.EventParam = bumped;
         returnVal = TRUE;
         lastEvent = curEvent; // update history
 #ifndef EVENTCHECKER_TEST           // keep this as is for test harness
@@ -199,6 +200,44 @@ uint8_t CheckBeaconDetector(void) {
 #else
         SaveEvent(thisEvent);
 #endif   
+    }
+    return (returnVal);
+}
+
+uint8_t CheckTapeSensors(void) {
+    // Init Code
+    static ES_EventTyp_t lastEvent = ES_NO_EVENT;
+    ES_EventTyp_t curEvent;
+    ES_Event thisEvent;
+    uint8_t returnVal = FALSE;
+    
+    // Set the current event to be no event, this is only changed if one of the 
+    // if statements triggers
+    curEvent = ES_NO_EVENT;
+    // Check the tape sensors
+    if (LEFT_TAPE_SENSOR_DATA_PIN) {
+        curEvent = TAPE_FOUND;
+        thisEvent.EventParam = thisEvent.EventParam | 0b0001;
+    } 
+    if (CENTER_TAPE_SENSOR_DATA_PIN) {
+        curEvent = TAPE_FOUND;
+        thisEvent.EventParam = thisEvent.EventParam | 0b0010;
+    } 
+    if (RIGHT_TAPE_SENSOR_DATA_PIN) {
+        curEvent = TAPE_FOUND;
+        thisEvent.EventParam = thisEvent.EventParam | 0b0100;
+    }
+
+    if (curEvent != lastEvent) { // check for change from last time
+        thisEvent.EventType = curEvent;
+        //        thisEvent.EventParam = bumped;
+        returnVal = TRUE;
+        lastEvent = curEvent; // update history
+#ifndef EVENTCHECKER_TEST           // keep this as is for test harness
+        PostTemplateHSM(thisEvent);
+#else
+        SaveEvent(thisEvent);
+#endif
     }
     return (returnVal);
 }

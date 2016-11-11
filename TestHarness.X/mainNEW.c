@@ -68,27 +68,51 @@ int main(void) {
 
     int tempVar = 1;
     //    tapeSensorInit();
-    PORTZ11_TRIS = 0; // output
-    PORTZ04_TRIS = 1; // input
+    //    PORTZ11_TRIS = 0; // output
+    //    PORTZ04_TRIS = 1; // input
 
-    PORTZ11_TRIS = 1; // set output power to be high    
+    //    PORTZ11_TRIS = 1; // set output power to be high    
+    IO_PortsSetPortOutputs(PORTX, PIN10);
+    IO_PortsSetPortOutputs(PORTX, PIN5);
+    IO_PortsSetPortOutputs(PORTX, PIN12);
+    IO_PortsSetPortBits(PORTX, PIN10);
+    IO_PortsSetPortBits(PORTX, PIN5);
+    IO_PortsSetPortBits(PORTX, PIN12);
+
+    IO_PortsSetPortInputs(PORTX, PIN9);
+    IO_PortsSetPortInputs(PORTX, PIN4);
+    IO_PortsSetPortInputs(PORTX, PIN11);
 
     while (1) {
-        switch (tempVar) {
-            case 1:
-                RC_SetPulseTime(RC_PORTX03, 1000);
-                tempVar = 2;
-                myDelay(LONG_DELAY);
-                myDelay(LONG_DELAY);
-                myDelay(LONG_DELAY);
-                break;
-            case 2:
-                RC_SetPulseTime(RC_PORTX03, 2000);
-                tempVar = 1;
-                myDelay(MED_DELAY);
-                myDelay(MED_DELAY);
-                break;
+
+        //        if (IO_PortsReadPort(PORTX) & PIN10) {
+        //            printf("%d\r\n", (IO_PortsReadPort(PORTX) & PIN9));
+        if (PORTX09_BIT) {
+            printf("LEFT BUMP \r\n");
         }
+        if (IO_PortsReadPort(PORTX) & PIN4) {
+            printf("RIGHT BUMP \r\n");
+        }
+        if (IO_PortsReadPort(PORTX) & PIN11) {
+            printf("BACK BUMP \r\n");
+        }
+        //        }
+        //        switch (tempVar) {
+        //            case 1:
+        //                RC_SetPulseTime(RC_PORTX03, 1000);
+        //                tempVar = 2;
+        //                myDelay(LONG_DELAY);
+        //                myDelay(LONG_DELAY);
+        //                myDelay(LONG_DELAY);
+        //                break;
+        //            case 2:
+        //                RC_SetPulseTime(RC_PORTX03, 2000);
+        //                tempVar = 1;
+        //                myDelay(MED_DELAY);
+        //                myDelay(MED_DELAY);
+        //                break;
+        //        }
+        myDelay(MED_DELAY);
     }
     return 0;
 }

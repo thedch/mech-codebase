@@ -52,13 +52,13 @@
 
 typedef enum {
     InitPState,
-    FirstState,
+    LineTracking,
     LineFollowing,
 } TemplateHSMState_t;
 
 static const char *StateNames[] = {
 	"InitPState",
-	"FirstState",
+	"LineTracking",
 	"LineFollowing",
 };
 
@@ -161,21 +161,42 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 LED_SetBank(LED_BANK2, 0x00);
                 LED_SetBank(LED_BANK3, 0x00);
 
+                // Bumper Sensor Power Pins
+                IO_PortsSetPortOutputs(PORTX, PIN12);
+                IO_PortsSetPortOutputs(PORTX, PIN9);
+                IO_PortsSetPortOutputs(PORTX, PIN5);
+                IO_PortsSetPortBits(PORTX, PIN12);
+                IO_PortsSetPortBits(PORTX, PIN9);
+                IO_PortsSetPortBits(PORTX, PIN5);
+
+                // Bumper Sensor Inputs
+                IO_PortsSetPortInputs(PORTX, PIN11);
+                IO_PortsSetPortInputs(PORTX, PIN10);
+                IO_PortsSetPortInputs(PORTX, PIN6);
+
+                // Tape Sensor Power
+                IO_PortsSetPortOutputs(PORTY, PIN8);
+                IO_PortsSetPortBits(PORTY, PIN8);
+
+                // Tape Sensor Inputs
+                IO_PortsSetPortInputs(PORTZ, PIN3);
+                IO_PortsSetPortInputs(PORTZ, PIN5);
+                IO_PortsSetPortInputs(PORTZ, PIN7);
+
                 InitTemplateSubHSM();
                 // now put the machine into the actual initial state
-                nextState = FirstState;
+                nextState = LineTracking;
                 makeTransition = TRUE;
                 ThisEvent.EventType = ES_NO_EVENT;
             }
             break;
 
-        case FirstState: // in the first state, replace this with correct names
+        case LineTracking: // in the first state, replace this with correct names
             // run sub-state machine for this state
             // NOTE: the SubState Machine runs and responds to events 
             //before anything in the this state machine does
-            printf("\r\nEntering First State\r\n");
             ThisEvent = RunTemplateSubHSM(ThisEvent);
-//            ES_Timer_InitTimer(1, 1500);
+            //            ES_Timer_InitTimer(1, 1500);
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     printf("Currently in ES entry, just set a timer \r\n");
@@ -185,6 +206,10 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     nextState = LineFollowing;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case FRONT_LEFT_BUMPER_HIT:
+                    printf("FRONT LEFT BUMPER HIT \r\n");
+                    //                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
                     printf("Just got a time out event \r\n");
@@ -203,12 +228,12 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     printf("\r\nEntering LineFollowing, setting timer\r\n");
                     ES_Timer_InitTimer(1, 1500);
-                    driveForward(800);
+                    //                    driveForward(800);
                     break;
                 case ES_TIMEOUT:
                     printf("\r\nTIMER EXPIRED, returning to FirstState\r\n");
                     motorsOff();
-                    nextState = FirstState;
+                    nextState = LineTracking;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;

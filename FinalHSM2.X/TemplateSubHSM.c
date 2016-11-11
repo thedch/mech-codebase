@@ -32,6 +32,7 @@
 #include "BOARD.h"
 #include "TemplateHSM.h"
 #include "TemplateSubHSM.h"
+#include "MyHelperFunctions.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -49,6 +50,7 @@ typedef enum {
 static const char *StateNames[] = {
     "InitPSubState",
     "FindingTape",
+    "LineTracking",
     "BackingUp",
     "TurningRight",
 };
@@ -134,10 +136,15 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     // tank turn until you get a light sensor event
+                    rightTankTurn(750);
                     break;
                 case TAPE_FOUND:
                     // stop and begin line tracking
                     // make transition to LineTracking
+                    motorsOff();
+                    nextState = LineTracking;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case FRONT_BUMPERS_HIT:
                     // or any other bumpers hit
@@ -151,28 +158,36 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-            
+
         case LineTracking:
             switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    break;
                 case TAPE_FOUND:
                     // turn right gently
                     break;
                 case ON_WHITE:
                     // turn left gently
-                    break; 
-                case BUMPED:
-                    // 
+                    break;
+                case FRONT_LEFT_BUMPER_HIT:
+                    // back up, turn right?
+                    break;
+                case FRONT_RIGHT_BUMPER_HIT:
+                    // back up, turn left?
+                    break;
             }
 
         case BackingUp:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    printf("\r\nWe've just been bumped, backing up...\r\n");
+                    // back up and set a timer
+                    driveBackward(750);
+                    ES_Timer_InitTimer(1, 1500);
                 case ES_NO_EVENT:
                     //                    printf("Inside SubHSM->SubFirstState, with case ES_NO_EVENT\r\n");
                     break;
                 case ES_TIMEOUT:
-                    printf("\r\nTimer has expired, let's go to the 'turn right' state\r\n");
+                    // Go to turn right
                     nextState = FindingTape;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;

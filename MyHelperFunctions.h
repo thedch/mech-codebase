@@ -26,6 +26,7 @@
 #define LONG_DELAY 1000000
 
 #define BLACK_TAPE_THRESHOLD 450
+#define WHITE_THRESHOLD 450
 
 #define LEFT_MOTOR_PWM_PIN PWM_PORTY12
 #define RIGHT_MOTOR_PWM_PIN PWM_PORTY10
@@ -142,3 +143,19 @@ void tapeSensorInit();
  * Use the given #defines.
  * @author Daniel Hunter, 9 Nov 2016 */
 void bumperInit();
+
+/**
+ * @Function leftTankTurn
+ * @param None
+ * @return None
+ * @brief Sets left wheel reverse, right wheel forward
+ * @author Daniel Hunter, 10 Nov 2016 */
+void leftTankTurn(int dutyCycle);
+
+/**
+ * @Function rightTankTurn
+ * @param None
+ * @return None
+ * @brief Sets right wheel reverse, left wheel forward
+ * @author Daniel Hunter, 10 Nov 2016 */
+void rightTankTurn(int dutyCycle);

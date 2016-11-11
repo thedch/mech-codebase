@@ -33,6 +33,8 @@
 #include "AD.h"
 #include "IO_Ports.h"
 #include "MyHelperFunctions.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /*******************************************************************************
  * MODULE #DEFINES                                                             *
@@ -210,23 +212,31 @@ uint8_t CheckTapeSensors(void) {
     ES_EventTyp_t curEvent;
     ES_Event thisEvent;
     uint8_t returnVal = FALSE;
-    
+
     // Set the current event to be no event, this is only changed if one of the 
     // if statements triggers
     curEvent = ES_NO_EVENT;
+    thisEvent.EventParam = 0;
     // Check the tape sensors
-    if (LEFT_TAPE_SENSOR_DATA_PIN) {
-        curEvent = TAPE_FOUND;
-        thisEvent.EventParam = thisEvent.EventParam | 0b0001;
-    } 
-    if (CENTER_TAPE_SENSOR_DATA_PIN) {
+
+    // LEFT TAPE SENSOR CURRENTLY BROKEN, FIX THIS
+    //    if (AD_ReadADPin(LEFT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
+    //        curEvent = TAPE_FOUND;
+    //        thisEvent.EventParam = thisEvent.EventParam | 0b0100;
+    //    } 
+
+    if (AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
         curEvent = TAPE_FOUND;
         thisEvent.EventParam = thisEvent.EventParam | 0b0010;
-    } 
-    if (RIGHT_TAPE_SENSOR_DATA_PIN) {
-        curEvent = TAPE_FOUND;
-        thisEvent.EventParam = thisEvent.EventParam | 0b0100;
+    } else if (AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN) > WHITE_THRESHOLD) {
+        curEvent = ON_WHITE;
     }
+
+    // For now, I'm just going to use the front tape sensor for tracking
+    //    if (AD_ReadADPin(RIGHT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
+    //        curEvent = TAPE_FOUND;
+    //        thisEvent.EventParam = thisEvent.EventParam | 0b0001;
+    //    }
 
     if (curEvent != lastEvent) { // check for change from last time
         thisEvent.EventType = curEvent;
@@ -272,7 +282,8 @@ void PrintEvent(void);
 void main(void) {
     BOARD_Init();
     /* user initialization code goes here */
-
+    AD_Init();
+    AD_AddPins(AD_PORTV4 | AD_PORTV8 | AD_PORTV6);
     // Do not alter anything below this line
     int i;
 

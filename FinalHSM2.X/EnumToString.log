@@ -32150,3 +32150,4620 @@ static const char *StateNames[] = {
 [DEBUG]2016-11-10 16:40:39,216: None
 [DEBUG]2016-11-10 16:40:39,216: None
 [DEBUG]2016-11-10 16:40:39,216: None
+[DEBUG]2016-11-10 17:22:18,101: <_sre.SRE_Match object; span=(1085, 2045), match='typedef enum {\n    ES_NO_EVENT, ES_ERROR, /* use>
+[DEBUG]2016-11-10 17:22:18,101: ['ES_NO_EVENT', 'ES_ERROR', 'ES_INIT', 'ES_ENTRY', 'ES_EXIT', 'ES_KEYINPUT', 'ES_LISTEVENTS', 'ES_TIMEOUT', 'ES_TIMERACTIVE', 'ES_TIMERSTOPPED', 'FRONT_BUMPERS_HIT', 'FRONT_LEFT_BUMPER_HIT', 'FRONT_RIGHT_BUMPER_HIT', 'BACK_BUMPER_HIT', 'TAPE_FOUND', 'FRONT_TRACK_WIRE_DETECTED', 'BACK_TRACK_WIRE_DETECTED', 'BOTH_TRACK_WIRES_DETECTED', 'BEACON_DETECTED', 'BATTERY_CONNECTED', 'BATTERY_DISCONNECTED', 'NUMBEROFEVENTS']
+[DEBUG]2016-11-10 17:22:18,102: 
+static const char *EventNames[] = {
+	"ES_NO_EVENT",
+	"ES_ERROR",
+	"ES_INIT",
+	"ES_ENTRY",
+	"ES_EXIT",
+	"ES_KEYINPUT",
+	"ES_LISTEVENTS",
+	"ES_TIMEOUT",
+	"ES_TIMERACTIVE",
+	"ES_TIMERSTOPPED",
+	"FRONT_BUMPERS_HIT",
+	"FRONT_LEFT_BUMPER_HIT",
+	"FRONT_RIGHT_BUMPER_HIT",
+	"BACK_BUMPER_HIT",
+	"TAPE_FOUND",
+	"FRONT_TRACK_WIRE_DETECTED",
+	"BACK_TRACK_WIRE_DETECTED",
+	"BOTH_TRACK_WIRES_DETECTED",
+	"BEACON_DETECTED",
+	"BATTERY_CONNECTED",
+	"BATTERY_DISCONNECTED",
+	"NUMBEROFEVENTS",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,104: None
+[DEBUG]2016-11-10 17:22:18,104: None
+[DEBUG]2016-11-10 17:22:18,105: None
+[DEBUG]2016-11-10 17:22:18,105: None
+[DEBUG]2016-11-10 17:22:18,105: None
+[DEBUG]2016-11-10 17:22:18,106: None
+[DEBUG]2016-11-10 17:22:18,106: None
+[DEBUG]2016-11-10 17:22:18,106: None
+[DEBUG]2016-11-10 17:22:18,106: None
+[DEBUG]2016-11-10 17:22:18,107: None
+[DEBUG]2016-11-10 17:22:18,107: None
+[DEBUG]2016-11-10 17:22:18,107: None
+[DEBUG]2016-11-10 17:22:18,107: None
+[DEBUG]2016-11-10 17:22:18,107: None
+[DEBUG]2016-11-10 17:22:18,108: None
+[DEBUG]2016-11-10 17:22:18,108: None
+[DEBUG]2016-11-10 17:22:18,108: None
+[DEBUG]2016-11-10 17:22:18,108: None
+[DEBUG]2016-11-10 17:22:18,108: None
+[DEBUG]2016-11-10 17:22:18,108: None
+[DEBUG]2016-11-10 17:22:18,109: None
+[DEBUG]2016-11-10 17:22:18,109: None
+[DEBUG]2016-11-10 17:22:18,109: None
+[DEBUG]2016-11-10 17:22:18,109: None
+[DEBUG]2016-11-10 17:22:18,109: None
+[DEBUG]2016-11-10 17:22:18,109: None
+[DEBUG]2016-11-10 17:22:18,109: None
+[DEBUG]2016-11-10 17:22:18,110: None
+[DEBUG]2016-11-10 17:22:18,110: None
+[DEBUG]2016-11-10 17:22:18,110: None
+[DEBUG]2016-11-10 17:22:18,110: None
+[DEBUG]2016-11-10 17:22:18,110: None
+[DEBUG]2016-11-10 17:22:18,110: None
+[DEBUG]2016-11-10 17:22:18,110: None
+[DEBUG]2016-11-10 17:22:18,110: None
+[DEBUG]2016-11-10 17:22:18,111: None
+[DEBUG]2016-11-10 17:22:18,111: None
+[DEBUG]2016-11-10 17:22:18,111: None
+[DEBUG]2016-11-10 17:22:18,111: None
+[DEBUG]2016-11-10 17:22:18,111: None
+[DEBUG]2016-11-10 17:22:18,111: None
+[DEBUG]2016-11-10 17:22:18,111: None
+[DEBUG]2016-11-10 17:22:18,111: None
+[DEBUG]2016-11-10 17:22:18,111: None
+[DEBUG]2016-11-10 17:22:18,112: None
+[DEBUG]2016-11-10 17:22:18,112: None
+[DEBUG]2016-11-10 17:22:18,112: None
+[DEBUG]2016-11-10 17:22:18,112: None
+[DEBUG]2016-11-10 17:22:18,112: None
+[DEBUG]2016-11-10 17:22:18,112: None
+[DEBUG]2016-11-10 17:22:18,112: None
+[DEBUG]2016-11-10 17:22:18,112: None
+[DEBUG]2016-11-10 17:22:18,112: None
+[DEBUG]2016-11-10 17:22:18,112: None
+[DEBUG]2016-11-10 17:22:18,114: None
+[DEBUG]2016-11-10 17:22:18,114: None
+[DEBUG]2016-11-10 17:22:18,114: None
+[DEBUG]2016-11-10 17:22:18,114: None
+[DEBUG]2016-11-10 17:22:18,114: None
+[DEBUG]2016-11-10 17:22:18,114: None
+[DEBUG]2016-11-10 17:22:18,114: None
+[DEBUG]2016-11-10 17:22:18,114: None
+[DEBUG]2016-11-10 17:22:18,114: None
+[DEBUG]2016-11-10 17:22:18,114: None
+[DEBUG]2016-11-10 17:22:18,114: None
+[DEBUG]2016-11-10 17:22:18,115: None
+[DEBUG]2016-11-10 17:22:18,115: None
+[DEBUG]2016-11-10 17:22:18,115: None
+[DEBUG]2016-11-10 17:22:18,115: None
+[DEBUG]2016-11-10 17:22:18,115: None
+[DEBUG]2016-11-10 17:22:18,115: None
+[DEBUG]2016-11-10 17:22:18,115: None
+[DEBUG]2016-11-10 17:22:18,115: None
+[DEBUG]2016-11-10 17:22:18,115: None
+[DEBUG]2016-11-10 17:22:18,115: None
+[DEBUG]2016-11-10 17:22:18,115: None
+[DEBUG]2016-11-10 17:22:18,115: None
+[DEBUG]2016-11-10 17:22:18,116: None
+[DEBUG]2016-11-10 17:22:18,116: None
+[DEBUG]2016-11-10 17:22:18,116: None
+[DEBUG]2016-11-10 17:22:18,116: None
+[DEBUG]2016-11-10 17:22:18,116: None
+[DEBUG]2016-11-10 17:22:18,116: None
+[DEBUG]2016-11-10 17:22:18,116: None
+[DEBUG]2016-11-10 17:22:18,116: None
+[DEBUG]2016-11-10 17:22:18,116: None
+[DEBUG]2016-11-10 17:22:18,116: None
+[DEBUG]2016-11-10 17:22:18,116: None
+[DEBUG]2016-11-10 17:22:18,116: None
+[DEBUG]2016-11-10 17:22:18,116: None
+[DEBUG]2016-11-10 17:22:18,118: None
+[DEBUG]2016-11-10 17:22:18,118: None
+[DEBUG]2016-11-10 17:22:18,118: None
+[DEBUG]2016-11-10 17:22:18,118: None
+[DEBUG]2016-11-10 17:22:18,118: None
+[DEBUG]2016-11-10 17:22:18,118: None
+[DEBUG]2016-11-10 17:22:18,118: None
+[DEBUG]2016-11-10 17:22:18,118: None
+[DEBUG]2016-11-10 17:22:18,118: None
+[DEBUG]2016-11-10 17:22:18,118: None
+[DEBUG]2016-11-10 17:22:18,118: None
+[DEBUG]2016-11-10 17:22:18,118: None
+[DEBUG]2016-11-10 17:22:18,118: None
+[DEBUG]2016-11-10 17:22:18,118: None
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,119: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,120: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,122: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,123: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,124: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,125: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,127: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:22:18,128: None
+[DEBUG]2016-11-10 17:25:39,898: <_sre.SRE_Match object; span=(1085, 2045), match='typedef enum {\n    ES_NO_EVENT, ES_ERROR, /* use>
+[DEBUG]2016-11-10 17:25:39,898: ['ES_NO_EVENT', 'ES_ERROR', 'ES_INIT', 'ES_ENTRY', 'ES_EXIT', 'ES_KEYINPUT', 'ES_LISTEVENTS', 'ES_TIMEOUT', 'ES_TIMERACTIVE', 'ES_TIMERSTOPPED', 'FRONT_BUMPERS_HIT', 'FRONT_LEFT_BUMPER_HIT', 'FRONT_RIGHT_BUMPER_HIT', 'BACK_BUMPER_HIT', 'TAPE_FOUND', 'FRONT_TRACK_WIRE_DETECTED', 'BACK_TRACK_WIRE_DETECTED', 'BOTH_TRACK_WIRES_DETECTED', 'BEACON_DETECTED', 'BATTERY_CONNECTED', 'BATTERY_DISCONNECTED', 'NUMBEROFEVENTS']
+[DEBUG]2016-11-10 17:25:39,898: 
+static const char *EventNames[] = {
+	"ES_NO_EVENT",
+	"ES_ERROR",
+	"ES_INIT",
+	"ES_ENTRY",
+	"ES_EXIT",
+	"ES_KEYINPUT",
+	"ES_LISTEVENTS",
+	"ES_TIMEOUT",
+	"ES_TIMERACTIVE",
+	"ES_TIMERSTOPPED",
+	"FRONT_BUMPERS_HIT",
+	"FRONT_LEFT_BUMPER_HIT",
+	"FRONT_RIGHT_BUMPER_HIT",
+	"BACK_BUMPER_HIT",
+	"TAPE_FOUND",
+	"FRONT_TRACK_WIRE_DETECTED",
+	"BACK_TRACK_WIRE_DETECTED",
+	"BOTH_TRACK_WIRES_DETECTED",
+	"BEACON_DETECTED",
+	"BATTERY_CONNECTED",
+	"BATTERY_DISCONNECTED",
+	"NUMBEROFEVENTS",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,900: None
+[DEBUG]2016-11-10 17:25:39,900: None
+[DEBUG]2016-11-10 17:25:39,901: None
+[DEBUG]2016-11-10 17:25:39,901: None
+[DEBUG]2016-11-10 17:25:39,901: None
+[DEBUG]2016-11-10 17:25:39,902: None
+[DEBUG]2016-11-10 17:25:39,902: None
+[DEBUG]2016-11-10 17:25:39,902: None
+[DEBUG]2016-11-10 17:25:39,902: None
+[DEBUG]2016-11-10 17:25:39,903: None
+[DEBUG]2016-11-10 17:25:39,903: None
+[DEBUG]2016-11-10 17:25:39,903: None
+[DEBUG]2016-11-10 17:25:39,903: None
+[DEBUG]2016-11-10 17:25:39,903: None
+[DEBUG]2016-11-10 17:25:39,904: None
+[DEBUG]2016-11-10 17:25:39,904: None
+[DEBUG]2016-11-10 17:25:39,904: None
+[DEBUG]2016-11-10 17:25:39,904: None
+[DEBUG]2016-11-10 17:25:39,904: None
+[DEBUG]2016-11-10 17:25:39,904: None
+[DEBUG]2016-11-10 17:25:39,905: None
+[DEBUG]2016-11-10 17:25:39,905: None
+[DEBUG]2016-11-10 17:25:39,905: None
+[DEBUG]2016-11-10 17:25:39,905: None
+[DEBUG]2016-11-10 17:25:39,905: None
+[DEBUG]2016-11-10 17:25:39,905: None
+[DEBUG]2016-11-10 17:25:39,905: None
+[DEBUG]2016-11-10 17:25:39,907: None
+[DEBUG]2016-11-10 17:25:39,907: None
+[DEBUG]2016-11-10 17:25:39,907: None
+[DEBUG]2016-11-10 17:25:39,907: None
+[DEBUG]2016-11-10 17:25:39,907: None
+[DEBUG]2016-11-10 17:25:39,907: None
+[DEBUG]2016-11-10 17:25:39,907: None
+[DEBUG]2016-11-10 17:25:39,907: None
+[DEBUG]2016-11-10 17:25:39,908: None
+[DEBUG]2016-11-10 17:25:39,908: None
+[DEBUG]2016-11-10 17:25:39,908: None
+[DEBUG]2016-11-10 17:25:39,908: None
+[DEBUG]2016-11-10 17:25:39,908: None
+[DEBUG]2016-11-10 17:25:39,908: None
+[DEBUG]2016-11-10 17:25:39,908: None
+[DEBUG]2016-11-10 17:25:39,908: None
+[DEBUG]2016-11-10 17:25:39,908: None
+[DEBUG]2016-11-10 17:25:39,909: None
+[DEBUG]2016-11-10 17:25:39,909: None
+[DEBUG]2016-11-10 17:25:39,909: None
+[DEBUG]2016-11-10 17:25:39,909: None
+[DEBUG]2016-11-10 17:25:39,909: None
+[DEBUG]2016-11-10 17:25:39,909: None
+[DEBUG]2016-11-10 17:25:39,909: None
+[DEBUG]2016-11-10 17:25:39,909: None
+[DEBUG]2016-11-10 17:25:39,909: None
+[DEBUG]2016-11-10 17:25:39,909: None
+[DEBUG]2016-11-10 17:25:39,910: None
+[DEBUG]2016-11-10 17:25:39,910: None
+[DEBUG]2016-11-10 17:25:39,910: None
+[DEBUG]2016-11-10 17:25:39,910: None
+[DEBUG]2016-11-10 17:25:39,910: None
+[DEBUG]2016-11-10 17:25:39,910: None
+[DEBUG]2016-11-10 17:25:39,910: None
+[DEBUG]2016-11-10 17:25:39,910: None
+[DEBUG]2016-11-10 17:25:39,910: None
+[DEBUG]2016-11-10 17:25:39,910: None
+[DEBUG]2016-11-10 17:25:39,910: None
+[DEBUG]2016-11-10 17:25:39,912: None
+[DEBUG]2016-11-10 17:25:39,912: None
+[DEBUG]2016-11-10 17:25:39,912: None
+[DEBUG]2016-11-10 17:25:39,912: None
+[DEBUG]2016-11-10 17:25:39,912: None
+[DEBUG]2016-11-10 17:25:39,912: None
+[DEBUG]2016-11-10 17:25:39,912: None
+[DEBUG]2016-11-10 17:25:39,912: None
+[DEBUG]2016-11-10 17:25:39,912: None
+[DEBUG]2016-11-10 17:25:39,912: None
+[DEBUG]2016-11-10 17:25:39,912: None
+[DEBUG]2016-11-10 17:25:39,912: None
+[DEBUG]2016-11-10 17:25:39,913: None
+[DEBUG]2016-11-10 17:25:39,913: None
+[DEBUG]2016-11-10 17:25:39,913: None
+[DEBUG]2016-11-10 17:25:39,913: None
+[DEBUG]2016-11-10 17:25:39,913: None
+[DEBUG]2016-11-10 17:25:39,913: None
+[DEBUG]2016-11-10 17:25:39,913: None
+[DEBUG]2016-11-10 17:25:39,913: None
+[DEBUG]2016-11-10 17:25:39,913: None
+[DEBUG]2016-11-10 17:25:39,913: None
+[DEBUG]2016-11-10 17:25:39,913: None
+[DEBUG]2016-11-10 17:25:39,913: None
+[DEBUG]2016-11-10 17:25:39,913: None
+[DEBUG]2016-11-10 17:25:39,914: None
+[DEBUG]2016-11-10 17:25:39,914: None
+[DEBUG]2016-11-10 17:25:39,914: None
+[DEBUG]2016-11-10 17:25:39,914: None
+[DEBUG]2016-11-10 17:25:39,914: None
+[DEBUG]2016-11-10 17:25:39,914: None
+[DEBUG]2016-11-10 17:25:39,914: None
+[DEBUG]2016-11-10 17:25:39,914: None
+[DEBUG]2016-11-10 17:25:39,914: None
+[DEBUG]2016-11-10 17:25:39,914: None
+[DEBUG]2016-11-10 17:25:39,914: None
+[DEBUG]2016-11-10 17:25:39,914: None
+[DEBUG]2016-11-10 17:25:39,914: None
+[DEBUG]2016-11-10 17:25:39,914: None
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,916: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,917: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,919: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,920: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,922: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,924: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:39,926: None
+[DEBUG]2016-11-10 17:25:55,926: <_sre.SRE_Match object; span=(1085, 2045), match='typedef enum {\n    ES_NO_EVENT, ES_ERROR, /* use>
+[DEBUG]2016-11-10 17:25:55,927: ['ES_NO_EVENT', 'ES_ERROR', 'ES_INIT', 'ES_ENTRY', 'ES_EXIT', 'ES_KEYINPUT', 'ES_LISTEVENTS', 'ES_TIMEOUT', 'ES_TIMERACTIVE', 'ES_TIMERSTOPPED', 'FRONT_BUMPERS_HIT', 'FRONT_LEFT_BUMPER_HIT', 'FRONT_RIGHT_BUMPER_HIT', 'BACK_BUMPER_HIT', 'TAPE_FOUND', 'FRONT_TRACK_WIRE_DETECTED', 'BACK_TRACK_WIRE_DETECTED', 'BOTH_TRACK_WIRES_DETECTED', 'BEACON_DETECTED', 'BATTERY_CONNECTED', 'BATTERY_DISCONNECTED', 'NUMBEROFEVENTS']
+[DEBUG]2016-11-10 17:25:55,927: 
+static const char *EventNames[] = {
+	"ES_NO_EVENT",
+	"ES_ERROR",
+	"ES_INIT",
+	"ES_ENTRY",
+	"ES_EXIT",
+	"ES_KEYINPUT",
+	"ES_LISTEVENTS",
+	"ES_TIMEOUT",
+	"ES_TIMERACTIVE",
+	"ES_TIMERSTOPPED",
+	"FRONT_BUMPERS_HIT",
+	"FRONT_LEFT_BUMPER_HIT",
+	"FRONT_RIGHT_BUMPER_HIT",
+	"BACK_BUMPER_HIT",
+	"TAPE_FOUND",
+	"FRONT_TRACK_WIRE_DETECTED",
+	"BACK_TRACK_WIRE_DETECTED",
+	"BOTH_TRACK_WIRES_DETECTED",
+	"BEACON_DETECTED",
+	"BATTERY_CONNECTED",
+	"BATTERY_DISCONNECTED",
+	"NUMBEROFEVENTS",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,929: None
+[DEBUG]2016-11-10 17:25:55,929: None
+[DEBUG]2016-11-10 17:25:55,930: None
+[DEBUG]2016-11-10 17:25:55,930: None
+[DEBUG]2016-11-10 17:25:55,930: None
+[DEBUG]2016-11-10 17:25:55,932: None
+[DEBUG]2016-11-10 17:25:55,932: None
+[DEBUG]2016-11-10 17:25:55,932: None
+[DEBUG]2016-11-10 17:25:55,932: None
+[DEBUG]2016-11-10 17:25:55,933: None
+[DEBUG]2016-11-10 17:25:55,933: None
+[DEBUG]2016-11-10 17:25:55,933: None
+[DEBUG]2016-11-10 17:25:55,933: None
+[DEBUG]2016-11-10 17:25:55,933: None
+[DEBUG]2016-11-10 17:25:55,934: None
+[DEBUG]2016-11-10 17:25:55,934: None
+[DEBUG]2016-11-10 17:25:55,934: None
+[DEBUG]2016-11-10 17:25:55,934: None
+[DEBUG]2016-11-10 17:25:55,934: None
+[DEBUG]2016-11-10 17:25:55,934: None
+[DEBUG]2016-11-10 17:25:55,935: None
+[DEBUG]2016-11-10 17:25:55,935: None
+[DEBUG]2016-11-10 17:25:55,935: None
+[DEBUG]2016-11-10 17:25:55,935: None
+[DEBUG]2016-11-10 17:25:55,935: None
+[DEBUG]2016-11-10 17:25:55,935: None
+[DEBUG]2016-11-10 17:25:55,935: None
+[DEBUG]2016-11-10 17:25:55,936: None
+[DEBUG]2016-11-10 17:25:55,936: None
+[DEBUG]2016-11-10 17:25:55,936: None
+[DEBUG]2016-11-10 17:25:55,936: None
+[DEBUG]2016-11-10 17:25:55,936: None
+[DEBUG]2016-11-10 17:25:55,936: None
+[DEBUG]2016-11-10 17:25:55,936: None
+[DEBUG]2016-11-10 17:25:55,936: None
+[DEBUG]2016-11-10 17:25:55,937: None
+[DEBUG]2016-11-10 17:25:55,937: None
+[DEBUG]2016-11-10 17:25:55,937: None
+[DEBUG]2016-11-10 17:25:55,937: None
+[DEBUG]2016-11-10 17:25:55,937: None
+[DEBUG]2016-11-10 17:25:55,937: None
+[DEBUG]2016-11-10 17:25:55,937: None
+[DEBUG]2016-11-10 17:25:55,937: None
+[DEBUG]2016-11-10 17:25:55,937: None
+[DEBUG]2016-11-10 17:25:55,938: None
+[DEBUG]2016-11-10 17:25:55,938: None
+[DEBUG]2016-11-10 17:25:55,938: None
+[DEBUG]2016-11-10 17:25:55,938: None
+[DEBUG]2016-11-10 17:25:55,938: None
+[DEBUG]2016-11-10 17:25:55,938: None
+[DEBUG]2016-11-10 17:25:55,938: None
+[DEBUG]2016-11-10 17:25:55,938: None
+[DEBUG]2016-11-10 17:25:55,938: None
+[DEBUG]2016-11-10 17:25:55,938: None
+[DEBUG]2016-11-10 17:25:55,940: None
+[DEBUG]2016-11-10 17:25:55,940: None
+[DEBUG]2016-11-10 17:25:55,940: None
+[DEBUG]2016-11-10 17:25:55,940: None
+[DEBUG]2016-11-10 17:25:55,940: None
+[DEBUG]2016-11-10 17:25:55,940: None
+[DEBUG]2016-11-10 17:25:55,940: None
+[DEBUG]2016-11-10 17:25:55,940: None
+[DEBUG]2016-11-10 17:25:55,940: None
+[DEBUG]2016-11-10 17:25:55,940: None
+[DEBUG]2016-11-10 17:25:55,940: None
+[DEBUG]2016-11-10 17:25:55,941: None
+[DEBUG]2016-11-10 17:25:55,941: None
+[DEBUG]2016-11-10 17:25:55,941: None
+[DEBUG]2016-11-10 17:25:55,941: None
+[DEBUG]2016-11-10 17:25:55,941: None
+[DEBUG]2016-11-10 17:25:55,941: None
+[DEBUG]2016-11-10 17:25:55,941: None
+[DEBUG]2016-11-10 17:25:55,941: None
+[DEBUG]2016-11-10 17:25:55,941: None
+[DEBUG]2016-11-10 17:25:55,941: None
+[DEBUG]2016-11-10 17:25:55,941: None
+[DEBUG]2016-11-10 17:25:55,941: None
+[DEBUG]2016-11-10 17:25:55,942: None
+[DEBUG]2016-11-10 17:25:55,942: None
+[DEBUG]2016-11-10 17:25:55,942: None
+[DEBUG]2016-11-10 17:25:55,942: None
+[DEBUG]2016-11-10 17:25:55,942: None
+[DEBUG]2016-11-10 17:25:55,942: None
+[DEBUG]2016-11-10 17:25:55,942: None
+[DEBUG]2016-11-10 17:25:55,942: None
+[DEBUG]2016-11-10 17:25:55,942: None
+[DEBUG]2016-11-10 17:25:55,942: None
+[DEBUG]2016-11-10 17:25:55,942: None
+[DEBUG]2016-11-10 17:25:55,942: None
+[DEBUG]2016-11-10 17:25:55,942: None
+[DEBUG]2016-11-10 17:25:55,944: None
+[DEBUG]2016-11-10 17:25:55,944: None
+[DEBUG]2016-11-10 17:25:55,944: None
+[DEBUG]2016-11-10 17:25:55,944: None
+[DEBUG]2016-11-10 17:25:55,944: None
+[DEBUG]2016-11-10 17:25:55,944: None
+[DEBUG]2016-11-10 17:25:55,944: None
+[DEBUG]2016-11-10 17:25:55,944: None
+[DEBUG]2016-11-10 17:25:55,944: None
+[DEBUG]2016-11-10 17:25:55,944: None
+[DEBUG]2016-11-10 17:25:55,944: None
+[DEBUG]2016-11-10 17:25:55,944: None
+[DEBUG]2016-11-10 17:25:55,944: None
+[DEBUG]2016-11-10 17:25:55,944: None
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,945: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,946: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,947: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,948: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,949: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,950: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,951: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,953: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:25:55,955: None
+[DEBUG]2016-11-10 17:27:29,179: <_sre.SRE_Match object; span=(1085, 2045), match='typedef enum {\n    ES_NO_EVENT, ES_ERROR, /* use>
+[DEBUG]2016-11-10 17:27:29,179: ['ES_NO_EVENT', 'ES_ERROR', 'ES_INIT', 'ES_ENTRY', 'ES_EXIT', 'ES_KEYINPUT', 'ES_LISTEVENTS', 'ES_TIMEOUT', 'ES_TIMERACTIVE', 'ES_TIMERSTOPPED', 'FRONT_BUMPERS_HIT', 'FRONT_LEFT_BUMPER_HIT', 'FRONT_RIGHT_BUMPER_HIT', 'BACK_BUMPER_HIT', 'TAPE_FOUND', 'FRONT_TRACK_WIRE_DETECTED', 'BACK_TRACK_WIRE_DETECTED', 'BOTH_TRACK_WIRES_DETECTED', 'BEACON_DETECTED', 'BATTERY_CONNECTED', 'BATTERY_DISCONNECTED', 'NUMBEROFEVENTS']
+[DEBUG]2016-11-10 17:27:29,179: 
+static const char *EventNames[] = {
+	"ES_NO_EVENT",
+	"ES_ERROR",
+	"ES_INIT",
+	"ES_ENTRY",
+	"ES_EXIT",
+	"ES_KEYINPUT",
+	"ES_LISTEVENTS",
+	"ES_TIMEOUT",
+	"ES_TIMERACTIVE",
+	"ES_TIMERSTOPPED",
+	"FRONT_BUMPERS_HIT",
+	"FRONT_LEFT_BUMPER_HIT",
+	"FRONT_RIGHT_BUMPER_HIT",
+	"BACK_BUMPER_HIT",
+	"TAPE_FOUND",
+	"FRONT_TRACK_WIRE_DETECTED",
+	"BACK_TRACK_WIRE_DETECTED",
+	"BOTH_TRACK_WIRES_DETECTED",
+	"BEACON_DETECTED",
+	"BATTERY_CONNECTED",
+	"BATTERY_DISCONNECTED",
+	"NUMBEROFEVENTS",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,182: None
+[DEBUG]2016-11-10 17:27:29,182: None
+[DEBUG]2016-11-10 17:27:29,182: None
+[DEBUG]2016-11-10 17:27:29,182: None
+[DEBUG]2016-11-10 17:27:29,182: None
+[DEBUG]2016-11-10 17:27:29,183: None
+[DEBUG]2016-11-10 17:27:29,183: None
+[DEBUG]2016-11-10 17:27:29,183: None
+[DEBUG]2016-11-10 17:27:29,183: None
+[DEBUG]2016-11-10 17:27:29,184: None
+[DEBUG]2016-11-10 17:27:29,184: None
+[DEBUG]2016-11-10 17:27:29,184: None
+[DEBUG]2016-11-10 17:27:29,184: None
+[DEBUG]2016-11-10 17:27:29,184: None
+[DEBUG]2016-11-10 17:27:29,186: None
+[DEBUG]2016-11-10 17:27:29,186: None
+[DEBUG]2016-11-10 17:27:29,186: None
+[DEBUG]2016-11-10 17:27:29,186: None
+[DEBUG]2016-11-10 17:27:29,186: None
+[DEBUG]2016-11-10 17:27:29,186: None
+[DEBUG]2016-11-10 17:27:29,187: None
+[DEBUG]2016-11-10 17:27:29,187: None
+[DEBUG]2016-11-10 17:27:29,187: None
+[DEBUG]2016-11-10 17:27:29,187: None
+[DEBUG]2016-11-10 17:27:29,187: None
+[DEBUG]2016-11-10 17:27:29,187: None
+[DEBUG]2016-11-10 17:27:29,187: None
+[DEBUG]2016-11-10 17:27:29,188: None
+[DEBUG]2016-11-10 17:27:29,188: None
+[DEBUG]2016-11-10 17:27:29,188: None
+[DEBUG]2016-11-10 17:27:29,188: None
+[DEBUG]2016-11-10 17:27:29,188: None
+[DEBUG]2016-11-10 17:27:29,188: None
+[DEBUG]2016-11-10 17:27:29,188: None
+[DEBUG]2016-11-10 17:27:29,188: None
+[DEBUG]2016-11-10 17:27:29,189: None
+[DEBUG]2016-11-10 17:27:29,189: None
+[DEBUG]2016-11-10 17:27:29,189: None
+[DEBUG]2016-11-10 17:27:29,189: None
+[DEBUG]2016-11-10 17:27:29,189: None
+[DEBUG]2016-11-10 17:27:29,189: None
+[DEBUG]2016-11-10 17:27:29,189: None
+[DEBUG]2016-11-10 17:27:29,189: None
+[DEBUG]2016-11-10 17:27:29,189: None
+[DEBUG]2016-11-10 17:27:29,190: None
+[DEBUG]2016-11-10 17:27:29,190: None
+[DEBUG]2016-11-10 17:27:29,190: None
+[DEBUG]2016-11-10 17:27:29,190: None
+[DEBUG]2016-11-10 17:27:29,190: None
+[DEBUG]2016-11-10 17:27:29,190: None
+[DEBUG]2016-11-10 17:27:29,190: None
+[DEBUG]2016-11-10 17:27:29,190: None
+[DEBUG]2016-11-10 17:27:29,190: None
+[DEBUG]2016-11-10 17:27:29,190: None
+[DEBUG]2016-11-10 17:27:29,192: None
+[DEBUG]2016-11-10 17:27:29,192: None
+[DEBUG]2016-11-10 17:27:29,192: None
+[DEBUG]2016-11-10 17:27:29,192: None
+[DEBUG]2016-11-10 17:27:29,192: None
+[DEBUG]2016-11-10 17:27:29,192: None
+[DEBUG]2016-11-10 17:27:29,192: None
+[DEBUG]2016-11-10 17:27:29,192: None
+[DEBUG]2016-11-10 17:27:29,192: None
+[DEBUG]2016-11-10 17:27:29,192: None
+[DEBUG]2016-11-10 17:27:29,192: None
+[DEBUG]2016-11-10 17:27:29,193: None
+[DEBUG]2016-11-10 17:27:29,193: None
+[DEBUG]2016-11-10 17:27:29,193: None
+[DEBUG]2016-11-10 17:27:29,193: None
+[DEBUG]2016-11-10 17:27:29,193: None
+[DEBUG]2016-11-10 17:27:29,193: None
+[DEBUG]2016-11-10 17:27:29,193: None
+[DEBUG]2016-11-10 17:27:29,193: None
+[DEBUG]2016-11-10 17:27:29,193: None
+[DEBUG]2016-11-10 17:27:29,193: None
+[DEBUG]2016-11-10 17:27:29,193: None
+[DEBUG]2016-11-10 17:27:29,193: None
+[DEBUG]2016-11-10 17:27:29,195: None
+[DEBUG]2016-11-10 17:27:29,195: None
+[DEBUG]2016-11-10 17:27:29,195: None
+[DEBUG]2016-11-10 17:27:29,195: None
+[DEBUG]2016-11-10 17:27:29,195: None
+[DEBUG]2016-11-10 17:27:29,195: None
+[DEBUG]2016-11-10 17:27:29,195: None
+[DEBUG]2016-11-10 17:27:29,195: None
+[DEBUG]2016-11-10 17:27:29,195: None
+[DEBUG]2016-11-10 17:27:29,195: None
+[DEBUG]2016-11-10 17:27:29,195: None
+[DEBUG]2016-11-10 17:27:29,195: None
+[DEBUG]2016-11-10 17:27:29,195: None
+[DEBUG]2016-11-10 17:27:29,196: None
+[DEBUG]2016-11-10 17:27:29,196: None
+[DEBUG]2016-11-10 17:27:29,196: None
+[DEBUG]2016-11-10 17:27:29,196: None
+[DEBUG]2016-11-10 17:27:29,196: None
+[DEBUG]2016-11-10 17:27:29,196: None
+[DEBUG]2016-11-10 17:27:29,196: None
+[DEBUG]2016-11-10 17:27:29,196: None
+[DEBUG]2016-11-10 17:27:29,196: None
+[DEBUG]2016-11-10 17:27:29,196: None
+[DEBUG]2016-11-10 17:27:29,196: None
+[DEBUG]2016-11-10 17:27:29,196: None
+[DEBUG]2016-11-10 17:27:29,196: None
+[DEBUG]2016-11-10 17:27:29,196: None
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,197: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,198: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,200: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,201: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,203: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,204: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:27:29,206: None
+[DEBUG]2016-11-10 17:33:50,939: <_sre.SRE_Match object; span=(1085, 2045), match='typedef enum {\n    ES_NO_EVENT, ES_ERROR, /* use>
+[DEBUG]2016-11-10 17:33:50,939: ['ES_NO_EVENT', 'ES_ERROR', 'ES_INIT', 'ES_ENTRY', 'ES_EXIT', 'ES_KEYINPUT', 'ES_LISTEVENTS', 'ES_TIMEOUT', 'ES_TIMERACTIVE', 'ES_TIMERSTOPPED', 'FRONT_BUMPERS_HIT', 'FRONT_LEFT_BUMPER_HIT', 'FRONT_RIGHT_BUMPER_HIT', 'BACK_BUMPER_HIT', 'TAPE_FOUND', 'FRONT_TRACK_WIRE_DETECTED', 'BACK_TRACK_WIRE_DETECTED', 'BOTH_TRACK_WIRES_DETECTED', 'BEACON_DETECTED', 'BATTERY_CONNECTED', 'BATTERY_DISCONNECTED', 'NUMBEROFEVENTS']
+[DEBUG]2016-11-10 17:33:50,940: 
+static const char *EventNames[] = {
+	"ES_NO_EVENT",
+	"ES_ERROR",
+	"ES_INIT",
+	"ES_ENTRY",
+	"ES_EXIT",
+	"ES_KEYINPUT",
+	"ES_LISTEVENTS",
+	"ES_TIMEOUT",
+	"ES_TIMERACTIVE",
+	"ES_TIMERSTOPPED",
+	"FRONT_BUMPERS_HIT",
+	"FRONT_LEFT_BUMPER_HIT",
+	"FRONT_RIGHT_BUMPER_HIT",
+	"BACK_BUMPER_HIT",
+	"TAPE_FOUND",
+	"FRONT_TRACK_WIRE_DETECTED",
+	"BACK_TRACK_WIRE_DETECTED",
+	"BOTH_TRACK_WIRES_DETECTED",
+	"BEACON_DETECTED",
+	"BATTERY_CONNECTED",
+	"BATTERY_DISCONNECTED",
+	"NUMBEROFEVENTS",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,942: None
+[DEBUG]2016-11-10 17:33:50,942: None
+[DEBUG]2016-11-10 17:33:50,943: None
+[DEBUG]2016-11-10 17:33:50,943: None
+[DEBUG]2016-11-10 17:33:50,943: None
+[DEBUG]2016-11-10 17:33:50,944: None
+[DEBUG]2016-11-10 17:33:50,944: None
+[DEBUG]2016-11-10 17:33:50,944: None
+[DEBUG]2016-11-10 17:33:50,944: None
+[DEBUG]2016-11-10 17:33:50,945: None
+[DEBUG]2016-11-10 17:33:50,945: None
+[DEBUG]2016-11-10 17:33:50,945: None
+[DEBUG]2016-11-10 17:33:50,945: None
+[DEBUG]2016-11-10 17:33:50,945: None
+[DEBUG]2016-11-10 17:33:50,946: None
+[DEBUG]2016-11-10 17:33:50,946: None
+[DEBUG]2016-11-10 17:33:50,946: None
+[DEBUG]2016-11-10 17:33:50,946: None
+[DEBUG]2016-11-10 17:33:50,946: None
+[DEBUG]2016-11-10 17:33:50,946: None
+[DEBUG]2016-11-10 17:33:50,947: None
+[DEBUG]2016-11-10 17:33:50,947: None
+[DEBUG]2016-11-10 17:33:50,947: None
+[DEBUG]2016-11-10 17:33:50,947: None
+[DEBUG]2016-11-10 17:33:50,947: None
+[DEBUG]2016-11-10 17:33:50,947: None
+[DEBUG]2016-11-10 17:33:50,947: None
+[DEBUG]2016-11-10 17:33:50,948: None
+[DEBUG]2016-11-10 17:33:50,948: None
+[DEBUG]2016-11-10 17:33:50,948: None
+[DEBUG]2016-11-10 17:33:50,948: None
+[DEBUG]2016-11-10 17:33:50,948: None
+[DEBUG]2016-11-10 17:33:50,948: None
+[DEBUG]2016-11-10 17:33:50,948: None
+[DEBUG]2016-11-10 17:33:50,948: None
+[DEBUG]2016-11-10 17:33:50,949: None
+[DEBUG]2016-11-10 17:33:50,949: None
+[DEBUG]2016-11-10 17:33:50,949: None
+[DEBUG]2016-11-10 17:33:50,949: None
+[DEBUG]2016-11-10 17:33:50,949: None
+[DEBUG]2016-11-10 17:33:50,949: None
+[DEBUG]2016-11-10 17:33:50,949: None
+[DEBUG]2016-11-10 17:33:50,949: None
+[DEBUG]2016-11-10 17:33:50,949: None
+[DEBUG]2016-11-10 17:33:50,950: None
+[DEBUG]2016-11-10 17:33:50,950: None
+[DEBUG]2016-11-10 17:33:50,950: None
+[DEBUG]2016-11-10 17:33:50,950: None
+[DEBUG]2016-11-10 17:33:50,950: None
+[DEBUG]2016-11-10 17:33:50,950: None
+[DEBUG]2016-11-10 17:33:50,950: None
+[DEBUG]2016-11-10 17:33:50,950: None
+[DEBUG]2016-11-10 17:33:50,950: None
+[DEBUG]2016-11-10 17:33:50,950: None
+[DEBUG]2016-11-10 17:33:50,952: None
+[DEBUG]2016-11-10 17:33:50,952: None
+[DEBUG]2016-11-10 17:33:50,952: None
+[DEBUG]2016-11-10 17:33:50,952: None
+[DEBUG]2016-11-10 17:33:50,952: None
+[DEBUG]2016-11-10 17:33:50,952: None
+[DEBUG]2016-11-10 17:33:50,952: None
+[DEBUG]2016-11-10 17:33:50,952: None
+[DEBUG]2016-11-10 17:33:50,952: None
+[DEBUG]2016-11-10 17:33:50,952: None
+[DEBUG]2016-11-10 17:33:50,952: None
+[DEBUG]2016-11-10 17:33:50,953: None
+[DEBUG]2016-11-10 17:33:50,953: None
+[DEBUG]2016-11-10 17:33:50,953: None
+[DEBUG]2016-11-10 17:33:50,953: None
+[DEBUG]2016-11-10 17:33:50,953: None
+[DEBUG]2016-11-10 17:33:50,953: None
+[DEBUG]2016-11-10 17:33:50,953: None
+[DEBUG]2016-11-10 17:33:50,953: None
+[DEBUG]2016-11-10 17:33:50,953: None
+[DEBUG]2016-11-10 17:33:50,953: None
+[DEBUG]2016-11-10 17:33:50,953: None
+[DEBUG]2016-11-10 17:33:50,953: None
+[DEBUG]2016-11-10 17:33:50,954: None
+[DEBUG]2016-11-10 17:33:50,954: None
+[DEBUG]2016-11-10 17:33:50,954: None
+[DEBUG]2016-11-10 17:33:50,954: None
+[DEBUG]2016-11-10 17:33:50,954: None
+[DEBUG]2016-11-10 17:33:50,954: None
+[DEBUG]2016-11-10 17:33:50,954: None
+[DEBUG]2016-11-10 17:33:50,954: None
+[DEBUG]2016-11-10 17:33:50,954: None
+[DEBUG]2016-11-10 17:33:50,954: None
+[DEBUG]2016-11-10 17:33:50,954: None
+[DEBUG]2016-11-10 17:33:50,954: None
+[DEBUG]2016-11-10 17:33:50,954: None
+[DEBUG]2016-11-10 17:33:50,956: None
+[DEBUG]2016-11-10 17:33:50,956: None
+[DEBUG]2016-11-10 17:33:50,956: None
+[DEBUG]2016-11-10 17:33:50,956: None
+[DEBUG]2016-11-10 17:33:50,956: None
+[DEBUG]2016-11-10 17:33:50,956: None
+[DEBUG]2016-11-10 17:33:50,956: None
+[DEBUG]2016-11-10 17:33:50,956: None
+[DEBUG]2016-11-10 17:33:50,956: None
+[DEBUG]2016-11-10 17:33:50,956: None
+[DEBUG]2016-11-10 17:33:50,956: None
+[DEBUG]2016-11-10 17:33:50,956: None
+[DEBUG]2016-11-10 17:33:50,956: None
+[DEBUG]2016-11-10 17:33:50,956: None
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,957: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,958: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,959: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,961: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,962: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,964: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,965: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:33:50,967: None
+[DEBUG]2016-11-10 17:40:04,818: <_sre.SRE_Match object; span=(1085, 2045), match='typedef enum {\n    ES_NO_EVENT, ES_ERROR, /* use>
+[DEBUG]2016-11-10 17:40:04,819: ['ES_NO_EVENT', 'ES_ERROR', 'ES_INIT', 'ES_ENTRY', 'ES_EXIT', 'ES_KEYINPUT', 'ES_LISTEVENTS', 'ES_TIMEOUT', 'ES_TIMERACTIVE', 'ES_TIMERSTOPPED', 'FRONT_BUMPERS_HIT', 'FRONT_LEFT_BUMPER_HIT', 'FRONT_RIGHT_BUMPER_HIT', 'BACK_BUMPER_HIT', 'TAPE_FOUND', 'FRONT_TRACK_WIRE_DETECTED', 'BACK_TRACK_WIRE_DETECTED', 'BOTH_TRACK_WIRES_DETECTED', 'BEACON_DETECTED', 'BATTERY_CONNECTED', 'BATTERY_DISCONNECTED', 'NUMBEROFEVENTS']
+[DEBUG]2016-11-10 17:40:04,819: 
+static const char *EventNames[] = {
+	"ES_NO_EVENT",
+	"ES_ERROR",
+	"ES_INIT",
+	"ES_ENTRY",
+	"ES_EXIT",
+	"ES_KEYINPUT",
+	"ES_LISTEVENTS",
+	"ES_TIMEOUT",
+	"ES_TIMERACTIVE",
+	"ES_TIMERSTOPPED",
+	"FRONT_BUMPERS_HIT",
+	"FRONT_LEFT_BUMPER_HIT",
+	"FRONT_RIGHT_BUMPER_HIT",
+	"BACK_BUMPER_HIT",
+	"TAPE_FOUND",
+	"FRONT_TRACK_WIRE_DETECTED",
+	"BACK_TRACK_WIRE_DETECTED",
+	"BOTH_TRACK_WIRES_DETECTED",
+	"BEACON_DETECTED",
+	"BATTERY_CONNECTED",
+	"BATTERY_DISCONNECTED",
+	"NUMBEROFEVENTS",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,821: None
+[DEBUG]2016-11-10 17:40:04,821: None
+[DEBUG]2016-11-10 17:40:04,822: None
+[DEBUG]2016-11-10 17:40:04,822: None
+[DEBUG]2016-11-10 17:40:04,822: None
+[DEBUG]2016-11-10 17:40:04,823: None
+[DEBUG]2016-11-10 17:40:04,823: None
+[DEBUG]2016-11-10 17:40:04,823: None
+[DEBUG]2016-11-10 17:40:04,823: None
+[DEBUG]2016-11-10 17:40:04,824: None
+[DEBUG]2016-11-10 17:40:04,824: None
+[DEBUG]2016-11-10 17:40:04,824: None
+[DEBUG]2016-11-10 17:40:04,824: None
+[DEBUG]2016-11-10 17:40:04,824: None
+[DEBUG]2016-11-10 17:40:04,826: None
+[DEBUG]2016-11-10 17:40:04,826: None
+[DEBUG]2016-11-10 17:40:04,826: None
+[DEBUG]2016-11-10 17:40:04,826: None
+[DEBUG]2016-11-10 17:40:04,826: None
+[DEBUG]2016-11-10 17:40:04,826: None
+[DEBUG]2016-11-10 17:40:04,827: None
+[DEBUG]2016-11-10 17:40:04,827: None
+[DEBUG]2016-11-10 17:40:04,827: None
+[DEBUG]2016-11-10 17:40:04,827: None
+[DEBUG]2016-11-10 17:40:04,827: None
+[DEBUG]2016-11-10 17:40:04,827: None
+[DEBUG]2016-11-10 17:40:04,827: None
+[DEBUG]2016-11-10 17:40:04,828: None
+[DEBUG]2016-11-10 17:40:04,828: None
+[DEBUG]2016-11-10 17:40:04,828: None
+[DEBUG]2016-11-10 17:40:04,828: None
+[DEBUG]2016-11-10 17:40:04,828: None
+[DEBUG]2016-11-10 17:40:04,828: None
+[DEBUG]2016-11-10 17:40:04,828: None
+[DEBUG]2016-11-10 17:40:04,828: None
+[DEBUG]2016-11-10 17:40:04,829: None
+[DEBUG]2016-11-10 17:40:04,829: None
+[DEBUG]2016-11-10 17:40:04,829: None
+[DEBUG]2016-11-10 17:40:04,829: None
+[DEBUG]2016-11-10 17:40:04,829: None
+[DEBUG]2016-11-10 17:40:04,829: None
+[DEBUG]2016-11-10 17:40:04,829: None
+[DEBUG]2016-11-10 17:40:04,829: None
+[DEBUG]2016-11-10 17:40:04,829: None
+[DEBUG]2016-11-10 17:40:04,830: None
+[DEBUG]2016-11-10 17:40:04,830: None
+[DEBUG]2016-11-10 17:40:04,830: None
+[DEBUG]2016-11-10 17:40:04,830: None
+[DEBUG]2016-11-10 17:40:04,830: None
+[DEBUG]2016-11-10 17:40:04,830: None
+[DEBUG]2016-11-10 17:40:04,830: None
+[DEBUG]2016-11-10 17:40:04,830: None
+[DEBUG]2016-11-10 17:40:04,830: None
+[DEBUG]2016-11-10 17:40:04,830: None
+[DEBUG]2016-11-10 17:40:04,831: None
+[DEBUG]2016-11-10 17:40:04,831: None
+[DEBUG]2016-11-10 17:40:04,831: None
+[DEBUG]2016-11-10 17:40:04,831: None
+[DEBUG]2016-11-10 17:40:04,831: None
+[DEBUG]2016-11-10 17:40:04,831: None
+[DEBUG]2016-11-10 17:40:04,831: None
+[DEBUG]2016-11-10 17:40:04,831: None
+[DEBUG]2016-11-10 17:40:04,831: None
+[DEBUG]2016-11-10 17:40:04,831: None
+[DEBUG]2016-11-10 17:40:04,831: None
+[DEBUG]2016-11-10 17:40:04,833: None
+[DEBUG]2016-11-10 17:40:04,833: None
+[DEBUG]2016-11-10 17:40:04,833: None
+[DEBUG]2016-11-10 17:40:04,833: None
+[DEBUG]2016-11-10 17:40:04,833: None
+[DEBUG]2016-11-10 17:40:04,833: None
+[DEBUG]2016-11-10 17:40:04,833: None
+[DEBUG]2016-11-10 17:40:04,833: None
+[DEBUG]2016-11-10 17:40:04,833: None
+[DEBUG]2016-11-10 17:40:04,833: None
+[DEBUG]2016-11-10 17:40:04,833: None
+[DEBUG]2016-11-10 17:40:04,833: None
+[DEBUG]2016-11-10 17:40:04,834: None
+[DEBUG]2016-11-10 17:40:04,834: None
+[DEBUG]2016-11-10 17:40:04,834: None
+[DEBUG]2016-11-10 17:40:04,834: None
+[DEBUG]2016-11-10 17:40:04,834: None
+[DEBUG]2016-11-10 17:40:04,834: None
+[DEBUG]2016-11-10 17:40:04,834: None
+[DEBUG]2016-11-10 17:40:04,834: None
+[DEBUG]2016-11-10 17:40:04,834: None
+[DEBUG]2016-11-10 17:40:04,834: None
+[DEBUG]2016-11-10 17:40:04,834: None
+[DEBUG]2016-11-10 17:40:04,834: None
+[DEBUG]2016-11-10 17:40:04,834: None
+[DEBUG]2016-11-10 17:40:04,836: None
+[DEBUG]2016-11-10 17:40:04,836: None
+[DEBUG]2016-11-10 17:40:04,836: None
+[DEBUG]2016-11-10 17:40:04,836: None
+[DEBUG]2016-11-10 17:40:04,836: None
+[DEBUG]2016-11-10 17:40:04,836: None
+[DEBUG]2016-11-10 17:40:04,836: None
+[DEBUG]2016-11-10 17:40:04,836: None
+[DEBUG]2016-11-10 17:40:04,836: None
+[DEBUG]2016-11-10 17:40:04,836: None
+[DEBUG]2016-11-10 17:40:04,836: None
+[DEBUG]2016-11-10 17:40:04,836: None
+[DEBUG]2016-11-10 17:40:04,836: None
+[DEBUG]2016-11-10 17:40:04,836: None
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,838: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,839: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,841: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,842: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,843: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,844: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,846: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:40:04,847: None
+[DEBUG]2016-11-10 17:42:44,781: <_sre.SRE_Match object; span=(1085, 2045), match='typedef enum {\n    ES_NO_EVENT, ES_ERROR, /* use>
+[DEBUG]2016-11-10 17:42:44,781: ['ES_NO_EVENT', 'ES_ERROR', 'ES_INIT', 'ES_ENTRY', 'ES_EXIT', 'ES_KEYINPUT', 'ES_LISTEVENTS', 'ES_TIMEOUT', 'ES_TIMERACTIVE', 'ES_TIMERSTOPPED', 'FRONT_BUMPERS_HIT', 'FRONT_LEFT_BUMPER_HIT', 'FRONT_RIGHT_BUMPER_HIT', 'BACK_BUMPER_HIT', 'TAPE_FOUND', 'FRONT_TRACK_WIRE_DETECTED', 'BACK_TRACK_WIRE_DETECTED', 'BOTH_TRACK_WIRES_DETECTED', 'BEACON_DETECTED', 'BATTERY_CONNECTED', 'BATTERY_DISCONNECTED', 'NUMBEROFEVENTS']
+[DEBUG]2016-11-10 17:42:44,781: 
+static const char *EventNames[] = {
+	"ES_NO_EVENT",
+	"ES_ERROR",
+	"ES_INIT",
+	"ES_ENTRY",
+	"ES_EXIT",
+	"ES_KEYINPUT",
+	"ES_LISTEVENTS",
+	"ES_TIMEOUT",
+	"ES_TIMERACTIVE",
+	"ES_TIMERSTOPPED",
+	"FRONT_BUMPERS_HIT",
+	"FRONT_LEFT_BUMPER_HIT",
+	"FRONT_RIGHT_BUMPER_HIT",
+	"BACK_BUMPER_HIT",
+	"TAPE_FOUND",
+	"FRONT_TRACK_WIRE_DETECTED",
+	"BACK_TRACK_WIRE_DETECTED",
+	"BOTH_TRACK_WIRES_DETECTED",
+	"BEACON_DETECTED",
+	"BATTERY_CONNECTED",
+	"BATTERY_DISCONNECTED",
+	"NUMBEROFEVENTS",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,783: None
+[DEBUG]2016-11-10 17:42:44,783: None
+[DEBUG]2016-11-10 17:42:44,784: None
+[DEBUG]2016-11-10 17:42:44,784: None
+[DEBUG]2016-11-10 17:42:44,784: None
+[DEBUG]2016-11-10 17:42:44,785: None
+[DEBUG]2016-11-10 17:42:44,785: None
+[DEBUG]2016-11-10 17:42:44,785: None
+[DEBUG]2016-11-10 17:42:44,785: None
+[DEBUG]2016-11-10 17:42:44,786: None
+[DEBUG]2016-11-10 17:42:44,786: None
+[DEBUG]2016-11-10 17:42:44,786: None
+[DEBUG]2016-11-10 17:42:44,786: None
+[DEBUG]2016-11-10 17:42:44,786: None
+[DEBUG]2016-11-10 17:42:44,787: None
+[DEBUG]2016-11-10 17:42:44,787: None
+[DEBUG]2016-11-10 17:42:44,787: None
+[DEBUG]2016-11-10 17:42:44,787: None
+[DEBUG]2016-11-10 17:42:44,787: None
+[DEBUG]2016-11-10 17:42:44,787: None
+[DEBUG]2016-11-10 17:42:44,788: None
+[DEBUG]2016-11-10 17:42:44,788: None
+[DEBUG]2016-11-10 17:42:44,788: None
+[DEBUG]2016-11-10 17:42:44,788: None
+[DEBUG]2016-11-10 17:42:44,788: None
+[DEBUG]2016-11-10 17:42:44,788: None
+[DEBUG]2016-11-10 17:42:44,788: None
+[DEBUG]2016-11-10 17:42:44,790: None
+[DEBUG]2016-11-10 17:42:44,790: None
+[DEBUG]2016-11-10 17:42:44,790: None
+[DEBUG]2016-11-10 17:42:44,790: None
+[DEBUG]2016-11-10 17:42:44,790: None
+[DEBUG]2016-11-10 17:42:44,790: None
+[DEBUG]2016-11-10 17:42:44,790: None
+[DEBUG]2016-11-10 17:42:44,790: None
+[DEBUG]2016-11-10 17:42:44,791: None
+[DEBUG]2016-11-10 17:42:44,791: None
+[DEBUG]2016-11-10 17:42:44,791: None
+[DEBUG]2016-11-10 17:42:44,791: None
+[DEBUG]2016-11-10 17:42:44,791: None
+[DEBUG]2016-11-10 17:42:44,791: None
+[DEBUG]2016-11-10 17:42:44,791: None
+[DEBUG]2016-11-10 17:42:44,791: None
+[DEBUG]2016-11-10 17:42:44,791: None
+[DEBUG]2016-11-10 17:42:44,792: None
+[DEBUG]2016-11-10 17:42:44,792: None
+[DEBUG]2016-11-10 17:42:44,792: None
+[DEBUG]2016-11-10 17:42:44,792: None
+[DEBUG]2016-11-10 17:42:44,792: None
+[DEBUG]2016-11-10 17:42:44,792: None
+[DEBUG]2016-11-10 17:42:44,792: None
+[DEBUG]2016-11-10 17:42:44,792: None
+[DEBUG]2016-11-10 17:42:44,792: None
+[DEBUG]2016-11-10 17:42:44,792: None
+[DEBUG]2016-11-10 17:42:44,794: None
+[DEBUG]2016-11-10 17:42:44,794: None
+[DEBUG]2016-11-10 17:42:44,794: None
+[DEBUG]2016-11-10 17:42:44,794: None
+[DEBUG]2016-11-10 17:42:44,794: None
+[DEBUG]2016-11-10 17:42:44,794: None
+[DEBUG]2016-11-10 17:42:44,794: None
+[DEBUG]2016-11-10 17:42:44,794: None
+[DEBUG]2016-11-10 17:42:44,794: None
+[DEBUG]2016-11-10 17:42:44,794: None
+[DEBUG]2016-11-10 17:42:44,794: None
+[DEBUG]2016-11-10 17:42:44,795: None
+[DEBUG]2016-11-10 17:42:44,795: None
+[DEBUG]2016-11-10 17:42:44,795: None
+[DEBUG]2016-11-10 17:42:44,795: None
+[DEBUG]2016-11-10 17:42:44,795: None
+[DEBUG]2016-11-10 17:42:44,795: None
+[DEBUG]2016-11-10 17:42:44,795: None
+[DEBUG]2016-11-10 17:42:44,795: None
+[DEBUG]2016-11-10 17:42:44,795: None
+[DEBUG]2016-11-10 17:42:44,795: None
+[DEBUG]2016-11-10 17:42:44,795: None
+[DEBUG]2016-11-10 17:42:44,795: None
+[DEBUG]2016-11-10 17:42:44,796: None
+[DEBUG]2016-11-10 17:42:44,796: None
+[DEBUG]2016-11-10 17:42:44,796: None
+[DEBUG]2016-11-10 17:42:44,796: None
+[DEBUG]2016-11-10 17:42:44,796: None
+[DEBUG]2016-11-10 17:42:44,796: None
+[DEBUG]2016-11-10 17:42:44,796: None
+[DEBUG]2016-11-10 17:42:44,796: None
+[DEBUG]2016-11-10 17:42:44,796: None
+[DEBUG]2016-11-10 17:42:44,796: None
+[DEBUG]2016-11-10 17:42:44,796: None
+[DEBUG]2016-11-10 17:42:44,796: None
+[DEBUG]2016-11-10 17:42:44,796: None
+[DEBUG]2016-11-10 17:42:44,797: None
+[DEBUG]2016-11-10 17:42:44,797: None
+[DEBUG]2016-11-10 17:42:44,797: None
+[DEBUG]2016-11-10 17:42:44,797: None
+[DEBUG]2016-11-10 17:42:44,797: None
+[DEBUG]2016-11-10 17:42:44,797: None
+[DEBUG]2016-11-10 17:42:44,797: None
+[DEBUG]2016-11-10 17:42:44,797: None
+[DEBUG]2016-11-10 17:42:44,797: None
+[DEBUG]2016-11-10 17:42:44,797: None
+[DEBUG]2016-11-10 17:42:44,797: None
+[DEBUG]2016-11-10 17:42:44,797: None
+[DEBUG]2016-11-10 17:42:44,797: None
+[DEBUG]2016-11-10 17:42:44,797: None
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,799: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,800: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,803: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,804: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,805: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,806: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,808: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:42:44,809: None
+[DEBUG]2016-11-10 17:44:47,247: <_sre.SRE_Match object; span=(1085, 2045), match='typedef enum {\n    ES_NO_EVENT, ES_ERROR, /* use>
+[DEBUG]2016-11-10 17:44:47,247: ['ES_NO_EVENT', 'ES_ERROR', 'ES_INIT', 'ES_ENTRY', 'ES_EXIT', 'ES_KEYINPUT', 'ES_LISTEVENTS', 'ES_TIMEOUT', 'ES_TIMERACTIVE', 'ES_TIMERSTOPPED', 'FRONT_BUMPERS_HIT', 'FRONT_LEFT_BUMPER_HIT', 'FRONT_RIGHT_BUMPER_HIT', 'BACK_BUMPER_HIT', 'TAPE_FOUND', 'FRONT_TRACK_WIRE_DETECTED', 'BACK_TRACK_WIRE_DETECTED', 'BOTH_TRACK_WIRES_DETECTED', 'BEACON_DETECTED', 'BATTERY_CONNECTED', 'BATTERY_DISCONNECTED', 'NUMBEROFEVENTS']
+[DEBUG]2016-11-10 17:44:47,247: 
+static const char *EventNames[] = {
+	"ES_NO_EVENT",
+	"ES_ERROR",
+	"ES_INIT",
+	"ES_ENTRY",
+	"ES_EXIT",
+	"ES_KEYINPUT",
+	"ES_LISTEVENTS",
+	"ES_TIMEOUT",
+	"ES_TIMERACTIVE",
+	"ES_TIMERSTOPPED",
+	"FRONT_BUMPERS_HIT",
+	"FRONT_LEFT_BUMPER_HIT",
+	"FRONT_RIGHT_BUMPER_HIT",
+	"BACK_BUMPER_HIT",
+	"TAPE_FOUND",
+	"FRONT_TRACK_WIRE_DETECTED",
+	"BACK_TRACK_WIRE_DETECTED",
+	"BOTH_TRACK_WIRES_DETECTED",
+	"BEACON_DETECTED",
+	"BATTERY_CONNECTED",
+	"BATTERY_DISCONNECTED",
+	"NUMBEROFEVENTS",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,250: None
+[DEBUG]2016-11-10 17:44:47,250: None
+[DEBUG]2016-11-10 17:44:47,251: None
+[DEBUG]2016-11-10 17:44:47,251: None
+[DEBUG]2016-11-10 17:44:47,251: None
+[DEBUG]2016-11-10 17:44:47,252: None
+[DEBUG]2016-11-10 17:44:47,252: None
+[DEBUG]2016-11-10 17:44:47,252: None
+[DEBUG]2016-11-10 17:44:47,252: None
+[DEBUG]2016-11-10 17:44:47,252: None
+[DEBUG]2016-11-10 17:44:47,252: None
+[DEBUG]2016-11-10 17:44:47,252: None
+[DEBUG]2016-11-10 17:44:47,252: None
+[DEBUG]2016-11-10 17:44:47,252: None
+[DEBUG]2016-11-10 17:44:47,253: None
+[DEBUG]2016-11-10 17:44:47,253: None
+[DEBUG]2016-11-10 17:44:47,253: None
+[DEBUG]2016-11-10 17:44:47,253: None
+[DEBUG]2016-11-10 17:44:47,253: None
+[DEBUG]2016-11-10 17:44:47,253: None
+[DEBUG]2016-11-10 17:44:47,255: None
+[DEBUG]2016-11-10 17:44:47,255: None
+[DEBUG]2016-11-10 17:44:47,255: None
+[DEBUG]2016-11-10 17:44:47,255: None
+[DEBUG]2016-11-10 17:44:47,255: None
+[DEBUG]2016-11-10 17:44:47,255: None
+[DEBUG]2016-11-10 17:44:47,255: None
+[DEBUG]2016-11-10 17:44:47,256: None
+[DEBUG]2016-11-10 17:44:47,256: None
+[DEBUG]2016-11-10 17:44:47,256: None
+[DEBUG]2016-11-10 17:44:47,256: None
+[DEBUG]2016-11-10 17:44:47,256: None
+[DEBUG]2016-11-10 17:44:47,256: None
+[DEBUG]2016-11-10 17:44:47,256: None
+[DEBUG]2016-11-10 17:44:47,256: None
+[DEBUG]2016-11-10 17:44:47,257: None
+[DEBUG]2016-11-10 17:44:47,257: None
+[DEBUG]2016-11-10 17:44:47,257: None
+[DEBUG]2016-11-10 17:44:47,257: None
+[DEBUG]2016-11-10 17:44:47,257: None
+[DEBUG]2016-11-10 17:44:47,257: None
+[DEBUG]2016-11-10 17:44:47,257: None
+[DEBUG]2016-11-10 17:44:47,257: None
+[DEBUG]2016-11-10 17:44:47,257: None
+[DEBUG]2016-11-10 17:44:47,258: None
+[DEBUG]2016-11-10 17:44:47,258: None
+[DEBUG]2016-11-10 17:44:47,258: None
+[DEBUG]2016-11-10 17:44:47,258: None
+[DEBUG]2016-11-10 17:44:47,258: None
+[DEBUG]2016-11-10 17:44:47,258: None
+[DEBUG]2016-11-10 17:44:47,258: None
+[DEBUG]2016-11-10 17:44:47,258: None
+[DEBUG]2016-11-10 17:44:47,258: None
+[DEBUG]2016-11-10 17:44:47,258: None
+[DEBUG]2016-11-10 17:44:47,259: None
+[DEBUG]2016-11-10 17:44:47,259: None
+[DEBUG]2016-11-10 17:44:47,259: None
+[DEBUG]2016-11-10 17:44:47,259: None
+[DEBUG]2016-11-10 17:44:47,259: None
+[DEBUG]2016-11-10 17:44:47,259: None
+[DEBUG]2016-11-10 17:44:47,259: None
+[DEBUG]2016-11-10 17:44:47,259: None
+[DEBUG]2016-11-10 17:44:47,259: None
+[DEBUG]2016-11-10 17:44:47,259: None
+[DEBUG]2016-11-10 17:44:47,259: None
+[DEBUG]2016-11-10 17:44:47,261: None
+[DEBUG]2016-11-10 17:44:47,261: None
+[DEBUG]2016-11-10 17:44:47,261: None
+[DEBUG]2016-11-10 17:44:47,261: None
+[DEBUG]2016-11-10 17:44:47,261: None
+[DEBUG]2016-11-10 17:44:47,261: None
+[DEBUG]2016-11-10 17:44:47,261: None
+[DEBUG]2016-11-10 17:44:47,261: None
+[DEBUG]2016-11-10 17:44:47,261: None
+[DEBUG]2016-11-10 17:44:47,261: None
+[DEBUG]2016-11-10 17:44:47,261: None
+[DEBUG]2016-11-10 17:44:47,261: None
+[DEBUG]2016-11-10 17:44:47,262: None
+[DEBUG]2016-11-10 17:44:47,262: None
+[DEBUG]2016-11-10 17:44:47,262: None
+[DEBUG]2016-11-10 17:44:47,262: None
+[DEBUG]2016-11-10 17:44:47,262: None
+[DEBUG]2016-11-10 17:44:47,262: None
+[DEBUG]2016-11-10 17:44:47,262: None
+[DEBUG]2016-11-10 17:44:47,262: None
+[DEBUG]2016-11-10 17:44:47,262: None
+[DEBUG]2016-11-10 17:44:47,262: None
+[DEBUG]2016-11-10 17:44:47,262: None
+[DEBUG]2016-11-10 17:44:47,262: None
+[DEBUG]2016-11-10 17:44:47,262: None
+[DEBUG]2016-11-10 17:44:47,263: None
+[DEBUG]2016-11-10 17:44:47,263: None
+[DEBUG]2016-11-10 17:44:47,263: None
+[DEBUG]2016-11-10 17:44:47,263: None
+[DEBUG]2016-11-10 17:44:47,263: None
+[DEBUG]2016-11-10 17:44:47,263: None
+[DEBUG]2016-11-10 17:44:47,263: None
+[DEBUG]2016-11-10 17:44:47,263: None
+[DEBUG]2016-11-10 17:44:47,263: None
+[DEBUG]2016-11-10 17:44:47,263: None
+[DEBUG]2016-11-10 17:44:47,263: None
+[DEBUG]2016-11-10 17:44:47,263: None
+[DEBUG]2016-11-10 17:44:47,263: None
+[DEBUG]2016-11-10 17:44:47,263: None
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,264: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,265: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,266: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,267: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,268: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,269: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,270: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,272: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:44:47,273: None
+[DEBUG]2016-11-10 17:45:54,892: <_sre.SRE_Match object; span=(1085, 2045), match='typedef enum {\n    ES_NO_EVENT, ES_ERROR, /* use>
+[DEBUG]2016-11-10 17:45:54,893: ['ES_NO_EVENT', 'ES_ERROR', 'ES_INIT', 'ES_ENTRY', 'ES_EXIT', 'ES_KEYINPUT', 'ES_LISTEVENTS', 'ES_TIMEOUT', 'ES_TIMERACTIVE', 'ES_TIMERSTOPPED', 'FRONT_BUMPERS_HIT', 'FRONT_LEFT_BUMPER_HIT', 'FRONT_RIGHT_BUMPER_HIT', 'BACK_BUMPER_HIT', 'TAPE_FOUND', 'FRONT_TRACK_WIRE_DETECTED', 'BACK_TRACK_WIRE_DETECTED', 'BOTH_TRACK_WIRES_DETECTED', 'BEACON_DETECTED', 'BATTERY_CONNECTED', 'BATTERY_DISCONNECTED', 'NUMBEROFEVENTS']
+[DEBUG]2016-11-10 17:45:54,893: 
+static const char *EventNames[] = {
+	"ES_NO_EVENT",
+	"ES_ERROR",
+	"ES_INIT",
+	"ES_ENTRY",
+	"ES_EXIT",
+	"ES_KEYINPUT",
+	"ES_LISTEVENTS",
+	"ES_TIMEOUT",
+	"ES_TIMERACTIVE",
+	"ES_TIMERSTOPPED",
+	"FRONT_BUMPERS_HIT",
+	"FRONT_LEFT_BUMPER_HIT",
+	"FRONT_RIGHT_BUMPER_HIT",
+	"BACK_BUMPER_HIT",
+	"TAPE_FOUND",
+	"FRONT_TRACK_WIRE_DETECTED",
+	"BACK_TRACK_WIRE_DETECTED",
+	"BOTH_TRACK_WIRES_DETECTED",
+	"BEACON_DETECTED",
+	"BATTERY_CONNECTED",
+	"BATTERY_DISCONNECTED",
+	"NUMBEROFEVENTS",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,895: None
+[DEBUG]2016-11-10 17:45:54,895: None
+[DEBUG]2016-11-10 17:45:54,896: None
+[DEBUG]2016-11-10 17:45:54,896: None
+[DEBUG]2016-11-10 17:45:54,896: None
+[DEBUG]2016-11-10 17:45:54,897: None
+[DEBUG]2016-11-10 17:45:54,897: None
+[DEBUG]2016-11-10 17:45:54,897: None
+[DEBUG]2016-11-10 17:45:54,897: None
+[DEBUG]2016-11-10 17:45:54,898: None
+[DEBUG]2016-11-10 17:45:54,898: None
+[DEBUG]2016-11-10 17:45:54,898: None
+[DEBUG]2016-11-10 17:45:54,898: None
+[DEBUG]2016-11-10 17:45:54,898: None
+[DEBUG]2016-11-10 17:45:54,899: None
+[DEBUG]2016-11-10 17:45:54,899: None
+[DEBUG]2016-11-10 17:45:54,899: None
+[DEBUG]2016-11-10 17:45:54,899: None
+[DEBUG]2016-11-10 17:45:54,899: None
+[DEBUG]2016-11-10 17:45:54,899: None
+[DEBUG]2016-11-10 17:45:54,900: None
+[DEBUG]2016-11-10 17:45:54,900: None
+[DEBUG]2016-11-10 17:45:54,900: None
+[DEBUG]2016-11-10 17:45:54,900: None
+[DEBUG]2016-11-10 17:45:54,900: None
+[DEBUG]2016-11-10 17:45:54,900: None
+[DEBUG]2016-11-10 17:45:54,900: None
+[DEBUG]2016-11-10 17:45:54,901: None
+[DEBUG]2016-11-10 17:45:54,901: None
+[DEBUG]2016-11-10 17:45:54,901: None
+[DEBUG]2016-11-10 17:45:54,901: None
+[DEBUG]2016-11-10 17:45:54,901: None
+[DEBUG]2016-11-10 17:45:54,901: None
+[DEBUG]2016-11-10 17:45:54,901: None
+[DEBUG]2016-11-10 17:45:54,901: None
+[DEBUG]2016-11-10 17:45:54,902: None
+[DEBUG]2016-11-10 17:45:54,902: None
+[DEBUG]2016-11-10 17:45:54,902: None
+[DEBUG]2016-11-10 17:45:54,902: None
+[DEBUG]2016-11-10 17:45:54,902: None
+[DEBUG]2016-11-10 17:45:54,902: None
+[DEBUG]2016-11-10 17:45:54,902: None
+[DEBUG]2016-11-10 17:45:54,902: None
+[DEBUG]2016-11-10 17:45:54,902: None
+[DEBUG]2016-11-10 17:45:54,903: None
+[DEBUG]2016-11-10 17:45:54,903: None
+[DEBUG]2016-11-10 17:45:54,903: None
+[DEBUG]2016-11-10 17:45:54,903: None
+[DEBUG]2016-11-10 17:45:54,903: None
+[DEBUG]2016-11-10 17:45:54,903: None
+[DEBUG]2016-11-10 17:45:54,903: None
+[DEBUG]2016-11-10 17:45:54,903: None
+[DEBUG]2016-11-10 17:45:54,903: None
+[DEBUG]2016-11-10 17:45:54,903: None
+[DEBUG]2016-11-10 17:45:54,905: None
+[DEBUG]2016-11-10 17:45:54,905: None
+[DEBUG]2016-11-10 17:45:54,905: None
+[DEBUG]2016-11-10 17:45:54,905: None
+[DEBUG]2016-11-10 17:45:54,905: None
+[DEBUG]2016-11-10 17:45:54,905: None
+[DEBUG]2016-11-10 17:45:54,905: None
+[DEBUG]2016-11-10 17:45:54,905: None
+[DEBUG]2016-11-10 17:45:54,905: None
+[DEBUG]2016-11-10 17:45:54,905: None
+[DEBUG]2016-11-10 17:45:54,905: None
+[DEBUG]2016-11-10 17:45:54,906: None
+[DEBUG]2016-11-10 17:45:54,906: None
+[DEBUG]2016-11-10 17:45:54,906: None
+[DEBUG]2016-11-10 17:45:54,906: None
+[DEBUG]2016-11-10 17:45:54,906: None
+[DEBUG]2016-11-10 17:45:54,906: None
+[DEBUG]2016-11-10 17:45:54,906: None
+[DEBUG]2016-11-10 17:45:54,906: None
+[DEBUG]2016-11-10 17:45:54,906: None
+[DEBUG]2016-11-10 17:45:54,906: None
+[DEBUG]2016-11-10 17:45:54,906: None
+[DEBUG]2016-11-10 17:45:54,906: None
+[DEBUG]2016-11-10 17:45:54,907: None
+[DEBUG]2016-11-10 17:45:54,907: None
+[DEBUG]2016-11-10 17:45:54,907: None
+[DEBUG]2016-11-10 17:45:54,907: None
+[DEBUG]2016-11-10 17:45:54,907: None
+[DEBUG]2016-11-10 17:45:54,907: None
+[DEBUG]2016-11-10 17:45:54,907: None
+[DEBUG]2016-11-10 17:45:54,907: None
+[DEBUG]2016-11-10 17:45:54,907: None
+[DEBUG]2016-11-10 17:45:54,907: None
+[DEBUG]2016-11-10 17:45:54,907: None
+[DEBUG]2016-11-10 17:45:54,907: None
+[DEBUG]2016-11-10 17:45:54,907: None
+[DEBUG]2016-11-10 17:45:54,909: None
+[DEBUG]2016-11-10 17:45:54,909: None
+[DEBUG]2016-11-10 17:45:54,909: None
+[DEBUG]2016-11-10 17:45:54,909: None
+[DEBUG]2016-11-10 17:45:54,909: None
+[DEBUG]2016-11-10 17:45:54,909: None
+[DEBUG]2016-11-10 17:45:54,909: None
+[DEBUG]2016-11-10 17:45:54,909: None
+[DEBUG]2016-11-10 17:45:54,909: None
+[DEBUG]2016-11-10 17:45:54,909: None
+[DEBUG]2016-11-10 17:45:54,909: None
+[DEBUG]2016-11-10 17:45:54,909: None
+[DEBUG]2016-11-10 17:45:54,909: None
+[DEBUG]2016-11-10 17:45:54,909: None
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,910: <_sre.SRE_Match object; span=(2153, 2242), match='typedef enum {\n    InitPState,\n    LineTracking>
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: ['InitPState', 'LineTracking', 'LineFollowing']
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,911: 
+static const char *StateNames[] = {
+	"InitPState",
+	"LineTracking",
+	"LineFollowing",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,914: <_sre.SRE_Match object; span=(1607, 1715), match='typedef enum {\n    InitPSubState,\n    FindingTa>
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: ['InitPSubState', 'FindingTape', 'BackingUp', 'TurningRight']
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,915: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"FindingTape",
+	"BackingUp",
+	"TurningRight",
+};
+
+
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,918: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,920: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None
+[DEBUG]2016-11-10 17:45:54,922: None

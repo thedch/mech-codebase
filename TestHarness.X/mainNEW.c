@@ -18,6 +18,8 @@
 
 // Track Wire Sensor Port: Z3
 
+void checkTapeSensors(void);
+
 int main(void) {
 
     BOARD_Init();
@@ -32,6 +34,9 @@ int main(void) {
     LED_SetBank(LED_BANK1, 0x00);
     LED_SetBank(LED_BANK2, 0x00);
     LED_SetBank(LED_BANK3, 0x00);
+
+    AD_Init();
+    AD_AddPins(AD_PORTV4 | AD_PORTV8 | AD_PORTV6);
 
     //    PORTZ03_TRIS = 1; // set Z3 to be input
 
@@ -72,30 +77,34 @@ int main(void) {
     //    PORTZ04_TRIS = 1; // input
 
     //    PORTZ11_TRIS = 1; // set output power to be high    
-    IO_PortsSetPortOutputs(PORTX, PIN10);
-    IO_PortsSetPortOutputs(PORTX, PIN5);
-    IO_PortsSetPortOutputs(PORTX, PIN12);
-    IO_PortsSetPortBits(PORTX, PIN10);
-    IO_PortsSetPortBits(PORTX, PIN5);
-    IO_PortsSetPortBits(PORTX, PIN12);
+    //    IO_PortsSetPortOutputs(PORTX, PIN10);
+    //    IO_PortsSetPortOutputs(PORTX, PIN5);
+    //    IO_PortsSetPortOutputs(PORTX, PIN12);
+    //    IO_PortsSetPortBits(PORTX, PIN10);
+    //    IO_PortsSetPortBits(PORTX, PIN5);
+    //    IO_PortsSetPortBits(PORTX, PIN12);
+    //
+    //    IO_PortsSetPortInputs(PORTX, PIN9);
+    //    IO_PortsSetPortInputs(PORTX, PIN4);
+    //    IO_PortsSetPortInputs(PORTX, PIN11);
 
-    IO_PortsSetPortInputs(PORTX, PIN9);
-    IO_PortsSetPortInputs(PORTX, PIN4);
-    IO_PortsSetPortInputs(PORTX, PIN11);
+    IO_PortsSetPortOutputs(PORTY, PIN8);
+    IO_PortsSetPortBits(PORTY, PIN8);
+
 
     while (1) {
-
+        checkTapeSensors();
         //        if (IO_PortsReadPort(PORTX) & PIN10) {
         //            printf("%d\r\n", (IO_PortsReadPort(PORTX) & PIN9));
-        if (PORTX09_BIT) {
-            printf("LEFT BUMP \r\n");
-        }
-        if (IO_PortsReadPort(PORTX) & PIN4) {
-            printf("RIGHT BUMP \r\n");
-        }
-        if (IO_PortsReadPort(PORTX) & PIN11) {
-            printf("BACK BUMP \r\n");
-        }
+        //        if (PORTX09_BIT) {
+        //            printf("LEFT BUMP \r\n");
+        //        }
+        //        if (IO_PortsReadPort(PORTX) & PIN4) {
+        //            printf("RIGHT BUMP \r\n");
+        //        }
+        //        if (IO_PortsReadPort(PORTX) & PIN11) {
+        //            printf("BACK BUMP \r\n");
+        //        }
         //        }
         //        switch (tempVar) {
         //            case 1:
@@ -112,7 +121,12 @@ int main(void) {
         //                myDelay(MED_DELAY);
         //                break;
         //        }
-        myDelay(MED_DELAY);
+        myDelay(LONG_DELAY);
     }
     return 0;
+}
+
+void checkTapeSensors(void) {
+    printf("Tape Readings: %d, %d, %d \r\n", AD_ReadADPin(AD_PORTV4),
+            AD_ReadADPin(AD_PORTV6), AD_ReadADPin(AD_PORTV8));
 }

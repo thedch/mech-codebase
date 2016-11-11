@@ -41,15 +41,16 @@
 typedef enum {
     InitPSubState,
     FindingTape,
+    LineTracking,
     BackingUp,
     TurningRight,
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
-	"InitPSubState",
-	"FindingTape",
-	"BackingUp",
-	"TurningRight",
+    "InitPSubState",
+    "FindingTape",
+    "BackingUp",
+    "TurningRight",
 };
 
 
@@ -134,19 +135,34 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     // tank turn until you get a light sensor event
                     break;
+                case TAPE_FOUND:
+                    // stop and begin line tracking
+                    // make transition to LineTracking
+                    break;
                 case FRONT_BUMPERS_HIT:
-                    //                    printf("Case is 'BUMPED', apparently\r\n");
+                    // or any other bumpers hit
                     nextState = BackingUp;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_NO_EVENT:
-                    //                    printf("Inside SubHSM->SubFirstState, with case ES_NO_EVENT\r\n");
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }
             break;
+            
+        case LineTracking:
+            switch (ThisEvent.EventType) {
+                case TAPE_FOUND:
+                    // turn right gently
+                    break;
+                case ON_WHITE:
+                    // turn left gently
+                    break; 
+                case BUMPED:
+                    // 
+            }
 
         case BackingUp:
             switch (ThisEvent.EventType) {

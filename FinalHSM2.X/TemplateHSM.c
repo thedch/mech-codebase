@@ -183,6 +183,9 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 IO_PortsSetPortInputs(PORTZ, PIN5);
                 IO_PortsSetPortInputs(PORTZ, PIN7);
 
+                AD_Init();
+                AD_AddPins(AD_PORTV4 | AD_PORTV8 | AD_PORTV6);
+
                 InitTemplateSubHSM();
                 // now put the machine into the actual initial state
                 nextState = LineTracking;
@@ -191,28 +194,22 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
             }
             break;
 
-        case LineTracking: // in the first state, replace this with correct names
+        case LineTracking: // Init State
             // run sub-state machine for this state
             // NOTE: the SubState Machine runs and responds to events 
             //before anything in the this state machine does
             ThisEvent = RunTemplateSubHSM(ThisEvent);
-            //            ES_Timer_InitTimer(1, 1500);
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    printf("Currently in ES entry, just set a timer \r\n");
-                    ES_Timer_InitTimer(1, 1500);
-                    break;
-                case TAPE_FOUND:
-                    nextState = LineFollowing;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    //                    printf("Currently in ES entry, just set a timer \r\n");
+                    //                    ES_Timer_InitTimer(1, 1500);
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
-                    printf("FRONT LEFT BUMPER HIT \r\n");
+                    //                    printf("FRONT LEFT BUMPER HIT \r\n");
                     //                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
-                    printf("Just got a time out event \r\n");
+                    
                     break;
                 case ES_NO_EVENT:
                     break;
@@ -226,19 +223,19 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
         case LineFollowing:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    printf("\r\nEntering LineFollowing, setting timer\r\n");
-                    ES_Timer_InitTimer(1, 1500);
+                    //                    printf("\r\nEntering LineFollowing, setting timer\r\n");
+                    //                    ES_Timer_InitTimer(1, 1500);
                     //                    driveForward(800);
                     break;
                 case ES_TIMEOUT:
-                    printf("\r\nTIMER EXPIRED, returning to FirstState\r\n");
+//                    printf("\r\nTIMER EXPIRED, returning to FirstState\r\n");
                     motorsOff();
                     nextState = LineTracking;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMERACTIVE:
-                    printf("\r\nTimer is now active\r\n");
+//                    printf("\r\nTimer is now active\r\n");
                     break;
                 case ES_TIMERSTOPPED:
                     break;

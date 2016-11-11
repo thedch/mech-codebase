@@ -137,6 +137,7 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     // tank turn until you get a light sensor event
                     rightTankTurn(750);
+                    printf("\r\nCurrently TANK TURNING\r\n");
                     break;
                 case TAPE_FOUND:
                     // stop and begin line tracking
@@ -152,6 +153,8 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                     //                    makeTransition = TRUE;
                     //                    ThisEvent.EventType = ES_NO_EVENT;
                     //                    break;
+                case ES_EXIT: 
+                    break;
                 case ES_NO_EVENT:
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -162,14 +165,17 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
         case LineTracking:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
+                    motorsOff();
                     break;
                 case TAPE_FOUND:
                     // turn right gently
-                    fiftyPercentRightTurn(750);
+//                    fiftyPercentLeftTurn(750);
+                    printf("\r\nOn Tape");
                     break;
                 case ON_WHITE:
                     // turn left gently
-                    fiftyPercentLeftTurn(750);
+//                    fiftyPercentRightTurn(750);
+                    printf("\r\nOn White");
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
                     // back up, turn right?

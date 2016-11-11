@@ -204,23 +204,29 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     break;
+
                 case ES_TIMEOUT:
                     break;
+
                 case ES_NO_EVENT:
                     break;
+
                 case ES_TIMERACTIVE:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
+
                 case FRONT_BUMPERS_HIT:
                 case FRONT_LEFT_BUMPER_HIT:
                 case FRONT_RIGHT_BUMPER_HIT:
                 case BACK_BUMPER_HIT:
-                    nextState = Bumped;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    //                    nextState = Bumped;
+                    //                    makeTransition = TRUE;
+                    //                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
+
                 default:
                     break;
+
             }
             break;
             //        case LineFollowing:
@@ -242,7 +248,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
             //                default:
             //                    break;
             //            }
-            break;
+            //            break;
         case Bumped:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:

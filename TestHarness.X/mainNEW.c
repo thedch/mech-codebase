@@ -93,7 +93,8 @@ int main(void) {
 
 
     while (1) {
-        checkTapeSensors();
+//        checkTapeSensors();
+        leftTankTurn(750);
         //        if (IO_PortsReadPort(PORTX) & PIN10) {
         //            printf("%d\r\n", (IO_PortsReadPort(PORTX) & PIN9));
         //        if (PORTX09_BIT) {

@@ -48,11 +48,11 @@ typedef enum {
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
-    "InitPSubState",
-    "FindingTape",
-    "LineTracking",
-    "BackingUp",
-    "TurningRight",
+	"InitPSubState",
+	"FindingTape",
+	"LineTracking",
+	"BackingUp",
+	"TurningRight",
 };
 
 
@@ -146,12 +146,12 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case FRONT_BUMPERS_HIT:
+                    //                case FRONT_BUMPERS_HIT:
                     // or any other bumpers hit
-                    nextState = BackingUp;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
+                    //                    nextState = BackingUp;
+                    //                    makeTransition = TRUE;
+                    //                    ThisEvent.EventType = ES_NO_EVENT;
+                    //                    break;
                 case ES_NO_EVENT:
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -165,15 +165,21 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                     break;
                 case TAPE_FOUND:
                     // turn right gently
+                    fiftyPercentRightTurn(750);
                     break;
                 case ON_WHITE:
                     // turn left gently
+                    fiftyPercentLeftTurn(750);
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
                     // back up, turn right?
                     break;
                 case FRONT_RIGHT_BUMPER_HIT:
                     // back up, turn left?
+                    break;
+                case ES_TIMEOUT:
+                    break;
+                default:
                     break;
             }
 
@@ -182,7 +188,7 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     // back up and set a timer
                     driveBackward(750);
-                    ES_Timer_InitTimer(1, 1500);
+                    //                    ES_Timer_InitTimer(1, 1500);
                 case ES_NO_EVENT:
                     //                    printf("Inside SubHSM->SubFirstState, with case ES_NO_EVENT\r\n");
                     break;

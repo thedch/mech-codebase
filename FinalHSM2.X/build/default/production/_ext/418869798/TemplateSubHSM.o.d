@@ -19,4 +19,5 @@ ES_Configure.h  \
  C:/CMPE118/include/ES_TattleTale.h  \
 C:/CMPE118/include/BOARD.h  \
  C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateHSM.h  \
- C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateSubHSM.h 
+ C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateSubHSM.h  \
+ C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.h 

@@ -228,7 +228,7 @@ uint8_t CheckTapeSensors(void) {
     if (AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
         curEvent = TAPE_FOUND;
         thisEvent.EventParam = thisEvent.EventParam | 0b0010;
-    } else if (AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN) > WHITE_THRESHOLD) {
+    } else if (AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN) < WHITE_THRESHOLD) {
         curEvent = ON_WHITE;
     }
 

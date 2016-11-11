@@ -54,12 +54,14 @@ typedef enum {
     InitPState,
     LineTracking,
     LineFollowing,
+    Bumped,
 } TemplateHSMState_t;
 
 static const char *StateNames[] = {
 	"InitPState",
 	"LineTracking",
 	"LineFollowing",
+	"Bumped",
 };
 
 
@@ -201,50 +203,57 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
             ThisEvent = RunTemplateSubHSM(ThisEvent);
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    //                    printf("Currently in ES entry, just set a timer \r\n");
-                    //                    ES_Timer_InitTimer(1, 1500);
-                    break;
-                case FRONT_LEFT_BUMPER_HIT:
-                    //                    printf("FRONT LEFT BUMPER HIT \r\n");
-                    //                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
-                    
                     break;
                 case ES_NO_EVENT:
                     break;
                 case ES_TIMERACTIVE:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                default:
-                    break;
-            }
-            break;
-        case LineFollowing:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    //                    printf("\r\nEntering LineFollowing, setting timer\r\n");
-                    //                    ES_Timer_InitTimer(1, 1500);
-                    //                    driveForward(800);
-                    break;
-                case ES_TIMEOUT:
-//                    printf("\r\nTIMER EXPIRED, returning to FirstState\r\n");
-                    motorsOff();
-                    nextState = LineTracking;
+                case FRONT_BUMPERS_HIT:
+                case FRONT_LEFT_BUMPER_HIT:
+                case FRONT_RIGHT_BUMPER_HIT:
+                case BACK_BUMPER_HIT:
+                    nextState = Bumped;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case ES_TIMERACTIVE:
-//                    printf("\r\nTimer is now active\r\n");
+                default:
                     break;
-                case ES_TIMERSTOPPED:
+            }
+            break;
+            //        case LineFollowing:
+            //            switch (ThisEvent.EventType) {
+            //                case ES_ENTRY:
+            //                    break;
+            //                case ES_TIMEOUT:
+            //                    motorsOff();
+            //                    nextState = LineTracking;
+            //                    makeTransition = TRUE;
+            //                    ThisEvent.EventType = ES_NO_EVENT;
+            //                    break;
+            //                case ES_TIMERACTIVE:
+            //                    break;
+            //                case ES_TIMERSTOPPED:
+            //                    break;
+            //                case ES_NO_EVENT:
+            //                    break;
+            //                default:
+            //                    break;
+            //            }
+            break;
+        case Bumped:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    motorsOff();
                     break;
                 case ES_NO_EVENT:
                     break;
                 default:
                     break;
             }
-            break;
+
         default: // all unhandled states fall into here
             break;
     } // end switch on Current State

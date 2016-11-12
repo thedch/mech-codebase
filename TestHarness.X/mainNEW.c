@@ -36,7 +36,11 @@ int main(void) {
     LED_SetBank(LED_BANK3, 0x00);
 
     AD_Init();
-    AD_AddPins(AD_PORTV4 | AD_PORTV8 | AD_PORTV6 | AD_PORTV3);
+    AD_AddPins(AD_PORTV4 |
+            AD_PORTV8 |
+            AD_PORTV6 |
+            AD_PORTV3 |
+            AD_PORTV7);
 
     //    PORTZ03_TRIS = 1; // set Z3 to be input
 
@@ -46,12 +50,10 @@ int main(void) {
     //    PORTY11_BIT = 1; // how is this possibly correct
     //    PORTY09_BIT = 0;
 
-
     PWM_AddPins(LEFT_MOTOR_PWM_PIN | RIGHT_MOTOR_PWM_PIN);
     PWM_SetFrequency(PWM_DEFAULT_FREQUENCY);
 
     //    PWM_AddPins(RIGHT_MOTOR_PWM_PIN);
-
 
     //    printf("Current PWM pins %d\r\n", PWM_ListPins());
     //    printf("Current PWM freq %d\r\n", PWM_GetFrequency());
@@ -93,18 +95,27 @@ int main(void) {
 
     PORTX03_TRIS = 1; // input
 
+    driveBackward(750);
+
+    myDelay(LONG_DELAY);
+    myDelay(LONG_DELAY);
+
     driveForward(750);
 
     myDelay(LONG_DELAY);
 
+    motorsOff();
 
     while (1) {
-        printf("%d\r\n", AD_ReadADPin(AD_PORTV3));
+        //        printf("%d\r\n", AD_ReadADPin(AD_PORTV7));
+        // Back is 7, Front is 5
 
-        if (AD_ReadADPin(AD_PORTV3) < 700) {
-            motorsOff();
-        }
-        myDelay(LONG_DELAY);
+        //        if (AD_ReadADPin(AD_PORTV3) < 700) {
+        //            motorsOff();
+        //        } else {
+        //            driveForward(750);
+        //        }
+        //        myDelay(LONG_DELAY);
 
         //        checkTapeSensors();
         //        if (IO_PortsReadPort(PORTX) & PIN10) {
@@ -134,7 +145,7 @@ int main(void) {
         //                myDelay(MED_DELAY);
         //                break;
         //        }
-
+        ;
     }
     return 0;
 }

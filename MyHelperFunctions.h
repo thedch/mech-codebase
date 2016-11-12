@@ -25,6 +25,13 @@
 #define MED_DELAY 100000
 #define LONG_DELAY 1000000
 
+#define MAX_MOTOR_SPEED 1000
+#define MEDIUM_MOTOR_SPEED 750
+#define SLOW_MOTOR_SPEED 500
+
+#define FORWARD 0
+#define REVERSE 1
+
 #define BLACK_TAPE_THRESHOLD 450
 #define WHITE_THRESHOLD 300
 
@@ -35,8 +42,8 @@
 #define FRONT_RIGHT_LIMIT_SWITCH_PIN PORTX06_BIT
 #define BACK_LIMIT_SWITCH_PIN PORTX10_BIT
 
-#define BACK_TRACK_WIRE_SENSOR_PIN 0
-#define FRONT_TRACK_WIRE_SENSOR_PIN 0
+#define BACK_TRACK_WIRE_SENSOR_PIN AD_PORTV7
+#define FRONT_TRACK_WIRE_SENSOR_PIN AD_PORTV5
 
 #define LEFT_TAPE_SENSOR_DATA_PIN AD_PORTV4
 #define CENTER_TAPE_SENSOR_DATA_PIN AD_PORTV6
@@ -159,3 +166,39 @@ void leftTankTurn(int dutyCycle);
  * @brief Sets right wheel reverse, left wheel forward
  * @author Daniel Hunter, 10 Nov 2016 */
 void rightTankTurn(int dutyCycle);
+
+/**
+ * @Function fiftyPercentReverseRightTurn
+ * @param dutyCycle - the desired PWM duty cycle of the full speed wheel
+ * @return None
+ * @brief Helper function used turn the robot gradually in the reverse direction
+ * @author Daniel Hunter, 11 Nov 2016 */
+void fiftyPercentReverseRightTurn(int dutyCycle);
+
+/**
+ * @Function fiftyPercentReverseLeftTurn
+ * @param dutyCycle - the desired PWM duty cycle of the full speed wheel
+ * @return None
+ * @brief Helper function used turn the robot gradually in the reverse direction
+ * @author Daniel Hunter, 11 Nov 2016 */
+void fiftyPercentReverseLeftTurn(int dutyCycle);
+
+// TODO: Write PWM_SetDutyCycle wrapper that incorporates battery voltage
+
+/**
+ * @Function leftMotor
+ * @param direction - the direction of the left motor
+ * dutyCycle - the desired PWM duty cycle of the left wheel
+ * @return None
+ * @brief Turns the left motor as desired, and SHUTS THE RIGHT MOTOR OFF
+ * @author Daniel Hunter, 11 Nov 2016 */
+void leftMotor(int direction, int dutyCycle);
+
+/**
+ * @Function rightMotor
+ * @param direction - the direction of the right motor
+ * dutyCycle - the desired PWM duty cycle of the right wheel
+ * @return None
+ * @brief Turns the right motor as desired, and SHUTS THE LEFT MOTOR OFF
+ * @author Daniel Hunter, 11 Nov 2016 */
+void rightMotor(int direction, int dutyCycle);

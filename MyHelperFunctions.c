@@ -145,11 +145,10 @@ void tapeSensorInit() {
 }
 
 void bumperInit() {
-
+    // TODO: Write this or delete it
 }
 
 void leftTankTurn(int dutyCycle) {
-    // been correctly set up. I will probably fix this.
     PORTY11_TRIS = 0;
     PORTY09_TRIS = 0;
 
@@ -161,7 +160,6 @@ void leftTankTurn(int dutyCycle) {
 }
 
 void rightTankTurn(int dutyCycle) {
-    // been correctly set up. I will probably fix this.
     PORTY11_TRIS = 0;
     PORTY09_TRIS = 0;
 
@@ -169,5 +167,48 @@ void rightTankTurn(int dutyCycle) {
     PORTY09_BIT = 1;
 
     PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+}
+
+void fiftyPercentReverseLeftTurn(int dutyCycle) {
+    PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+
+    PORTY11_BIT = 1;
+    PORTY09_BIT = 1;
+
+    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, (dutyCycle * 0.5));
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+}
+
+void fiftyPercentReverseRightTurn(int dutyCycle) {
+
+    PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+
+    PORTY11_BIT = 1;
+    PORTY09_BIT = 1;
+
+    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 0.5);
+}
+
+void leftMotor(int direction, int dutyCycle) {
+    PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+
+    PORTY11_BIT = direction;
+
+    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, 0);
+}
+
+void rightMotor(int direction, int dutyCycle) {
+    PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+
+    PORTY09_BIT = direction;
+
+    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, 0);
     PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
 }

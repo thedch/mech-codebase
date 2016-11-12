@@ -40,19 +40,21 @@
  * MODULE #DEFINES                                                             *
  ******************************************************************************/
 typedef enum {
+    WaitingForBattery,
     InitPSubState,
     FindingTape,
     LineTracking,
-    BackingUp,
-    TurningRight,
+    ReverseLineTracking,
+    DrivingToFindTrackWire,
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
+	"WaitingForBattery",
 	"InitPSubState",
 	"FindingTape",
 	"LineTracking",
-	"BackingUp",
-	"TurningRight",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
 };
 
 
@@ -71,6 +73,7 @@ static const char *StateNames[] = {
 
 static TemplateSubHSMState_t CurrentState = InitPSubState; // <- change name to match ENUM
 static uint8_t MyPriority;
+static int pastTapeFlag = 0;
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                            *
@@ -132,26 +135,36 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                 ThisEvent.EventType = ES_NO_EVENT;
             }
             break;
+        case WaitingForBattery:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    motorsOff();
+                    break;
+                case BATTERY_CONNECTED:
+                    nextState = FindingTape;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_NO_EVENT:
+                    break;
+                default: // all unhandled events pass the event back up to the next level
+                    break;
+            }
+            break;
         case FindingTape:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
+                    // TODO: Add beacon checking to determine orientation 
                     // tank turn until you get a light sensor event
-                    rightTankTurn(750);
+                    leftTankTurn(400);
                     break;
                 case TAPE_FOUND:
                     // stop and begin line tracking
                     // make transition to LineTracking
-                    //                    motorsOff();
                     nextState = LineTracking;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                    //                case FRONT_BUMPERS_HIT:
-                    // or any other bumpers hit
-                    //                    nextState = BackingUp;
-                    //                    makeTransition = TRUE;
-                    //                    ThisEvent.EventType = ES_NO_EVENT;
-                    //                    break;
                 case ES_EXIT:
                     break;
                 case ES_NO_EVENT:
@@ -160,27 +173,31 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-
         case LineTracking:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     //                    motorsOff();
+                    fiftyPercentRightTurn(MEDIUM_MOTOR_SPEED);
                     break;
                 case TAPE_FOUND:
                     // turn right gently
-                    fiftyPercentLeftTurn(750);
-                    printf("\r\nOn Tape");
+                    fiftyPercentRightTurn(MEDIUM_MOTOR_SPEED);
                     break;
                 case ON_WHITE:
                     // turn left gently
-                    fiftyPercentRightTurn(750);
-                    printf("\r\nOn White");
+                    fiftyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
                     // back up, turn right?
+                    nextState = ReverseLineTracking;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case FRONT_RIGHT_BUMPER_HIT:
                     // back up, turn left?
+                    nextState = ReverseLineTracking;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
                     break;
@@ -188,21 +205,50 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-
-        case BackingUp:
+        case ReverseLineTracking:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     // back up and set a timer
-                    driveBackward(750);
-                    ES_Timer_InitTimer(1, 1500);
+                    // this currently just drive straight backwards, I'd like to
+                    // implement actual reverse line tracking soon
+                    // TODO: Add actual reverse line tracking
+                    rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
+                    ES_Timer_InitTimer(1, 750);
                 case ES_NO_EVENT:
-                    //                    printf("Inside SubHSM->SubFirstState, with case ES_NO_EVENT\r\n");
                     break;
                 case ES_TIMEOUT:
-                    // Go to turn right
-                    nextState = FindingTape;
+                    motorsOff();
+                    nextState = DrivingToFindTrackWire;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                default: // all unhandled events pass the event back up to the next level
+                    break;
+            }
+            break;
+        case DrivingToFindTrackWire:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    driveForward(SLOW_MOTOR_SPEED);
+                    // this is a timer to allow the robot to clear the tape
+                    ES_Timer_InitTimer(1, 150);
+                case TAPE_FOUND:
+                    if (pastTapeFlag) {
+                        nextState = LineTracking;
+                        makeTransition = TRUE;
+                        ThisEvent.EventType = ES_NO_EVENT;
+                    }
+                    break;
+                case BACK_TRACK_WIRE_DETECTED:
+                    if (pastTapeFlag) {
+                        motorsOff();
+                    }
+                    break;
+                case ES_NO_EVENT:
+                    break;
+                case ES_TIMEOUT:
+                    pastTapeFlag = 1; // set the flag to allow the robot to 
+                    // re-find the tape
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;

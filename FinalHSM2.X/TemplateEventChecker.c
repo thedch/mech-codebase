@@ -152,13 +152,22 @@ uint8_t CheckTrackWireSensors(void) {
     ES_EventTyp_t curEvent;
     ES_Event thisEvent;
     uint8_t returnVal = FALSE;
+    
+    
+//    if (AD_ActivePins() & AD_PORTV3) {
+//        printf("\r\nPin is active");
+//    }
+    
+//    printf("\r\n%d\r\n", AD_ReadADPin(BACK_TRACK_WIRE_SENSOR_PIN));
 
     // Check the two track wire sensors
-    if (BACK_TRACK_WIRE_SENSOR_PIN && FRONT_TRACK_WIRE_SENSOR_PIN) {
+//    if (((AD_ReadADPin(FRONT_TRACK_WIRE_SENSOR_PIN)) < 700) && 
+//            ((AD_ReadADPin(BACK_TRACK_WIRE_SENSOR_PIN)) < 700)) {
+    if (0) {
         curEvent = BOTH_TRACK_WIRES_DETECTED;
-    } else if (FRONT_TRACK_WIRE_SENSOR_PIN) {
+    } else if ((AD_ReadADPin(FRONT_TRACK_WIRE_SENSOR_PIN)) < 700) {
         curEvent = FRONT_TRACK_WIRE_DETECTED;
-    } else if (BACK_TRACK_WIRE_SENSOR_PIN) {
+    } else if ((AD_ReadADPin(BACK_TRACK_WIRE_SENSOR_PIN)) < 400) {
         curEvent = BACK_TRACK_WIRE_DETECTED;
     } else {
         curEvent = ES_NO_EVENT;
@@ -219,7 +228,7 @@ uint8_t CheckTapeSensors(void) {
     thisEvent.EventParam = 0;
     // Check the tape sensors
 
-    // LEFT TAPE SENSOR CURRENTLY BROKEN, FIX THIS
+    // TODO: LEFT TAPE SENSOR CURRENTLY BROKEN, FIX THIS
     //    if (AD_ReadADPin(LEFT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
     //        curEvent = TAPE_FOUND;
     //        thisEvent.EventParam = thisEvent.EventParam | 0b0100;
@@ -232,7 +241,7 @@ uint8_t CheckTapeSensors(void) {
         curEvent = ON_WHITE;
     }
 
-    // For now, I'm just going to use the front tape sensor for tracking
+    // TODO: For now, I'm just going to use the front tape sensor for tracking
     //    if (AD_ReadADPin(RIGHT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
     //        curEvent = TAPE_FOUND;
     //        thisEvent.EventParam = thisEvent.EventParam | 0b0001;
@@ -283,7 +292,8 @@ void main(void) {
     BOARD_Init();
     /* user initialization code goes here */
     AD_Init();
-    AD_AddPins(AD_PORTV4 | AD_PORTV8 | AD_PORTV6);
+    AD_AddPins(AD_PORTV4 | AD_PORTV8 | AD_PORTV6 | AD_PORTV3);
+    printf("Just added the AD pins \r\n");
     // Do not alter anything below this line
     int i;
 

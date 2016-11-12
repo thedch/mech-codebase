@@ -188,7 +188,11 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 IO_PortsSetPortInputs(PORTZ, PIN7);
 
                 AD_Init();
-                AD_AddPins(AD_PORTV4 | AD_PORTV8 | AD_PORTV6);
+                AD_AddPins(AD_PORTV4 |
+                        AD_PORTV8 |
+                        AD_PORTV6 |
+                        FRONT_TRACK_WIRE_SENSOR_PIN |
+                        BACK_TRACK_WIRE_SENSOR_PIN);
 
                 InitTemplateSubHSM();
                 // now put the machine into the actual initial state

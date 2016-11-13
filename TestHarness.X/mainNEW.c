@@ -40,6 +40,8 @@ int main(void) {
             AD_PORTV8 |
             AD_PORTV6 |
             AD_PORTV3 |
+            AD_PORTV5 |
+            BEACON_DETECTOR_PIN |
             AD_PORTV7);
 
     //    PORTZ03_TRIS = 1; // set Z3 to be input
@@ -65,7 +67,7 @@ int main(void) {
     //    PORTW04_LAT = 1; // Set the light sensor power pin to be high
 
     RC_AddPins(RC_PORTX03);
-    printf("Hello World\r\n");
+    printf("Hello World! This is a test harness for The Beast (tm)\r\n");
     //    printf("Hello, Daniel!\r\n");
     //    printf("Hello, Daniel!\r\n");
     //    printf("Hello, Daniel!\r\n");
@@ -93,21 +95,31 @@ int main(void) {
     //    IO_PortsSetPortOutputs(PORTY, PIN8);
     //    IO_PortsSetPortBits(PORTY, PIN8);
 
-    PORTX03_TRIS = 1; // input
+//    PORTX03_TRIS = 1; // input
 
-    driveBackward(750);
+//    driveBackward(750);
 
-    myDelay(LONG_DELAY);
-    myDelay(LONG_DELAY);
-
-    driveForward(750);
-
-    myDelay(LONG_DELAY);
-
-    motorsOff();
+//    myDelay(LONG_DELAY);
+//    myDelay(LONG_DELAY);
+//
+//    driveForward(750);
+//
+//    myDelay(LONG_DELAY);
+//
+//    motorsOff();
+    
+    PORTZ09_TRIS = 1; // Beacon detector input signal
 
     while (1) {
-        //        printf("%d\r\n", AD_ReadADPin(AD_PORTV7));
+        
+//        if (PORTZ09_BIT) { 
+//            driveForward(500);
+//        } else {
+//            motorsOff();
+//        }
+        myDelay(LONG_DELAY);
+        
+                printf("%d\r\n", AD_ReadADPin(BEACON_DETECTOR_PIN));
         // Back is 7, Front is 5
 
         //        if (AD_ReadADPin(AD_PORTV3) < 700) {
@@ -145,7 +157,6 @@ int main(void) {
         //                myDelay(MED_DELAY);
         //                break;
         //        }
-        ;
     }
     return 0;
 }

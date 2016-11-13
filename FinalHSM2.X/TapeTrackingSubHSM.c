@@ -29,9 +29,10 @@
 
 #include "ES_Configure.h"
 #include "ES_Framework.h"
+#include "ES_Events.h"
 #include "BOARD.h"
-#include "TemplateHSM.h"
-#include "TemplateSubHSM.h"
+#include "TopLevelHSM.h"
+#include "TapeTrackingSubHSM.h"
 #include "MyHelperFunctions.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -89,11 +90,11 @@ static int pastTapeFlag = 0;
  *        to rename this to something appropriate.
  *        Returns TRUE if successful, FALSE otherwise
  * @author J. Edward Carryer, 2011.10.23 19:25 */
-uint8_t InitTemplateSubHSM(void) {
+uint8_t InitTapeTrackingSubHSM(void) {
     ES_Event returnEvent;
 
     CurrentState = InitPSubState;
-    returnEvent = RunTemplateSubHSM(INIT_EVENT);
+    returnEvent = RunTapeTrackingSubHSM(INIT_EVENT);
     if (returnEvent.EventType == ES_NO_EVENT) {
         return TRUE;
     }
@@ -115,7 +116,7 @@ uint8_t InitTemplateSubHSM(void) {
  *       not consumed as these need to pass pack to the higher level state machine.
  * @author J. Edward Carryer, 2011.10.23 19:25
  * @author Gabriel H Elkaim, 2011.10.23 19:25 */
-ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
+ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
     uint8_t makeTransition = FALSE; // use to flag transition
     TemplateSubHSMState_t nextState; // <- change type to correct enum
 
@@ -176,7 +177,7 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
         case LineTracking:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    //                    motorsOff();
+                    // Robot is already on black tape, turn right
                     fiftyPercentRightTurn(MEDIUM_MOTOR_SPEED);
                     break;
                 case TAPE_FOUND:
@@ -239,11 +240,11 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
                         ThisEvent.EventType = ES_NO_EVENT;
                     }
                     break;
-                case BACK_TRACK_WIRE_DETECTED:
-                    if (pastTapeFlag) {
-                        motorsOff();
-                    }
-                    break;
+//                case BACK_TRACK_WIRE_DETECTED:
+//                    if (pastTapeFlag) {
+//                        motorsOff();
+//                    }
+//                    break;
                 case ES_NO_EVENT:
                     break;
                 case ES_TIMEOUT:
@@ -260,9 +261,9 @@ ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
 
     if (makeTransition == TRUE) { // making a state transition, send EXIT and ENTRY
         // recursively call the current state with an exit event
-        RunTemplateSubHSM(EXIT_EVENT); // <- rename to your own Run function
+        RunTapeTrackingSubHSM(EXIT_EVENT); // <- rename to your own Run function
         CurrentState = nextState;
-        RunTemplateSubHSM(ENTRY_EVENT); // <- rename to your own Run function
+        RunTapeTrackingSubHSM(ENTRY_EVENT); // <- rename to your own Run function
     }
 
     ES_Tail(); // trace call stack end

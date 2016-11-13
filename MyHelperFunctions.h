@@ -49,7 +49,7 @@
 #define CENTER_TAPE_SENSOR_DATA_PIN AD_PORTV6
 #define RIGHT_TAPE_SENSOR_DATA_PIN AD_PORTV8
 
-#define BEACON_DETECTOR_PIN 0
+#define BEACON_DETECTOR_PIN AD_PORTW3
 
 // Left Motor Directional Pin: Y11
 // Right Motor Directional Pin: Y9

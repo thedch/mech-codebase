@@ -14,7 +14,7 @@ C:/CMPE118/include/ES_Port.h  \
 C:/CMPE118/include/ES_PriorTables.h  \
  C:/CMPE118/include/ES_Queue.h  \
 C:/CMPE118/include/ES_ServiceHeaders.h  \
- TemplateHSM.h  \
+ TopLevelHSM.h  \
 ES_Configure.h  \
 C:/CMPE118/include/ES_TattleTale.h  \
  C:/CMPE118/include/ES_ServiceHeaders.h  \

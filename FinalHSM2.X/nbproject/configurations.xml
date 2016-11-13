@@ -22,12 +22,13 @@
       <itemPath>C:/CMPE118/include/pwm.h</itemPath>
       <itemPath>C:/CMPE118/include/serial.h</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/ES_Configure.h</itemPath>
-      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateHSM.h</itemPath>
-      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateSubHSM.h</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.h</itemPath>
       <itemPath>C:/CMPE118/include/LED.h</itemPath>
       <itemPath>C:/CMPE118/include/IO_Ports.h</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TopLevelHSM.h</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateEventChecker.h</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TapeTrackingSubHSM.h</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateSubHSM.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -55,6 +56,7 @@
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateEventChecker.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TapeTrackingSubHSM.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TopLevelHSM.c</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateSubHSM.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -110,7 +112,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value=".;C:\CMPE118\include;C:\Users\dchunter\MPLABXProjects"/>
+                  value=".;C:\CMPE118\include;C:\Users\dchunter\MPLABXProjects;C:\Users\dchunter\MPLABXProjects\FinalHSM2.X"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="false"/>

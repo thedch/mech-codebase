@@ -30,9 +30,14 @@
 
 #include "ES_Configure.h"
 #include "ES_Framework.h"
+#include "ES_Events.h"
 #include "BOARD.h"
-#include "TemplateHSM.h"
+#include "TopLevelHSM.h"
+
+#include "TapeTrackingSubHSM.h" // #include all sub state machines called
+// #include "TrackWireSubHSM.h" // #include all sub state machines called
 #include "TemplateSubHSM.h" // #include all sub state machines called
+
 #include "MyHelperFunctions.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,11 +53,9 @@
 /*******************************************************************************
  * MODULE #DEFINES                                                             *
  ******************************************************************************/
-
-
 typedef enum {
     InitPState,
-    LineTracking,
+    TapeTracking,
     AvoidingCollision,
     FollowingTrackWire,
     BeaconHunting,
@@ -60,7 +63,7 @@ typedef enum {
 
 static const char *StateNames[] = {
 	"InitPState",
-	"LineTracking",
+	"TapeTracking",
 	"AvoidingCollision",
 	"FollowingTrackWire",
 	"BeaconHunting",
@@ -194,18 +197,19 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                         FRONT_TRACK_WIRE_SENSOR_PIN |
                         BACK_TRACK_WIRE_SENSOR_PIN);
 
-                InitTemplateSubHSM();
+                InitTapeTrackingSubHSM();
                 // now put the machine into the actual initial state
-                nextState = LineTracking;
+                nextState = TapeTracking;
                 makeTransition = TRUE;
                 ThisEvent.EventType = ES_NO_EVENT;
             }
             break;
-        case LineTracking:
+        case TapeTracking:
             // run sub-state machine for this state
             // NOTE: the SubState Machine runs and responds to events 
             //before anything in the this state machine does
-            ThisEvent = RunTemplateSubHSM(ThisEvent);
+            ThisEvent = RunTapeTrackingSubHSM(ThisEvent);
+
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     break;
@@ -227,6 +231,11 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     //                    makeTransition = TRUE;
                     //                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                case BACK_TRACK_WIRE_DETECTED:
+                    nextState = FollowingTrackWire;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                 default:
                     break;
             }
@@ -243,6 +252,13 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
             }
             break;
         case FollowingTrackWire:
+            // run sub-state machine for this state
+            // NOTE: the SubState Machine runs and responds to events 
+            //before anything in the this state machine does
+            
+            //            ThisEvent = RunTrackWireSubHSM(ThisEvent);
+            ThisEvent = RunTemplateSubHSM(ThisEvent);
+
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     break;

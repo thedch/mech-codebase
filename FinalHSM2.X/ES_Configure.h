@@ -153,7 +153,7 @@ static const char *EventNames[] = {
 // These are the definitions for Service 1
 #if NUM_SERVICES > 1
 // the header file with the public function prototypes
-#define SERV_1_HEADER "TemplateHSM.h"
+#define SERV_1_HEADER "TopLevelHSM.h"
 // the name of the Init function
 #define SERV_1_INIT InitTemplateHSM
 // the name of the run function

@@ -36,7 +36,7 @@
 
 #include "TapeTrackingSubHSM.h" // #include all sub state machines called
 // #include "TrackWireSubHSM.h" // #include all sub state machines called
-#include "TemplateSubHSM.h" // #include all sub state machines called
+#include "TrackWireSubHSM.h" // #include all sub state machines called
 
 #include "MyHelperFunctions.h"
 #include <stdio.h>
@@ -194,11 +194,12 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 AD_AddPins(AD_PORTV4 |
                         AD_PORTV8 |
                         AD_PORTV6 |
+                        BEACON_DETECTOR_PIN |
                         FRONT_TRACK_WIRE_SENSOR_PIN |
                         BACK_TRACK_WIRE_SENSOR_PIN);
 
                 InitTapeTrackingSubHSM();
-                InitTemplateSubHSM();
+                InitTrackWireSubHSM();
                 // now put the machine into the actual initial state
                 nextState = TapeTracking;
                 makeTransition = TRUE;
@@ -256,15 +257,19 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
             // run sub-state machine for this state
             // NOTE: the SubState Machine runs and responds to events 
             //before anything in the this state machine does
-            
-            //            ThisEvent = RunTrackWireSubHSM(ThisEvent);
-            ThisEvent = RunTemplateSubHSM(ThisEvent);
+            ThisEvent = RunTrackWireSubHSM(ThisEvent);
 
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     break;
                 case ES_EXIT:
                     break;
+                    //                case BEACON_DETECTED:
+                    //                    driveForward(750);
+                    //                    break;
+                    //                case BEACON_LOST:
+                    //                    motorsOff();
+                    //                    break;
                 case ES_TIMEOUT:
                     break;
                 case ES_NO_EVENT:

@@ -28,7 +28,7 @@
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TopLevelHSM.h</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateEventChecker.h</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TapeTrackingSubHSM.h</itemPath>
-      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateSubHSM.h</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TrackWireSubHSM.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -56,7 +56,7 @@
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateEventChecker.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TapeTrackingSubHSM.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TopLevelHSM.c</itemPath>
-      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateSubHSM.c</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TrackWireSubHSM.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

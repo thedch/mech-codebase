@@ -38,10 +38,10 @@ int main(void) {
     AD_Init();
     AD_AddPins(AD_PORTV4 |
             AD_PORTV8 |
-            AD_PORTV6 |
             AD_PORTV3 |
             AD_PORTV5 |
             BEACON_DETECTOR_PIN |
+            CENTER_TAPE_SENSOR_DATA_PIN |
             AD_PORTV7);
 
     //    PORTZ03_TRIS = 1; // set Z3 to be input
@@ -95,31 +95,33 @@ int main(void) {
     //    IO_PortsSetPortOutputs(PORTY, PIN8);
     //    IO_PortsSetPortBits(PORTY, PIN8);
 
-//    PORTX03_TRIS = 1; // input
+    //    PORTX03_TRIS = 1; // input
 
-//    driveBackward(750);
+    //    driveBackward(750);
 
-//    myDelay(LONG_DELAY);
-//    myDelay(LONG_DELAY);
-//
-//    driveForward(750);
-//
-//    myDelay(LONG_DELAY);
-//
-//    motorsOff();
-    
+    //    myDelay(LONG_DELAY);
+    //    myDelay(LONG_DELAY);
+    //
+    //    driveForward(750);
+    //
+    //    myDelay(LONG_DELAY);
+    //
+    //    motorsOff();
+
     PORTZ09_TRIS = 1; // Beacon detector input signal
+    PORTY08_TRIS = 0; // Beacon detector input signal
+    PORTY08_LAT = 1; // Beacon detector input signal
 
     while (1) {
-        
-//        if (PORTZ09_BIT) { 
-//            driveForward(500);
-//        } else {
-//            motorsOff();
-//        }
+
+        //        if (PORTZ09_BIT) { 
+        //            driveForward(500);
+        //        } else {
+        //            motorsOff();
+        //        }
         myDelay(LONG_DELAY);
-        
-                printf("%d\r\n", AD_ReadADPin(BEACON_DETECTOR_PIN));
+
+        printf("%d\r\n", AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN));
         // Back is 7, Front is 5
 
         //        if (AD_ReadADPin(AD_PORTV3) < 700) {

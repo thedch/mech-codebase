@@ -21,7 +21,7 @@ C:/CMPE118/include/ES_Events.h  \
  C:/CMPE118/include/BOARD.h  \
  C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TopLevelHSM.h  \
  C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TapeTrackingSubHSM.h  \
- C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateSubHSM.h  \
+ C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TrackWireSubHSM.h  \
  C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.h  \
  C:/CMPE118/include/AD.h  \
 C:/CMPE118/include/IO_Ports.h  \

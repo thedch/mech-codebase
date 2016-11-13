@@ -164,6 +164,10 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     // make transition to LineTracking
                     nextState = LineTracking;
                     makeTransition = TRUE;
+                    //                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case BEACON_DETECTED:
+                case BEACON_LOST:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_EXIT:
@@ -198,6 +202,10 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     // back up, turn left?
                     nextState = ReverseLineTracking;
                     makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case BEACON_DETECTED:
+                case BEACON_LOST:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
@@ -240,11 +248,11 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                         ThisEvent.EventType = ES_NO_EVENT;
                     }
                     break;
-//                case BACK_TRACK_WIRE_DETECTED:
-//                    if (pastTapeFlag) {
-//                        motorsOff();
-//                    }
- //                   break;
+                    //                case BACK_TRACK_WIRE_DETECTED:
+                    //                    if (pastTapeFlag) {
+                    //                        motorsOff();
+                    //                    }
+                    //                   break;
                 case ES_NO_EVENT:
                     break;
                 case ES_TIMEOUT:

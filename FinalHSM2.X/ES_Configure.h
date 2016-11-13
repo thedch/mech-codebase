@@ -54,6 +54,7 @@ typedef enum {
     BACK_TRACK_WIRE_DETECTED,
     BOTH_TRACK_WIRES_DETECTED,
     BEACON_DETECTED,
+    BEACON_LOST,
     /* User-defined events end here */
     BATTERY_CONNECTED,
     BATTERY_DISCONNECTED,
@@ -81,6 +82,7 @@ static const char *EventNames[] = {
 	"BACK_TRACK_WIRE_DETECTED",
 	"BOTH_TRACK_WIRES_DETECTED",
 	"BEACON_DETECTED",
+	"BEACON_LOST",
 	"BATTERY_CONNECTED",
 	"BATTERY_DISCONNECTED",
 	"NUMBEROFEVENTS",
@@ -92,7 +94,7 @@ static const char *EventNames[] = {
 
 /****************************************************************************/
 // This is the list of event checking functions
-#define EVENT_CHECK_LIST TemplateCheckBattery, CheckBumpers, CheckTapeSensors, CheckTrackWireSensors
+#define EVENT_CHECK_LIST TemplateCheckBattery, CheckBumpers, CheckTapeSensors, CheckTrackWireSensors, CheckBeaconDetector
 
 /****************************************************************************/
 // These are the definitions for the post functions to be executed when the

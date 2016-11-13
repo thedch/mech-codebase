@@ -17,7 +17,8 @@ C:/CMPE118/include/ES_ServiceHeaders.h  \
 TopLevelHSM.h  \
 ES_Configure.h  \
  C:/CMPE118/include/ES_TattleTale.h  \
-C:/CMPE118/include/BOARD.h  \
+C:/CMPE118/include/ES_Events.h  \
+ C:/CMPE118/include/BOARD.h  \
  C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TopLevelHSM.h  \
  C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateSubHSM.h  \
- C:/CMPE118/include/ES_Events.h 
+ C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.h 

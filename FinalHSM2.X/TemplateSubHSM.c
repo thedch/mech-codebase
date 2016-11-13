@@ -29,21 +29,26 @@
 
 #include "ES_Configure.h"
 #include "ES_Framework.h"
+#include "ES_Events.h"
 #include "BOARD.h"
 #include "TopLevelHSM.h"
 #include "TemplateSubHSM.h"
+#include "MyHelperFunctions.h"
 
 /*******************************************************************************
  * MODULE #DEFINES                                                             *
  ******************************************************************************/
 typedef enum {
     InitPSubState,
-    SubFirstState,
+    RotateToFindTrackWire,
+    FoundTrackWire,
+    LoadingAmmo
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
 	"InitPSubState",
-	"SubFirstState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
 };
 
 
@@ -78,8 +83,7 @@ static uint8_t MyPriority;
  *        to rename this to something appropriate.
  *        Returns TRUE if successful, FALSE otherwise
  * @author J. Edward Carryer, 2011.10.23 19:25 */
-uint8_t InitTemplateSubHSM(void)
-{
+uint8_t InitTemplateSubHSM(void) {
     ES_Event returnEvent;
 
     CurrentState = InitPSubState;
@@ -105,38 +109,89 @@ uint8_t InitTemplateSubHSM(void)
  *       not consumed as these need to pass pack to the higher level state machine.
  * @author J. Edward Carryer, 2011.10.23 19:25
  * @author Gabriel H Elkaim, 2011.10.23 19:25 */
-ES_Event RunTemplateSubHSM(ES_Event ThisEvent)
-{
+ES_Event RunTemplateSubHSM(ES_Event ThisEvent) {
     uint8_t makeTransition = FALSE; // use to flag transition
     TemplateSubHSMState_t nextState; // <- change type to correct enum
 
     ES_Tattle(); // trace call stack
 
     switch (CurrentState) {
-    case InitPSubState: // If current state is initial Psedudo State
-        if (ThisEvent.EventType == ES_INIT)// only respond to ES_Init
-        {
-            // this is where you would put any actions associated with the
-            // transition from the initial pseudo-state into the actual
-            // initial state
+        case InitPSubState: // If current state is initial Psedudo State
+            if (ThisEvent.EventType == ES_INIT)// only respond to ES_Init
+            {
+                // this is where you would put any actions associated with the
+                // transition from the initial pseudo-state into the actual
+                // initial state
 
-            // now put the machine into the actual initial state
-            nextState = SubFirstState;
-            makeTransition = TRUE;
-            ThisEvent.EventType = ES_NO_EVENT;
-        }
-        break;
-
-    case SubFirstState: // in the first state, replace this with correct names
-        switch (ThisEvent.EventType) {
-        case ES_NO_EVENT:
-        default: // all unhandled events pass the event back up to the next level
+                // now put the machine into the actual initial state
+                nextState = RotateToFindTrackWire;
+                makeTransition = TRUE;
+                ThisEvent.EventType = ES_NO_EVENT;
+            }
             break;
-        }
-        break;
-        
-    default: // all unhandled states fall into here
-        break;
+
+        case RotateToFindTrackWire: // in the first state, replace this with correct names
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+
+
+                    //motorsOff();
+                    rightTrackTurn(SLOW_MOTOR_SPEED);
+                    break;
+
+                case FRONT_TRACK_WIRE_DETECTED:
+                    nextState = FoundTrackWire;
+                    makeTransition = TRUE;
+                    break;
+
+
+                case ES_NO_EVENT:
+                    break;
+
+                default: // all unhandled events pass the event back up to the next level
+                    break;
+            }
+            break;
+
+        case FoundTrackWire:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    driveBackward(MAX_MOTOR_SPEED);
+                    
+                    nextState = LoadingAmmo;
+                    makeTransition = TRUE;
+                    break;
+
+                case ES_NO_EVENT:
+                    break;
+
+                default: // all unhandled events pass the event back up to the next level
+                    break;
+            }
+            break;
+
+
+        case LoadingAmmo:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    ES_Timer_InitTimer(1, 800);
+                    break;
+                    
+                case ES_TIMEOUT:
+                    motorsOff();
+                    break;
+                    
+                case ES_NO_EVENT:
+                    break;
+                    
+                default: // all unhandled events pass the event back up to the next level
+                    break;
+            }
+            break;
+
+
+        default: // all unhandled states fall into here
+            break;
     } // end switch on Current State
 
     if (makeTransition == TRUE) { // making a state transition, send EXIT and ENTRY

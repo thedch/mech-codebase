@@ -178,15 +178,15 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     // Robot is already on black tape, turn right
-                    fiftyPercentRightTurn(MEDIUM_MOTOR_SPEED);
+                    fiftyPercentRightTurn(SLOW_MOTOR_SPEED);
                     break;
                 case TAPE_FOUND:
                     // turn right gently
-                    fiftyPercentRightTurn(MEDIUM_MOTOR_SPEED);
+                    fiftyPercentRightTurn(SLOW_MOTOR_SPEED);
                     break;
                 case ON_WHITE:
                     // turn left gently
-                    fiftyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
+                    fiftyPercentLeftTurn(SLOW_MOTOR_SPEED);
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
                     // back up, turn right?
@@ -213,8 +213,8 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     // this currently just drive straight backwards, I'd like to
                     // implement actual reverse line tracking soon
                     // TODO: Add actual reverse line tracking
-                    rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, 750);
+                    rightMotor(REVERSE, SLOW_MOTOR_SPEED);
+                    ES_Timer_InitTimer(1, 1250);
                 case ES_NO_EVENT:
                     break;
                 case ES_TIMEOUT:
@@ -244,7 +244,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
 //                    if (pastTapeFlag) {
 //                        motorsOff();
 //                    }
-//                    break;
+ //                   break;
                 case ES_NO_EVENT:
                     break;
                 case ES_TIMEOUT:

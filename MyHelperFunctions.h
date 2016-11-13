@@ -202,3 +202,21 @@ void leftMotor(int direction, int dutyCycle);
  * @brief Turns the right motor as desired, and SHUTS THE LEFT MOTOR OFF
  * @author Daniel Hunter, 11 Nov 2016 */
 void rightMotor(int direction, int dutyCycle);
+
+/**
+ * @Function leftTankTurn
+ * @param None
+ * @return None
+ * @brief Sets left wheel reverse, right wheel forward, pivots around the back 
+ * track sensor
+ * @author Kenny He, 13 Nov 2016 */
+void leftTrackTurn(int dutyCycle);
+
+/**
+ * @Function rightTankTurn
+ * @param None
+ * @return None
+ * @brief Sets right wheel reverse, left wheel forward, pivots around the back 
+ * track sensor
+ * @author Kenny He, 13 Nov 2016 */
+void rightTrackTurn(int dutyCycle);

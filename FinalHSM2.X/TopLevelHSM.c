@@ -198,6 +198,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                         BACK_TRACK_WIRE_SENSOR_PIN);
 
                 InitTapeTrackingSubHSM();
+                InitTemplateSubHSM();
                 // now put the machine into the actual initial state
                 nextState = TapeTracking;
                 makeTransition = TRUE;

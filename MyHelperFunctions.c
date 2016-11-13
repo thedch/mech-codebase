@@ -212,3 +212,25 @@ void rightMotor(int direction, int dutyCycle) {
     PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, 0);
     PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
 }
+
+void leftTrackTurn(int dutyCycle) {
+    PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+
+    PORTY11_BIT = 1;
+    PORTY09_BIT = 0;
+
+    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle * 0.9);
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+}
+
+void rightTrackTurn(int dutyCycle) {
+    PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+
+    PORTY11_BIT = 0;
+    PORTY09_BIT = 1;
+
+    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle * 0.9);
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+}

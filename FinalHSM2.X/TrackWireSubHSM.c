@@ -45,6 +45,7 @@ typedef enum {
     LoadingAmmo,
     AntiJamPhaseOne,
     AntiJamPhaseTwo,
+    BeaconScanning,
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
@@ -54,6 +55,7 @@ static const char *StateNames[] = {
 	"LoadingAmmo",
 	"AntiJamPhaseOne",
 	"AntiJamPhaseTwo",
+	"BeaconScanning",
 };
 
 
@@ -235,7 +237,40 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                         nextState = AntiJamPhaseOne;
                         ThisEvent.EventType = ES_NO_EVENT;
                         makeTransition = TRUE;
+                    } else {
+                        nextState = BeaconScanning;
+                        ThisEvent.EventType = ES_NO_EVENT;
+                        makeTransition = TRUE;
                     }
+                    break;
+                case BEACON_DETECTED:
+                    leftTankTurn(MEDIUM_MOTOR_SPEED);
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case BEACON_LOST:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_NO_EVENT:
+                    break;
+                default: // all unhandled events pass the event back up to the next level
+                    break;
+            }
+            break;
+        case BeaconScanning:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    leftTankTurn(MEDIUM_MOTOR_SPEED);
+                    break;
+                //case ES_TIMEOUT:
+                //    ThisEvent.EventType = ES_NO_EVENT;
+                //    break;
+                case BEACON_DETECTED:
+                    driveForward(MEDIUM_MOTOR_SPEED);
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case BEACON_LOST:
+                    motorsOff();
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_NO_EVENT:
                     break;

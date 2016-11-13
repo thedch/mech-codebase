@@ -225,6 +225,10 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     ES_Timer_InitTimer(1, 1250);
                 case ES_NO_EVENT:
                     break;
+                case BEACON_DETECTED:
+                case BEACON_LOST:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                 case ES_TIMEOUT:
                     motorsOff();
                     nextState = DrivingToFindTrackWire;
@@ -254,6 +258,10 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     //                    }
                     //                   break;
                 case ES_NO_EVENT:
+                    break;
+                case BEACON_DETECTED:
+                case BEACON_LOST:
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
                     pastTapeFlag = 1; // set the flag to allow the robot to 

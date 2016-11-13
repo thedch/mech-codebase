@@ -190,44 +190,43 @@ uint8_t CheckTrackWireSensors(void) {
 }
 
 uint8_t CheckBeaconDetector(void) {
+    // Init Code
+    static ES_EventTyp_t lastEvent = ES_NO_EVENT;
+    static int beaconDebounceVar = 0;
+    ES_EventTyp_t curEvent;
+    ES_Event thisEvent;
+    uint8_t returnVal = FALSE;
 
-    return ES_NO_EVENT;
+    //       printf("%d\r\n", AD_ReadADPin(BEACON_DETECTOR_PIN));
 
-    //    // Init Code
-    //    static ES_EventTyp_t lastEvent = ES_NO_EVENT;
-    //    static int beaconDebounceVar = 0;
-    //    ES_EventTyp_t curEvent;
-    //    ES_Event thisEvent;
-    //    uint8_t returnVal = FALSE;
-    //
-    //    //        printf("%d\r\n", AD_ReadADPin(BEACON_DETECTOR_PIN));
-    //
-    //    // Check the beacon detector
-    //    if (AD_ReadADPin(BEACON_DETECTOR_PIN) < BEACON_DETECTOR_THRESHOLD) {
-    //        beaconDebounceVar++;
-    //    } else if (AD_ReadADPin(BEACON_DETECTOR_PIN) > BEACON_DETECTOR_THRESHOLD) {
-    //        beaconDebounceVar = 0;
-    //    }
-    //    
-    //    if (beaconDebounceVar > BEACON_DEBOUNCE_THRESHOLD) {
-    //        curEvent = BEACON_DETECTED;
-    //    } else {
-    //        curEvent = BEACON_LOST;
-    //    }
-    //
-    //    if (curEvent != lastEvent) { // check for change from last time
-    //        //        printf("\r\ncurEvent != lastEvent\r\n");
-    //        thisEvent.EventType = curEvent;
-    //        //        thisEvent.EventParam = bumped;
-    //        returnVal = TRUE;
-    //        lastEvent = curEvent; // update history
-    //#ifndef EVENTCHECKER_TEST           // keep this as is for test harness
-    //        PostTemplateHSM(thisEvent);
-    //#else
-    //        SaveEvent(thisEvent);
-    //#endif   
-    //    }
-    //    return (returnVal);
+    // Check the beacon detector
+    if (AD_ReadADPin(BEACON_DETECTOR_PIN) < BEACON_DETECTOR_THRESHOLD) {
+        beaconDebounceVar++;
+        //printf("%d\r\n", AD_ReadADPin(BEACON_DETECTOR_PIN));
+    } else if (AD_ReadADPin(BEACON_DETECTOR_PIN) > BEACON_DETECTOR_THRESHOLD) {
+        //printf("\r\ndebounce = 0\r\n");
+        beaconDebounceVar = 0;
+    }
+
+    if (beaconDebounceVar > BEACON_DEBOUNCE_THRESHOLD) {
+        curEvent = BEACON_DETECTED;
+    } else {
+        curEvent = BEACON_LOST;
+    }
+
+    if (curEvent != lastEvent) { // check for change from last time
+        //        printf("\r\ncurEvent != lastEvent\r\n");
+        thisEvent.EventType = curEvent;
+        //        thisEvent.EventParam = bumped;
+        returnVal = TRUE;
+        lastEvent = curEvent; // update history
+#ifndef EVENTCHECKER_TEST           // keep this as is for test harness
+        PostTemplateHSM(thisEvent);
+#else
+        SaveEvent(thisEvent);
+#endif   
+    }
+    return (returnVal);
 }
 
 uint8_t CheckTapeSensors(void) {
@@ -239,7 +238,7 @@ uint8_t CheckTapeSensors(void) {
 
     // Set the current event to be no event, this is only changed if one of the 
     // if statements triggers
-    curEvent = ES_NO_EVENT;
+    //    curEvent = ES_NO_EVENT;
     thisEvent.EventParam = 0;
     // Check the tape sensors
 

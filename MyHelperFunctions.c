@@ -221,7 +221,7 @@ void leftTrackTurn(int dutyCycle) {
     PORTY09_BIT = 0;
 
     PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle * 0.9);
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 1.1);
 }
 
 void rightTrackTurn(int dutyCycle) {
@@ -232,5 +232,5 @@ void rightTrackTurn(int dutyCycle) {
     PORTY09_BIT = 1;
 
     PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle * 0.9);
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 1.1);
 }

@@ -131,9 +131,15 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 // initial state
 
                 // now put the machine into the actual initial state
+                //driveForward(MEDIUM_MOTOR_SPEED);
+                
+                
                 nextState = FindingTape;
                 makeTransition = TRUE;
                 ThisEvent.EventType = ES_NO_EVENT;
+                
+                
+                
             }
             break;
         case WaitingForBattery:
@@ -157,7 +163,9 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     // TODO: Add beacon checking to determine orientation 
                     // tank turn until you get a light sensor event
+                    
                     leftTankTurn(400);
+                    //driveForward(MAX_MOTOR_SPEED);
                     break;
                 case TAPE_FOUND:
                     // stop and begin line tracking
@@ -222,13 +230,14 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     // implement actual reverse line tracking soon
                     // TODO: Add actual reverse line tracking
                     rightMotor(REVERSE, SLOW_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, 1250);
-                case ES_NO_EVENT:
+                    ES_Timer_InitTimer(1, 1150);
                     break;
-                case BEACON_DETECTED:
-                case BEACON_LOST:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
+//                case ES_NO_EVENT:
+//                    break;
+//                case BEACON_DETECTED:
+//                case BEACON_LOST:
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    break;
                 case ES_TIMEOUT:
                     motorsOff();
                     nextState = DrivingToFindTrackWire;

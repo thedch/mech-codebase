@@ -275,6 +275,33 @@ uint8_t CheckTapeSensors(void) {
     return (returnVal);
 }
 
+//uint8_t GetOutTrack(void) {
+//    static ES_EventTyp_t lastEvent = ES_NO_EVENT;
+//    ES_EventTyp_t curEvent;
+//    ES_Event thisEvent;
+//    uint8_t returnVal = FALSE;
+//    if (GetOutFlag) {
+//        curEvent = GET_OUT_TRACK;
+//    }
+//
+//    if (curEvent != lastEvent) { // check for change from last time
+//        thisEvent.EventType = curEvent;
+//        returnVal = TRUE;
+//        lastEvent = curEvent; // update history
+//#ifndef EVENTCHECKER_TEST           // keep this as is for test harness
+//        PostTemplateHSM(thisEvent);
+//#else
+//        SaveEvent(thisEvent);
+//#endif   
+//    }
+//    return (returnVal);
+//}
+
+
+
+
+
+
 /* 
  * The Test Harness for the event checkers is conditionally compiled using
  * the EVENTCHECKER_TEST macro (defined either in the file or at the project level).

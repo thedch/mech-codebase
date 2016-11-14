@@ -37,6 +37,7 @@
 #include "TapeTrackingSubHSM.h" // #include all sub state machines called
 // #include "TrackWireSubHSM.h" // #include all sub state machines called
 #include "TrackWireSubHSM.h" // #include all sub state machines called
+#include "FirstBeaconSubHSM.h"
 
 #include "MyHelperFunctions.h"
 #include <stdio.h>
@@ -59,7 +60,8 @@ typedef enum {
     AvoidingCollision,
     FollowingTrackWire,
     BeaconHunting,
-            FoundFirstTarget,
+    FoundFirstTarget,
+    FirstBeacon,
 } TemplateHSMState_t;
 
 static const char *StateNames[] = {
@@ -69,6 +71,7 @@ static const char *StateNames[] = {
 	"FollowingTrackWire",
 	"BeaconHunting",
 	"FoundFirstTarget",
+	"FirstBeacon",
 };
 
 
@@ -202,6 +205,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
 
                 InitTapeTrackingSubHSM();
                 InitTrackWireSubHSM();
+                InitFirstBeaconSubHSM();
                 // now put the machine into the actual initial state
                 nextState = TapeTracking;
                 makeTransition = TRUE;
@@ -276,21 +280,50 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     break;
                 case ES_NO_EVENT:
                     break;
-                    
-                    case TAPE_FOUND:
+
+
+                case TAPE_FOUND:
                     motorsOff();
-                    
+
                     nextState = FoundFirstTarget;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                    
-                    
+                    //                case GET_OUT_TRACK:
+                    //                    nextState = FirstBeacon;
+                    //                    makeTransition = TRUE;
+                    //                    ThisEvent.EventType = ES_NO_EVENT;
+                    //                   
+                    //                    break;
+
+
                 default:
                     break;
             }
             break;
-            
+
+        case FirstBeacon:
+            printf("ENTER BEACON SUB");
+            ThisEvent = RunFirstBeaconSubHSM(ThisEvent);
+            switch (ThisEvent.EventType) {
+
+                case ES_ENTRY:
+
+                    break;
+
+                case TAPE_FOUND:
+                    motorsOff();
+
+                    nextState = FoundFirstTarget;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+
+                default:
+                    break;
+            }
+            break;
+
         case FoundFirstTarget:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
@@ -302,9 +335,9 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-            
-            
-            
+
+
+
         default: // all unhandled states fall into here
             break;
     } // end switch on Current State

@@ -212,10 +212,10 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case BEACON_DETECTED:
-                case BEACON_LOST:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
+                //case BEACON_DETECTED:
+                //case BEACON_LOST:
+                //    ThisEvent.EventType = ES_NO_EVENT;
+                //    break;
                 case ES_TIMEOUT:
                     break;
                 default:

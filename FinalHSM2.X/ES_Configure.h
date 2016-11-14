@@ -55,10 +55,12 @@ typedef enum {
     BOTH_TRACK_WIRES_DETECTED,
     BEACON_DETECTED,
     BEACON_LOST,
+    GET_OUT_TRACK,
     /* User-defined events end here */
     BATTERY_CONNECTED,
     BATTERY_DISCONNECTED,
     NUMBEROFEVENTS,
+
 } ES_EventTyp_t;
 
 static const char *EventNames[] = {
@@ -83,6 +85,7 @@ static const char *EventNames[] = {
 	"BOTH_TRACK_WIRES_DETECTED",
 	"BEACON_DETECTED",
 	"BEACON_LOST",
+	"GET_OUT_TRACK",
 	"BATTERY_CONNECTED",
 	"BATTERY_DISCONNECTED",
 	"NUMBEROFEVENTS",

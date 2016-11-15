@@ -45,7 +45,7 @@ typedef enum {
     LoadingAmmo,
     AntiJamPhaseOne,
     AntiJamPhaseTwo,
-    BeaconScanning,
+             BeaconScanning,
     BeaconFound,
     TargetFound,
     GETCLOSER,
@@ -161,10 +161,10 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-//                case BEACON_DETECTED:
-//                case BEACON_LOST:
-//                    ThisEvent.EventType = ES_NO_EVENT;
-//                    break;
+                case BEACON_DETECTED:
+                case BEACON_LOST:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                 case ES_NO_EVENT:
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -183,17 +183,16 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     nextState = LoadingAmmo;
                     makeTransition = TRUE;
                     break;
-//                case BEACON_DETECTED:
-//                case BEACON_LOST:
-//                    ThisEvent.EventType = ES_NO_EVENT;
-//                    break;
+                case BEACON_DETECTED:
+                case BEACON_LOST:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                 case ES_NO_EVENT:
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }
             break;
-            
         case LoadingAmmo:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
@@ -253,12 +252,12 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                         nextState = BeaconScanning;
                         ThisEvent.EventType = ES_NO_EVENT;
                         makeTransition = TRUE;
-
+                        
                         // Post an event to transition the top leve state machine
                         // to the beacon state 
-                        //                        ES_Event thisEvent;
-                        //                        thisEvent.EventType = GET_OUT_TRACK;
-                        //                        PostTemplateHSM(thisEvent);
+//                        ES_Event thisEvent;
+//                        thisEvent.EventType = GET_OUT_TRACK;
+//                        PostTemplateHSM(thisEvent);
                     }
                     break;
                     //case BEACON_DETECTED:
@@ -276,126 +275,119 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
             break;
 
             ///////////////////MOVE TO BEACON DETECT SUBHMS//////////////////////           
-        case BeaconScanning:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    rightTankTurn(SLOW_MOTOR_SPEED);
-                    break;
-
-                case BEACON_DETECTED:
-                    nextState = StartCentering;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-
-                case ES_NO_EVENT:
-                    break;
-
-                default: // all unhandled events pass the event back up to the next level
-                    break;
-            }
-            break;
-
-        case GETCLOSER:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    
-                    ES_Timer_InitTimer(1, 1500);
-                    driveForward(SLOW_MOTOR_SPEED);
-                    break;
-
-                case BEACON_LOST:
-                    rightTankTurn(SLOW_MOTOR_SPEED);
-                    nextState = BeaconScanning;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-
-                case ES_TIMEOUT:
-                    nextState = StartCentering;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-
-                    //                case TAPE_FOUND:
-                    //                    motorsOff();
-                    //                    break;
-
-                default: // all unhandled events pass the event back up to the next level
-                    break;
-            }
-            break;
-
-        case StartCentering:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    leftTankTurn(SLOW_MOTOR_SPEED);
-                    break;
-
-                case BEACON_LOST:
-                    rightTankTurn(SLOW_MOTOR_SPEED);
-                    nextState = BeaconFound;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-
-
-                default: // all unhandled events pass the event back up to the next level
-                    break;
-            }
-            break;
-
-
-        case BeaconFound:
-            switch (ThisEvent.EventType) {
-
-                case ES_ENTRY:
-                    BEACONTIMER_START = ES_Timer_GetTime();
-                    
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    
-                    break;
-
-                case BEACON_LOST:
-
-                    BEACONTIMER_STOP = ES_Timer_GetTime();
-                    BEACONTIMER_DIFF = BEACONTIMER_STOP - BEACONTIMER_START;
-
-                    nextState = TargetFound;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-
-
-                default: // all unhandled events pass the event back up to the next level
-                    break;
-            }
-
-            break;
-
-
-
-
-        case TargetFound:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    leftTankTurn(SLOW_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, BEACONTIMER_CENTERED);
-                    break;
-                case ES_TIMEOUT:
-                    nextState = GETCLOSER;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-
-
-
-
-                default: // all unhandled events pass the event back up to the next level
-                    break;
-            }
-
-            break;
+                    case BeaconScanning:
+                        switch (ThisEvent.EventType) {
+                            case ES_ENTRY:
+                                rightTankTurn(SLOW_MOTOR_SPEED);
+                                break;
+                                
+                            case BEACON_DETECTED:
+                                nextState = StartCentering;
+                                makeTransition = TRUE;
+                                break;
+            
+                            case ES_NO_EVENT:
+                                break;
+            
+                            default: // all unhandled events pass the event back up to the next level
+                                break;
+                        }
+                        break;
+                        
+                    case GETCLOSER:
+                        switch (ThisEvent.EventType) {
+                            case ES_ENTRY:
+                                ES_Timer_InitTimer(1, 1500);
+                                driveForward(SLOW_MOTOR_SPEED);
+                            break;
+                            
+                            case BEACON_LOST:
+                                
+                                nextState = BeaconScanning;
+                                makeTransition = TRUE;
+                                break;
+                            
+                            case ES_TIMEOUT:
+                        nextState = StartCentering;
+                                makeTransition = TRUE;
+                                break;
+                            
+            //                case TAPE_FOUND:
+            //                    motorsOff();
+            //                    break;
+                            
+                            default: // all unhandled events pass the event back up to the next level
+                                break;
+                        }
+                        break;
+                        
+                    case StartCentering:
+                        switch (ThisEvent.EventType) {
+                            case ES_ENTRY:
+                                leftTankTurn(SLOW_MOTOR_SPEED);
+                                break;
+                                
+                            case BEACON_LOST:
+                                rightTankTurn(SLOW_MOTOR_SPEED);
+                                nextState = BeaconFound;
+                                makeTransition = TRUE;
+                                break;
+                                
+                                
+                            default: // all unhandled events pass the event back up to the next level
+                                break;
+                        }
+                        break;
+                        
+                        
+                    case BeaconFound:
+                        switch (ThisEvent.EventType) {
+            
+                            case ES_ENTRY:
+                                BEACONTIMER_START = ES_Timer_GetTime();
+                                
+                                ThisEvent.EventType = ES_NO_EVENT;
+                                break;
+                                
+                            case BEACON_LOST:
+                                
+                                BEACONTIMER_STOP = ES_Timer_GetTime();
+                                BEACONTIMER_DIFF = BEACONTIMER_STOP - BEACONTIMER_START;
+            
+                                nextState = TargetFound;
+                                makeTransition = TRUE;
+                                ThisEvent.EventType = ES_NO_EVENT;
+                                break;
+            
+            
+                            default: // all unhandled events pass the event back up to the next level
+                                break;
+                        }
+            
+                        break;
+            
+            
+            
+            
+                    case TargetFound:
+                        switch (ThisEvent.EventType) {
+                            case ES_ENTRY:
+                                leftTankTurn(SLOW_MOTOR_SPEED);
+                                ES_Timer_InitTimer(1, BEACONTIMER_CENTERED);
+                                break;
+                            case ES_TIMEOUT:
+                                nextState = GETCLOSER;
+                                makeTransition = TRUE;
+                                break;
+                                
+                            
+            
+            
+                            default: // all unhandled events pass the event back up to the next level
+                                break;
+                        }
+            
+                        break;
             /////////////////////////////////////////////////////////////////////////////////////
 
 

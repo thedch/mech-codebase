@@ -109,7 +109,7 @@ static const char *EventNames[] = {
 #define TIMER2_RESP_FUNC PostTemplateHSM
 #define TIMER3_RESP_FUNC PostTemplateHSM
 #define TIMER4_RESP_FUNC PostTemplateHSM
-#define TIMER5_RESP_FUNC PostTemplateHSM
+#define TIMER5_RESP_FUNC TIMER_UNUSED
 #define TIMER6_RESP_FUNC TIMER_UNUSED
 #define TIMER7_RESP_FUNC TIMER_UNUSED
 #define TIMER8_RESP_FUNC TIMER_UNUSED
@@ -128,7 +128,7 @@ static const char *EventNames[] = {
 // the timer number matches where the timer event will be routed
 
 #define GENERIC_NAMED_TIMER 0 /*make sure this is enabled above and posting to the correct state machine*/
-#define PATROL_TIMER 3
+
 /****************************************************************************/
 // The maximum number of services sets an upper bound on the number of 
 // services that the framework will handle. Reasonable values are 8 and 16

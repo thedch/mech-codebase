@@ -86,7 +86,7 @@ static int AntiJamCounter = 0;
 static int BEACONTIMER_START = 0;
 static int BEACONTIMER_STOP = 0;
 static int BEACONTIMER_DIFF = 0;
-#define BEACONTIMER_CENTERED ((4*BEACONTIMER_DIFF)/10)
+#define BEACONTIMER_CENTERED ((5*BEACONTIMER_DIFF)/10 )
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                            *
@@ -302,7 +302,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                             break;
                             
                             case BEACON_LOST:
-                                rightTankTurn(SLOW_MOTOR_SPEED);
+                                //rightTankTurn(SLOW_MOTOR_SPEED);
                                 nextState = BeaconScanning;
                                 makeTransition = TRUE;
                                 break;

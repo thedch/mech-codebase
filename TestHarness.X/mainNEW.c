@@ -66,7 +66,7 @@ int main(void) {
 
     //    PORTW04_LAT = 1; // Set the light sensor power pin to be high
 
-    RC_AddPins(RC_PORTX03);
+    RC_AddPins(RC_PORTZ08);
     printf("Hello World! This is a test harness for The Beast (tm)\r\n");
     //    printf("Hello, Daniel!\r\n");
     //    printf("Hello, Daniel!\r\n");
@@ -108,9 +108,9 @@ int main(void) {
     //
     //    motorsOff();
 
-    PORTZ09_TRIS = 1; // Beacon detector input signal
-    PORTY08_TRIS = 0; // Beacon detector input signal
-    PORTY08_LAT = 1; // Beacon detector input signal
+    //    PORTZ09_TRIS = 1; // Beacon detector input signal
+    //    PORTY08_TRIS = 0; // Beacon detector input signal
+    //    PORTY08_LAT = 1; // Beacon detector input signal
 
     while (1) {
 
@@ -120,8 +120,14 @@ int main(void) {
         //            motorsOff();
         //        }
         myDelay(LONG_DELAY);
+        RC_SetPulseTime(RC_PORTZ08, 1500);
+        myDelay(LONG_DELAY);
+        myDelay(LONG_DELAY);
 
-        printf("%d\r\n", AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN));
+        RC_SetPulseTime(RC_PORTZ08, 2000);
+
+
+        //        printf("%d\r\n", AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN));
         // Back is 7, Front is 5
 
         //        if (AD_ReadADPin(AD_PORTV3) < 700) {

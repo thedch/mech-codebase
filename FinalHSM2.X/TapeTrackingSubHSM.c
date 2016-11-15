@@ -230,7 +230,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     // implement actual reverse line tracking soon
                     // TODO: Add actual reverse line tracking
                     rightMotor(REVERSE, SLOW_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, 1150);
+                    ES_Timer_InitTimer(2, 1150);
                     break;
 //                case ES_NO_EVENT:
 //                    break;
@@ -253,7 +253,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     driveForward(SLOW_MOTOR_SPEED);
                     // this is a timer to allow the robot to clear the tape
-                    ES_Timer_InitTimer(1, 150);
+                    ES_Timer_InitTimer(2, 150);
                 case TAPE_FOUND:
                     if (pastTapeFlag) {
                         nextState = LineTracking;

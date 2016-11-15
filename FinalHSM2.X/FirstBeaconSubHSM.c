@@ -40,21 +40,19 @@
  ******************************************************************************/
 typedef enum {
     InitPSubState,
-    BeaconScanning,
-    BeaconFound,
-    TargetFound,
-    GETCLOSER,
-    StartCentering,
+    FoundFirstTarget,
+    SecurePerimeter,
+    Patrolling,
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
-	"InitPSubState",
-	"BeaconScanning",
-	"BeaconFound",
-	"TargetFound",
-	"GETCLOSER",
-	"StartCentering",
+    "InitPSubState",
+    "FoundFirstTarget",
+    "SecurePerimeter",
+    "Patrolling",
 };
+#define PATROL_TIMER 3
+#define PATROL_DURATION 1000
 
 
 
@@ -73,10 +71,6 @@ static const char *StateNames[] = {
 static TemplateSubHSMState_t CurrentState = InitPSubState; // <- change name to match ENUM
 static uint8_t MyPriority;
 
-static int BEACONTIMER_START = 0;
-static int BEACONTIMER_STOP = 0;
-static int BEACONTIMER_DIFF = 0;
-#define BEACONTIMER_CENTERED ((4*BEACONTIMER_DIFF)/10)
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                            *
@@ -133,127 +127,80 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 // initial state
 
                 // now put the machine into the actual initial state
-                nextState = BeaconScanning;
+                nextState = FoundFirstTarget;
                 makeTransition = TRUE;
                 ThisEvent.EventType = ES_NO_EVENT;
             }
             break;
 
-        case BeaconScanning:
+            // Intermediate state between init and secure perimeter
+        case FoundFirstTarget:
             switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    rightTankTurn(SLOW_MOTOR_SPEED);
-                    break;
 
-                case BEACON_DETECTED:
-                    nextState = StartCentering;
+                case ES_ENTRY:
+                    //motorsOff();
+                    nextState = SecurePerimeter;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
 
-                case ES_NO_EVENT:
-                    break;
-
-                default: // all unhandled events pass the event back up to the next level
+                default:
                     break;
             }
             break;
 
-        case GETCLOSER:
+            // turn away from the beacon, until the tape sensor is off tape, then transition to Patrolling 
+        case SecurePerimeter:
+            switch (ThisEvent.EventType) {
+
+                case ES_ENTRY:
+                    leftTankTurn(SLOW_MOTOR_SPEED);
+
+
+                    break;
+
+                case ON_WHITE:
+                    nextState = Patrolling;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+
+
+
+                    break;
+
+                default:
+                    break;
+            }
+
+            break;
+
+        case Patrolling:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    ES_Timer_InitTimer(1, 1500);
+                    ES_Timer_InitTimer(PATROL_TIMER, PATROL_DURATION);
                     driveForward(SLOW_MOTOR_SPEED);
                     break;
 
-                case BEACON_LOST:
-                    rightTankTurn(SLOW_MOTOR_SPEED);
-                    nextState = BeaconScanning;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-
                 case ES_TIMEOUT:
-                    nextState = StartCentering;
-                    makeTransition = TRUE;
-                    break;
-
-                    //                case TAPE_FOUND:
-                    //                    motorsOff();
-                    //                    break;
-
-                default: // all unhandled events pass the event back up to the next level
-                    break;
-            }
-            break;
-
-        case StartCentering:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    leftTankTurn(SLOW_MOTOR_SPEED);
-                    break;
-
-                case BEACON_LOST:
-                    rightTankTurn(SLOW_MOTOR_SPEED);
-                    nextState = BeaconFound;
-                    makeTransition = TRUE;
+                    fiftyPercentRightTurn(SLOW_MOTOR_SPEED);
+                    //TODO: determine how to stop turning(until tape found?)
+                    //TODO: consider 5s oh shit timer
                     break;
 
 
-                default: // all unhandled events pass the event back up to the next level
-                    break;
-            }
-            break;
-
-
-        case BeaconFound:
-            switch (ThisEvent.EventType) {
-
-                case ES_ENTRY:
-                    BEACONTIMER_START = ES_Timer_GetTime();
-                    //driveForward(SLOW_MOTOR_SPEED);
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-
-                case BEACON_LOST:
-
-                    BEACONTIMER_STOP = ES_Timer_GetTime();
-                    BEACONTIMER_DIFF = BEACONTIMER_STOP - BEACONTIMER_START;
-
-                    nextState = TargetFound;
+                case TAPE_FOUND:
+                    nextState = SecurePerimeter;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-
-
-                default: // all unhandled events pass the event back up to the next level
-                    break;
-            }
-
-            break;
 
 
 
-
-        case TargetFound:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    leftTankTurn(SLOW_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, BEACONTIMER_CENTERED);
-                    break;
-                case ES_TIMEOUT:
-                    nextState = GETCLOSER;
-                    makeTransition = TRUE;
-                    break;
-
-
-
-
-                default: // all unhandled events pass the event back up to the next level
+                default:
                     break;
             }
 
             break;
+
 
         default: // all unhandled states fall into here
             break;

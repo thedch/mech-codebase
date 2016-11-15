@@ -132,14 +132,14 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
 
                 // now put the machine into the actual initial state
                 //driveForward(MEDIUM_MOTOR_SPEED);
-                
-                
+
+
                 nextState = FindingTape;
                 makeTransition = TRUE;
                 ThisEvent.EventType = ES_NO_EVENT;
-                
-                
-                
+
+
+
             }
             break;
         case WaitingForBattery:
@@ -163,7 +163,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     // TODO: Add beacon checking to determine orientation 
                     // tank turn until you get a light sensor event
-                    
+
                     leftTankTurn(400);
                     //driveForward(MAX_MOTOR_SPEED);
                     break;
@@ -212,11 +212,15 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                //case BEACON_DETECTED:
-                //case BEACON_LOST:
-                //    ThisEvent.EventType = ES_NO_EVENT;
-                //    break;
+                    //case BEACON_DETECTED:
+                    //case BEACON_LOST:
+                    //    ThisEvent.EventType = ES_NO_EVENT;
+                    //    break;
                 case ES_TIMEOUT:
+                    break;
+                case FRONT_TRACK_WIRE_DETECTED:
+                case BACK_TRACK_WIRE_DETECTED:
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default:
                     break;
@@ -232,16 +236,20 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     rightMotor(REVERSE, SLOW_MOTOR_SPEED);
                     ES_Timer_InitTimer(2, 1150);
                     break;
-//                case ES_NO_EVENT:
-//                    break;
-//                case BEACON_DETECTED:
-//                case BEACON_LOST:
-//                    ThisEvent.EventType = ES_NO_EVENT;
-//                    break;
+                    //                case ES_NO_EVENT:
+                    //                    break;
+                    //                case BEACON_DETECTED:
+                    //                case BEACON_LOST:
+                    //                    ThisEvent.EventType = ES_NO_EVENT;
+                    //                    break;
                 case ES_TIMEOUT:
                     motorsOff();
                     nextState = DrivingToFindTrackWire;
                     makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case FRONT_TRACK_WIRE_DETECTED:
+                case BACK_TRACK_WIRE_DETECTED:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level

@@ -175,10 +175,10 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     driveBackward(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, 1200);
+                    ES_Timer_InitTimer(1, 1000);
                     break;
                 case ES_TIMEOUT:
-                    //motorsOff();
+                    motorsOff();
                     ThisEvent.EventType = ES_NO_EVENT;
                     nextState = LoadingAmmo;
                     makeTransition = TRUE;
@@ -274,7 +274,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
             break;
 
             /////////////////// MOVE TO BEACON DETECT SUBHSM //////////////////////
-            
+
         case BeaconScanning:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:

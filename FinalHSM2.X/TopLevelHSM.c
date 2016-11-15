@@ -40,6 +40,7 @@
 #include "FirstBeaconSubHSM.h"
 
 #include "MyHelperFunctions.h"
+#include "RC_Servo.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <AD.h>
@@ -200,6 +201,9 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                         BEACON_DETECTOR_PIN |
                         FRONT_TRACK_WIRE_SENSOR_PIN |
                         BACK_TRACK_WIRE_SENSOR_PIN);
+                
+                RC_Init();
+                RC_AddPins(BALL_DROP_SERVO_PIN);
 
                 InitTapeTrackingSubHSM();
                 InitTrackWireSubHSM();
@@ -247,6 +251,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
             }
             break;
         case AvoidingCollision:
+            // TODO: Delete this state or use it
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     motorsOff();
@@ -257,7 +262,6 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-            
             
         case FollowingTrackWire:
             // run sub-state machine for this state
@@ -270,35 +274,24 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     break;
                 case ES_EXIT:
                     break;
-
                 case ES_TIMEOUT:
                     break;
                 case ES_NO_EVENT:
                     break;
-
-
                 case TAPE_FOUND:
-
-
                     nextState = FirstBeacon;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-
-
-
                 default:
                     break;
             }
             break;
-
-        
 
         case FirstBeacon:
             ThisEvent = RunFirstBeaconSubHSM(ThisEvent);
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    
                     break;
                 case ES_NO_EVENT:
                     break;
@@ -306,8 +299,6 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-
-
 
         default: // all unhandled states fall into here
             break;

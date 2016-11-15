@@ -41,8 +41,8 @@
 typedef enum {
     InitPSubState,
     FoundFirstTarget,
-//    SecurePerimeter,
-//    Patrolling,
+    //    SecurePerimeter,
+    //    Patrolling,
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
@@ -70,6 +70,7 @@ static const char *StateNames[] = {
 
 static TemplateSubHSMState_t CurrentState = InitPSubState; // <- change name to match ENUM
 static uint8_t MyPriority;
+static int BallDropFlag;
 
 
 /*******************************************************************************
@@ -136,70 +137,80 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
             // Intermediate state between init and secure perimeter
         case FoundFirstTarget:
             switch (ThisEvent.EventType) {
-
                 case ES_ENTRY:
                     motorsOff();
-//                    nextState = SecurePerimeter;
-//                    makeTransition = TRUE;
-//                    ThisEvent.EventType = ES_NO_EVENT;
+                    ES_Timer_InitTimer(3, 450); // is timer 3 a good one?
                     break;
-
+                case ES_TIMEOUT:
+                    ES_Timer_InitTimer(3, 450); // is timer 3 a good one?
+                    if (BallDropFlag < 4) {
+                        toggleServo();
+                    } else {
+                        // done dropping balls, go find a new beacon
+                        ;
+                    }
+                    BallDropFlag++;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                    //                    nextState = SecurePerimeter;
+                    //                    makeTransition = TRUE;
+                    //                    ThisEvent.EventType = ES_NO_EVENT;
                 default:
                     break;
             }
             break;
-//
-//            // turn away from the beacon, until the tape sensor is off tape, then transition to Patrolling 
-//        case SecurePerimeter:
-//            switch (ThisEvent.EventType) {
-//
-//                case ES_ENTRY:
-//                    leftTankTurn(SLOW_MOTOR_SPEED);
-//
-//
-//                    break;
-//
-//                case ON_WHITE:
-//                    nextState = Patrolling;
-//                    makeTransition = TRUE;
-//                    ThisEvent.EventType = ES_NO_EVENT;
-//
-//
-//
-//                    break;
-//
-//                default:
-//                    break;
-//            }
-//
-//            break;
-//
-//        case Patrolling:
-//            switch (ThisEvent.EventType) {
-//                case ES_ENTRY:
-//                    ES_Timer_InitTimer(PATROL_TIMER, PATROL_DURATION);
-//                    driveForward(SLOW_MOTOR_SPEED);
-//                    break;
-//
-//                case ES_TIMEOUT:
-//                    fiftyPercentRightTurn(SLOW_MOTOR_SPEED);
-//                    //TODO: determine how to stop turning(until tape found?)
-//                    //TODO: consider 5s oh shit timer
-//                    break;
-//
-//
-//                case TAPE_FOUND:
-//                    nextState = SecurePerimeter;
-//                    makeTransition = TRUE;
-//                    ThisEvent.EventType = ES_NO_EVENT;
-//
-//
-//
-//                default:
-//                    break;
-//            }
-//
-//            break;
+            //
+            //            // turn away from the beacon, until the tape sensor is off tape, then transition to Patrolling 
+            //        case SecurePerimeter:
+            //            switch (ThisEvent.EventType) {
+            //
+            //                case ES_ENTRY:
+            //                    leftTankTurn(SLOW_MOTOR_SPEED);
+            //
+            //
+            //                    break;
+            //
+            //                case ON_WHITE:
+            //                    nextState = Patrolling;
+            //                    makeTransition = TRUE;
+            //                    ThisEvent.EventType = ES_NO_EVENT;
+            //
+            //
+            //
+            //                    break;
+            //
+            //                default:
+            //                    break;
+            //            }
+            //
+            //            break;
+            //
+            //        case Patrolling:
+            //            switch (ThisEvent.EventType) {
+            //                case ES_ENTRY:
+            //                    ES_Timer_InitTimer(PATROL_TIMER, PATROL_DURATION);
+            //                    driveForward(SLOW_MOTOR_SPEED);
+            //                    break;
+            //
+            //                case ES_TIMEOUT:
+            //                    fiftyPercentRightTurn(SLOW_MOTOR_SPEED);
+            //                    //TODO: determine how to stop turning(until tape found?)
+            //                    //TODO: consider 5s oh shit timer
+            //                    break;
+            //
+            //
+            //                case TAPE_FOUND:
+            //                    nextState = SecurePerimeter;
+            //                    makeTransition = TRUE;
+            //                    ThisEvent.EventType = ES_NO_EVENT;
+            //
+            //
+            //
+            //                default:
+            //                    break;
+            //            }
+            //
+            //            break;
 
 
         default: // all unhandled states fall into here

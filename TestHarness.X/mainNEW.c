@@ -120,11 +120,11 @@ int main(void) {
         //            motorsOff();
         //        }
         myDelay(LONG_DELAY);
-        RC_SetPulseTime(RC_PORTZ08, 1500);
+        toggleServo();
         myDelay(LONG_DELAY);
         myDelay(LONG_DELAY);
 
-        RC_SetPulseTime(RC_PORTZ08, 2000);
+        toggleServo();
 
 
         //        printf("%d\r\n", AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN));

@@ -14,6 +14,7 @@
 #include <LED.h>
 #include <pwm.h>
 #include "MyHelperFunctions.h"
+#include "RC_Servo.h"
 
 
 /*******************************************************************************
@@ -236,11 +237,12 @@ void rightTrackTurn(int dutyCycle) {
     PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 1.1);
 }
 
-//void DropBall(void) {
-//    myDelay(LONG_DELAY);
-//    RC_SetPulseTime(BALL_DROP_SERVO_PIN, 1500);
-//    //        myDelay(LONG_DELAY);
-//    myDelay(LONG_DELAY);
-//
-//    RC_SetPulseTime(BALL_DROP_SERVO_PIN, 2000);
-//}
+void toggleServo() {
+    if (RC_GetPulseTime(BALL_DROP_SERVO_PIN) == SERVO_POSITION_ONE) {
+        // if servo is in pos one, set to pos two
+        RC_SetPulseTime(BALL_DROP_SERVO_PIN, SERVO_POSITION_TWO);
+    } else {
+        // else set to pos one
+        RC_SetPulseTime(BALL_DROP_SERVO_PIN, SERVO_POSITION_ONE);
+    }
+}

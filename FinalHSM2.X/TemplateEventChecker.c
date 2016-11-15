@@ -119,6 +119,8 @@ uint8_t CheckBumpers(void) {
     ES_Event thisEvent;
     uint8_t returnVal = FALSE;
 
+    // TODO: Add the two new limit switches
+    
     // Check the three limit switches
     if (FRONT_LEFT_LIMIT_SWITCH_PIN && FRONT_RIGHT_LIMIT_SWITCH_PIN) {
         curEvent = FRONT_BUMPERS_HIT;

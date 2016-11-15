@@ -5,4 +5,5 @@ C:/CMPE118/include/AD.h  \
  C:/CMPE118/include/IO_Ports.h  \
 C:/CMPE118/include/LED.h  \
  C:/CMPE118/include/pwm.h  \
- C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.h 
+ C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.h  \
+ C:/CMPE118/include/RC_Servo.h 

@@ -54,9 +54,11 @@ static int GetOutFlag = 0;
 #define CENTER_TAPE_SENSOR_DATA_PIN AD_PORTV6
 #define RIGHT_TAPE_SENSOR_DATA_PIN AD_PORTV8
 
-#define BEACON_DETECTOR_PIN AD_PORTW3
+#define BEACON_DETECTOR_PIN AD_PORTV3
 
 #define BALL_DROP_SERVO_PIN RC_PORTZ08
+#define SERVO_POSITION_ONE 1500
+#define SERVO_POSITION_TWO 2000
 
 // Left Motor Directional Pin: Y11
 // Right Motor Directional Pin: Y9
@@ -227,3 +229,12 @@ void leftTrackTurn(int dutyCycle);
  * track sensor
  * @author Kenny He, 13 Nov 2016 */
 void rightTrackTurn(int dutyCycle);
+
+/**
+ * @Function toggleServo
+ * @param None
+ * @return None
+ * @brief Toggles the servo gate between positions. Calling this function twice 
+ * with ~400+ ms between calls should release a ball
+ * @author Daniel Hunter, 15 Nov 2016 */
+void toggleServo();

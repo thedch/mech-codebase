@@ -24,7 +24,8 @@ C:/CMPE118/include/ES_Events.h  \
  C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TrackWireSubHSM.h  \
  C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/FirstBeaconSubHSM.h  \
  C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.h  \
- C:/CMPE118/include/AD.h  \
-C:/CMPE118/include/IO_Ports.h  \
- C:/CMPE118/include/LED.h  \
-C:/CMPE118/include/pwm.h 
+ C:/CMPE118/include/RC_Servo.h  \
+C:/CMPE118/include/AD.h  \
+ C:/CMPE118/include/IO_Ports.h  \
+C:/CMPE118/include/LED.h  \
+ C:/CMPE118/include/pwm.h 

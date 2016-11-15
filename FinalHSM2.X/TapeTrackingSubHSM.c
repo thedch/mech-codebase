@@ -58,6 +58,7 @@ static const char *StateNames[] = {
 	"DrivingToFindTrackWire",
 };
 
+//#define CLEAR_TAPE_TIMER 3
 
 
 /*******************************************************************************
@@ -253,7 +254,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     driveForward(SLOW_MOTOR_SPEED);
                     // this is a timer to allow the robot to clear the tape
-                    ES_Timer_InitTimer(2, 150);
+                    ES_Timer_InitTimer(2, 50);
                 case TAPE_FOUND:
                     if (pastTapeFlag) {
                         nextState = LineTracking;
@@ -268,10 +269,10 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     //                   break;
                 case ES_NO_EVENT:
                     break;
-                case BEACON_DETECTED:
-                case BEACON_LOST:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
+//                case BEACON_DETECTED:
+//                case BEACON_LOST:
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    break;
                 case ES_TIMEOUT:
                     pastTapeFlag = 1; // set the flag to allow the robot to 
                     // re-find the tape

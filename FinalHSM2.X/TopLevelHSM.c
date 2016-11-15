@@ -46,6 +46,7 @@
 #include <IO_Ports.h>
 #include <LED.h>
 #include <pwm.h>
+//#include <RC_Servo.h>
 /*******************************************************************************
  * PRIVATE #DEFINES                                                            *
  ******************************************************************************/
@@ -159,6 +160,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
 
                 // Init Code
                 PWM_Init();
+               
                 PWM_SetFrequency(PWM_DEFAULT_FREQUENCY);
                 PWM_AddPins(LEFT_MOTOR_PWM_PIN | RIGHT_MOTOR_PWM_PIN);
 
@@ -204,6 +206,16 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 InitTapeTrackingSubHSM();
                 InitTrackWireSubHSM();
                 InitFirstBeaconSubHSM();
+                
+                
+//                 RC_Init();
+//                 RC_AddPins(BALL_DROP_SERVO_PIN);
+                 // might want to set this to 1500 instead, not sure yet
+                 // TODO: determine proper init freq
+//                 RC_SetPulseTime(BALL_DROP_SERVO_PIN, 2000); // set the gate to the init position
+                 
+                
+                
                 // now put the machine into the actual initial state
                 nextState = TapeTracking;
                 makeTransition = TRUE;
@@ -278,7 +290,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
 
 
                 case TAPE_FOUND:
-
+                    
 
                     nextState = FirstBeacon;
                     makeTransition = TRUE;

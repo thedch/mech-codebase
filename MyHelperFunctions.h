@@ -56,6 +56,8 @@ static int GetOutFlag = 0;
 
 #define BEACON_DETECTOR_PIN AD_PORTW3
 
+#define BALL_DROP_SERVO_PIN RC_PORTZ08
+
 // Left Motor Directional Pin: Y11
 // Right Motor Directional Pin: Y9
 // Light Sensor 1 Pin: V3

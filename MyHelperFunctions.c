@@ -16,8 +16,6 @@
 #include "MyHelperFunctions.h"
 
 
-
-
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                           *
  ******************************************************************************/
@@ -237,3 +235,12 @@ void rightTrackTurn(int dutyCycle) {
     PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle * 0.9);
     PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 1.1);
 }
+
+//void DropBall(void) {
+//    myDelay(LONG_DELAY);
+//    RC_SetPulseTime(BALL_DROP_SERVO_PIN, 1500);
+//    //        myDelay(LONG_DELAY);
+//    myDelay(LONG_DELAY);
+//
+//    RC_SetPulseTime(BALL_DROP_SERVO_PIN, 2000);
+//}

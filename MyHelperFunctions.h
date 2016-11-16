@@ -152,15 +152,6 @@ void postLEDMessage(int LEDstring);
 void tapeSensorInit();
 
 /**
- * @Function bumperInit
- * @param None
- * @return None
- * @brief Sets the correct ports to read data from the bump sensors.
- * Use the given #defines.
- * @author Daniel Hunter, 9 Nov 2016 */
-void bumperInit();
-
-/**
  * @Function leftTankTurn
  * @param None
  * @return None

@@ -46,7 +46,7 @@
 #define BATTERY_DISCONNECT_THRESHOLD 175
 
 // only define one of the following track wire macros
-#define OG_TRACK_WIRE
+#define ORIGINAL_TRACK_WIRE
 //#define WILLIAM_TRACK_VERSION_1
 //#define WILLIAM_TRACK_VERSION_2
 
@@ -174,7 +174,7 @@ uint8_t CheckBumpers(void) {
     return (returnVal);
 }
 
-#ifdef OG_TRACK_WIRE
+#ifdef ORIGINAL_TRACK_WIRE
 uint8_t CheckTrackWireSensors(void) {
 
     // To revert William's changes to this function, undefine WILLIAM_TRACK_WIRE_ALGORITHM at the top

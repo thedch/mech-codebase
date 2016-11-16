@@ -163,17 +163,13 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     // TODO: Add beacon checking to determine orientation 
-                    // tank turn until you get a light sensor event
-
                     leftTankTurn(400);
-                    //driveForward(MAX_MOTOR_SPEED);
                     break;
                 case TAPE_FOUND:
-                    // stop and begin line tracking
-                    // make transition to LineTracking
+                    motorsOff();
                     nextState = LineTracking;
                     makeTransition = TRUE;
-                    //                    ThisEvent.EventType = ES_NO_EVENT;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
                 case BEACON_LOST:
@@ -183,20 +179,18 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case ES_NO_EVENT:
                     break;
-
                 case FRONT_TRACK_WIRE_DETECTED:
                 case BACK_TRACK_WIRE_DETECTED:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }
             break;
+
         case LineTracking:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    // Robot is already on black tape, turn right
                     fiftyPercentRightTurn(SLOW_MOTOR_SPEED);
                     break;
                 case TAPE_FOUND:
@@ -219,10 +213,10 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                    //case BEACON_DETECTED:
-                    //case BEACON_LOST:
-                    //    ThisEvent.EventType = ES_NO_EVENT;
-                    //    break;
+                    case BEACON_DETECTED:
+                    case BEACON_LOST:
+                        ThisEvent.EventType = ES_NO_EVENT;
+                        break;
                 case ES_TIMEOUT:
                     break;
                 case FRONT_TRACK_WIRE_DETECTED:
@@ -237,18 +231,16 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     // back up and set a timer
-                    // this currently just drive straight backwards, I'd like to
-                    // implement actual reverse line tracking soon
                     // TODO: Add actual reverse line tracking
                     rightMotor(REVERSE, SLOW_MOTOR_SPEED);
-                    ES_Timer_InitTimer(2, 1150);
+                    ES_Timer_InitTimer(2, 950); // rotate to turn past the ball tower
                     break;
-                    //                case ES_NO_EVENT:
-                    //                    break;
-                    //                case BEACON_DETECTED:
-                    //                case BEACON_LOST:
-                    //                    ThisEvent.EventType = ES_NO_EVENT;
-                    //                    break;
+                case ES_NO_EVENT:
+                    break;
+                case BEACON_DETECTED:
+                case BEACON_LOST:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                 case ES_TIMEOUT:
                     motorsOff();
                     nextState = DrivingToFindTrackWire;

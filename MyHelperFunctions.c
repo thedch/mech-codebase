@@ -146,10 +146,6 @@ void tapeSensorInit() {
     PORTY08_LAT = 1;
 }
 
-void bumperInit() {
-    // TODO: Write this or delete it
-}
-
 void leftTankTurn(int dutyCycle) {
     PORTY11_TRIS = 0;
     PORTY09_TRIS = 0;

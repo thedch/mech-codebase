@@ -23,8 +23,9 @@
  */
 
 //At 11/15/16 2:46PM, William started messing with this file. Blame him if is is now brokend
-// As of 11/15/16 5:29PM, William Finished the rack wire with debouncing.
+// As of 11/15/16 5:29PM, William Finished the forst track wire with debouncing.
 // TODO: made adjustments to consider latency: maybe slow down driving?
+// At 11/15/16, William started trying to make a better track wire debouncing
 /*******************************************************************************
  * MODULE #INCLUDE                                                             *
  ******************************************************************************/
@@ -43,10 +44,13 @@
  * MODULE #DEFINES                                                             *
  ******************************************************************************/
 #define BATTERY_DISCONNECT_THRESHOLD 175
-//#define WILLIAM_TRACK_WIRE_ALGORITHM //undefine this to revert to old track wire detector 
+
+// only define one of the following track wire macros
+#define OG_TRACK_WIRE
 //#define WILLIAM_TRACK_VERSION_1
 //#define WILLIAM_TRACK_VERSION_2
-#define TRACK_WIRE_BUFFER 100 // If this is increased beyond, need to c
+
+#define TRACK_WIRE_BUFFER 50 
 #define FRONT_TRACK_THRESHOLD 700
 #define BACK_TRACK_THRESHOLD 400
 
@@ -170,11 +174,12 @@ uint8_t CheckBumpers(void) {
     return (returnVal);
 }
 
+#ifdef OG_TRACK_WIRE
 uint8_t CheckTrackWireSensors(void) {
 
     // To revert William's changes to this function, undefine WILLIAM_TRACK_WIRE_ALGORITHM at the top
     // DO NOT try to change this directly, might miss a start/endpoint
-#ifndef WILLIAM_TRACK_WIRE_ALGORITHM
+
     // Init Code
     static ES_EventTyp_t lastEvent = ES_NO_EVENT;
     ES_EventTyp_t curEvent;
@@ -215,11 +220,14 @@ uint8_t CheckTrackWireSensors(void) {
 #endif   
     }
     return (returnVal);
-#else
+}
+#endif
+
+#ifdef WILLIAM_TRACK_VERSION_1
+uint8_t CheckTrackWireSensors(void) {
     // init code
     //static ES_EventTyp_t lastEvent = ES_NO_EVENT;
     ES_EventTyp_t curEvent = ES_NO_EVENT;
-    ;
     ES_Event thisEvent;
     uint8_t returnVal = FALSE;
     // shift some values over to make room for the new value
@@ -277,9 +285,92 @@ uint8_t CheckTrackWireSensors(void) {
 #endif   
     }
     return (returnVal);
+}
+#endif
+#ifdef WILLIAM_TRACK_VERSION_2
+uint8_t CheckTrackWireSensors(void)
+{
+    // Init Code
+    static ES_EventTyp_t lastFrontEvent = ES_NO_EVENT;
+    static ES_EventTyp_t lastBackEvent = ES_NO_EVENT;
+    static int frontTrackDebounceVar = 0;
+    static int backTrackDebounceVar = 0;
+    ES_EventTyp_t curFrontEvent = ES_NO_EVENT;
+    ES_EventTyp_t curBackEvent = ES_NO_EVENT;
+    ES_Event thisEvent;
+    uint8_t returnVal = FALSE;
+    
+    // check if the front track wire is detecting a beacon
+    if ((AD_ReadADPin(FRONT_TRACK_WIRE_SENSOR_PIN)) < FRONT_TRACK_THRESHOLD) {
+        // increment the counter
+        frontTrackDebounceVar = frontTrackDebounceVar + 1;
+    }
+    else
+    {
+        //reset the counter if it bounced low
+        frontTrackDebounceVar=0;
+    }
+    //repeat for the back track wire
+    if ((AD_ReadADPin(BACK_TRACK_WIRE_SENSOR_PIN)) < BACK_TRACK_THRESHOLD) {
+        backTrackDebounceVar = backTrackDebounceVar + 1;
+    }
+    else
+    {
+        backTrackDebounceVar = 0;
+    }
+    
+    //alternative to storing previous state is using == instead of >= to avoid flooding
+    if(frontTrackDebounceVar >= TRACK_WIRE_BUFFER)
+    {
+        curFrontEvent = FRONT_TRACK_WIRE_DETECTED;
+    }
+    else
+    {
+        curFrontEvent = FRONT_TRACK_WIRE_LOST;
+    }
+    if (backTrackDebounceVar >= TRACK_WIRE_BUFFER)
+    {
+        curBackEvent = BACK_TRACK_WIRE_DETECTED;
+    }
+    else
+    {
+        curBackEvent =BACK_TRACK_WIRE_LOST;
+    }
+    
+    if(curFrontEvent !=lastFrontEvent)
+    {
+        // check for change from last time
+        //        printf("\r\ncurEvent != lastEvent\r\n");
+        thisEvent.EventType = curFrontEvent;
+        //        thisEvent.EventParam = bumped;
+        returnVal = TRUE;
+        lastFrontEvent = curFrontEvent; // update history
+#ifndef EVENTCHECKER_TEST           // keep this as is for test harness
+        PostTemplateHSM(thisEvent);
+#else
+        SaveEvent(thisEvent);
+#endif   
+    }
+    if(curBackEvent !=lastBackEvent)
+    {
+        // check for change from last time
+        //        printf("\r\ncurEvent != lastEvent\r\n");
+        thisEvent.EventType = curBackEvent;
+        //        thisEvent.EventParam = bumped;
+        returnVal = TRUE;
+        lastBackEvent = curBackEvent; // update history
+#ifndef EVENTCHECKER_TEST           // keep this as is for test harness
+        PostTemplateHSM(thisEvent);
+#else
+        SaveEvent(thisEvent);
+#endif   
+    }
+    
+    return (returnVal);
+}
 #endif
 
-}
+
 
 uint8_t CheckBeaconDetector(void) {
     // Init Code

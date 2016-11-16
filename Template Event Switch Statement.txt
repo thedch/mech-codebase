@@ -1,0 +1,73 @@
+case ES_ERROR:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case ES_NO_EVENT:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case ES_INIT:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case ES_ENTRY:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case ES_EXIT:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case ES_KEYINPUT:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case ES_LISTEVENTS:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case ES_TIMEOUT:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case ES_TIMERACTIVE:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case ES_TIMERSTOPPED:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case FRONT_BUMPERS_HIT:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case FRONT_LEFT_BUMPER_HIT:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case FRONT_RIGHT_BUMPER_HIT:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case BACK_BUMPER_HIT:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case TAPE_FOUND:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case ON_WHITE:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case FRONT_TRACK_WIRE_DETECTED:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case BACK_TRACK_WIRE_DETECTED:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case BOTH_TRACK_WIRES_DETECTED:                    
+ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case BEACON_DETECTED:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case BEACON_LOST:                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case GET_OUT_TRACK:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case BATTERY_CONNECTED:                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case BATTERY_DISCONNECTED:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+case NUMBEROFEVENTS:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;

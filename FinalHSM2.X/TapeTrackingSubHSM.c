@@ -22,6 +22,7 @@
  * 10/23/11 18:20 jec      began conversion from SMTemplate.c (02/20/07 rev)
  */
 
+//At 11/15/16 2:46PM, William started messing with this file. Blame him if is is now brokend
 
 /*******************************************************************************
  * MODULE #INCLUDE                                                             *
@@ -182,6 +183,12 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case ES_NO_EVENT:
                     break;
+
+                case FRONT_TRACK_WIRE_DETECTED:
+                case BACK_TRACK_WIRE_DETECTED:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }

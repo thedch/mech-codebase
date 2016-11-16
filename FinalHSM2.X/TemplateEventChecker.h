@@ -101,7 +101,9 @@ uint8_t CheckBeaconDetector(void);
  */
 uint8_t CheckTapeSensors(void);
 
+uint8_t RCheckTapeSensors(void);
 
+uint8_t LCheckTapeSensors(void);
 
 #endif	/* TEMPLATEEVENTCHECKER_H */
 

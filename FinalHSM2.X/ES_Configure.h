@@ -50,6 +50,10 @@ typedef enum {
     BACK_BUMPER_HIT,
     TAPE_FOUND,
     ON_WHITE,
+    LEFT_TAPE_FOUND,
+    LEFT_ON_WHITE,
+    RIGHT_TAPE_FOUND,
+    RIGHT_ON_WHITE,
     FRONT_TRACK_WIRE_DETECTED,
     BACK_TRACK_WIRE_DETECTED,
     BOTH_TRACK_WIRES_DETECTED,
@@ -80,6 +84,10 @@ static const char *EventNames[] = {
 	"BACK_BUMPER_HIT",
 	"TAPE_FOUND",
 	"ON_WHITE",
+	"LEFT_TAPE_FOUND",
+	"LEFT_ON_WHITE",
+	"RIGHT_TAPE_FOUND",
+	"RIGHT_ON_WHITE",
 	"FRONT_TRACK_WIRE_DETECTED",
 	"BACK_TRACK_WIRE_DETECTED",
 	"BOTH_TRACK_WIRES_DETECTED",
@@ -97,7 +105,7 @@ static const char *EventNames[] = {
 
 /****************************************************************************/
 // This is the list of event checking functions
-#define EVENT_CHECK_LIST TemplateCheckBattery, CheckBumpers, CheckTapeSensors, CheckTrackWireSensors, CheckBeaconDetector
+#define EVENT_CHECK_LIST TemplateCheckBattery, CheckBumpers, CheckTapeSensors, CheckTrackWireSensors, CheckBeaconDetector, LCheckTapeSensors, RCheckTapeSensors
 
 /****************************************************************************/
 // These are the definitions for the post functions to be executed when the
@@ -109,8 +117,8 @@ static const char *EventNames[] = {
 #define TIMER2_RESP_FUNC PostTemplateHSM
 #define TIMER3_RESP_FUNC PostTemplateHSM
 #define TIMER4_RESP_FUNC PostTemplateHSM
-#define TIMER5_RESP_FUNC TIMER_UNUSED
-#define TIMER6_RESP_FUNC TIMER_UNUSED
+#define TIMER5_RESP_FUNC PostTemplateHSM
+#define TIMER6_RESP_FUNC PostTemplateHSM
 #define TIMER7_RESP_FUNC TIMER_UNUSED
 #define TIMER8_RESP_FUNC TIMER_UNUSED
 #define TIMER9_RESP_FUNC TIMER_UNUSED

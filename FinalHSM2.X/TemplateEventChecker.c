@@ -22,6 +22,9 @@
  * Created on September 27, 2013, 8:37 AM
  */
 
+//At 11/15/16 2:46PM, William started messing with this file. Blame him if is is now brokend
+// As of 11/15/16 5:29PM, William Finished the rack wire with debouncing.
+// TODO: made adjustments to consider latency: maybe slow down driving?
 /*******************************************************************************
  * MODULE #INCLUDE                                                             *
  ******************************************************************************/
@@ -40,7 +43,18 @@
  * MODULE #DEFINES                                                             *
  ******************************************************************************/
 #define BATTERY_DISCONNECT_THRESHOLD 175
+//#define WILLIAM_TRACK_WIRE_ALGORITHM //undefine this to revert to old track wire detector 
+//#define WILLIAM_TRACK_VERSION_1
+//#define WILLIAM_TRACK_VERSION_2
+#define TRACK_WIRE_BUFFER 100 // If this is increased beyond, need to c
+#define FRONT_TRACK_THRESHOLD 700
+#define BACK_TRACK_THRESHOLD 400
 
+// enum for various track wire detection states. UNSTABLE refers to our unknown state on start-up
+
+enum TrackStatus {
+    UNSTABLE, OFF, ON
+};
 /*******************************************************************************
  * EVENTCHECKER_TEST SPECIFIC CODE                                                             *
  ******************************************************************************/
@@ -68,6 +82,14 @@ static ES_Event storedEvent;
    events would be placed here. Private variables should be STATIC so that they
    are limited in scope to this module. */
 
+//These are the variables used to handle debouncing of the track wires.
+//static int trackStateReady = 0; // this variable is used to ignore events the first 8 times the track wire event checker is run
+static uint8_t backTrackRecord;
+static uint8_t frontTrackRecord;
+static enum TrackStatus backLastState = UNSTABLE;
+static enum TrackStatus backCurrentState = UNSTABLE;
+static enum TrackStatus frontLastState = UNSTABLE;
+static enum TrackStatus frontCurrentState = UNSTABLE;
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                            *
  ******************************************************************************/
@@ -120,7 +142,7 @@ uint8_t CheckBumpers(void) {
     uint8_t returnVal = FALSE;
 
     // TODO: Add the two new limit switches
-    
+
     // Check the three limit switches
     if (FRONT_LEFT_LIMIT_SWITCH_PIN && FRONT_RIGHT_LIMIT_SWITCH_PIN) {
         curEvent = FRONT_BUMPERS_HIT;
@@ -149,6 +171,10 @@ uint8_t CheckBumpers(void) {
 }
 
 uint8_t CheckTrackWireSensors(void) {
+
+    // To revert William's changes to this function, undefine WILLIAM_TRACK_WIRE_ALGORITHM at the top
+    // DO NOT try to change this directly, might miss a start/endpoint
+#ifndef WILLIAM_TRACK_WIRE_ALGORITHM
     // Init Code
     static ES_EventTyp_t lastEvent = ES_NO_EVENT;
     ES_EventTyp_t curEvent;
@@ -189,6 +215,70 @@ uint8_t CheckTrackWireSensors(void) {
 #endif   
     }
     return (returnVal);
+#else
+    // init code
+    //static ES_EventTyp_t lastEvent = ES_NO_EVENT;
+    ES_EventTyp_t curEvent = ES_NO_EVENT;
+    ;
+    ES_Event thisEvent;
+    uint8_t returnVal = FALSE;
+    // shift some values over to make room for the new value
+    frontTrackRecord = frontTrackRecord << 1;
+    backTrackRecord = backTrackRecord << 1;
+    // update each Track wire record with a 1 in the rightmost bit if we detect the track wire
+    if ((AD_ReadADPin(FRONT_TRACK_WIRE_SENSOR_PIN)) < FRONT_TRACK_THRESHOLD) {
+        frontTrackRecord = frontTrackRecord + 1;
+    }
+    if ((AD_ReadADPin(BACK_TRACK_WIRE_SENSOR_PIN)) < BACK_TRACK_THRESHOLD) {
+        backTrackRecord = backTrackRecord + 1;
+    }
+    // update the current status if necessary
+    // update the front 
+    if (frontTrackRecord == 0xFF) {
+        frontCurrentState = ON;
+        //printf("FRONT ON\r\n");
+    } else if (frontTrackRecord == 0x00) {
+        frontCurrentState = OFF;
+        //printf("FRONT OFF\r\n");
+    }
+    if (backTrackRecord == 0xFF) {
+        backCurrentState = ON;
+        //printf("BACK ON\r\n");
+    } else if (backTrackRecord == 0x00) {
+        backCurrentState = OFF;
+        //printf("BACK OFF\r\n");
+    }
+    // check for state changes and post events accordingly
+    curEvent = ES_NO_EVENT;
+    if (frontCurrentState == ON && frontLastState == OFF) {
+        curEvent = FRONT_TRACK_WIRE_DETECTED;
+        returnVal = TRUE;
+    } else {
+        // room to add lost track wire event if needed
+    }
+    if (backCurrentState == ON && backLastState == OFF) {
+        curEvent = BACK_TRACK_WIRE_DETECTED;
+        returnVal = TRUE;
+    } else {
+        // room to add lost track wire event
+    }
+    // update the last states of each track wire
+    frontLastState = frontCurrentState;
+    backLastState = backCurrentState;
+
+    //prepare thisEvent for posting if there was an event 
+
+    if (returnVal) {
+        thisEvent.EventType = curEvent;
+#ifndef EVENTCHECKER_TEST           // keep this as is for test harness
+        PostTemplateHSM(thisEvent);
+#else
+        SaveEvent(thisEvent);
+#endif   
+    }
+    return (returnVal);
+#endif
+
 }
 
 uint8_t CheckBeaconDetector(void) {
@@ -258,10 +348,109 @@ uint8_t CheckTapeSensors(void) {
     }
 
     // TODO: For now, I'm just going to use the front tape sensor for tracking
-    //    if (AD_ReadADPin(RIGHT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
+    //        if (AD_ReadADPin(RIGHT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
+    //            curEvent = TAPE_FOUND;
+    //            thisEvent.EventParam = thisEvent.EventParam | 0b0001;
+    //        }
+
+    if (curEvent != lastEvent) { // check for change from last time
+        thisEvent.EventType = curEvent;
+        //        thisEvent.EventParam = bumped;
+        returnVal = TRUE;
+        lastEvent = curEvent; // update history
+#ifndef EVENTCHECKER_TEST           // keep this as is for test harness
+        PostTemplateHSM(thisEvent);
+#else
+        SaveEvent(thisEvent);
+#endif
+    }
+    return (returnVal);
+}
+
+
+
+uint8_t LCheckTapeSensors(void) {
+    // Init Code
+    static ES_EventTyp_t lastEvent = ES_NO_EVENT;
+    ES_EventTyp_t curEvent;
+    ES_Event thisEvent;
+    uint8_t returnVal = FALSE;
+
+    // Set the current event to be no event, this is only changed if one of the 
+    // if statements triggers
+    //    curEvent = ES_NO_EVENT;
+    thisEvent.EventParam = 0;
+    // Check the tape sensors
+
+    // TODO: LEFT TAPE SENSOR CURRENTLY BROKEN, FIX THIS
+    //    if (AD_ReadADPin(LEFT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
     //        curEvent = TAPE_FOUND;
-    //        thisEvent.EventParam = thisEvent.EventParam | 0b0001;
-    //    }
+    //        thisEvent.EventParam = thisEvent.EventParam | 0b0100;
+    //    } 
+
+
+
+     if (AD_ReadADPin(LEFT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
+        curEvent = LEFT_TAPE_FOUND;
+        thisEvent.EventParam = thisEvent.EventParam | 0b0010;
+    } else if (AD_ReadADPin(LEFT_TAPE_SENSOR_DATA_PIN) < WHITE_THRESHOLD) {
+        curEvent = LEFT_ON_WHITE;
+    }
+    
+
+    // TODO: For now, I'm just going to use the front tape sensor for tracking
+    //        if (AD_ReadADPin(RIGHT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
+    //            curEvent = TAPE_FOUND;
+    //            thisEvent.EventParam = thisEvent.EventParam | 0b0001;
+    //        }
+
+    if (curEvent != lastEvent) { // check for change from last time
+        thisEvent.EventType = curEvent;
+        //        thisEvent.EventParam = bumped;
+        returnVal = TRUE;
+        lastEvent = curEvent; // update history
+#ifndef EVENTCHECKER_TEST           // keep this as is for test harness
+        PostTemplateHSM(thisEvent);
+#else
+        SaveEvent(thisEvent);
+#endif
+    }
+    return (returnVal);
+}
+
+
+
+uint8_t RCheckTapeSensors(void) {
+    // Init Code
+    static ES_EventTyp_t lastEvent = ES_NO_EVENT;
+    ES_EventTyp_t curEvent;
+    ES_Event thisEvent;
+    uint8_t returnVal = FALSE;
+
+    // Set the current event to be no event, this is only changed if one of the 
+    // if statements triggers
+    //    curEvent = ES_NO_EVENT;
+    thisEvent.EventParam = 0;
+    // Check the tape sensors
+
+    // TODO: LEFT TAPE SENSOR CURRENTLY BROKEN, FIX THIS
+    //    if (AD_ReadADPin(LEFT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
+    //        curEvent = TAPE_FOUND;
+    //        thisEvent.EventParam = thisEvent.EventParam | 0b0100;
+    //    } 
+
+    
+    if (AD_ReadADPin(RIGHT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
+        curEvent = RIGHT_TAPE_FOUND;
+        thisEvent.EventParam = thisEvent.EventParam | 0b0010;
+    } else if (AD_ReadADPin(RIGHT_TAPE_SENSOR_DATA_PIN) < WHITE_THRESHOLD) {
+        curEvent = RIGHT_ON_WHITE;
+    }
+    // TODO: For now, I'm just going to use the front tape sensor for tracking
+    //        if (AD_ReadADPin(RIGHT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
+    //            curEvent = TAPE_FOUND;
+    //            thisEvent.EventParam = thisEvent.EventParam | 0b0001;
+    //        }
 
     if (curEvent != lastEvent) { // check for change from last time
         thisEvent.EventType = curEvent;

@@ -115,26 +115,25 @@ uint8_t TemplateCheckBattery(void) {
 uint8_t CheckFrontLeftBumper(void) {
     // Init Code
     static ES_EventTyp_t lastEvent = FRONT_LEFT_BUMPER_LOW;
+    static int leftBumperDebounceVar;
     ES_EventTyp_t curEvent;
     ES_Event thisEvent;
     uint8_t returnVal = FALSE;
 
-    // TODO: Add the two new limit switches
+    if ((IO_PortsReadPort(PORTZ) & PIN7) == PIN7) {
+        leftBumperDebounceVar++;
+    } else if ((IO_PortsReadPort(PORTZ) & PIN8) == PIN8) {
+        leftBumperDebounceVar++;
+    } else {
+        leftBumperDebounceVar = 0;
+    }
 
-    // Check the three limit switches
-    //    if (FRONT_LEFT_INNER_LIMIT_SWITCH_PIN && FRONT_RIGHT_INNER_LIMIT_SWITCH_PIN) {
-    //        curEvent = FRONT_BUMPERS_HIT;
-    //    } else 
-    if (((IO_PortsReadPort(PORTZ) & PIN8) == PIN8) ||
-            ((IO_PortsReadPort(PORTZ) & PIN7) == PIN7)) {
+    if (leftBumperDebounceVar > 10) {
         curEvent = FRONT_LEFT_BUMPER_HIT;
     } else {
         curEvent = FRONT_LEFT_BUMPER_LOW;
     }
-    //        else if (BACK_LIMIT_SWITCH_PIN) {
-    //        curEvent = BACK_BUMPER_HIT;
-    //        printf("\r\nBACK LIMIT SWITCH HIT\r\n");
-    //    }
+
 
     if (curEvent != lastEvent) { // check for change from last time
         thisEvent.EventType = curEvent;
@@ -152,26 +151,32 @@ uint8_t CheckFrontLeftBumper(void) {
 uint8_t CheckFrontRightBumper(void) {
     // Init Code
     static ES_EventTyp_t lastEvent = FRONT_RIGHT_BUMPER_LOW;
+    static int rightBumperDebounceVar;
     ES_EventTyp_t curEvent;
     ES_Event thisEvent;
     uint8_t returnVal = FALSE;
+    // X10 or X09
+    
+    if ((IO_PortsReadPort(PORTX) & PIN9) == PIN9) {
+        rightBumperDebounceVar++;
+    } else if ((IO_PortsReadPort(PORTX) & PIN10) == PIN10) {
+        rightBumperDebounceVar++;
+    } else {
+        rightBumperDebounceVar = 0;
+    }
 
-    // TODO: Add the two new limit switches
-
-    // Check the three limit switches
-    //    if (FRONT_LEFT_INNER_LIMIT_SWITCH_PIN && FRONT_RIGHT_INNER_LIMIT_SWITCH_PIN) {
-    //        curEvent = FRONT_BUMPERS_HIT;
-    //    } else 
-    if (((IO_PortsReadPort(PORTX) & PIN10) == PIN10) ||
-            ((IO_PortsReadPort(PORTX) & PIN9) == PIN9)) {
+    if (rightBumperDebounceVar > 10) {
         curEvent = FRONT_RIGHT_BUMPER_HIT;
     } else {
         curEvent = FRONT_RIGHT_BUMPER_LOW;
     }
-    //        else if (BACK_LIMIT_SWITCH_PIN) {
-    //        curEvent = BACK_BUMPER_HIT;
-    //        printf("\r\nBACK LIMIT SWITCH HIT\r\n");
-    //    }
+
+//    if ((IO_PortsReadPort(PORTX) & PIN10) == PIN10) {
+//        curEvent = FRONT_RIGHT_BUMPER_HIT;
+//    } else {
+//        curEvent = FRONT_RIGHT_BUMPER_LOW;
+//    }
+
 
     if (curEvent != lastEvent) { // check for change from last time
         thisEvent.EventType = curEvent;

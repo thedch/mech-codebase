@@ -113,29 +113,32 @@ static enum TrackStatus frontCurrentState = UNSTABLE;
  * @author Gabriel H Elkaim, 2013.09.27 09:18
  * @modified Gabriel H Elkaim/Max Dunne, 2016.09.12 20:08 */
 uint8_t TemplateCheckBattery(void) {
-    static ES_EventTyp_t lastEvent = BATTERY_DISCONNECTED;
-    ES_EventTyp_t curEvent;
-    ES_Event thisEvent;
-    uint8_t returnVal = FALSE;
-    uint16_t batVoltage = AD_ReadADPin(BAT_VOLTAGE); // read the battery voltage
-
-    if (batVoltage > BATTERY_DISCONNECT_THRESHOLD) { // is battery connected?
-        curEvent = BATTERY_CONNECTED;
-    } else {
-        curEvent = BATTERY_DISCONNECTED;
-    }
-    if (curEvent != lastEvent) { // check for change from last time
-        thisEvent.EventType = curEvent;
-        thisEvent.EventParam = batVoltage;
-        returnVal = TRUE;
-        lastEvent = curEvent; // update history
-#ifndef EVENTCHECKER_TEST           // keep this as is for test harness
-        PostTemplateHSM(thisEvent);
-#else
-        SaveEvent(thisEvent);
-#endif   
-    }
-    return (returnVal);
+    return 0;
+    
+//    static ES_EventTyp_t lastEvent = BATTERY_DISCONNECTED;
+//    ES_EventTyp_t curEvent;
+//    ES_Event thisEvent;
+//    uint8_t returnVal = FALSE;
+//    uint16_t batVoltage = AD_ReadADPin(BAT_VOLTAGE); // read the battery voltage
+//
+//    if (batVoltage > BATTERY_DISCONNECT_THRESHOLD) { // is battery connected?
+//        curEvent = BATTERY_CONNECTED;
+//    } else {
+//        curEvent = BATTERY_DISCONNECTED;
+//    }
+//    
+//    if (curEvent != lastEvent) { // check for change from last time
+//        thisEvent.EventType = curEvent;
+//        thisEvent.EventParam = batVoltage;
+//        returnVal = TRUE;
+//        lastEvent = curEvent; // update history
+//#ifndef EVENTCHECKER_TEST           // keep this as is for test harness
+//        PostTemplateHSM(thisEvent);
+//#else
+//        SaveEvent(thisEvent);
+//#endif   
+//    }
+//    return (returnVal);
 }
 
 uint8_t CheckBumpers(void) {
@@ -155,14 +158,13 @@ uint8_t CheckBumpers(void) {
     } else if (FRONT_RIGHT_LIMIT_SWITCH_PIN) {
         curEvent = FRONT_RIGHT_BUMPER_HIT;
     } else if (BACK_LIMIT_SWITCH_PIN) {
-        curEvent = BACK_BUMPER_HIT;
+//        curEvent = BACK_BUMPER_HIT;
     } else {
         curEvent = ES_NO_EVENT;
     }
 
     if (curEvent != lastEvent) { // check for change from last time
         thisEvent.EventType = curEvent;
-        //        thisEvent.EventParam = bumped;
         returnVal = TRUE;
         lastEvent = curEvent; // update history
 #ifndef EVENTCHECKER_TEST           // keep this as is for test harness
@@ -175,6 +177,7 @@ uint8_t CheckBumpers(void) {
 }
 
 #ifdef ORIGINAL_TRACK_WIRE
+
 uint8_t CheckTrackWireSensors(void) {
 
     // To revert William's changes to this function, undefine WILLIAM_TRACK_WIRE_ALGORITHM at the top
@@ -182,25 +185,28 @@ uint8_t CheckTrackWireSensors(void) {
 
     // Init Code
     static ES_EventTyp_t lastEvent = ES_NO_EVENT;
+    static int backTrackWireDebounceVar;
+    static int frontTrackWireDebounceVar;
     ES_EventTyp_t curEvent;
     ES_Event thisEvent;
     uint8_t returnVal = FALSE;
-
-
-    //    if (AD_ActivePins() & AD_PORTV3) {
-    //        printf("\r\nPin is active");
-    //    }
-
-    //    printf("\r\n%d\r\n", AD_ReadADPin(BACK_TRACK_WIRE_SENSOR_PIN));
 
     // Check the two track wire sensors
     //    if (((AD_ReadADPin(FRONT_TRACK_WIRE_SENSOR_PIN)) < 700) && 
     //            ((AD_ReadADPin(BACK_TRACK_WIRE_SENSOR_PIN)) < 700)) {
 
     // TODO: Fix the simultaneous track wire sensor event
-    if (0) {
-        curEvent = BOTH_TRACK_WIRES_DETECTED;
-    } else if ((AD_ReadADPin(FRONT_TRACK_WIRE_SENSOR_PIN)) < 700) {
+
+//    if ((AD_ReadADPin(FRONT_TRACK_WIRE_SENSOR_PIN)) < 400) {
+//        frontTrackWireDebounceVar++;
+//    } else if ((AD_ReadADPin(BACK_TRACK_WIRE_SENSOR_PIN)) < 400) {
+//        curEvent = BACK_TRACK_WIRE_DETECTED;
+//    } else {
+//        curEvent = ES_NO_EVENT;
+//    }
+
+
+    if ((AD_ReadADPin(FRONT_TRACK_WIRE_SENSOR_PIN)) < 400) {
         curEvent = FRONT_TRACK_WIRE_DETECTED;
     } else if ((AD_ReadADPin(BACK_TRACK_WIRE_SENSOR_PIN)) < 400) {
         curEvent = BACK_TRACK_WIRE_DETECTED;
@@ -224,6 +230,7 @@ uint8_t CheckTrackWireSensors(void) {
 #endif
 
 #ifdef WILLIAM_TRACK_VERSION_1
+
 uint8_t CheckTrackWireSensors(void) {
     // init code
     //static ES_EventTyp_t lastEvent = ES_NO_EVENT;
@@ -288,8 +295,8 @@ uint8_t CheckTrackWireSensors(void) {
 }
 #endif
 #ifdef WILLIAM_TRACK_VERSION_2
-uint8_t CheckTrackWireSensors(void)
-{
+
+uint8_t CheckTrackWireSensors(void) {
     // Init Code
     static ES_EventTyp_t lastFrontEvent = ES_NO_EVENT;
     static ES_EventTyp_t lastBackEvent = ES_NO_EVENT;
@@ -299,50 +306,38 @@ uint8_t CheckTrackWireSensors(void)
     ES_EventTyp_t curBackEvent = ES_NO_EVENT;
     ES_Event thisEvent;
     uint8_t returnVal = FALSE;
-    
+
     // check if the front track wire is detecting a beacon
     if ((AD_ReadADPin(FRONT_TRACK_WIRE_SENSOR_PIN)) < FRONT_TRACK_THRESHOLD) {
         // increment the counter
         frontTrackDebounceVar = frontTrackDebounceVar + 1;
-    }
-    else
-    {
+    } else {
         //reset the counter if it bounced low
-        frontTrackDebounceVar=0;
+        frontTrackDebounceVar = 0;
     }
     //repeat for the back track wire
     if ((AD_ReadADPin(BACK_TRACK_WIRE_SENSOR_PIN)) < BACK_TRACK_THRESHOLD) {
         backTrackDebounceVar = backTrackDebounceVar + 1;
-    }
-    else
-    {
+    } else {
         backTrackDebounceVar = 0;
     }
-    
+
     //alternative to storing previous state is using == instead of >= to avoid flooding
-    if(frontTrackDebounceVar >= TRACK_WIRE_BUFFER)
-    {
+    if (frontTrackDebounceVar >= TRACK_WIRE_BUFFER) {
         curFrontEvent = FRONT_TRACK_WIRE_DETECTED;
-    }
-    else
-    {
+    } else {
         curFrontEvent = FRONT_TRACK_WIRE_LOST;
     }
-    if (backTrackDebounceVar >= TRACK_WIRE_BUFFER)
-    {
+    if (backTrackDebounceVar >= TRACK_WIRE_BUFFER) {
         curBackEvent = BACK_TRACK_WIRE_DETECTED;
+    } else {
+        curBackEvent = BACK_TRACK_WIRE_LOST;
     }
-    else
-    {
-        curBackEvent =BACK_TRACK_WIRE_LOST;
-    }
-    
-    if(curFrontEvent !=lastFrontEvent)
-    {
+
+    if (curFrontEvent != lastFrontEvent) {
         // check for change from last time
         //        printf("\r\ncurEvent != lastEvent\r\n");
         thisEvent.EventType = curFrontEvent;
-        //        thisEvent.EventParam = bumped;
         returnVal = TRUE;
         lastFrontEvent = curFrontEvent; // update history
 #ifndef EVENTCHECKER_TEST           // keep this as is for test harness
@@ -351,8 +346,7 @@ uint8_t CheckTrackWireSensors(void)
         SaveEvent(thisEvent);
 #endif   
     }
-    if(curBackEvent !=lastBackEvent)
-    {
+    if (curBackEvent != lastBackEvent) {
         // check for change from last time
         //        printf("\r\ncurEvent != lastEvent\r\n");
         thisEvent.EventType = curBackEvent;
@@ -365,12 +359,10 @@ uint8_t CheckTrackWireSensors(void)
         SaveEvent(thisEvent);
 #endif   
     }
-    
+
     return (returnVal);
 }
 #endif
-
-
 
 uint8_t CheckBeaconDetector(void) {
     // Init Code
@@ -400,7 +392,6 @@ uint8_t CheckBeaconDetector(void) {
     if (curEvent != lastEvent) { // check for change from last time
         //        printf("\r\ncurEvent != lastEvent\r\n");
         thisEvent.EventType = curEvent;
-        //        thisEvent.EventParam = bumped;
         returnVal = TRUE;
         lastEvent = curEvent; // update history
 #ifndef EVENTCHECKER_TEST           // keep this as is for test harness
@@ -446,7 +437,6 @@ uint8_t CheckTapeSensors(void) {
 
     if (curEvent != lastEvent) { // check for change from last time
         thisEvent.EventType = curEvent;
-        //        thisEvent.EventParam = bumped;
         returnVal = TRUE;
         lastEvent = curEvent; // update history
 #ifndef EVENTCHECKER_TEST           // keep this as is for test harness
@@ -457,8 +447,6 @@ uint8_t CheckTapeSensors(void) {
     }
     return (returnVal);
 }
-
-
 
 uint8_t LCheckTapeSensors(void) {
     // Init Code
@@ -481,13 +469,13 @@ uint8_t LCheckTapeSensors(void) {
 
 
 
-     if (AD_ReadADPin(LEFT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
+    if (AD_ReadADPin(LEFT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
         curEvent = LEFT_TAPE_FOUND;
         thisEvent.EventParam = thisEvent.EventParam | 0b0010;
     } else if (AD_ReadADPin(LEFT_TAPE_SENSOR_DATA_PIN) < WHITE_THRESHOLD) {
         curEvent = LEFT_ON_WHITE;
     }
-    
+
 
     // TODO: For now, I'm just going to use the front tape sensor for tracking
     //        if (AD_ReadADPin(RIGHT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
@@ -497,7 +485,6 @@ uint8_t LCheckTapeSensors(void) {
 
     if (curEvent != lastEvent) { // check for change from last time
         thisEvent.EventType = curEvent;
-        //        thisEvent.EventParam = bumped;
         returnVal = TRUE;
         lastEvent = curEvent; // update history
 #ifndef EVENTCHECKER_TEST           // keep this as is for test harness
@@ -508,8 +495,6 @@ uint8_t LCheckTapeSensors(void) {
     }
     return (returnVal);
 }
-
-
 
 uint8_t RCheckTapeSensors(void) {
     // Init Code
@@ -530,7 +515,7 @@ uint8_t RCheckTapeSensors(void) {
     //        thisEvent.EventParam = thisEvent.EventParam | 0b0100;
     //    } 
 
-    
+
     if (AD_ReadADPin(RIGHT_TAPE_SENSOR_DATA_PIN) > BLACK_TAPE_THRESHOLD) {
         curEvent = RIGHT_TAPE_FOUND;
         thisEvent.EventParam = thisEvent.EventParam | 0b0010;
@@ -545,7 +530,6 @@ uint8_t RCheckTapeSensors(void) {
 
     if (curEvent != lastEvent) { // check for change from last time
         thisEvent.EventType = curEvent;
-        //        thisEvent.EventParam = bumped;
         returnVal = TRUE;
         lastEvent = curEvent; // update history
 #ifndef EVENTCHECKER_TEST           // keep this as is for test harness

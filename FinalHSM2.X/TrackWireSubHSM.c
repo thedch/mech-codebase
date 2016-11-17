@@ -188,7 +188,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     driveBackward(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, 1000);
+                    ES_Timer_InitTimer(4, 1000);
                     break;
                 case ES_TIMEOUT:
                     motorsOff();

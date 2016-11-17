@@ -173,7 +173,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case BEACON_DETECTED:
                 case BEACON_LOST:
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    //ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_EXIT:
                     break;
@@ -181,7 +181,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case FRONT_TRACK_WIRE_DETECTED:
                 case BACK_TRACK_WIRE_DETECTED:
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    //ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
@@ -221,7 +221,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case FRONT_TRACK_WIRE_DETECTED:
                 case BACK_TRACK_WIRE_DETECTED:
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    //ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default:
                     break;
@@ -239,7 +239,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case BEACON_DETECTED:
                 case BEACON_LOST:
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    //ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
                     motorsOff();
@@ -249,7 +249,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case FRONT_TRACK_WIRE_DETECTED:
                 case BACK_TRACK_WIRE_DETECTED:
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    //ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
@@ -277,7 +277,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case BEACON_DETECTED:
                 case BEACON_LOST:
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    //ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
                     pastTapeFlag = 1; // set the flag to allow the robot to 

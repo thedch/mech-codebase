@@ -163,14 +163,14 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 PWM_SetFrequency(PWM_DEFAULT_FREQUENCY);
                 PWM_AddPins(LEFT_MOTOR_PWM_PIN | RIGHT_MOTOR_PWM_PIN);
 
-                LED_Init();
-                LED_AddBanks(LED_BANK1); // init all the LEDs
-                LED_AddBanks(LED_BANK2);
-                LED_AddBanks(LED_BANK3);
-
-                LED_SetBank(LED_BANK1, 0b0110);
-                LED_SetBank(LED_BANK2, 0x00);
-                LED_SetBank(LED_BANK3, 0x00);
+                //                LED_Init();
+                //                LED_AddBanks(LED_BANK1); // init all the LEDs
+                //                LED_AddBanks(LED_BANK2);
+                //                LED_AddBanks(LED_BANK3);
+                //
+                //                LED_SetBank(LED_BANK1, 0b0110);
+                //                LED_SetBank(LED_BANK2, 0x00);
+                //                LED_SetBank(LED_BANK3, 0x00);
 
                 // Bumper Sensor Power Pins
                 //                IO_PortsSetPortOutputs(PORTX, PIN12);
@@ -188,7 +188,8 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
 
                 // Tape Sensor Power
                 IO_PortsSetPortOutputs(PORTY, PIN8);
-                IO_PortsSetPortBits(PORTY, PIN8);
+                IO_PortsClearPortBits(PORTY, PIN8);
+                //                IO_PortsSetPortBits(PORTY, PIN8);
 
                 // Tape Sensor Inputs
                 IO_PortsSetPortInputs(PORTZ, PIN3);

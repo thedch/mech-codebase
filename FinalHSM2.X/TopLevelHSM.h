@@ -41,6 +41,10 @@
  * PUBLIC FUNCTION PROTOTYPES                                                  *
  ******************************************************************************/
 
+uint8_t TapeSensorLEDOn(ES_Event ThisEvent);
+uint8_t TapeSensorLEDOff(ES_Event ThisEvent);
+
+
 /**
  * @Function InitTemplateHSM(uint8_t Priority)
  * @param Priority - internal variable to track which event queue to use

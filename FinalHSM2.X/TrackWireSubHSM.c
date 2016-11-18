@@ -336,7 +336,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-
+            
         case DriveToGetWithinRangeOfBeacon:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:

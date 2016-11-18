@@ -92,6 +92,8 @@ uint8_t CheckBackTrackWireSensors(void);
 
 uint8_t CheckFrontTrackWireSensors(void);
 
+uint8_t TapeSensorEventChecker(void);
+
 /**
  * @Function CheckBeaconDetector(void)
  * @param none

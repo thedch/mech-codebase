@@ -15,8 +15,6 @@
 #ifndef CONFIGURE_H
 #define CONFIGURE_H
 
-
-
 //defines for keyboard input
 //#define USE_KEYBOARD_INPUT
 //What State machine are we testing
@@ -55,6 +53,8 @@ typedef enum {
     LEFT_ON_WHITE,
     RIGHT_TAPE_FOUND,
     RIGHT_ON_WHITE,
+    ALL_TAPE_WHITE,
+    TAPE_ON,
     FRONT_TRACK_WIRE_DETECTED,
     BACK_TRACK_WIRE_DETECTED,
     BOTH_TRACK_WIRES_DETECTED,
@@ -92,6 +92,8 @@ static const char *EventNames[] = {
 	"LEFT_ON_WHITE",
 	"RIGHT_TAPE_FOUND",
 	"RIGHT_ON_WHITE",
+	"ALL_TAPE_WHITE",
+	"TAPE_ON",
 	"FRONT_TRACK_WIRE_DETECTED",
 	"BACK_TRACK_WIRE_DETECTED",
 	"BOTH_TRACK_WIRES_DETECTED",
@@ -111,7 +113,8 @@ static const char *EventNames[] = {
 
 /****************************************************************************/
 // This is the list of event checking functions
-#define EVENT_CHECK_LIST TemplateCheckBattery, CheckFrontLeftBumper, CheckFrontRightBumper, CheckBeaconDetector, CheckTapeSensors, LCheckTapeSensors, RCheckTapeSensors, CheckFrontTrackWireSensors, CheckBackTrackWireSensors, 
+#define EVENT_CHECK_LIST TemplateCheckBattery, CheckFrontLeftBumper, CheckFrontRightBumper, CheckBeaconDetector, CheckFrontTrackWireSensors, CheckBackTrackWireSensors, TapeSensorEventChecker,
+// CheckTapeSensors, LCheckTapeSensors, RCheckTapeSensors
 
 
 /****************************************************************************/
@@ -133,8 +136,8 @@ static const char *EventNames[] = {
 #define TIMER11_RESP_FUNC TIMER_UNUSED
 #define TIMER12_RESP_FUNC TIMER_UNUSED
 #define TIMER13_RESP_FUNC TIMER_UNUSED
-#define TIMER14_RESP_FUNC TIMER_UNUSED
-#define TIMER15_RESP_FUNC TIMER_UNUSED
+#define TIMER14_RESP_FUNC TapeSensorLEDOff
+#define TIMER15_RESP_FUNC TapeSensorLEDOn
 
 /****************************************************************************/
 // Give the timer numbers symbolic names to make it easier to move them

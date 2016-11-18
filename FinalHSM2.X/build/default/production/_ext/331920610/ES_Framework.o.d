@@ -24,5 +24,6 @@ C:/CMPE118/include/ES_TattleTale.h  \
  C:/CMPE118/include/ES_KeyboardInput.h  \
 C:/CMPE118/include/ES_Events.h  \
  C:/CMPE118/include/BOARD.h  \
-C:/CMPE118/include/ES_ServiceHeaders.h  \
- C:/CMPE118/include/serial.h 
+TemplateService.h  \
+ C:/CMPE118/include/ES_ServiceHeaders.h  \
+C:/CMPE118/include/serial.h 

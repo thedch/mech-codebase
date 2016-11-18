@@ -44,24 +44,26 @@ typedef enum {
     ES_TIMERACTIVE, /* signals that a timer has become active */
     ES_TIMERSTOPPED, /* signals that a timer has stopped*/
     /* User-defined events start here */
-    FRONT_BUMPERS_HIT,
+    FRONT_LEFT_BUMPER_LOW,
     FRONT_LEFT_BUMPER_HIT,
     FRONT_RIGHT_BUMPER_HIT,
+    FRONT_RIGHT_BUMPER_LOW,
     BACK_BUMPER_HIT,
-    TAPE_FOUND,
-    ON_WHITE,
+    CENTER_TAPE_FOUND,
+    CENTER_ON_WHITE,
     LEFT_TAPE_FOUND,
     LEFT_ON_WHITE,
     RIGHT_TAPE_FOUND,
     RIGHT_ON_WHITE,
     FRONT_TRACK_WIRE_DETECTED,
     BACK_TRACK_WIRE_DETECTED,
-    FRONT_TRACK_WIRE_LOST,
-    BACK_TRACK_WIRE_LOST,
+
     BOTH_TRACK_WIRES_DETECTED,
     BEACON_DETECTED,
     BEACON_LOST,
     GET_OUT_TRACK,
+    BACK_TRACK_WIRE_LOW,
+    FRONT_TRACK_WIRE_LOW,
     /* User-defined events end here */
     BATTERY_CONNECTED,
     BATTERY_DISCONNECTED,
@@ -80,24 +82,25 @@ static const char *EventNames[] = {
 	"ES_TIMEOUT",
 	"ES_TIMERACTIVE",
 	"ES_TIMERSTOPPED",
-	"FRONT_BUMPERS_HIT",
+	"FRONT_LEFT_BUMPER_LOW",
 	"FRONT_LEFT_BUMPER_HIT",
 	"FRONT_RIGHT_BUMPER_HIT",
+	"FRONT_RIGHT_BUMPER_LOW",
 	"BACK_BUMPER_HIT",
-	"TAPE_FOUND",
-	"ON_WHITE",
+	"CENTER_TAPE_FOUND",
+	"CENTER_ON_WHITE",
 	"LEFT_TAPE_FOUND",
 	"LEFT_ON_WHITE",
 	"RIGHT_TAPE_FOUND",
 	"RIGHT_ON_WHITE",
 	"FRONT_TRACK_WIRE_DETECTED",
 	"BACK_TRACK_WIRE_DETECTED",
-	"FRONT_TRACK_WIRE_LOST",
-	"BACK_TRACK_WIRE_LOST",
 	"BOTH_TRACK_WIRES_DETECTED",
 	"BEACON_DETECTED",
 	"BEACON_LOST",
 	"GET_OUT_TRACK",
+	"BACK_TRACK_WIRE_LOW",
+	"FRONT_TRACK_WIRE_LOW",
 	"BATTERY_CONNECTED",
 	"BATTERY_DISCONNECTED",
 	"NUMBEROFEVENTS",
@@ -109,7 +112,7 @@ static const char *EventNames[] = {
 
 /****************************************************************************/
 // This is the list of event checking functions
-#define EVENT_CHECK_LIST TemplateCheckBattery, CheckBumpers, CheckTapeSensors, CheckTrackWireSensors, CheckBeaconDetector, LCheckTapeSensors, RCheckTapeSensors
+#define EVENT_CHECK_LIST TemplateCheckBattery, CheckFrontLeftBumper, CheckFrontRightBumper, CheckFrontTrackWireSensors, CheckBackTrackWireSensors, CheckBeaconDetector, CheckTapeSensors, LCheckTapeSensors, RCheckTapeSensors,
 
 /****************************************************************************/
 // These are the definitions for the post functions to be executed when the

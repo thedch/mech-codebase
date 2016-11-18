@@ -173,17 +173,18 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 LED_SetBank(LED_BANK3, 0x00);
 
                 // Bumper Sensor Power Pins
-                IO_PortsSetPortOutputs(PORTX, PIN12);
-                IO_PortsSetPortOutputs(PORTX, PIN9);
-                IO_PortsSetPortOutputs(PORTX, PIN5);
-                IO_PortsSetPortBits(PORTX, PIN12);
-                IO_PortsSetPortBits(PORTX, PIN9);
-                IO_PortsSetPortBits(PORTX, PIN5);
+                //                IO_PortsSetPortOutputs(PORTX, PIN12);
+                //                IO_PortsSetPortOutputs(PORTX, PIN9);
+                //                IO_PortsSetPortOutputs(PORTX, PIN5);
+                //                IO_PortsSetPortBits(PORTX, PIN12);
+                //                IO_PortsSetPortBits(PORTX, PIN9);
+                //                IO_PortsSetPortBits(PORTX, PIN5);
 
                 // Bumper Sensor Inputs
-                IO_PortsSetPortInputs(PORTX, PIN11);
                 IO_PortsSetPortInputs(PORTX, PIN10);
-                IO_PortsSetPortInputs(PORTX, PIN6);
+                IO_PortsSetPortInputs(PORTX, PIN9);
+                IO_PortsSetPortInputs(PORTZ, PIN7);
+                IO_PortsSetPortInputs(PORTZ, PIN8);
 
                 // Tape Sensor Power
                 IO_PortsSetPortOutputs(PORTY, PIN8);
@@ -201,7 +202,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                         BEACON_DETECTOR_PIN |
                         FRONT_TRACK_WIRE_SENSOR_PIN |
                         BACK_TRACK_WIRE_SENSOR_PIN);
-                
+
                 RC_Init();
                 RC_AddPins(BALL_DROP_SERVO_PIN);
 
@@ -229,8 +230,6 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     break;
                 case ES_TIMERACTIVE:
                     ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case FRONT_BUMPERS_HIT:
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
                     break;
@@ -262,7 +261,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-            
+
         case FollowingTrackWire:
             // run sub-state machine for this state
             // NOTE: the SubState Machine runs and responds to events 
@@ -278,7 +277,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     break;
                 case ES_NO_EVENT:
                     break;
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     nextState = FirstBeacon;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;

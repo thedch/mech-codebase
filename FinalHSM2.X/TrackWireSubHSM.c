@@ -53,6 +53,7 @@ typedef enum {
     TapeCheck,
     GETOUT,
     RepositionOffTape,
+    reCenter,
 
 } TemplateSubHSMState_t;
 
@@ -71,6 +72,7 @@ static const char *StateNames[] = {
 	"TapeCheck",
 	"GETOUT",
 	"RepositionOffTape",
+	"reCenter",
 };
 
 #define BEACONTIMER_CENTERED ((5*beaconTimerDelta)/10)
@@ -177,7 +179,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     break;
                 case ES_NO_EVENT:
                     break;
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -202,7 +204,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     break;
                 case ES_NO_EVENT:
                     break;
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -228,7 +230,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case ES_NO_EVENT:
                     break;
 
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -255,7 +257,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     break;
                 case ES_NO_EVENT:
                     break;
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -281,7 +283,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     break;
                 case ES_NO_EVENT:
                     break;
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -303,7 +305,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     break;
                 case ES_NO_EVENT:
                     break;
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     nextState = RepositionOffTape;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -327,10 +329,10 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     nextState = StartCentering;
                     makeTransition = TRUE;
                     break;
-                case TAPE_FOUND:
-//                    nextState = TapeCheck;
-//                    makeTransition = TRUE;
-//                    ThisEvent.EventType = ES_NO_EVENT;
+                case CENTER_TAPE_FOUND:
+                    nextState = TapeCheck;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
@@ -347,7 +349,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     nextState = BeaconFound;
                     makeTransition = TRUE;
                     break;
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     nextState = RepositionOffTape;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -356,7 +358,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-            
+
         case BeaconFound:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
@@ -370,7 +372,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     nextState = RepositionOffTape;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -391,7 +393,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     nextState = GetCloserToBeacon;
                     makeTransition = TRUE;
                     break;
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     nextState = RepositionOffTape;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -404,30 +406,31 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case TapeCheck:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    ES_Timer_InitTimer(5, 300);
+                    ES_Timer_InitTimer(5, 800);
+                    driveBackward(SLOW_MOTOR_SPEED);
                     break;
-                case RIGHT_TAPE_FOUND:
-                    TheFinalApproach = 1;
-                    ES_Timer_InitTimer(5, 1000);
+                    
+                case RIGHT_ON_WHITE:
                     fiftyPercentReverseRightTurn(MEDIUM_MOTOR_SPEED);
+                    nextState = reCenter;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case LEFT_TAPE_FOUND:
-                    TheFinalApproach = 1;
-                    ES_Timer_InitTimer(5, 1000);
+
+                case LEFT_ON_WHITE:
                     fiftyPercentReverseLeftTurn(MEDIUM_MOTOR_SPEED);
+                    nextState = reCenter;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                    
                 case ES_TIMEOUT:
-                    if (TheFinalApproach) {
-                        nextState = BeaconScanning;
-                        makeTransition = TRUE;
-                        ThisEvent.EventType = ES_NO_EVENT;
-                    } else {
-                        nextState = GETOUT;
-                        makeTransition = TRUE;
-                        ThisEvent.EventType = ES_NO_EVENT;
-                    }
+                    nextState = GETOUT;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case TAPE_FOUND:
+                    
+                case CENTER_TAPE_FOUND:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -439,28 +442,55 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     driveBackward(SLOW_MOTOR_SPEED);
-                    ES_Timer_InitTimer(6, 2000);
+                    ES_Timer_InitTimer(6, 1500);
                     break;
+                    
                 case ES_TIMEOUT:
                     motorsOff();
-                    nextState = StartCentering;
+                    nextState = BeaconScanning;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                    
+                    case CENTER_TAPE_FOUND:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                    
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }
             break;
 
+        case reCenter:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    ES_Timer_InitTimer(5, 1500);
+                    break;
+                    
+                case ES_TIMEOUT:
+                    nextState = BeaconScanning;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+
+                case CENTER_TAPE_FOUND:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+
+                default: // all unhandled events pass the event back up to the next level
+                    break;
+            }
+            break;
+
+
+
         case GETOUT:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    driveBackward(SLOW_MOTOR_SPEED);
-                    ES_Timer_InitTimer(6, 2000);
-                    break;
-                case ES_TIMEOUT:
                     driveForward(SLOW_MOTOR_SPEED);
+
                     break;
+
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }

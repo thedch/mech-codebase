@@ -165,7 +165,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     // TODO: Add beacon checking to determine orientation 
                     leftTankTurn(400);
                     break;
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     motorsOff();
                     nextState = LineTracking;
                     makeTransition = TRUE;
@@ -193,11 +193,11 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     fiftyPercentRightTurn(SLOW_MOTOR_SPEED);
                     break;
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     // turn right gently
                     fiftyPercentRightTurn(SLOW_MOTOR_SPEED);
                     break;
-                case ON_WHITE:
+                case CENTER_ON_WHITE:
                     // turn left gently
                     fiftyPercentLeftTurn(SLOW_MOTOR_SPEED);
                     break;
@@ -233,7 +233,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     // back up and set a timer
                     // TODO: Add actual reverse line tracking
                     rightMotor(REVERSE, SLOW_MOTOR_SPEED);
-                    ES_Timer_InitTimer(2, 950); // rotate to turn past the ball tower
+                    ES_Timer_InitTimer(2, 1150); // rotate to turn past the ball tower
                     break;
                 case ES_NO_EVENT:
                     break;
@@ -261,7 +261,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     driveForward(SLOW_MOTOR_SPEED);
                     // this is a timer to allow the robot to clear the tape
                     ES_Timer_InitTimer(2, 150);
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     if (pastTapeFlag) {
                         nextState = LineTracking;
                         makeTransition = TRUE;

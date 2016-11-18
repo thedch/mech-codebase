@@ -36,13 +36,10 @@ int main(void) {
     LED_SetBank(LED_BANK3, 0x00);
 
     AD_Init();
-    AD_AddPins(AD_PORTV4 |
-            AD_PORTV8 |
-            AD_PORTV3 |
-            AD_PORTV5 |
+    AD_AddPins(BACK_TRACK_WIRE_SENSOR_PIN |
+            FRONT_TRACK_WIRE_SENSOR_PIN |
             BEACON_DETECTOR_PIN |
-            CENTER_TAPE_SENSOR_DATA_PIN |
-            AD_PORTV7);
+            CENTER_TAPE_SENSOR_DATA_PIN);
 
     //    PORTZ03_TRIS = 1; // set Z3 to be input
 
@@ -60,11 +57,9 @@ int main(void) {
     //    printf("Current PWM pins %d\r\n", PWM_ListPins());
     //    printf("Current PWM freq %d\r\n", PWM_GetFrequency());
 
-    //    driveBackward(1000);
-    //    PORTV03_TRIS = 1; // Set V3 (light sensor pin) to be input
-    //    PORTW04_TRIS = 0; // Set W4 (light sensor LED pwr pin) to be output
-
-    //    PORTW04_LAT = 1; // Set the light sensor power pin to be high
+    // Tape Sensor Power
+    IO_PortsSetPortOutputs(PORTY, PIN8);
+    IO_PortsSetPortBits(PORTY, PIN8);
 
     RC_AddPins(RC_PORTZ08);
     printf("Hello World! This is a test harness for The Beast (tm)\r\n");
@@ -75,7 +70,7 @@ int main(void) {
     //    printf("Current duty cycle for Left Motor is %d\r\n", PWM_GetDutyCycle(LEFT_MOTOR_PWM_PIN));
     //    printf("Current duty cycle for Right Motor is %d\r\n", PWM_GetDutyCycle(RIGHT_MOTOR_PWM_PIN));
 
-    int tempVar = 1;
+    int tempVar = 1;    
     //    tapeSensorInit();
     //    PORTZ11_TRIS = 0; // output
     //    PORTZ04_TRIS = 1; // input
@@ -120,14 +115,9 @@ int main(void) {
         //            motorsOff();
         //        }
         myDelay(LONG_DELAY);
-        toggleServo();
-        myDelay(LONG_DELAY);
-        myDelay(LONG_DELAY);
 
-        toggleServo();
-
-
-        //        printf("%d\r\n", AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN));
+        printf("Center Tape Sensor: %d\r\n", AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN));
+        //        printf("Back Track Wire: %d\r\n", AD_ReadADPin(BACK_TRACK_WIRE_SENSOR_PIN));
         // Back is 7, Front is 5
 
         //        if (AD_ReadADPin(AD_PORTV3) < 700) {

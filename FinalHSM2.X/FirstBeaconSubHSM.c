@@ -193,9 +193,6 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case ES_TIMERSTOPPED:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case FRONT_BUMPERS_HIT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
                 case FRONT_LEFT_BUMPER_HIT:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -205,10 +202,10 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case BACK_BUMPER_HIT:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case ON_WHITE:
+                case CENTER_ON_WHITE:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case LEFT_TAPE_FOUND:
@@ -275,9 +272,6 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case ES_TIMERSTOPPED:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case FRONT_BUMPERS_HIT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
                 case FRONT_LEFT_BUMPER_HIT:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -287,11 +281,11 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case BACK_BUMPER_HIT:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case TAPE_FOUND:
+                case CENTER_TAPE_FOUND:
                     motorsOff();
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case ON_WHITE:
+                case CENTER_ON_WHITE:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case LEFT_TAPE_FOUND:

@@ -234,10 +234,10 @@ void rightTrackTurn(int dutyCycle) {
 
 void toggleServo() {
     if (RC_GetPulseTime(BALL_DROP_SERVO_PIN) == SERVO_POSITION_ONE) {
-        // if servo is in pos one, set to pos two
+        // if servo is in position one, set to position two
         RC_SetPulseTime(BALL_DROP_SERVO_PIN, SERVO_POSITION_TWO);
     } else {
-        // else set to pos one
+        // else set to position one
         RC_SetPulseTime(BALL_DROP_SERVO_PIN, SERVO_POSITION_ONE);
     }
 }

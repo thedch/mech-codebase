@@ -43,12 +43,12 @@ typedef enum {
     FoundFirstTarget,
     ScanningForSecondBeacon,
     DrivingTowardsSecondBeacon,
-            
-//    RelocateBehindFirstBeacon,
-//    RelocateBesideFirstBeacon,
-//    StartRelocating,
-            
-           
+
+    //    RelocateBehindFirstBeacon,
+    //    RelocateBesideFirstBeacon,
+    //    StartRelocating,
+
+
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
@@ -168,113 +168,86 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-            
-//            
-//        case StartRelocating:
-//                    switch (ThisEvent.EventType) {
-//                case ES_ENTRY:
-//                    driveBackward(MEDIUM_MOTOR_SPEED);
-//                    ES_Timer_InitTimer(7, 700);
-//                    ThisEvent.EventType = ES_NO_EVENT;
-//                    break;
-//                
-//                case ES_TIMEOUT:
-//                    // when timer expires, start turning and try to lose beacon
-//                    
-//                    nextState = RelocateBesideFirstBeacon;
-//                        makeTransition = TRUE;
-//                    ThisEvent.EventType = ES_NO_EVENT;
-//                    break;
-//                
-//                
-//             
-//                default:
-//                    break;
-//            }
-//            break;
-//
-//            
-//            case RelocateBesideFirstBeacon:
-//                    switch (ThisEvent.EventType) {
-//                case ES_ENTRY:
-//                    fiftyPercentRightTurn(SLOW_MOTOR_SPEED);
-//                    ES_Timer_InitTimer(7, 2500);
-//                    
-//                    break;
-//                
-//                case ES_TIMEOUT:
-//                    // when timer expires, start turning and try to lose beacon
-//                    
-//                    nextState = RelocateBehindFirstBeacon;
-//                        makeTransition = TRUE;
-//                    ThisEvent.EventType = ES_NO_EVENT;
-//                    break;
-//                
-//                
-//             
-//                default:
-//                    break;
-//            }
-//            break;
-//            
-//            case RelocateBehindFirstBeacon:
-//                    switch (ThisEvent.EventType) {
-//                case ES_ENTRY:
-//                    fiftyPercentLeftTurn(SLOW_MOTOR_SPEED);
-//                    ES_Timer_InitTimer(7, 2500);
-//                    ThisEvent.EventType = ES_NO_EVENT;
-//                    break;
-//                
-//                case ES_TIMEOUT:
-//                    // when timer expires, start turning and try to lose beacon
-//
-//                     nextState = ScanningForSecondBeacon;
-//                        makeTransition = TRUE;
-//                    ThisEvent.EventType = ES_NO_EVENT;
-//                    break;
-//                
-//                
-//                default:
-//                    break;
-//            }
-//            break;
-//            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
+            //            
+            //        case StartRelocating:
+            //                    switch (ThisEvent.EventType) {
+            //                case ES_ENTRY:
+            //                    driveBackward(MEDIUM_MOTOR_SPEED);
+            //                    ES_Timer_InitTimer(7, 700);
+            //                    ThisEvent.EventType = ES_NO_EVENT;
+            //                    break;
+            //                
+            //                case ES_TIMEOUT:
+            //                    // when timer expires, start turning and try to lose beacon
+            //                    nextState = RelocateBesideFirstBeacon;
+            //                        makeTransition = TRUE;
+            //                    ThisEvent.EventType = ES_NO_EVENT;
+            //                    break;
+            //                default:
+            //                    break;
+            //            }
+            //            break;
+            //            case RelocateBesideFirstBeacon:
+            //                    switch (ThisEvent.EventType) {
+            //                case ES_ENTRY:
+            //                    fiftyPercentRightTurn(SLOW_MOTOR_SPEED);
+            //                    ES_Timer_InitTimer(7, 2500);
+            //                    
+            //                    break;
+            //                
+            //                case ES_TIMEOUT:
+            //                    // when timer expires, start turning and try to lose beacon
+            //                    
+            //                    nextState = RelocateBehindFirstBeacon;
+            //                        makeTransition = TRUE;
+            //                    ThisEvent.EventType = ES_NO_EVENT;
+            //                    break;
+            //                default:
+            //                    break;
+            //            }
+            //            break;
+            //            
+            //            case RelocateBehindFirstBeacon:
+            //                    switch (ThisEvent.EventType) {
+            //                case ES_ENTRY:
+            //                    fiftyPercentLeftTurn(SLOW_MOTOR_SPEED);
+            //                    ES_Timer_InitTimer(7, 2500);
+            //                    ThisEvent.EventType = ES_NO_EVENT;
+            //                    break;
+            //                
+            //                case ES_TIMEOUT:
+            //                    // when timer expires, start turning and try to lose beacon
+            //
+            //                     nextState = ScanningForSecondBeacon;
+            //                        makeTransition = TRUE;
+            //                    ThisEvent.EventType = ES_NO_EVENT;
+            //                    break;
+            //                
+            //                
+            //                default:
+            //                    break;
+            //            }
+            //            break;
+            //            
         case ScanningForSecondBeacon:
             switch (ThisEvent.EventType) {
-                
-                
                 case ES_ENTRY:
                     driveBackward(MEDIUM_MOTOR_SPEED);
                     ES_Timer_InitTimer(7, 500);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                
                 case ES_TIMEOUT:
                     // when timer expires, start turning and try to lose beacon
                     rightTankTurn(SLOW_MOTOR_SPEED);
                     FinishedBackingAwayFromFirstBeaconFlag = 1;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                
-                
-             
                 case BEACON_DETECTED:
                     if (FirstBeaconLostFlag) {
                         nextState = DrivingTowardsSecondBeacon;
                         makeTransition = TRUE;
                     }
-                    
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_LOST:
@@ -303,7 +276,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
             }
             break;
 
-        
+
 
         default: // all unhandled states fall into here
             break;

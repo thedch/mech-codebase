@@ -34,6 +34,7 @@
 #include "TopLevelHSM.h"
 #include "TrackWireSubHSM.h"
 #include "MyHelperFunctions.h"
+#include "RC_Servo.h"
 
 /*******************************************************************************
  * MODULE #DEFINES                                                             *
@@ -54,6 +55,7 @@ typedef enum {
     GETOUT,
     RepositionOffTape,
     reCenter,
+    DriveToGetWithinRangeOfBeacon,
 
 } TemplateSubHSMState_t;
 
@@ -73,6 +75,7 @@ static const char *StateNames[] = {
 	"GETOUT",
 	"RepositionOffTape",
 	"reCenter",
+	"DriveToGetWithinRangeOfBeacon",
 };
 
 #define BEACONTIMER_CENTERED ((5*beaconTimerDelta)/10)
@@ -189,7 +192,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case FoundTrackWire:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    ES_Timer_InitTimer(4, 2000);
+                    ES_Timer_InitTimer(4, 1000);
                     driveBackward(MEDIUM_MOTOR_SPEED);
                     LoadAmmoFlag++; // now = 1
                     break;
@@ -217,7 +220,12 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     driveForward(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, 1000);
+                    if (LoadAmmoFlag < 2) {
+                        ES_Timer_InitTimer(1, 500);
+                    } else {
+                        ES_Timer_InitTimer(1, 3000);
+                    }
+                    
                     break;
                 case ES_TIMEOUT:
                     if (LoadAmmoFlag < 2) {
@@ -305,6 +313,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     rightTankTurn(SLOW_MOTOR_SPEED);
+                    ES_Timer_InitTimer(6, 5500);
                     break;
                 case BEACON_DETECTED:
                     nextState = StartCentering;
@@ -312,6 +321,11 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_NO_EVENT:
+                    break;
+                case ES_TIMEOUT:
+                    nextState = DriveToGetWithinRangeOfBeacon;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case CENTER_TAPE_FOUND:
                     nextState = RepositionOffTape;
@@ -322,6 +336,23 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
+
+        case DriveToGetWithinRangeOfBeacon:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    driveForward(MEDIUM_MOTOR_SPEED);
+                    ES_Timer_InitTimer(6, 3000);
+                    break;
+                case ES_TIMEOUT:
+                    nextState = BeaconScanning;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                default:
+                    break;
+            }
+            break;
+
 
         case GetCloserToBeacon:
             switch (ThisEvent.EventType) {

@@ -43,8 +43,12 @@ typedef enum {
     FoundFirstTarget,
     ScanningForSecondBeacon,
     DrivingTowardsSecondBeacon,
-    //    SecurePerimeter,
-    //    Patrolling,
+            
+//    RelocateBehindFirstBeacon,
+//    RelocateBesideFirstBeacon,
+//    StartRelocating,
+            
+           
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
@@ -164,77 +168,113 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-
+            
+//            
+//        case StartRelocating:
+//                    switch (ThisEvent.EventType) {
+//                case ES_ENTRY:
+//                    driveBackward(MEDIUM_MOTOR_SPEED);
+//                    ES_Timer_InitTimer(7, 700);
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    break;
+//                
+//                case ES_TIMEOUT:
+//                    // when timer expires, start turning and try to lose beacon
+//                    
+//                    nextState = RelocateBesideFirstBeacon;
+//                        makeTransition = TRUE;
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    break;
+//                
+//                
+//             
+//                default:
+//                    break;
+//            }
+//            break;
+//
+//            
+//            case RelocateBesideFirstBeacon:
+//                    switch (ThisEvent.EventType) {
+//                case ES_ENTRY:
+//                    fiftyPercentRightTurn(SLOW_MOTOR_SPEED);
+//                    ES_Timer_InitTimer(7, 2500);
+//                    
+//                    break;
+//                
+//                case ES_TIMEOUT:
+//                    // when timer expires, start turning and try to lose beacon
+//                    
+//                    nextState = RelocateBehindFirstBeacon;
+//                        makeTransition = TRUE;
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    break;
+//                
+//                
+//             
+//                default:
+//                    break;
+//            }
+//            break;
+//            
+//            case RelocateBehindFirstBeacon:
+//                    switch (ThisEvent.EventType) {
+//                case ES_ENTRY:
+//                    fiftyPercentLeftTurn(SLOW_MOTOR_SPEED);
+//                    ES_Timer_InitTimer(7, 2500);
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    break;
+//                
+//                case ES_TIMEOUT:
+//                    // when timer expires, start turning and try to lose beacon
+//
+//                     nextState = ScanningForSecondBeacon;
+//                        makeTransition = TRUE;
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    break;
+//                
+//                
+//                default:
+//                    break;
+//            }
+//            break;
+//            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         case ScanningForSecondBeacon:
             switch (ThisEvent.EventType) {
-                case ES_NO_EVENT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_INIT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
+                
+                
                 case ES_ENTRY:
                     driveBackward(MEDIUM_MOTOR_SPEED);
                     ES_Timer_InitTimer(7, 500);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case ES_EXIT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
+                
                 case ES_TIMEOUT:
                     // when timer expires, start turning and try to lose beacon
                     rightTankTurn(SLOW_MOTOR_SPEED);
                     FinishedBackingAwayFromFirstBeaconFlag = 1;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case ES_TIMERACTIVE:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_TIMERSTOPPED:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case FRONT_LEFT_BUMPER_HIT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case FRONT_RIGHT_BUMPER_HIT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BACK_BUMPER_HIT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case CENTER_TAPE_FOUND:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case CENTER_ON_WHITE:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case LEFT_TAPE_FOUND:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case LEFT_ON_WHITE:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case RIGHT_TAPE_FOUND:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case RIGHT_ON_WHITE:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case FRONT_TRACK_WIRE_DETECTED:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BACK_TRACK_WIRE_DETECTED:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BOTH_TRACK_WIRES_DETECTED:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
+                
+                
+             
                 case BEACON_DETECTED:
                     if (FirstBeaconLostFlag) {
                         nextState = DrivingTowardsSecondBeacon;
                         makeTransition = TRUE;
                     }
-                    motorsOff();
+                    
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_LOST:
@@ -250,71 +290,12 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
 
         case DrivingTowardsSecondBeacon:
             switch (ThisEvent.EventType) {
-                case ES_NO_EVENT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_INIT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
                 case ES_ENTRY:
                     driveForward(MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case ES_EXIT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_TIMEOUT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_TIMERACTIVE:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_TIMERSTOPPED:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case FRONT_LEFT_BUMPER_HIT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case FRONT_RIGHT_BUMPER_HIT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BACK_BUMPER_HIT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
                 case CENTER_TAPE_FOUND:
                     motorsOff();
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case CENTER_ON_WHITE:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case LEFT_TAPE_FOUND:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case LEFT_ON_WHITE:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case RIGHT_TAPE_FOUND:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case RIGHT_ON_WHITE:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case FRONT_TRACK_WIRE_DETECTED:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BACK_TRACK_WIRE_DETECTED:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BOTH_TRACK_WIRES_DETECTED:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BEACON_DETECTED:
-                    driveForward(MEDIUM_MOTOR_SPEED);
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BEACON_LOST:
-                    rightTankTurn(MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default:
@@ -322,59 +303,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
             }
             break;
 
-            //
-            //            // turn away from the beacon, until the tape sensor is off tape, then transition to Patrolling 
-            //        case SecurePerimeter:
-            //            switch (ThisEvent.EventType) {
-            //
-            //                case ES_ENTRY:
-            //                    leftTankTurn(SLOW_MOTOR_SPEED);
-            //
-            //
-            //                    break;
-            //
-            //                case ON_WHITE:
-            //                    nextState = Patrolling;
-            //                    makeTransition = TRUE;
-            //                    ThisEvent.EventType = ES_NO_EVENT;
-            //
-            //
-            //
-            //                    break;
-            //
-            //                default:
-            //                    break;
-            //            }
-            //
-            //            break;
-            //
-            //        case Patrolling:
-            //            switch (ThisEvent.EventType) {
-            //                case ES_ENTRY:
-            //                    ES_Timer_InitTimer(PATROL_TIMER, PATROL_DURATION);
-            //                    driveForward(SLOW_MOTOR_SPEED);
-            //                    break;
-            //
-            //                case ES_TIMEOUT:
-            //                    fiftyPercentRightTurn(SLOW_MOTOR_SPEED);
-            //                    // TODO: determine how to stop turning(until tape found?)
-            //                    // TODO: consider 5s oh shit timer
-            //                    break;
-            //
-            //
-            //                case TAPE_FOUND:
-            //                    nextState = SecurePerimeter;
-            //                    makeTransition = TRUE;
-            //                    ThisEvent.EventType = ES_NO_EVENT;
-            //
-            //
-            //
-            //                default:
-            //                    break;
-            //            }
-            //
-            //            break;
-
+        
 
         default: // all unhandled states fall into here
             break;

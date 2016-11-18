@@ -133,14 +133,9 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
 
                 // now put the machine into the actual initial state
                 //driveForward(MEDIUM_MOTOR_SPEED);
-
-
                 nextState = FindingTape;
                 makeTransition = TRUE;
                 ThisEvent.EventType = ES_NO_EVENT;
-
-
-
             }
             break;
         case WaitingForBattery:
@@ -163,7 +158,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     // TODO: Add beacon checking to determine orientation 
-                    leftTankTurn(400);
+                    leftTankTurn(MEDIUM_MOTOR_SPEED);
                     break;
                 case CENTER_TAPE_FOUND:
                     motorsOff();
@@ -191,15 +186,15 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
         case LineTracking:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    fiftyPercentRightTurn(SLOW_MOTOR_SPEED);
+                    fiftyPercentRightTurn(MEDIUM_MOTOR_SPEED);
                     break;
                 case CENTER_TAPE_FOUND:
                     // turn right gently
-                    fiftyPercentRightTurn(SLOW_MOTOR_SPEED);
+                    fiftyPercentRightTurn(MEDIUM_MOTOR_SPEED);
                     break;
                 case CENTER_ON_WHITE:
                     // turn left gently
-                    fiftyPercentLeftTurn(SLOW_MOTOR_SPEED);
+                    fiftyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
                     // back up, turn right?
@@ -213,10 +208,10 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                    case BEACON_DETECTED:
-                    case BEACON_LOST:
-                        ThisEvent.EventType = ES_NO_EVENT;
-                        break;
+                case BEACON_DETECTED:
+                case BEACON_LOST:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                 case ES_TIMEOUT:
                     break;
                 case FRONT_TRACK_WIRE_DETECTED:

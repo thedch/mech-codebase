@@ -26,11 +26,11 @@
       <itemPath>C:/CMPE118/include/LED.h</itemPath>
       <itemPath>C:/CMPE118/include/IO_Ports.h</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TopLevelHSM.h</itemPath>
-      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateEventChecker.h</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TapeTrackingSubHSM.h</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TrackWireSubHSM.h</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/FirstBeaconSubHSM.h</itemPath>
       <itemPath>C:/CMPE118/include/RC_Servo.h</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/EventChecker.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -55,12 +55,12 @@
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateES_Main.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.c</itemPath>
       <itemPath>C:/CMPE118/src/LED.c</itemPath>
-      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateEventChecker.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TapeTrackingSubHSM.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TopLevelHSM.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TrackWireSubHSM.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/FirstBeaconSubHSM.c</itemPath>
       <itemPath>C:/CMPE118/src/RC_Servo.c</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/EventChecker.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

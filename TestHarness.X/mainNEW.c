@@ -19,6 +19,7 @@
 // Track Wire Sensor Port: Z3
 
 void checkTapeSensors(void);
+void printTankSensors(void);
 
 int main(void) {
 
@@ -63,29 +64,12 @@ int main(void) {
 
     RC_AddPins(RC_PORTZ08);
     printf("Hello World! This is a test harness for The Beast (tm)\r\n");
-    //    printf("Hello, Daniel!\r\n");
-    //    printf("Hello, Daniel!\r\n");
-    //    printf("Hello, Daniel!\r\n");
 
-    //    printf("Current duty cycle for Left Motor is %d\r\n", PWM_GetDutyCycle(LEFT_MOTOR_PWM_PIN));
-    //    printf("Current duty cycle for Right Motor is %d\r\n", PWM_GetDutyCycle(RIGHT_MOTOR_PWM_PIN));
-
-    int tempVar = 1;    
     //    tapeSensorInit();
     //    PORTZ11_TRIS = 0; // output
     //    PORTZ04_TRIS = 1; // input
 
-    //    PORTZ11_TRIS = 1; // set output power to be high    
-    //    IO_PortsSetPortOutputs(PORTX, PIN10);
-    //    IO_PortsSetPortOutputs(PORTX, PIN5);
-    //    IO_PortsSetPortOutputs(PORTX, PIN12);
-    //    IO_PortsSetPortBits(PORTX, PIN10);
-    //    IO_PortsSetPortBits(PORTX, PIN5);
-    //    IO_PortsSetPortBits(PORTX, PIN12);
-    //
-    //    IO_PortsSetPortInputs(PORTX, PIN9);
-    //    IO_PortsSetPortInputs(PORTX, PIN4);
-    //    IO_PortsSetPortInputs(PORTX, PIN11);
+    //    PORTZ11_TRIS = 1; // set output power to be high
 
     //    IO_PortsSetPortOutputs(PORTY, PIN8);
     //    IO_PortsSetPortBits(PORTY, PIN8);
@@ -107,54 +91,12 @@ int main(void) {
     //    PORTY08_TRIS = 0; // Beacon detector input signal
     //    PORTY08_LAT = 1; // Beacon detector input signal
 
+    int currentFrontTrackWire = 0;
+    static int previousFrontTrackWire = 0;
+    int tempVar = 0;
+
     while (1) {
-
-        //        if (PORTZ09_BIT) { 
-        //            driveForward(500);
-        //        } else {
-        //            motorsOff();
-        //        }
-        myDelay(LONG_DELAY);
-
-        printf("Center Tape Sensor: %d\r\n", AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN));
-        //        printf("Back Track Wire: %d\r\n", AD_ReadADPin(BACK_TRACK_WIRE_SENSOR_PIN));
-        // Back is 7, Front is 5
-
-        //        if (AD_ReadADPin(AD_PORTV3) < 700) {
-        //            motorsOff();
-        //        } else {
-        //            driveForward(750);
-        //        }
-        //        myDelay(LONG_DELAY);
-
-        //        checkTapeSensors();
-        //        if (IO_PortsReadPort(PORTX) & PIN10) {
-        //            printf("%d\r\n", (IO_PortsReadPort(PORTX) & PIN9));
-        //        if (PORTX09_BIT) {
-        //            printf("LEFT BUMP \r\n");
-        //        }
-        //        if (IO_PortsReadPort(PORTX) & PIN4) {
-        //            printf("RIGHT BUMP \r\n");
-        //        }
-        //        if (IO_PortsReadPort(PORTX) & PIN11) {
-        //            printf("BACK BUMP \r\n");
-        //        }
-        //        }
-        //        switch (tempVar) {
-        //            case 1:
-        //                RC_SetPulseTime(RC_PORTX03, 1000);
-        //                tempVar = 2;
-        //                myDelay(LONG_DELAY);
-        //                myDelay(LONG_DELAY);
-        //                myDelay(LONG_DELAY);
-        //                break;
-        //            case 2:
-        //                RC_SetPulseTime(RC_PORTX03, 2000);
-        //                tempVar = 1;
-        //                myDelay(MED_DELAY);
-        //                myDelay(MED_DELAY);
-        //                break;
-        //        }
+        driveForward(SLOW_MOTOR_SPEED);
     }
     return 0;
 }
@@ -162,4 +104,10 @@ int main(void) {
 void checkTapeSensors(void) {
     printf("Tape Readings: %d, %d, %d \r\n", AD_ReadADPin(AD_PORTV4),
             AD_ReadADPin(AD_PORTV6), AD_ReadADPin(AD_PORTV8));
+}
+
+void printTankSensors(void) {
+    printf("Front: %d, Back: %d, \r\n",
+            AD_ReadADPin(FRONT_TRACK_WIRE_SENSOR_PIN),
+            AD_ReadADPin(BACK_TRACK_WIRE_SENSOR_PIN));
 }

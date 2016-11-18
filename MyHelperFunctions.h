@@ -22,11 +22,12 @@
  ******************************************************************************/
 static int GetOutFlag = 0;
 
-
+// Delay 
 #define SHORT_DELAY 10000
 #define MED_DELAY 100000
 #define LONG_DELAY 1000000
 
+// Motors
 #define MAX_MOTOR_SPEED 1000
 #define MEDIUM_MOTOR_SPEED 750
 #define SLOW_MOTOR_SPEED 500
@@ -34,32 +35,38 @@ static int GetOutFlag = 0;
 #define FORWARD 0
 #define REVERSE 1
 
-#define BLACK_TAPE_THRESHOLD 450
-#define WHITE_THRESHOLD 300
-
-#define BEACON_DETECTOR_THRESHOLD 550
-#define BEACON_DEBOUNCE_THRESHOLD 200
-
 #define LEFT_MOTOR_PWM_PIN PWM_PORTY12
 #define RIGHT_MOTOR_PWM_PIN PWM_PORTY10
 
+// Tape 
+#define BLACK_TAPE_THRESHOLD 450
+#define WHITE_THRESHOLD 300
+
+#define LEFT_TAPE_SENSOR_DATA_PIN AD_PORTV4
+#define CENTER_TAPE_SENSOR_DATA_PIN AD_PORTV6
+#define RIGHT_TAPE_SENSOR_DATA_PIN AD_PORTV8
+
+// Beacon Detector
+#define BEACON_DETECTOR_PIN AD_PORTV3
+#define BEACON_DETECTOR_THRESHOLD 550
+#define BEACON_DEBOUNCE_THRESHOLD 200
+
+// Bumpers
 #define FRONT_RIGHT_OUTER_LIMIT_SWITCH_PIN PORTX09_BIT 
 #define FRONT_RIGHT_INNER_LIMIT_SWITCH_PIN PORTX10_BIT
 
 #define FRONT_LEFT_INNER_LIMIT_SWITCH_PIN PORTZ05_BIT
 #define FRONT_LEFT_OUTER_LIMIT_SWITCH_PIN PORTZ06_BIT
 
-// #define BACK_LIMIT_SWITCH_PIN PORTX10_BIT
-
+// Track Wire
 #define BACK_TRACK_WIRE_SENSOR_PIN AD_PORTV7
 #define FRONT_TRACK_WIRE_SENSOR_PIN AD_PORTV5
+#define BACK_TRACK_WIRE_DATA_THRESHOLD 450
+#define FRONT_TRACK_WIRE_DATA_THRESHOLD 450
+#define BACK_TRACK_WIRE_DEBOUNCE_THRESHOLD 10
+#define FRONT_TRACK_WIRE_DEBOUNCE_THRESHOLD 10
 
-#define LEFT_TAPE_SENSOR_DATA_PIN AD_PORTV4
-#define CENTER_TAPE_SENSOR_DATA_PIN AD_PORTV6
-#define RIGHT_TAPE_SENSOR_DATA_PIN AD_PORTV8
-
-#define BEACON_DETECTOR_PIN AD_PORTV3
-
+// Ball Drop Servo
 #define BALL_DROP_SERVO_PIN RC_PORTZ08
 #define SERVO_POSITION_ONE 1500
 #define SERVO_POSITION_TWO 2000
@@ -230,6 +237,6 @@ void rightTrackTurn(int dutyCycle);
  * @param None
  * @return None
  * @brief Toggles the servo gate between positions. Calling this function twice 
- * with ~400+ ms between calls should release a ball
+ * with ~500 ms between calls should release a ball
  * @author Daniel Hunter, 15 Nov 2016 */
 void toggleServo();

@@ -5,13 +5,12 @@
         <group>
             <file>file:/C:/Users/dchunter/MPLABXProjects/TestHarness.X/mainNEW.c</file>
             <file>file:/C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.c</file>
-            <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TopLevelHSM.c</file>
-            <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateEventChecker.c</file>
-            <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TrackWireSubHSM.c</file>
-            <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/ES_Configure.h</file>
-            <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TapeTrackingSubHSM.c</file>
-            <file>file:/C:/CMPE118/include/AD.h</file>
             <file>file:/C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.h</file>
+            <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/EventChecker.c</file>
+            <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/ES_Configure.h</file>
+            <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TopLevelHSM.c</file>
+            <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TapeTrackingSubHSM.c</file>
+            <file>file:/C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TrackWireSubHSM.c</file>
         </group>
     </open-files>
 </project-private>

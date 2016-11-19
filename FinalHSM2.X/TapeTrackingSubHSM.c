@@ -201,25 +201,61 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
             break;
 
         case FindingTape:
+            // need to align ourselves to be parallel to the tape
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    rightTankTurn(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(4, 1000);
+                    // rightTankTurn(MEDIUM_MOTOR_SPEED);
+                    driveBackward(MEDIUM_MOTOR_SPEED);
+                    ES_Timer_InitTimer(4, 500);
                     break;
                 case ALL_TAPE_WHITE:
+                    // we have gone off the tape, stop turning but continue backwards to avoid 
+                    // turning back into the tape.
+                    driveBackward(MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-                case CENTER_TAPE_FOUND:
+                    // because of the way our track wire following works, we want to
+                    // keep the center and right tape sensors off the tape, while the center tape is irrelevant
+                    // left sensor should be on the tape so our turns in Line tracking can be shallower
+                    switch (ThisEvent.EventParam) {
+                        case 1: // Left Only is black
+                            // we don't care if left only is in tape, proceed with previous action.
+                            break;
+                        case 2:// center only is black
+                        case 4: // Right only is black
+                        case 3: // center and left is black
+                        case 5:// right and left are black
+                        case 6:// right and center are black
+                        case 7: // left, right and center are black
+                            //suspend timer 5  to keep it's event from being posted while we are backing up
+                            ES_Timer_StopTimer(5);
+                            // back up while slightly turning our face to the right
+                            rightTrackTurn(MEDIUM_MOTOR_SPEED);
+                            // start a timer to track how long we've been driving backwards
+                            ES_Timer_InitTimer(4, 500);
+                            break;
+                    }
+                    // eat the event
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
-                    nextState = LineTracking;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    // check if we finish backing up
+                    if (ThisEvent.EventParam == 4) {
+                        //start drivign forweards
+                        driveForward(MEDIUM_MOTOR_SPEED);
+                        // start the timer to track how long we've drived forward
+                        ES_Timer_InitTimer(5, 1000);
+                    } else if (ThisEvent.EventParam == 5) { // check if we are parallel
+
+                        nextState = LineTracking;
+                        makeTransition = TRUE;
+                        ThisEvent.EventType = ES_NO_EVENT;
+                    }
                     break;
                 case BEACON_DETECTED:
                 case BEACON_LOST:
+                    // eat and ignore beacon events
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_EXIT:

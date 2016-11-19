@@ -241,3 +241,14 @@ void toggleServo() {
         RC_SetPulseTime(BALL_DROP_SERVO_PIN, SERVO_POSITION_ONE);
     }
 }
+
+void ninetyPercentReverseLeftTurn(int dutyCycle) {
+    PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+
+    PORTY11_BIT = 1;
+    PORTY09_BIT = 1;
+
+    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, (dutyCycle * 0.9));
+    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+}

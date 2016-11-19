@@ -240,3 +240,11 @@ void rightTrackTurn(int dutyCycle);
  * with ~500 ms between calls should release a ball
  * @author Daniel Hunter, 15 Nov 2016 */
 void toggleServo();
+
+/**
+ * @Function ninetyPercentReverseLeftTurn
+ * @param None
+ * @return None
+ * @brief Sets left wheel to be 90% power, right wheel to be 100% power
+ * @author Daniel Hunter, 18 Nov 2016 */
+void ninetyPercentReverseLeftTurn(int dutyCycle);

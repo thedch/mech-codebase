@@ -44,8 +44,7 @@
 typedef enum {
     InitPSubState,
     ScanningForBeacon,
-    FindingTape,
-    LineTracking,
+    TapeTracking,
     ReverseLineTracking,
     DrivingToFindTrackWire,
 } TemplateSubHSMState_t;
@@ -53,8 +52,7 @@ typedef enum {
 static const char *StateNames[] = {
 	"InitPSubState",
 	"ScanningForBeacon",
-	"FindingTape",
-	"LineTracking",
+	"TapeTracking",
 	"ReverseLineTracking",
 	"DrivingToFindTrackWire",
 };
@@ -185,7 +183,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case TAPE_ON:
                     motorsOff();
-                    nextState = FindingTape;
+                    nextState = TapeTracking;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -194,18 +192,17 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
             }
             break;
 
-        case FindingTape:
+        case TapeTracking:
             // need to align ourselves to be parallel to the tape
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    // rightTankTurn(MEDIUM_MOTOR_SPEED);
                     rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
-                    //                    ES_Timer_InitTimer(4, 500);
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ALL_TAPE_WHITE:
-                    // we have gone off the tape, stop turning but continue backwards to avoid 
-                    // turning back into the tape.
-                    ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
+                    motorsOff();
+                    ES_Timer_InitTimer(1, 250);
+                    //                    ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
@@ -213,6 +210,9 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
+                    if (ThisEvent.EventParam == 1) {
+                        ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
+                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
@@ -225,16 +225,15 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case FRONT_TRACK_WIRE_DETECTED:
                 case BACK_TRACK_WIRE_DETECTED:
-                    //ThisEvent.EventType = ES_NO_EVENT;
+                    // TODO: Should we eat this?
+                    // ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
-                    // back up, turn right?
                     nextState = ReverseLineTracking;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case FRONT_RIGHT_BUMPER_HIT:
-                    // back up, turn left?
                     nextState = ReverseLineTracking;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -244,51 +243,9 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
             }
             break;
 
-        case LineTracking:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    fiftyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
-                    break;
-                case TAPE_ON:
-                case CENTER_TAPE_FOUND:
-                    // turn right gently
-                    fiftyPercentRightTurn(MEDIUM_MOTOR_SPEED);
-                    break;
-                case ALL_TAPE_WHITE:
-                case CENTER_ON_WHITE:
-                    // turn left gently
-                    fiftyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
-                    break;
-                case FRONT_LEFT_BUMPER_HIT:
-                    // back up, turn right?
-                    nextState = ReverseLineTracking;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case FRONT_RIGHT_BUMPER_HIT:
-                    // back up, turn left?
-                    nextState = ReverseLineTracking;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BEACON_DETECTED:
-                case BEACON_LOST:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_TIMEOUT:
-                    break;
-                case FRONT_TRACK_WIRE_DETECTED:
-                case BACK_TRACK_WIRE_DETECTED:
-                    //ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                default:
-                    break;
-            }
-            break;
         case ReverseLineTracking:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    // back up and set a timer
                     // TODO: Add actual reverse line tracking
                     rightMotor(REVERSE, SLOW_MOTOR_SPEED);
                     ES_Timer_InitTimer(2, 1150); // rotate to turn past the ball tower
@@ -320,9 +277,8 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     // this is a timer to allow the robot to clear the tape
                     ES_Timer_InitTimer(2, 150);
                 case TAPE_ON:
-                case CENTER_TAPE_FOUND:
                     if (pastTapeFlag) {
-                        nextState = FindingTape;
+                        nextState = TapeTracking;
                         makeTransition = TRUE;
                         ThisEvent.EventType = ES_NO_EVENT;
                     }

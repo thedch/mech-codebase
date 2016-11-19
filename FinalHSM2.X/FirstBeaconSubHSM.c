@@ -40,9 +40,9 @@
  ******************************************************************************/
 typedef enum {
     InitPSubState,
-    FoundFirstTarget,
+    DroppingAmmoAtFirstBeacon,
     ScanningForSecondBeacon,
-    DrivingTowardsSecondBeacon,
+    DroppingAmmoAtSecondBeacon,
     GetCloserToBeacon,
     StartCentering,
     BeaconFound,
@@ -56,9 +56,9 @@ typedef enum {
 
 static const char *StateNames[] = {
 	"InitPSubState",
-	"FoundFirstTarget",
+	"DroppingAmmoAtFirstBeacon",
 	"ScanningForSecondBeacon",
-	"DrivingTowardsSecondBeacon",
+	"DroppingAmmoAtSecondBeacon",
 	"GetCloserToBeacon",
 	"StartCentering",
 	"BeaconFound",
@@ -148,21 +148,21 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 // initial state
 
                 // now put the machine into the actual initial state
-                nextState = FoundFirstTarget;
+                nextState = DroppingAmmoAtFirstBeacon;
                 makeTransition = TRUE;
                 ThisEvent.EventType = ES_NO_EVENT;
             }
             break;
 
             // Intermediate state between init and secure perimeter
-        case FoundFirstTarget:
+        case DroppingAmmoAtFirstBeacon:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     motorsOff();
-                    ES_Timer_InitTimer(9, 450); // is timer 3 a good one?
+                    ES_Timer_InitTimer(9, 450); 
                     break;
                 case ES_TIMEOUT:
-                    ES_Timer_InitTimer(3, 550); // is timer 3 a good one?
+                    ES_Timer_InitTimer(3, 550); 
                     if (BallDropFlag < 4) {
                         toggleServo();
                     } else if (BallDropFlag > 7) {
@@ -240,7 +240,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
             //                    break;
             //            }
             //            break;
-            //            
+
         case ScanningForSecondBeacon:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
@@ -272,14 +272,6 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
             }
             break;
 
-
-
-
-
-
-
-
-
         case GetCloserToBeacon:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
@@ -294,13 +286,12 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     nextState = StartCentering;
                     makeTransition = TRUE;
                     break;
-
                 case TAPE_ON:
-                    nextState = DrivingTowardsSecondBeacon;
+                    nextState = DroppingAmmoAtSecondBeacon;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                default: // all unhandled events pass the event back up to the next level
+                default:
                     break;
             }
             break;
@@ -351,47 +342,17 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     nextState = GetCloserToBeacon;
                     makeTransition = TRUE;
                     break;
-
-                default: // all unhandled events pass the event back up to the next level
+                default:
                     break;
             }
             break;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        case DrivingTowardsSecondBeacon:
+        case DroppingAmmoAtSecondBeacon:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     motorsOff();
                     ES_Timer_InitTimer(3, 450);
                     break;
-
                 case ES_TIMEOUT:
                     if (BallDropFlag < 3) {
                         ES_Timer_InitTimer(3, 750);
@@ -406,20 +367,9 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
             }
             break;
 
-
-
-
-
-
-
-
-
-
-
-
-
-        default: // all unhandled states fall into here
+        default:
             break;
+
     } // end switch on Current State
 
     if (makeTransition == TRUE) { // making a state transition, send EXIT and ENTRY

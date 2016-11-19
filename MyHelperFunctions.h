@@ -247,4 +247,4 @@ void toggleServo();
  * @return None
  * @brief Sets left wheel to be 90% power, right wheel to be 100% power
  * @author Daniel Hunter, 18 Nov 2016 */
-void ninetyPercentReverseLeftTurn(int dutyCycle);
+void ninetyPercentLeftTurn(int dutyCycle);

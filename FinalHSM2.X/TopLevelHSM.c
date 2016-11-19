@@ -314,7 +314,6 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 case ES_NO_EVENT:
                     break;
                 case TAPE_ON:
-                case CENTER_TAPE_FOUND:
                     nextState = FirstBeacon;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;

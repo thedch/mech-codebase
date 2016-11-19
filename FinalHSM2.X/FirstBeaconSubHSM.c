@@ -159,6 +159,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                         // done dropping balls, go find a new beacon
                         nextState = ScanningForSecondBeacon;
                         makeTransition = TRUE;
+                        BallDropFlag = 0;
                     }
                     BallDropFlag++;
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -267,16 +268,23 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     driveForward(MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case CENTER_TAPE_FOUND:
+                case TAPE_ON:
                     motorsOff();
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    ES_Timer_InitTimer(3, 450); // is timer 3 a good one?
+                    break;
+                case ES_TIMEOUT:
+                    if (BallDropFlag < 3) {
+                        ES_Timer_InitTimer(3, 750);
+                        toggleServo();
+                        BallDropFlag++;
+                    } else {
+                        ThisEvent.EventType = ES_NO_EVENT;
+                    }
                     break;
                 default:
                     break;
             }
             break;
-
-
 
         default: // all unhandled states fall into here
             break;

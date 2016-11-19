@@ -171,22 +171,16 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     if (ThisEvent.EventParam == 4) {
                         // You're turned away from the beacon, drive to find tape
                         driveForward(MAX_MOTOR_SPEED);
+                    } else if (ThisEvent.EventParam == BUMPED_TIMER) {
+                        // You're finished backing up from a bumped evenT, turn the 
+                        // appropriate direction 
+                        if (bumpedTurnVar == 1) {
+                            leftTankTurn(MEDIUM_MOTOR_SPEED);
+                        } else if (bumpedTurnVar == 2) {
+                            rightTankTurn(MEDIUM_MOTOR_SPEED);
+                        }
+                        //                        ES_Timer_InitTimer(BUMPED_TIMER, 400);
                     }
-                    //                    else if (ThisEvent.EventParam == BUMPED_TIMER && bumpedVar == 1) {
-                    //                        // You're finished backing up from a bumped even, turn the 
-                    //                        // appropriate direction 
-                    //                        if (bumpedTurnVar == 1) {
-                    //                            leftTankTurn(MEDIUM_MOTOR_SPEED);
-                    //                        } else if (bumpedTurnVar == 2) {
-                    //                            rightTankTurn(MEDIUM_MOTOR_SPEED);
-                    //                        }
-                    //                        bumpedVar++;
-                    //                        ES_Timer_InitTimer(BUMPED_TIMER, 400);
-                    //                    } else if (ThisEvent.EventParam == BUMPED_TIMER && bumpedVar == 2) {
-                    //                        // You've finished 
-                    //                        leftTankTurn(MEDIUM_MOTOR_SPEED);
-                    //                        ThisEvent.EventType = ES_NO_EVENT;
-                    //                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
@@ -205,57 +199,24 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     // rightTankTurn(MEDIUM_MOTOR_SPEED);
-                    driveBackward(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(4, 500);
+                    rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
+                    //                    ES_Timer_InitTimer(4, 500);
                     break;
                 case ALL_TAPE_WHITE:
                     // we have gone off the tape, stop turning but continue backwards to avoid 
                     // turning back into the tape.
-                    driveBackward(MEDIUM_MOTOR_SPEED);
+                    ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-                    // because of the way our track wire following works, we want to
-                    // keep the center and right tape sensors off the tape, while the center tape is irrelevant
-                    // left sensor should be on the tape so our turns in Line tracking can be shallower
-                    switch (ThisEvent.EventParam) {
-                        case 1: // Left Only is black
-                            // we don't care if left only is in tape, proceed with previous action.
-                            break;
-                        case 2:// center only is black
-                        case 4: // Right only is black
-                        case 3: // center and left is black
-                        case 5:// right and left are black
-                        case 6:// right and center are black
-                        case 7: // left, right and center are black
-                            //suspend timer 5  to keep it's event from being posted while we are backing up
-                            ES_Timer_StopTimer(5);
-                            // back up while slightly turning our face to the right
-                            rightTrackTurn(MEDIUM_MOTOR_SPEED);
-                            // start a timer to track how long we've been driving backwards
-                            ES_Timer_InitTimer(4, 500);
-                            break;
-                    }
-                    // eat the event
+                    rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
-                    // check if we finish backing up
-                    if (ThisEvent.EventParam == 4) {
-                        //start drivign forweards
-                        driveForward(MEDIUM_MOTOR_SPEED);
-                        // start the timer to track how long we've drived forward
-                        ES_Timer_InitTimer(5, 1000);
-                    } else if (ThisEvent.EventParam == 5) { // check if we are parallel
-
-                        nextState = LineTracking;
-                        makeTransition = TRUE;
-                        ThisEvent.EventType = ES_NO_EVENT;
-                    }
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
                 case BEACON_LOST:
-                    // eat and ignore beacon events
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_EXIT:
@@ -265,6 +226,18 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 case FRONT_TRACK_WIRE_DETECTED:
                 case BACK_TRACK_WIRE_DETECTED:
                     //ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case FRONT_LEFT_BUMPER_HIT:
+                    // back up, turn right?
+                    nextState = ReverseLineTracking;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case FRONT_RIGHT_BUMPER_HIT:
+                    // back up, turn left?
+                    nextState = ReverseLineTracking;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
@@ -349,7 +322,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 case TAPE_ON:
                 case CENTER_TAPE_FOUND:
                     if (pastTapeFlag) {
-                        nextState = LineTracking;
+                        nextState = FindingTape;
                         makeTransition = TRUE;
                         ThisEvent.EventType = ES_NO_EVENT;
                     }
@@ -373,7 +346,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
                 case FRONT_RIGHT_BUMPER_HIT:
-                    rightTankTurn(MEDIUM_MOTOR_SPEED);
+                    fiftyPercentReverseLeftTurn(MEDIUM_MOTOR_SPEED);
                     bumpedVar = 0;
                     ES_Timer_InitTimer(BUMPED_TIMER, 500);
                     ThisEvent.EventType = ES_NO_EVENT;

@@ -42,8 +42,8 @@
  * MODULE #DEFINES                                                             *
  ******************************************************************************/
 typedef enum {
-    WaitingForBattery,
     InitPSubState,
+    ScanningForBeacon,
     FindingTape,
     LineTracking,
     ReverseLineTracking,
@@ -51,8 +51,8 @@ typedef enum {
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
-	"WaitingForBattery",
 	"InitPSubState",
+	"ScanningForBeacon",
 	"FindingTape",
 	"LineTracking",
 	"ReverseLineTracking",
@@ -133,35 +133,54 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
 
                 // now put the machine into the actual initial state
                 //driveForward(MEDIUM_MOTOR_SPEED);
-                nextState = FindingTape;
+                nextState = ScanningForBeacon;
                 makeTransition = TRUE;
                 ThisEvent.EventType = ES_NO_EVENT;
             }
             break;
-        case WaitingForBattery:
+
+        case ScanningForBeacon:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    motorsOff();
+                    leftTankTurn(MEDIUM_MOTOR_SPEED);
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case BATTERY_CONNECTED:
+                case BEACON_DETECTED:
+                    //                    motorsOff();
+                    ES_Timer_InitTimer(4, 1000); // rotate to avoid beacon
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_TIMEOUT:
+                    if (ThisEvent.EventParam == 4) {
+                        driveForward(MAX_MOTOR_SPEED);
+                    }
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case TAPE_ON:
+                    motorsOff();
                     nextState = FindingTape;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case ES_NO_EVENT:
-                    break;
-                default: // all unhandled events pass the event back up to the next level
+                default:
                     break;
             }
             break;
+
         case FindingTape:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    // TODO: Add beacon checking to determine orientation 
-                    leftTankTurn(MEDIUM_MOTOR_SPEED);
+                    rightTankTurn(MEDIUM_MOTOR_SPEED);
+                    ES_Timer_InitTimer(4, 1000); // rotate to avoid beacon
                     break;
+                case ALL_TAPE_WHITE:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case TAPE_ON:
                 case CENTER_TAPE_FOUND:
-                    motorsOff();
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_TIMEOUT:
                     nextState = LineTracking;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -186,12 +205,14 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
         case LineTracking:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    fiftyPercentRightTurn(MEDIUM_MOTOR_SPEED);
+                    fiftyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
                     break;
+                case TAPE_ON:
                 case CENTER_TAPE_FOUND:
                     // turn right gently
                     fiftyPercentRightTurn(MEDIUM_MOTOR_SPEED);
                     break;
+                case ALL_TAPE_WHITE:
                 case CENTER_ON_WHITE:
                     // turn left gently
                     fiftyPercentLeftTurn(MEDIUM_MOTOR_SPEED);

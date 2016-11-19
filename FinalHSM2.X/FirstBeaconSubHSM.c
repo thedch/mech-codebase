@@ -149,7 +149,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     motorsOff();
-                    ES_Timer_InitTimer(3, 450); // is timer 3 a good one?
+                    ES_Timer_InitTimer(9, 450); // is timer 3 a good one?
                     break;
                 case ES_TIMEOUT:
                     ES_Timer_InitTimer(3, 450); // is timer 3 a good one?

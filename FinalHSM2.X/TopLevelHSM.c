@@ -57,6 +57,7 @@
  ******************************************************************************/
 typedef enum {
     InitPState,
+    WaitingToStart,
     TapeTracking,
     AvoidingCollision,
     FollowingTrackWire,
@@ -66,6 +67,7 @@ typedef enum {
 
 static const char *StateNames[] = {
 	"InitPState",
+	"WaitingToStart",
 	"TapeTracking",
 	"AvoidingCollision",
 	"FollowingTrackWire",
@@ -211,11 +213,50 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 InitTrackWireSubHSM();
                 InitFirstBeaconSubHSM();
                 // now put the machine into the actual initial state
-                nextState = TapeTracking;
+                nextState = WaitingToStart;
                 makeTransition = TRUE;
                 ThisEvent.EventType = ES_NO_EVENT;
             }
             break;
+
+        case WaitingToStart:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    motorsOff();
+                    ES_Timer_InitTimer(4, 2500); // rotate to avoid beacon
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_EXIT:
+                case ES_TIMEOUT:
+                    if (ThisEvent.EventParam == 4) {
+                        nextState = TapeTracking;
+                        makeTransition = TRUE;
+                    }
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_INIT:
+                case ES_TIMERACTIVE:
+                case ES_TIMERSTOPPED:
+                case FRONT_LEFT_BUMPER_HIT:
+                case FRONT_RIGHT_BUMPER_HIT:
+                case BACK_BUMPER_HIT:
+                case LEFT_TAPE_FOUND:
+                case ALL_TAPE_WHITE:
+                case TAPE_ON:
+                case LEFT_ON_WHITE:
+                case RIGHT_TAPE_FOUND:
+                case RIGHT_ON_WHITE:
+                case FRONT_TRACK_WIRE_DETECTED:
+                case BACK_TRACK_WIRE_DETECTED:
+                case BOTH_TRACK_WIRES_DETECTED:
+                case BEACON_DETECTED:
+                case BEACON_LOST:
+                default:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+            }
+            break;
+
         case TapeTracking:
             // run sub-state machine for this state
             // NOTE: the SubState Machine runs and responds to events 
@@ -246,6 +287,11 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                case BATTERY_DISCONNECTED:
+                    nextState = WaitingToStart;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                 default:
                     break;
             }
@@ -258,6 +304,10 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     break;
                 case ES_NO_EVENT:
                     break;
+                case BATTERY_DISCONNECTED:
+                    nextState = WaitingToStart;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                 default:
                     break;
             }
@@ -278,11 +328,16 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     break;
                 case ES_NO_EVENT:
                     break;
+                case TAPE_ON:
                 case CENTER_TAPE_FOUND:
                     nextState = FirstBeacon;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                case BATTERY_DISCONNECTED:
+                    nextState = WaitingToStart;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                 default:
                     break;
             }
@@ -295,6 +350,10 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     break;
                 case ES_NO_EVENT:
                     break;
+                case BATTERY_DISCONNECTED:
+                    nextState = WaitingToStart;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                 default:
                     break;
             }

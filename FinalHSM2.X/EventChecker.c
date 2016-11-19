@@ -279,21 +279,27 @@ uint8_t CheckBeaconDetector(void) {
     // Init Code
     static ES_EventTyp_t lastEvent = ES_NO_EVENT;
     static int beaconDebounceVar = 0;
-    ES_EventTyp_t curEvent;
+    static ES_EventTyp_t curEvent = ES_NO_EVENT;
     ES_Event thisEvent;
     uint8_t returnVal = FALSE;
+    
+//    int tempVar = AD_ReadADPin(BEACON_DETECTOR_PIN);
 
-    // Check the beacon detector
-    if (AD_ReadADPin(BEACON_DETECTOR_PIN) < BEACON_DETECTOR_THRESHOLD) {
-        beaconDebounceVar++;
-    } else if (AD_ReadADPin(BEACON_DETECTOR_PIN) > BEACON_DETECTOR_THRESHOLD) {
-        beaconDebounceVar = 0;
-    }
+    if (AD_ReadADPin(BEACON_DETECTOR_PIN) > 20) {
+//        printf("You're inside the beacon detector event checker for loop \r\n");
+//        printf("\r\n current data is %d", tempVar);
+        // Check the beacon detector
+        if (AD_ReadADPin(BEACON_DETECTOR_PIN) < BEACON_DETECTOR_THRESHOLD) {
+            beaconDebounceVar++;
+        } else if (AD_ReadADPin(BEACON_DETECTOR_PIN) > BEACON_DETECTOR_THRESHOLD) {
+            beaconDebounceVar = 0;
+        }
 
-    if (beaconDebounceVar > BEACON_DEBOUNCE_THRESHOLD) {
-        curEvent = BEACON_DETECTED;
-    } else {
-        curEvent = BEACON_LOST;
+        if (beaconDebounceVar > BEACON_DEBOUNCE_THRESHOLD) {
+            curEvent = BEACON_DETECTED;
+        } else {
+            curEvent = BEACON_LOST;
+        }
     }
 
     if (curEvent != lastEvent) { // check for change from last time

@@ -40,6 +40,10 @@
 
 #define NUM_TAPE_SENSORS 3
 
+#define LEFT 0
+#define CENTER 1
+#define RIGHT 2
+
 /*******************************************************************************
  * PRIVATE FUNCTION PROTOTYPES                                                 *
  ******************************************************************************/
@@ -85,7 +89,7 @@ uint8_t TapeSensorEventChecker(void) {
 
     // Either return true or false 
     if (StartSampling == 0) {
-//        printf("Entering TapeSensorEventChecker \r\n");
+        //        printf("Entering TapeSensorEventChecker \r\n");
         // set LED high
         IO_PortsSetPortBits(PORTY, PIN8);
         // start timer 
@@ -100,7 +104,7 @@ uint8_t TapeSensorEventChecker(void) {
 
 uint8_t TapeSensorLEDOn(ES_Event ThisEvent) {
     if (ThisEvent.EventType == ES_TIMEOUT) {
-//        printf("Entering TapeSensorLEDOn \r\n");
+        //        printf("Entering TapeSensorLEDOn \r\n");
         // take a reading of the LED on reading 
         LeftLEDOnReading = AD_ReadADPin(LEFT_TAPE_SENSOR_DATA_PIN);
         CenterLEDOnReading = AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN);
@@ -114,7 +118,7 @@ uint8_t TapeSensorLEDOn(ES_Event ThisEvent) {
 
 uint8_t TapeSensorLEDOff(ES_Event ThisEvent) {
     if (ThisEvent.EventType == ES_TIMEOUT) {
-//        printf("Entering TapeSensorLEDOff \r\n");
+        //        printf("Entering TapeSensorLEDOff \r\n");
         // get readings for the LED off
         LeftLEDOffReading = AD_ReadADPin(LEFT_TAPE_SENSOR_DATA_PIN);
         CenterLEDOffReading = AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN);
@@ -149,14 +153,16 @@ static void TapeSensorCompareHysteresis(void) {
         TapeValues[2] = WHITE;
     }
 
-    CompareValue = memcmp(TapeValues, PrevMeasuredValues, NUM_TAPE_SENSORS);
+    CompareValue = memcmp(TapeValues, PrevMeasuredValues, NUM_TAPE_SENSORS * sizeof (int));
     if (CompareValue != 0) {
-        CompareValue = memcmp(TapeValues, WhiteValues, NUM_TAPE_SENSORS);
+        CompareValue = memcmp(TapeValues, WhiteValues, NUM_TAPE_SENSORS * sizeof (int));
         if (CompareValue == 0) {
             // you're entirely on white
             ThisEvent.EventType = ALL_TAPE_WHITE;
+            ThisEvent.EventParam = 0;
         } else {
             ThisEvent.EventType = TAPE_ON;
+            ThisEvent.EventParam = 0;
             // bitshifting to add param to the
             ThisEvent.EventParam = ThisEvent.EventParam | TapeValues[2];
             ThisEvent.EventParam = ThisEvent.EventParam << 1;
@@ -165,9 +171,12 @@ static void TapeSensorCompareHysteresis(void) {
             ThisEvent.EventParam = ThisEvent.EventParam | TapeValues[0];
         }
         PostTemplateHSM(ThisEvent);
-        // don't post an event
+        //        printf("\r\nLeft: %d, Center: %d, Right: %d \r\n",
+        //        LeftLEDDiffReading,
+        //                CenterLEDDiffReading,
+        //                RightLEDDiffReading);
     }
-    memcpy(PrevMeasuredValues, TapeValues, NUM_TAPE_SENSORS);
+    memcpy(PrevMeasuredValues, TapeValues, NUM_TAPE_SENSORS * sizeof (int));
     StartSampling = 0;
 }
 

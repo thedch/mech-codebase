@@ -165,23 +165,6 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 PWM_SetFrequency(PWM_DEFAULT_FREQUENCY);
                 PWM_AddPins(LEFT_MOTOR_PWM_PIN | RIGHT_MOTOR_PWM_PIN);
 
-                //                LED_Init();
-                //                LED_AddBanks(LED_BANK1); // init all the LEDs
-                //                LED_AddBanks(LED_BANK2);
-                //                LED_AddBanks(LED_BANK3);
-                //
-                //                LED_SetBank(LED_BANK1, 0b0110);
-                //                LED_SetBank(LED_BANK2, 0x00);
-                //                LED_SetBank(LED_BANK3, 0x00);
-
-                // Bumper Sensor Power Pins
-                //                IO_PortsSetPortOutputs(PORTX, PIN12);
-                //                IO_PortsSetPortOutputs(PORTX, PIN9);
-                //                IO_PortsSetPortOutputs(PORTX, PIN5);
-                //                IO_PortsSetPortBits(PORTX, PIN12);
-                //                IO_PortsSetPortBits(PORTX, PIN9);
-                //                IO_PortsSetPortBits(PORTX, PIN5);
-
                 // Bumper Sensor Inputs
                 IO_PortsSetPortInputs(PORTX, PIN10);
                 IO_PortsSetPortInputs(PORTX, PIN9);
@@ -199,9 +182,9 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 IO_PortsSetPortInputs(PORTZ, PIN7);
 
                 AD_Init();
-                AD_AddPins(AD_PORTV4 |
-                        AD_PORTV8 |
-                        AD_PORTV6 |
+                AD_AddPins(LEFT_TAPE_SENSOR_DATA_PIN |
+                        CENTER_TAPE_SENSOR_DATA_PIN |
+                        RIGHT_TAPE_SENSOR_DATA_PIN |
                         BEACON_DETECTOR_PIN |
                         FRONT_TRACK_WIRE_SENSOR_PIN |
                         BACK_TRACK_WIRE_SENSOR_PIN);
@@ -274,8 +257,10 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case FRONT_RIGHT_BUMPER_HIT:
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BACK_BUMPER_HIT:
                     //                    nextState = Bumped;

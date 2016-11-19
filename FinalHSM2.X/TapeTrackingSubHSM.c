@@ -75,7 +75,9 @@ static const char *StateNames[] = {
 
 static TemplateSubHSMState_t CurrentState = InitPSubState; // <- change name to match ENUM
 static uint8_t MyPriority;
-static int pastTapeFlag = 0;
+static int pastTapeFlag;
+static int bumpedVar;
+static int bumpedTurnVar;
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                            *
@@ -146,14 +148,45 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
-                    //                    motorsOff();
                     ES_Timer_InitTimer(4, 1000); // rotate to avoid beacon
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                case FRONT_LEFT_BUMPER_HIT:
+                    // You've been bumped, back up
+                    driveBackward(MEDIUM_MOTOR_SPEED);
+                    ES_Timer_InitTimer(BUMPED_TIMER, 400);
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    bumpedTurnVar = 1; // 1 = LEFT
+                    bumpedVar = 0;
+                    break;
+                case FRONT_RIGHT_BUMPER_HIT:
+                    // You've been bumped, back up
+                    driveBackward(MEDIUM_MOTOR_SPEED);
+                    ES_Timer_InitTimer(BUMPED_TIMER, 500);
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    bumpedTurnVar = 2; // 2 = RIGHT
+                    bumpedVar = 0;
+                    break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 4) {
+                        // You're turned away from the beacon, drive to find tape
                         driveForward(MAX_MOTOR_SPEED);
                     }
+                    //                    else if (ThisEvent.EventParam == BUMPED_TIMER && bumpedVar == 1) {
+                    //                        // You're finished backing up from a bumped even, turn the 
+                    //                        // appropriate direction 
+                    //                        if (bumpedTurnVar == 1) {
+                    //                            leftTankTurn(MEDIUM_MOTOR_SPEED);
+                    //                        } else if (bumpedTurnVar == 2) {
+                    //                            rightTankTurn(MEDIUM_MOTOR_SPEED);
+                    //                        }
+                    //                        bumpedVar++;
+                    //                        ES_Timer_InitTimer(BUMPED_TIMER, 400);
+                    //                    } else if (ThisEvent.EventParam == BUMPED_TIMER && bumpedVar == 2) {
+                    //                        // You've finished 
+                    //                        leftTankTurn(MEDIUM_MOTOR_SPEED);
+                    //                        ThisEvent.EventType = ES_NO_EVENT;
+                    //                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
@@ -171,7 +204,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     rightTankTurn(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(4, 1000); // rotate to avoid beacon
+                    ES_Timer_InitTimer(4, 1000);
                     break;
                 case ALL_TAPE_WHITE:
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -187,7 +220,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case BEACON_DETECTED:
                 case BEACON_LOST:
-                    //ThisEvent.EventType = ES_NO_EVENT;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_EXIT:
                     break;
@@ -277,6 +310,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     driveForward(SLOW_MOTOR_SPEED);
                     // this is a timer to allow the robot to clear the tape
                     ES_Timer_InitTimer(2, 150);
+                case TAPE_ON:
                 case CENTER_TAPE_FOUND:
                     if (pastTapeFlag) {
                         nextState = LineTracking;
@@ -284,20 +318,29 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                         ThisEvent.EventType = ES_NO_EVENT;
                     }
                     break;
-                    //                case BACK_TRACK_WIRE_DETECTED:
-                    //                    if (pastTapeFlag) {
-                    //                        motorsOff();
-                    //                    }
-                    //                   break;
+                case BACK_TRACK_WIRE_DETECTED:
+                    // pass this up to the top level
+                    break;
                 case ES_NO_EVENT:
                     break;
                 case BEACON_DETECTED:
                 case BEACON_LOST:
-                    //ThisEvent.EventType = ES_NO_EVENT;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
-                    pastTapeFlag = 1; // set the flag to allow the robot to 
-                    // re-find the tape
+                    if (ThisEvent.EventParam == 2) {
+                        pastTapeFlag = 1; // set the flag to allow the robot to 
+                        // re-find the tape    
+                    } else if (ThisEvent.EventParam == BUMPED_TIMER) {
+                        driveForward(MEDIUM_MOTOR_SPEED);
+                    }
+                    break;
+                case FRONT_LEFT_BUMPER_HIT:
+                case FRONT_RIGHT_BUMPER_HIT:
+                    rightTankTurn(MEDIUM_MOTOR_SPEED);
+                    bumpedVar = 0;
+                    ES_Timer_InitTimer(BUMPED_TIMER, 500);
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;

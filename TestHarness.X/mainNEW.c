@@ -62,7 +62,7 @@ int main(void) {
     IO_PortsSetPortOutputs(PORTY, PIN8);
     IO_PortsSetPortBits(PORTY, PIN8);
 
-    RC_AddPins(RC_PORTZ08);
+    //    RC_AddPins(RC_PORTZ08);
     printf("Hello World! This is a test harness for The Beast (tm)\r\n");
 
     //    tapeSensorInit();
@@ -93,10 +93,15 @@ int main(void) {
 
     int currentFrontTrackWire = 0;
     static int previousFrontTrackWire = 0;
-    int tempVar = 0;
+    //    int tempVar = 5;
+    //    float tempVar2 = (float) tempVar;
+    //    printf("%d \r\n", tempVar);
+    //    printf("%f \r\n", tempVar2);
 
     while (1) {
-        driveForward(SLOW_MOTOR_SPEED);
+        //        driveForward(SLOW_MOTOR_SPEED);
+        CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, MEDIUM_MOTOR_SPEED);
+        myDelay(LONG_DELAY);
     }
     return 0;
 }

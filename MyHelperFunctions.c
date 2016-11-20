@@ -53,7 +53,7 @@ void driveForward(int dutyCycle) {
     PORTY11_TRIS = 0;
     PORTY09_TRIS = 0;
 
-    PORTY11_LAT = 0; 
+    PORTY11_LAT = 0;
     PORTY09_LAT = 0;
 
     PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
@@ -251,4 +251,31 @@ void ninetyPercentLeftTurn(int dutyCycle) {
 
     PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, (dutyCycle * 0.9));
     PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+}
+
+char CustomPWM_SetDutyCycle(unsigned char Channel, unsigned int Duty) {
+
+    // Lookup Table (accounting for diode loss):
+    // MAX_MOTOR_SPEED = 1000 = 9.3 V  
+    // MED_MOTOR_SPEED = 750 = 6.82V
+    // SLOW_MOTOR_SPEED = 500 = 4.35V
+
+    unsigned int newDuty = 0;
+    unsigned int batVoltage = 0;
+    double newBatVoltage = 0;
+    batVoltage = AD_ReadADPin(BAT_VOLTAGE); // read the battery voltage
+    newBatVoltage = (double) batVoltage;
+    if (newBatVoltage != 0) {
+        newBatVoltage = newBatVoltage / 1023 * 33; // = current actual battery voltage
+        printf("Current Actual Battery Voltage: %fV \r\n", newBatVoltage);
+        newBatVoltage = newBatVoltage - 0.6; // account for diode loss
+
+        newDuty = Duty / newBatVoltage * 9.9; // Modify the duty cycle as needed to account for a lower bat voltage
+        printf("You just set the PWM to be %d \r\n", newDuty
+                );
+    }
+
+
+    //    return (PWM_SetDutyCycle(Channel, newDuty));
+    return 0;
 }

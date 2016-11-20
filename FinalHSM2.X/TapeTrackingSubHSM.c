@@ -170,7 +170,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                         // You're turned away from the beacon, drive to find tape
                         driveForward(MAX_MOTOR_SPEED);
                     } else if (ThisEvent.EventParam == BUMPED_TIMER) {
-                        // You're finished backing up from a bumped evenT, turn the 
+                        // You're finished backing up from a bumped event, turn the 
                         // appropriate direction 
                         if (bumpedTurnVar == 1) {
                             leftTankTurn(MEDIUM_MOTOR_SPEED);
@@ -182,9 +182,12 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-                    motorsOff();
-                    nextState = TapeTracking;
-                    makeTransition = TRUE;
+                    if (ThisEvent.EventParam & 0x02) {
+                        printf("\r\nJust saw center tape, leaving beaconScanning \r\n");
+                        motorsOff();
+                        nextState = TapeTracking;
+                        makeTransition = TRUE;
+                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default:
@@ -193,20 +196,23 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
             break;
 
         case TapeTracking:
-            // need to align ourselves to be parallel to the tape
+            // This state handles the actual tracking of the tape and bump events while tracking    
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ALL_TAPE_WHITE:
-                    motorsOff();
-                    ES_Timer_InitTimer(1, 250);
-                    //                    ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
+                    //                    motorsOff();
+                    //                    ES_Timer_InitTimer(1, 250);
+                                        ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-                    rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
+                    if (ThisEvent.EventParam & 0x02) {
+                        rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
+                        //                        ES_Timer_InitTimer(1, 250);
+                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
@@ -229,11 +235,13 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     // ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
+                    printf("Just got bumped (LEFT) \r\n");
                     nextState = ReverseLineTracking;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case FRONT_RIGHT_BUMPER_HIT:
+                    printf("Just got bumped (RIGHT) \r\n");
                     nextState = ReverseLineTracking;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -249,6 +257,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     // TODO: Add actual reverse line tracking
                     rightMotor(REVERSE, SLOW_MOTOR_SPEED);
                     ES_Timer_InitTimer(2, 1150); // rotate to turn past the ball tower
+                    printf("Entering reverseLineTracking, backing up \r\n");
                     break;
                 case ES_NO_EVENT:
                     break;
@@ -257,6 +266,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     //ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
+                    printf("Timer expired in reverseLineTracking \r\n");
                     motorsOff();
                     nextState = DrivingToFindTrackWire;
                     makeTransition = TRUE;
@@ -264,7 +274,14 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case FRONT_TRACK_WIRE_DETECTED:
                 case BACK_TRACK_WIRE_DETECTED:
-                    //ThisEvent.EventType = ES_NO_EVENT;
+                    // ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case FRONT_LEFT_BUMPER_LOW:
+                case FRONT_RIGHT_BUMPER_LOW:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_EXIT:
+                    printf("LEAVING REVERSE LINE TRACKING \r\n");
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
@@ -278,13 +295,18 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     ES_Timer_InitTimer(2, 150);
                 case TAPE_ON:
                     if (pastTapeFlag) {
+                        pastTapeFlag = 0;
                         nextState = TapeTracking;
+                        // TODO: Make sure you didn't run into a beacon (beacon detector range finding would be cool here)
                         makeTransition = TRUE;
                         ThisEvent.EventType = ES_NO_EVENT;
                     }
                     break;
                 case BACK_TRACK_WIRE_DETECTED:
                     // pass this up to the top level
+                    break;
+                case FRONT_TRACK_WIRE_DETECTED:
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_NO_EVENT:
                     break;
@@ -303,7 +325,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 case FRONT_LEFT_BUMPER_HIT:
                 case FRONT_RIGHT_BUMPER_HIT:
                     fiftyPercentReverseLeftTurn(MEDIUM_MOTOR_SPEED);
-                    bumpedVar = 0;
+                    //                    bumpedVar = 0;
                     ES_Timer_InitTimer(BUMPED_TIMER, 500);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;

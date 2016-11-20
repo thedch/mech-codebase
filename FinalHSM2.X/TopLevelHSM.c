@@ -161,6 +161,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 // Initialize all sub-state machines
 
                 // Init Code
+                // TODO: Move all this init code
                 PWM_Init();
                 PWM_SetFrequency(PWM_DEFAULT_FREQUENCY);
                 PWM_AddPins(LEFT_MOTOR_PWM_PIN | RIGHT_MOTOR_PWM_PIN);
@@ -206,16 +207,21 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     motorsOff();
-                    ES_Timer_InitTimer(4, 2500); // rotate to avoid beacon
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case ES_EXIT:
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 4) {
                         nextState = TapeTracking;
                         makeTransition = TRUE;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case BATTERY_CONNECTED:
+                    ES_Timer_InitTimer(4, 2500);
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_EXIT:
+                    // TODO: Reset all sub HSMs?
                     break;
                 case ES_INIT:
                 case ES_TIMERACTIVE:

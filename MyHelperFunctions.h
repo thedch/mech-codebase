@@ -28,9 +28,9 @@ static int GetOutFlag = 0;
 #define LONG_DELAY 1000000
 
 // Motors
-#define MAX_MOTOR_SPEED 1000
-#define MEDIUM_MOTOR_SPEED 750
-#define SLOW_MOTOR_SPEED 500
+#define MAX_MOTOR_SPEED 900
+#define MEDIUM_MOTOR_SPEED 700
+#define SLOW_MOTOR_SPEED 450
 
 #define FORWARD 0
 #define REVERSE 1
@@ -45,6 +45,10 @@ static int GetOutFlag = 0;
 #define LEFT_TAPE_SENSOR_DATA_PIN AD_PORTV4
 #define CENTER_TAPE_SENSOR_DATA_PIN AD_PORTV6
 #define RIGHT_TAPE_SENSOR_DATA_PIN AD_PORTV8
+
+#define LEFT_TAPE_SENSOR 0x01
+#define CENTER_TAPE_SENSOR 0x02
+#define RIGHT_TAPE_SENSOR 0x04
 
 // Beacon Detector
 #define BEACON_DETECTOR_PIN AD_PORTV3
@@ -248,3 +252,11 @@ void toggleServo();
  * @brief Sets left wheel to be 90% power, right wheel to be 100% power
  * @author Daniel Hunter, 18 Nov 2016 */
 void ninetyPercentLeftTurn(int dutyCycle);
+
+/**
+ * @Function CustomPWM_SetDutyCycle
+ * @param dutyCycle - the duty cycle to be set to the appropriate motor
+ * @return None
+ * @brief Sets left wheel to be 90% power, right wheel to be 100% power
+ * @author Daniel Hunter, 19 Nov 2016 */
+char CustomPWM_SetDutyCycle(unsigned char Channel, unsigned int Duty);

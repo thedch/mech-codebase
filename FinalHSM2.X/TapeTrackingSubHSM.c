@@ -209,29 +209,26 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ALL_TAPE_WHITE:
-                    //                        motorsOff();
-                    //                        ES_Timer_InitTimer(1, 250);
-                    ninetyPercentLeftTurn(SLOW_MOTOR_SPEED);
+                    motorsOff();
+                    ES_Timer_InitTimer(1, 350);
+                    //                    ninetyPercentLeftTurn(SLOW_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
                     if (ThisEvent.EventParam & 0x02) {
                         rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
-                        //                        ES_Timer_InitTimer(1, 250);
-                        lastTapeOnParam = 2;
                     } else { // treat this like center on white
-                        //                        motorsOff();
-                        //                        ES_Timer_InitTimer(1, 250);
-                        ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
-                        ThisEvent.EventType = ES_NO_EVENT;
+                        motorsOff();
+                        ES_Timer_InitTimer(1, 350);
+                        //                        ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
                         break;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
-                    //                    if (ThisEvent.EventParam == 1) {
-                    //                        ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
-                    //                    }
+                    if (ThisEvent.EventParam == 1) {
+                        ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
+                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:

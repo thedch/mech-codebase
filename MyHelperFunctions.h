@@ -29,7 +29,7 @@ static int GetOutFlag = 0;
 
 // Motors
 #define MAX_MOTOR_SPEED 900
-#define MEDIUM_MOTOR_SPEED 700
+#define MEDIUM_MOTOR_SPEED 600
 #define SLOW_MOTOR_SPEED 450
 
 #define FORWARD 0

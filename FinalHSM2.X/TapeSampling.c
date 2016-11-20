@@ -37,8 +37,8 @@
 #define BATTERY_DISCONNECT_THRESHOLD 175
 
 // TODO: Change these to be CENTER_[...]
-#define LIGHT_LOW_THRESHOLD 350
-#define LIGHT_HIGH_THRESHOLD 400
+#define LIGHT_LOW_THRESHOLD 200
+#define LIGHT_HIGH_THRESHOLD 500
 
 #define CORNER_LIGHT_LOW_THRESHOLD 325
 #define CORNER_LIGHT_HIGH_THRESHOLD 850
@@ -63,7 +63,7 @@ static void TapeSensorCompareHysteresis(void);
  ******************************************************************************/
 /* You will need MyPriority and maybe a state variable; you may need others
  * as well. */
-static int StartSampling;
+static int StartSampling = 0;
 
 static int LeftLEDOnReading;
 static int CenterLEDOnReading;
@@ -83,8 +83,6 @@ static int GarbageLEDONCounter;
 static int PrevRightDiffReading = WHITE;
 static int PrevCenterDiffReading = WHITE;
 static int PrevLeftDiffReading = WHITE;
-
-static int tempCounter;
 
 int PrevMeasuredValues[NUM_TAPE_SENSORS] = {};
 
@@ -114,6 +112,9 @@ uint8_t TapeSensorEventChecker(void) {
 }
 
 uint8_t TapeSensorLEDOn(ES_Event ThisEvent) {
+    
+    // TODO: Add isNewDataReady functionality to prevent garbage data input
+    
     if (ThisEvent.EventType == ES_TIMEOUT) {
         //        printf("Entering TapeSensorLEDOn \r\n");
         // take a reading of the LED on reading 
@@ -129,8 +130,9 @@ uint8_t TapeSensorLEDOn(ES_Event ThisEvent) {
                 CenterLEDOnReading == 0 ||
                 RightLEDOnReading == 0) {
             GarbageLEDONCounter++;
-            printf("GARBAGE DATA FOUND IN LED OFF: %d \r\n", GarbageLEDONCounter);
+            //            printf("GARBAGE DATA FOUND IN LED ON: %d \r\n", GarbageLEDONCounter);
         }
+
     }
 }
 
@@ -142,32 +144,19 @@ uint8_t TapeSensorLEDOff(ES_Event ThisEvent) {
         CenterLEDOffReading = AD_ReadADPin(CENTER_TAPE_SENSOR_DATA_PIN);
         RightLEDOffReading = AD_ReadADPin(RIGHT_TAPE_SENSOR_DATA_PIN);
 
-        //        if (LeftLEDOffReading == 0 ||
-        //                CenterLEDOffReading == 0 ||
-        //                RightLEDOffReading == 0) {
-        //            GarbageLEDOFFCounter++;
-        //            printf("GARBAGE DATA FOUND IN LED OFF: %d \r\n", GarbageLEDOFFCounter);
-        //        }
-
-        if ((CenterLEDOffReading > 0) &&
-                (CenterLEDOnReading > 0) &&
-                (CenterLEDOffReading > CenterLEDOnReading)) {
-            TapeSensorCompareHysteresis();
-            tempCounter++;
-            if (tempCounter > 15) {
-                printf("We hit: CenterLEDOFF \t%d, CenterLEDON \t%d, CenterDIFF \t%d \r\n ",
-                        CenterLEDOffReading,
-                        CenterLEDOnReading,
-                        (CenterLEDOffReading - CenterLEDOnReading));
-                tempCounter = 0;
-            }
-        } else {
-            // we've missed out on a hysteresis call, let's see why
-            printf("****************** We missed: CenterLEDOFF \t%d, CenterLEDON \t%d, CenterDIFF \t%d \r\n ",
-                    CenterLEDOffReading,
-                    CenterLEDOnReading,
-                    (CenterLEDOffReading - CenterLEDOnReading));
+        if (LeftLEDOffReading == 0 ||
+                CenterLEDOffReading == 0 ||
+                RightLEDOffReading == 0) {
+            GarbageLEDOFFCounter++;
+            //            printf("GARBAGE DATA FOUND IN LED OFF: %d \r\n", GarbageLEDOFFCounter);
         }
+
+        if ((CenterLEDOffReading > 300) &&
+                (CenterLEDOnReading > 0)&&
+                ((CenterLEDOffReading - CenterLEDOnReading) > 0)) {
+            TapeSensorCompareHysteresis();
+        }
+        StartSampling = 0;
     }
 }
 
@@ -190,8 +179,12 @@ static void TapeSensorCompareHysteresis(void) {
         printf("\r\n Just saw center on black, diff reading was %d \r\n", CenterLEDDiffReading);
         printf("\r\n Just saw center on black, LEDON was %d \r\n", CenterLEDOnReading);
         printf("\r\n Just saw center on black, LEDOFF was %d \r\n", CenterLEDOffReading);
+        printf("\r\n Current garbage data %d \r\n", CenterLEDOffReading);
     } else if (CenterLEDDiffReading > LIGHT_HIGH_THRESHOLD && PrevMeasuredValues[1] == BLACK) {
         TapeValues[1] = WHITE;
+        printf("\r\n Just saw center on white, diff reading was %d \r\n", CenterLEDDiffReading);
+        printf("\r\n Just saw center on white, LEDON was %d \r\n", CenterLEDOnReading);
+        printf("\r\n Just saw center on white, LEDOFF was %d \r\n", CenterLEDOffReading);
     }
     if (RightLEDDiffReading < LIGHT_LOW_THRESHOLD && PrevMeasuredValues[2] == WHITE) {
         TapeValues[2] = BLACK;
@@ -218,13 +211,14 @@ static void TapeSensorCompareHysteresis(void) {
         }
         PostTemplateHSM(ThisEvent);
 
+
         //        printf("\r\nLeft: %d, Center: %d, Right: %d \r\n",
         //        LeftLEDDiffReading,
         //                CenterLEDDiffReading,
         //                RightLEDDiffReading);
     }
     memcpy(PrevMeasuredValues, TapeValues, NUM_TAPE_SENSORS * sizeof (int));
-    StartSampling = 0;
+
 }
 
 /**

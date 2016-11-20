@@ -320,8 +320,11 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 case ES_NO_EVENT:
                     break;
                 case TAPE_ON:
-                    nextState = FirstBeacon;
-                    makeTransition = TRUE;
+                    if (ThisEvent.EventParam & 0x02) {
+                        nextState = FirstBeacon;
+                        makeTransition = TRUE;
+                    }
+
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BATTERY_DISCONNECTED:

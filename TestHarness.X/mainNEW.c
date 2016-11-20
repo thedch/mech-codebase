@@ -35,8 +35,8 @@ int main(void) {
             LEFT_TAPE_SENSOR_DATA_PIN |
             RIGHT_TAPE_SENSOR_DATA_PIN);
 
-    //    PWM_AddPins(LEFT_MOTOR_PWM_PIN | RIGHT_MOTOR_PWM_PIN);
-    //    PWM_SetFrequency(PWM_DEFAULT_FREQUENCY);
+        PWM_AddPins(LEFT_MOTOR_PWM_PIN | RIGHT_MOTOR_PWM_PIN);
+        PWM_SetFrequency(PWM_DEFAULT_FREQUENCY);
 
     // Tape Sensor Power High
     IO_PortsSetPortOutputs(PORTY, PIN8);
@@ -60,6 +60,10 @@ int main(void) {
     while (1) {
         checkTapeSensors();
         myDelay(LONG_DELAY);
+        driveForward(MEDIUM_MOTOR_SPEED);
+        checkTapeSensors();
+        myDelay(LONG_DELAY);
+        driveBackward(MEDIUM_MOTOR_SPEED);
     }
     return 0;
 }

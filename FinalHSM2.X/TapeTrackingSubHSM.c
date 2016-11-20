@@ -189,6 +189,10 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                         nextState = TapeTracking;
                         makeTransition = TRUE;
                     }
+                    else// treat this like center on white
+                    {
+                        ;
+                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default:
@@ -206,7 +210,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 case ALL_TAPE_WHITE:
                     //                        motorsOff();
                     //                        ES_Timer_InitTimer(1, 250);
-                    ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
+                    ninetyPercentLeftTurn(SLOW_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
@@ -214,6 +218,13 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                         rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
                         //                        ES_Timer_InitTimer(1, 250);
                         lastTapeOnParam = 2;
+                    } else // treat this like center on white
+                    {
+                        //                        motorsOff();
+                        //                        ES_Timer_InitTimer(1, 250);
+                        ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
+                        ThisEvent.EventType = ES_NO_EVENT;
+                        break;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -303,6 +314,9 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                             // TODO: Make sure you didn't run into a beacon (beacon detector range finding would be cool here)
                             makeTransition = TRUE;
                         }
+                    } else // treat this like center on white
+                    {
+                        ;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;

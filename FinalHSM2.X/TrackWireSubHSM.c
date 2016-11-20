@@ -223,7 +223,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     if (LoadAmmoFlag < 2) {
                         ES_Timer_InitTimer(1, 500);
                     } else {
-                        ES_Timer_InitTimer(1, 3000);
+                        ES_Timer_InitTimer(1, 2000);
                     }
                     break;
                 case ES_TIMEOUT:
@@ -245,11 +245,11 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case ES_NO_EVENT:
                     break;
                 case TAPE_ON:
-                    if (ThisEvent.EventParam & 0x02) {
-                        // TODO: Don't eat this event, maybe reverse or something
-                        nextState = RepositionOffTape;
-                        makeTransition = TRUE;
-                    }
+//                    if (ThisEvent.EventParam & 0x02) {
+//                        // TODO: Don't eat this event, maybe reverse or something
+//                        nextState = RepositionOffTape;
+//                        makeTransition = TRUE;
+//                    } 
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -277,10 +277,10 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case ES_NO_EVENT:
                     break;
                 case TAPE_ON:
-                    if (ThisEvent.EventParam & 0x02) {
-                        nextState = RepositionOffTape;
-                        makeTransition = TRUE;
-                    }
+//                    if (ThisEvent.EventParam & 0x02) {
+//                        nextState = RepositionOffTape;
+//                        makeTransition = TRUE;
+//                    } 
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -307,10 +307,11 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case ES_NO_EVENT:
                     break;
                 case TAPE_ON:
-                    if (ThisEvent.EventParam & 0x02) {
-                        nextState = RepositionOffTape;
-                        makeTransition = TRUE;
-                    }
+//                    if (ThisEvent.EventParam & 0x02) {
+//                        nextState = RepositionOffTape;
+//                        makeTransition = TRUE;
+//                    } 
+                    
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -339,10 +340,10 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-                    if (ThisEvent.EventParam & 0x02) {
-                        nextState = RepositionOffTape;
-                        makeTransition = TRUE;
-                    }
+//                    if (ThisEvent.EventParam & 0x02) {
+//                        nextState = RepositionOffTape;
+//                        makeTransition = TRUE;
+//                    } 
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -362,10 +363,10 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-                    if (ThisEvent.EventParam & 0x02) {
-                        nextState = RepositionOffTape;
-                        makeTransition = TRUE;
-                    }
+//                    if (ThisEvent.EventParam & 0x02) {
+//                        nextState = RepositionOffTape;
+//                        makeTransition = TRUE;
+//                    } 
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
 
@@ -404,10 +405,10 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     break;
                 case TAPE_ON:
-                    if (ThisEvent.EventParam & 0x02) {
-                        nextState = RepositionOffTape;
-                        makeTransition = TRUE;
-                    }
+//                    if (ThisEvent.EventParam & 0x02) {
+//                        nextState = RepositionOffTape;
+//                        makeTransition = TRUE;
+//                    } 
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -429,10 +430,10 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-                    if (ThisEvent.EventParam & 0x02) {
-                        nextState = RepositionOffTape;
-                        makeTransition = TRUE;
-                    }
+//                    if (ThisEvent.EventParam & 0x02) {
+//                        nextState = RepositionOffTape;
+//                        makeTransition = TRUE;
+//                    } 
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -452,10 +453,10 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     break;
                 case TAPE_ON:
-                    if (ThisEvent.EventParam & 0x02) {
-                        nextState = RepositionOffTape;
-                        makeTransition = TRUE;
-                    }
+//                    if (ThisEvent.EventParam & 0x02) {
+//                        nextState = RepositionOffTape;
+//                        makeTransition = TRUE;
+//                    } 
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -466,7 +467,8 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case RepositionOffTape:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    driveBackward(SLOW_MOTOR_SPEED);
+                    //driveBackward(SLOW_MOTOR_SPEED);
+                    motorsOff();
                     ES_Timer_InitTimer(6, 800);
                     break;
                 case ES_TIMEOUT:

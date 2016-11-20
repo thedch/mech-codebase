@@ -290,6 +290,9 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     if (ThisEvent.EventParam & 0x02) {
                         nextState = DroppingAmmoAtSecondBeacon;
                         makeTransition = TRUE;
+                    }else// treat this like center on white
+                    {
+                        
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;

@@ -61,8 +61,6 @@ void driveForward(int dutyCycle) {
 }
 
 void driveBackward(int dutyCycle) {
-    // this function currently has no error checking, and assumes PWM pins have
-    // been correctly set up. I will probably fix this.
     PORTY11_TRIS = 0;
     PORTY09_TRIS = 0;
 

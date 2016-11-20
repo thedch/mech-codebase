@@ -76,6 +76,7 @@ static uint8_t MyPriority;
 static int pastTapeFlag;
 static int bumpedVar;
 static int bumpedTurnVar;
+static int lastTapeOnParam;
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                            *
@@ -203,22 +204,23 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ALL_TAPE_WHITE:
-                    //                    motorsOff();
-                    //                    ES_Timer_InitTimer(1, 250);
-                                        ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
+                    //                        motorsOff();
+                    //                        ES_Timer_InitTimer(1, 250);
+                    ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
                     if (ThisEvent.EventParam & 0x02) {
                         rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
                         //                        ES_Timer_InitTimer(1, 250);
+                        lastTapeOnParam = 2;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
-                    if (ThisEvent.EventParam == 1) {
-                        ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
-                    }
+                    //                    if (ThisEvent.EventParam == 1) {
+                    //                        ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
+                    //                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
@@ -294,13 +296,15 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     // this is a timer to allow the robot to clear the tape
                     ES_Timer_InitTimer(2, 150);
                 case TAPE_ON:
-                    if (pastTapeFlag) {
-                        pastTapeFlag = 0;
-                        nextState = TapeTracking;
-                        // TODO: Make sure you didn't run into a beacon (beacon detector range finding would be cool here)
-                        makeTransition = TRUE;
-                        ThisEvent.EventType = ES_NO_EVENT;
+                    if (ThisEvent.EventParam & 0x02) {
+                        if (pastTapeFlag) {
+                            pastTapeFlag = 0;
+                            nextState = TapeTracking;
+                            // TODO: Make sure you didn't run into a beacon (beacon detector range finding would be cool here)
+                            makeTransition = TRUE;
+                        }
                     }
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BACK_TRACK_WIRE_DETECTED:
                     // pass this up to the top level

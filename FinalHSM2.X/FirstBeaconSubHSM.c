@@ -159,10 +159,10 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     motorsOff();
-                    ES_Timer_InitTimer(9, 450); 
+                    ES_Timer_InitTimer(9, 450);
                     break;
                 case ES_TIMEOUT:
-                    ES_Timer_InitTimer(3, 550); 
+                    ES_Timer_InitTimer(3, 550);
                     if (BallDropFlag < 4) {
                         toggleServo();
                     } else if (BallDropFlag > 7) {
@@ -287,8 +287,10 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     break;
                 case TAPE_ON:
-                    nextState = DroppingAmmoAtSecondBeacon;
-                    makeTransition = TRUE;
+                    if (ThisEvent.EventParam & 0x02) {
+                        nextState = DroppingAmmoAtSecondBeacon;
+                        makeTransition = TRUE;
+                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default:

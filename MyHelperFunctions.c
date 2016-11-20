@@ -56,8 +56,8 @@ void driveForward(int dutyCycle) {
     PORTY11_LAT = 0;
     PORTY09_LAT = 0;
 
-    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
 }
 
 void driveBackward(int dutyCycle) {
@@ -67,8 +67,8 @@ void driveBackward(int dutyCycle) {
     PORTY11_LAT = 1;
     PORTY09_LAT = 1;
 
-    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
 }
 
 void fiftyPercentLeftTurn(int dutyCycle) {
@@ -80,8 +80,8 @@ void fiftyPercentLeftTurn(int dutyCycle) {
     PORTY11_BIT = 0;
     PORTY09_BIT = 0;
 
-    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, (dutyCycle * 0.5));
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, (dutyCycle * 0.5));
+    CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
 }
 
 void fiftyPercentRightTurn(int dutyCycle) {
@@ -93,43 +93,8 @@ void fiftyPercentRightTurn(int dutyCycle) {
     PORTY11_BIT = 0;
     PORTY09_BIT = 0;
 
-    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 0.5);
-}
-
-void postLEDMessage(int LEDstring) {
-    /* I'm planning on using X3,5,7,9 for the LED connections.
-     * Those ports are usually used for onboard LEDs, so replacing them will
-     * work nicely. 
-     */
-
-    // Set all the ports to be output
-    // This will be done redundantly, but I think I'll leave it here as a
-    // safety measure
-    PORTX03_TRIS = 0;
-    PORTX05_TRIS = 0;
-    PORTX07_TRIS = 0;
-    PORTX09_TRIS = 0;
-
-    // reset all the LEDs to clear any previous string
-    PORTX03_LAT = 0;
-    PORTX05_LAT = 0;
-    PORTX07_LAT = 0;
-    PORTX09_LAT = 0;
-
-    // set the LEDs to be high based on the string
-    if (LEDstring & 0b0001) {
-        PORTX03_LAT = 1;
-    }
-    if (LEDstring & 0b0010) {
-        PORTX05_LAT = 1;
-    }
-    if (LEDstring & 0b0100) {
-        PORTX07_LAT = 1;
-    }
-    if (LEDstring & 0b1000) {
-        PORTX09_LAT = 1;
-    }
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 0.5);
 }
 
 void tapeSensorInit() {
@@ -150,8 +115,8 @@ void leftTankTurn(int dutyCycle) {
     PORTY11_BIT = 1;
     PORTY09_BIT = 0;
 
-    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
 }
 
 void rightTankTurn(int dutyCycle) {
@@ -161,8 +126,8 @@ void rightTankTurn(int dutyCycle) {
     PORTY11_BIT = 0;
     PORTY09_BIT = 1;
 
-    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
 }
 
 void fiftyPercentReverseLeftTurn(int dutyCycle) {
@@ -172,8 +137,8 @@ void fiftyPercentReverseLeftTurn(int dutyCycle) {
     PORTY11_BIT = 1;
     PORTY09_BIT = 1;
 
-    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, (dutyCycle * 0.5));
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, (dutyCycle * 0.5));
+    CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
 }
 
 void fiftyPercentReverseRightTurn(int dutyCycle) {
@@ -184,8 +149,8 @@ void fiftyPercentReverseRightTurn(int dutyCycle) {
     PORTY11_BIT = 1;
     PORTY09_BIT = 1;
 
-    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 0.5);
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 0.5);
 }
 
 void leftMotor(int direction, int dutyCycle) {
@@ -194,8 +159,8 @@ void leftMotor(int direction, int dutyCycle) {
 
     PORTY11_BIT = direction;
 
-    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, 0);
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, 0);
 }
 
 void rightMotor(int direction, int dutyCycle) {
@@ -204,8 +169,8 @@ void rightMotor(int direction, int dutyCycle) {
 
     PORTY09_BIT = direction;
 
-    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, 0);
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, 0);
+    CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
 }
 
 void leftTrackTurn(int dutyCycle) {
@@ -215,8 +180,8 @@ void leftTrackTurn(int dutyCycle) {
     PORTY11_BIT = 1;
     PORTY09_BIT = 0;
 
-    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle * 0.9);
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 1.1);
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle * 0.9);
+    CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 1.1);
 }
 
 void rightTrackTurn(int dutyCycle) {
@@ -226,8 +191,8 @@ void rightTrackTurn(int dutyCycle) {
     PORTY11_BIT = 0;
     PORTY09_BIT = 1;
 
-    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle * 0.9);
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 1.1);
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle * 0.9);
+    CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle * 1.1);
 }
 
 void toggleServo() {
@@ -247,8 +212,8 @@ void ninetyPercentLeftTurn(int dutyCycle) {
     PORTY11_BIT = 0;
     PORTY09_BIT = 0;
 
-    PWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, (dutyCycle * 0.9));
-    PWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, (dutyCycle * 0.9));
+    CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
 }
 
 char CustomPWM_SetDutyCycle(unsigned char Channel, unsigned int Duty) {
@@ -265,15 +230,14 @@ char CustomPWM_SetDutyCycle(unsigned char Channel, unsigned int Duty) {
     newBatVoltage = (double) batVoltage;
     if (newBatVoltage != 0) {
         newBatVoltage = newBatVoltage / 1023 * 33; // = current actual battery voltage
-        printf("Current Actual Battery Voltage: %fV \r\n", newBatVoltage);
+        //        printf("Current Actual Battery Voltage: %fV \r\n", newBatVoltage);
         newBatVoltage = newBatVoltage - 0.6; // account for diode loss
-
-        newDuty = Duty / newBatVoltage * 9.9; // Modify the duty cycle as needed to account for a lower bat voltage
-        printf("You just set the PWM to be %d \r\n", newDuty
-                );
+        newDuty = Duty / newBatVoltage * 9.9; // Modify the duty cycle as needed to account for a lower bat voltage   
     }
-
-
-    //    return (PWM_SetDutyCycle(Channel, newDuty));
-    return 0;
+    if (newDuty > 1000) {
+        newDuty = 1000; // if the duty cycle has exceeded the limits, trim it
+    }
+    //    printf("You just set the PWM to be %d \r\n", newDuty);
+    return (PWM_SetDutyCycle(Channel, newDuty));
+//    return 0;
 }

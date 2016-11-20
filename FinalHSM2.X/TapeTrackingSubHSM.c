@@ -74,6 +74,7 @@ static const char *StateNames[] = {
 static TemplateSubHSMState_t CurrentState = InitPSubState; // <- change name to match ENUM
 static uint8_t MyPriority;
 static int pastTapeFlag;
+static int initTapeSensorStartupFlag;
 static int bumpedVar;
 static int bumpedTurnVar;
 static int lastTapeOnParam;
@@ -133,7 +134,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 // initial state
 
                 // now put the machine into the actual initial state
-                //driveForward(MEDIUM_MOTOR_SPEED);
+                // driveForward(MEDIUM_MOTOR_SPEED);
                 nextState = ScanningForBeacon;
                 makeTransition = TRUE;
                 ThisEvent.EventType = ES_NO_EVENT;
@@ -143,6 +144,8 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
         case ScanningForBeacon:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
+                    //                    ES_Timer_InitTimer(4, 1000); // rotate to avoid beacon
+                    ES_Timer_InitTimer(1, 500); // timer to used to ignore tape events
                     leftTankTurn(MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -179,19 +182,17 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                             rightTankTurn(MEDIUM_MOTOR_SPEED);
                         }
                         //                        ES_Timer_InitTimer(BUMPED_TIMER, 400);
+                    } else if (ThisEvent.EventParam == 1) {
+                        initTapeSensorStartupFlag = 1;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-                    if (ThisEvent.EventParam & 0x02) {
+                    if (ThisEvent.EventParam & 0x02 && initTapeSensorStartupFlag == 1) {
                         printf("\r\nJust saw center tape, leaving beaconScanning \r\n");
                         motorsOff();
                         nextState = TapeTracking;
                         makeTransition = TRUE;
-                    }
-                    else// treat this like center on white
-                    {
-                        ;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -218,8 +219,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                         rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
                         //                        ES_Timer_InitTimer(1, 250);
                         lastTapeOnParam = 2;
-                    } else // treat this like center on white
-                    {
+                    } else { // treat this like center on white
                         //                        motorsOff();
                         //                        ES_Timer_InitTimer(1, 250);
                         ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);

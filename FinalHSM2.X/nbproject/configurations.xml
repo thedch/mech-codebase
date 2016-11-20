@@ -31,7 +31,7 @@
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/FirstBeaconSubHSM.h</itemPath>
       <itemPath>C:/CMPE118/include/RC_Servo.h</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/EventChecker.h</itemPath>
-      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateService.h</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TapeSampling.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -62,7 +62,7 @@
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/FirstBeaconSubHSM.c</itemPath>
       <itemPath>C:/CMPE118/src/RC_Servo.c</itemPath>
       <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/EventChecker.c</itemPath>
-      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TemplateService.c</itemPath>
+      <itemPath>C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TapeSampling.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

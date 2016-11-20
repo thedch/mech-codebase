@@ -150,15 +150,6 @@ void fiftyPercentLeftTurn(int dutyCycle);
 void fiftyPercentRightTurn(int dutyCycle);
 
 /**
- * @Function postLEDMessage
- * @param LEDstring - the desired 4 bit message to post
- * @return None
- * @brief Displays a 4 bit string using 4 LEDs mounted on the roof. Good for
- * diagnostics
- * @author Daniel Hunter, 6 Nov 2016 */
-void postLEDMessage(int LEDstring);
-
-/**
  * @Function tapeSensorInit
  * @param None
  * @return None

@@ -129,7 +129,7 @@ static const char *EventNames[] = {
 #define TIMER4_RESP_FUNC PostTemplateHSM
 #define TIMER5_RESP_FUNC PostTemplateHSM
 #define TIMER6_RESP_FUNC PostTemplateHSM
-#define TIMER7_RESP_FUNC TIMER_UNUSED
+#define TIMER7_RESP_FUNC PostTemplateHSM
 #define TIMER8_RESP_FUNC TIMER_UNUSED
 #define TIMER9_RESP_FUNC PostTemplateHSM
 #define TIMER10_RESP_FUNC PostTemplateHSM

@@ -47,6 +47,7 @@ typedef enum {
     TapeTracking,
     ReverseLineTracking,
     DrivingToFindTrackWire,
+    CheckForBeaconTape,
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
@@ -55,6 +56,7 @@ static const char *StateNames[] = {
 	"TapeTracking",
 	"ReverseLineTracking",
 	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
 };
 
 
@@ -78,6 +80,7 @@ static int initTapeSensorStartupFlag;
 static int bumpedVar;
 static int bumpedTurnVar;
 static int lastTapeOnParam;
+static int checkForBeaconTapeTurnVar;
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                            *
@@ -134,7 +137,6 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 // initial state
 
                 // now put the machine into the actual initial state
-                // driveForward(MEDIUM_MOTOR_SPEED);
                 nextState = ScanningForBeacon;
                 makeTransition = TRUE;
                 ThisEvent.EventType = ES_NO_EVENT;
@@ -145,7 +147,6 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     //                    ES_Timer_InitTimer(4, 1000); // rotate to avoid beacon
-                    ES_Timer_InitTimer(1, 500); // timer to used to ignore tape events
                     leftTankTurn(MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -182,13 +183,11 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                             rightTankTurn(MEDIUM_MOTOR_SPEED);
                         }
                         //                        ES_Timer_InitTimer(BUMPED_TIMER, 400);
-                    } else if (ThisEvent.EventParam == 1) {
-                        initTapeSensorStartupFlag = 1;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-                    if (ThisEvent.EventParam & 0x02 && initTapeSensorStartupFlag == 1) {
+                    if (ThisEvent.EventParam & 0x02) {
                         printf("\r\nJust saw center tape, leaving beaconScanning \r\n");
                         motorsOff();
                         nextState = TapeTracking;
@@ -210,7 +209,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case ALL_TAPE_WHITE:
                     motorsOff();
-                    ES_Timer_InitTimer(1, 350);
+                    ES_Timer_InitTimer(7, 250);
                     //                    ninetyPercentLeftTurn(SLOW_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -219,14 +218,14 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                         rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
                     } else { // treat this like center on white
                         motorsOff();
-                        ES_Timer_InitTimer(1, 350);
+                        ES_Timer_InitTimer(7, 350);
                         //                        ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
                         break;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
-                    if (ThisEvent.EventParam == 1) {
+                    if (ThisEvent.EventParam == 7) {
                         ninetyPercentLeftTurn(MEDIUM_MOTOR_SPEED);
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -297,6 +296,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
+
         case DrivingToFindTrackWire:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
@@ -307,8 +307,9 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     if (ThisEvent.EventParam & 0x02) {
                         if (pastTapeFlag) {
                             pastTapeFlag = 0;
-                            nextState = TapeTracking;
+                            nextState = CheckForBeaconTape;
                             // TODO: Make sure you didn't run into a beacon (beacon detector range finding would be cool here)
+                            // go to new state to avoid beacon
                             makeTransition = TRUE;
                         }
                     } else // treat this like center on white
@@ -322,8 +323,6 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
                 case FRONT_TRACK_WIRE_DETECTED:
                     ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_NO_EVENT:
                     break;
                 case BEACON_DETECTED:
                 case BEACON_LOST:
@@ -348,9 +347,52 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
+
+        case CheckForBeaconTape:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    leftTankTurn(MEDIUM_MOTOR_SPEED);
+                    ES_Timer_InitTimer(4, 250);
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    checkForBeaconTapeTurnVar = 1;
+                    break;
+                case BEACON_LOST:
+                case BEACON_DETECTED:
+                    // You're at a beacon, get out
+                    // reset timers
+                    motorsOff(); // for now, TODO: change this
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_TIMEOUT:
+                    if (ThisEvent.EventParam == 4 && checkForBeaconTapeTurnVar == 1) {
+                        // finished turning left, now turn right
+                        rightTankTurn(MEDIUM_MOTOR_SPEED);
+                        ES_Timer_InitTimer(4, 500);
+                        checkForBeaconTapeTurnVar = 2;
+                    } else if (ThisEvent.EventParam == 4 && checkForBeaconTapeTurnVar == 2) {
+                        // finished turning right, go back to tape tracking
+                        nextState = TapeTracking;
+                        makeTransition = TRUE;
+                        checkForBeaconTapeTurnVar = 0; // reset the beacon var
+                    }
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case TAPE_ON:
+                    //                    if (ThisEvent.EventParam & 0x02) {
+                    //                        nextState = TapeTracking;
+                    //                        makeTransition = TRUE;
+                    //                    }
+                    ThisEvent.EventType = ES_NO_EVENT;
+                default: // all unhandled events pass the event back up to the next level
+                    break;
+            }
+            break;
+
         default: // all unhandled states fall into here
             break;
     } // end switch on Current State
+
+
 
     if (makeTransition == TRUE) { // making a state transition, send EXIT and ENTRY
         // recursively call the current state with an exit event

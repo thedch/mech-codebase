@@ -36,7 +36,6 @@
 
 #define BATTERY_DISCONNECT_THRESHOLD 175
 
-// TODO: Change these to be CENTER_[...]
 #define CENTER_LIGHT_LOW_THRESHOLD 350
 #define CENTER_LIGHT_HIGH_THRESHOLD 400
 
@@ -114,7 +113,6 @@ uint8_t TapeSensorEventChecker(void) {
 uint8_t TapeSensorLEDOn(ES_Event ThisEvent) {
 
     // TODO: Add isNewDataReady functionality to prevent garbage data input
-
     if (ThisEvent.EventType == ES_TIMEOUT) {
         //        printf("Entering TapeSensorLEDOn \r\n");
         // take a reading of the LED on reading 

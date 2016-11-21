@@ -1,25 +1,8 @@
 /*
- * File: TemplateSubHSM.c
- * Author: J. Edward Carryer
- * Modified: Gabriel H Elkaim
+ * File: TrackWireSubHSM.c
+ * Author: Daniel Hunter
  *
- * Template file to set up a Heirarchical State Machine to work with the Events and
- * Services Framework (ES_Framework) on the Uno32 for the CMPE-118/L class. Note that
- * this file will need to be modified to fit your exact needs, and most of the names
- * will have to be changed to match your code.
- *
- * There is for a substate machine. Make sure it has a unique name
- *
- * This is provided as an example and a good place to start.
- *
- * History
- * When           Who     What/Why
- * -------------- ---     --------
- * 09/13/13 15:17 ghe      added tattletail functionality and recursive calls
- * 01/15/12 11:12 jec      revisions for Gen2 framework
- * 11/07/11 11:26 jec      made the queue static
- * 10/30/11 17:59 jec      fixed references to CurrentEvent in RunTemplateSM()
- * 10/23/11 18:20 jec      began conversion from SMTemplate.c (02/20/07 rev)
+ * Sub HSM used to follow the track wire, load ammo, and navigate to the first beacon
  */
 
 //At 11/15/16 2:46PM, William started messing with this file. Blame him if is is now brokend
@@ -97,11 +80,8 @@ static int AntiJamCounter = 0;
 static int beaconTimerStart = 0;
 static int beaconTimerStop = 0;
 static int beaconTimerDelta = 0;
-
 static int LoadAmmoFlag = 0;
-static int CENTER; // TODO: Are these used?
-static int LEFT;
-static int RIGHT;
+
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                            *
  ******************************************************************************/
@@ -184,6 +164,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case TAPE_ON:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                    // TODO: Bump detection
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }
@@ -210,6 +191,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case TAPE_ON:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                    // TODO: Bump detection
                 default:
                     break;
             }
@@ -385,15 +367,9 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     break;
                 case ES_TIMEOUT:
-                    
                     nextState = StartCentering;
                     makeTransition = TRUE;
-                    
-                    
-                    
-                    
                     break;
-                
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }
@@ -469,9 +445,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
             }
             break;
             
-            
-        
-
+            // TODO: What is this state for?
         case RepositionOffTape:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:

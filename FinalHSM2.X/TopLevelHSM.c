@@ -224,7 +224,6 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_EXIT:
-                    // TODO: Reset all sub HSMs?
                     break;
                 case ES_INIT:
                 case ES_TIMERACTIVE:
@@ -323,11 +322,11 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 case ES_NO_EVENT:
                     break;
                 case TAPE_ON:
+                    // TODO: How do we get all 3 sensors over tape?
                     if (ThisEvent.EventParam & 0x07) {
                         nextState = FirstBeacon;
                         makeTransition = TRUE;
                     }
-
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BATTERY_DISCONNECTED:

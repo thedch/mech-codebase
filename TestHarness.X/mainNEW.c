@@ -58,9 +58,9 @@ int main(void) {
     //    printf("%f \r\n", tempVar2);
 
     while (1) {
-        //        checkTapeSensors();
+        driveBackward(MEDIUM_MOTOR_SPEED);
         //        myDelay(LONG_DELAY);
-        driveForward(MEDIUM_MOTOR_SPEED);
+        //        driveForward(MEDIUM_MOTOR_SPEED);
         //        checkTapeSensors();
         myDelay(LONG_DELAY);
         //        driveBackward(MEDIUM_MOTOR_SPEED);

@@ -190,8 +190,6 @@ void fiftyPercentReverseRightTurn(int dutyCycle);
  * @author Daniel Hunter, 11 Nov 2016 */
 void fiftyPercentReverseLeftTurn(int dutyCycle);
 
-// TODO: Write PWM_SetDutyCycle wrapper that incorporates battery voltage
-
 /**
  * @Function leftMotor
  * @param direction - the direction of the left motor

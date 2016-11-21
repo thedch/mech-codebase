@@ -206,6 +206,9 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
         case WaitingToStart:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
+                    InitTapeTrackingSubHSM();
+                    InitTrackWireSubHSM();
+                    InitFirstBeaconSubHSM();
                     motorsOff();
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;

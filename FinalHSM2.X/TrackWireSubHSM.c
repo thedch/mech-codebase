@@ -52,7 +52,7 @@ typedef enum {
     GetCloserToBeacon,
     StartCentering,
     TapeCheck,
-    GETOUT,
+    
     RepositionOffTape,
     reCenter,
     DriveToGetWithinRangeOfBeacon,
@@ -72,7 +72,6 @@ static const char *StateNames[] = {
 	"GetCloserToBeacon",
 	"StartCentering",
 	"TapeCheck",
-	"GETOUT",
 	"RepositionOffTape",
 	"reCenter",
 	"DriveToGetWithinRangeOfBeacon",
@@ -386,9 +385,15 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     break;
                 case ES_TIMEOUT:
+                    
                     nextState = StartCentering;
                     makeTransition = TRUE;
+                    
+                    
+                    
+                    
                     break;
+                
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }
@@ -463,12 +468,15 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
+            
+            
+        
 
         case RepositionOffTape:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    //driveBackward(SLOW_MOTOR_SPEED);
-                    motorsOff();
+                    driveBackward(SLOW_MOTOR_SPEED);
+                    //motorsOff();
                     ES_Timer_InitTimer(6, 800);
                     break;
                 case ES_TIMEOUT:

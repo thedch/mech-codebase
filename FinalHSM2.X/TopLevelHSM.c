@@ -323,7 +323,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 case ES_NO_EVENT:
                     break;
                 case TAPE_ON:
-                    if (ThisEvent.EventParam & 0x02) {
+                    if (ThisEvent.EventParam & 0x07) {
                         nextState = FirstBeacon;
                         makeTransition = TRUE;
                     }

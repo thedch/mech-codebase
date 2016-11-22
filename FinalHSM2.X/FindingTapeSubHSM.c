@@ -144,7 +144,7 @@ ES_Event RunFindingTapeSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     BeaconFlag = 0;
-                    ES_Timer_InitTimer(1, 3400); // frustration timer, set to exactly 360 deg
+                    ES_Timer_InitTimer(1, 360 * 9.7); // frustration timer, set to exactly 360 deg
                     leftTankTurn(MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -167,6 +167,9 @@ ES_Event RunFindingTapeSubHSM(ES_Event ThisEvent) {
                     break;
                 case BEACON_DETECTED:
                     BeaconFlag++;
+                    if (BeaconFlag == 3) {
+                        ES_Timer_InitTimer(1, 1); // set timer to be 1 ms to overwrite the older timer
+                    }
                     printf("\r\n JUST SAW A BEACON ON FIRST ROTATION \r\n");
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -224,16 +227,22 @@ ES_Event RunFindingTapeSubHSM(ES_Event ThisEvent) {
                     // then, drive forward
                     if (firstBeaconTimer == 0) {
                         firstBeaconTimer = ES_Timer_GetTime();
+                        printf("Just saw the first beacon at time %d", firstBeaconTimer);
                     } else if (firstBeaconTimer != 0 && secondBeaconTimer == 0) {
                         secondBeaconTimer = ES_Timer_GetTime();
+                        printf("Just saw the second beacon at time %d", secondBeaconTimer);
                     }
 
                     if (secondBeaconTimer != 0 && firstBeaconTimer != 0) {
                         if (((firstBeaconTimer - secondBeaconTimer) / 2) < 1500) {
                             ES_Timer_InitTimer(1,
                                     (3700 - ((firstBeaconTimer - secondBeaconTimer) / 2)));
+                            printf("CASE ONE: Set the timer to be %d", 
+                                    (3700 - ((firstBeaconTimer - secondBeaconTimer) / 2)));
                         } else {
                             ES_Timer_InitTimer(1, ((firstBeaconTimer - secondBeaconTimer) / 2));
+                            printf("CASE TWO: Set the timer to be %d", 
+                                    ((firstBeaconTimer - secondBeaconTimer) / 2));
                         }
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -268,7 +277,7 @@ ES_Event RunFindingTapeSubHSM(ES_Event ThisEvent) {
                     } else {
                         printf("\r\n first beacon timer wasn't big enough \r\n");
                         printf("\r\n first beacon timer is %d, ES_get_time is %d \r\n",
-                               firstBeaconTimer, ES_Timer_GetTime());
+                                firstBeaconTimer, ES_Timer_GetTime());
                     }
                     firstBeaconTimer = ES_Timer_GetTime();
                     ThisEvent.EventType = ES_NO_EVENT;

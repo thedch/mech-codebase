@@ -63,6 +63,7 @@ typedef enum {
     TapeTracking,
     FollowingTrackWire,
     FirstBeacon,
+    SecondBeacon,
 } TemplateHSMState_t;
 
 static const char *StateNames[] = {
@@ -72,6 +73,7 @@ static const char *StateNames[] = {
 	"TapeTracking",
 	"FollowingTrackWire",
 	"FirstBeacon",
+	"SecondBeacon",
 };
 
 

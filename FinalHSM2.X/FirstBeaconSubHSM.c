@@ -48,11 +48,6 @@ typedef enum {
     StartCentering,
     BeaconFound,
     TargetFound,
-    //    RelocateBehindFirstBeacon,
-    //    RelocateBesideFirstBeacon,
-    //    StartRelocating,
-
-
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
@@ -66,7 +61,6 @@ static const char *StateNames[] = {
 	"BeaconFound",
 	"TargetFound",
 };
-
 
 #define PATROL_TIMER 3
 #define PATROL_DURATION 1000
@@ -178,7 +172,6 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     BallDropFlag++;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-
                 default:
                     break;
             }
@@ -250,13 +243,14 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     FirstBeaconLostFlag = 0;
                     driveBackward(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(7, 500); 
+                    ES_Timer_InitTimer(7, 1000); 
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 7) {
                         // when timer expires, start turning and try to lose beacon
                         rightTankTurn(SLOW_MOTOR_SPEED);
+                        
                         FinishedBackingAwayFromFirstBeaconFlag = 1;
                     } else if (ThisEvent.EventParam == 9) {
                         // just finished first 180, turn back until you lose a beacon
@@ -267,6 +261,18 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                         // just finished your 2nd 180, keep going until you see original beacon
                         beaconTurningFlag = 2;
                     }
+                    
+                    //buffer timers
+                    else if (ThisEvent.EventParam == 5) {
+                        //ignore beacon detected until beacon lost + 800ms
+                        FirstBeaconLostFlag = 1;
+                    }
+                    else if (ThisEvent.EventParam == 6) {
+                        //ignore beacon detected until beacon lost + 800ms
+                        FirstBeaconLostFlag = 1;
+                    }
+                    
+                    
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
@@ -283,12 +289,13 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     break;
                 case BEACON_LOST:
                     if (FinishedBackingAwayFromFirstBeaconFlag == 1) {
-                        FirstBeaconLostFlag = 1;
+                        ES_Timer_InitTimer(5, 500);
                         ES_Timer_InitTimer(9, 1700); // Set a turn for 180 degrees
                         FinishedBackingAwayFromFirstBeaconFlag = 0;
                     } else if (beaconTurningFlag == 1) {
                         // you just passed the beacon after the first 180
-                        FirstBeaconLostFlag = 1;
+                        
+                        ES_Timer_InitTimer(6, 800);
                         ES_Timer_InitTimer(10, 1700); // Set a turn for another 180 degrees
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -303,7 +310,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     rightTankTurn(MEDIUM_MOTOR_SPEED);
                     ES_Timer_StopTimer(9);
-                    ES_Timer_InitTimer(9, 9.7 * 45); // Set a turn for 80 degrees
+                    ES_Timer_InitTimer(9, 9.7 * 45); // Set a turn for 45 degrees
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
@@ -324,6 +331,9 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                         makeTransition = TRUE;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case TAPE_ON:
+                    // TODO: If you see tape, back up and go the other way
                     break;
                 case BEACON_LOST:
                     ThisEvent.EventType = ES_NO_EVENT;

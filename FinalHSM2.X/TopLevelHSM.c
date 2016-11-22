@@ -38,6 +38,7 @@
 // #include "TrackWireSubHSM.h" // #include all sub state machines called
 #include "TrackWireSubHSM.h" // #include all sub state machines called
 #include "FirstBeaconSubHSM.h"
+#include "FindingTapeSubHSM.h"
 
 #include "MyHelperFunctions.h"
 #include "RC_Servo.h"
@@ -58,20 +59,18 @@
 typedef enum {
     InitPState,
     WaitingToStart,
+    FindingTape,
     TapeTracking,
-    AvoidingCollision,
     FollowingTrackWire,
-    BeaconHunting,
     FirstBeacon,
 } TemplateHSMState_t;
 
 static const char *StateNames[] = {
 	"InitPState",
 	"WaitingToStart",
+	"FindingTape",
 	"TapeTracking",
-	"AvoidingCollision",
 	"FollowingTrackWire",
-	"BeaconHunting",
 	"FirstBeacon",
 };
 
@@ -196,6 +195,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 InitTapeTrackingSubHSM();
                 InitTrackWireSubHSM();
                 InitFirstBeaconSubHSM();
+                InitFindingTapeSubHSM();
                 // now put the machine into the actual initial state
                 nextState = WaitingToStart;
                 makeTransition = TRUE;
@@ -214,7 +214,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 4) {
-                        nextState = TapeTracking;
+                        nextState = FindingTape;
                         makeTransition = TRUE;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -242,6 +242,26 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 case BOTH_TRACK_WIRES_DETECTED:
                 case BEACON_DETECTED:
                 case BEACON_LOST:
+                default:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+            }
+            break;
+
+        case FindingTape:
+            ThisEvent = RunFindingTapeSubHSM(ThisEvent);
+
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_TIMEOUT:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case TAPE_ON:
+                    nextState = TapeTracking;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                 default:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -285,22 +305,6 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                default:
-                    break;
-            }
-            break;
-        case AvoidingCollision:
-            // TODO: Delete this state or use it
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    motorsOff();
-                    break;
-                case ES_NO_EVENT:
-                    break;
-                case BATTERY_DISCONNECTED:
-                    nextState = WaitingToStart;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
                 default:
                     break;
             }

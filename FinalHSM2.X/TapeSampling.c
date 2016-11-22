@@ -132,7 +132,6 @@ uint8_t TapeSensorLEDOn(ES_Event ThisEvent) {
             GarbageLEDONCounter++;
             //            printf("GARBAGE DATA FOUND IN LED ON: %d \r\n", GarbageLEDONCounter);
         }
-
     }
 }
 
@@ -155,8 +154,7 @@ uint8_t TapeSensorLEDOff(ES_Event ThisEvent) {
                 (CenterLEDOnReading > 0)&&
                 ((CenterLEDOffReading - CenterLEDOnReading) > 0)) {
             TapeSensorCompareHysteresis();
-        } else {
-            printf("didn't go in hyst haha \r\n");
+
         }
         StartSampling = 0;
     }
@@ -173,30 +171,38 @@ static void TapeSensorCompareHysteresis(void) {
 
     if (LeftLEDDiffReading < CORNER_LIGHT_LOW_THRESHOLD && PrevMeasuredValues[0] == WHITE) {
         TapeValues[0] = BLACK;
-        printf("\r\n Just saw LEFT on black, diff reading was %d \r\n", LeftLEDDiffReading);
-        printf("\r\n Just saw LEFT on black, LEDON was %d \r\n", LeftLEDOnReading);
-        printf("\r\n Just saw LEFT on black, LEDOFF was %d \r\n", CenterLEDOffReading);
+        //        printf("\r\n Just saw LEFT on black, diff was %d \r\n", LeftLEDDiffReading);
+        //        printf("\r\n Just saw LEFT on black, LEDON was %d \r\n", LeftLEDOnReading);
+        //        printf("\r\n Just saw LEFT on black, LEDOFF was %d \r\n", LeftLEDOffReading);
     } else if (LeftLEDDiffReading > CORNER_LIGHT_HIGH_THRESHOLD && PrevMeasuredValues[0] == BLACK) {
         TapeValues[0] = WHITE;
-        printf("\r\n Just saw LEFT on white, diff reading was %d \r\n", LeftLEDDiffReading);
-        printf("\r\n Just saw LEFT on white, LEDON was %d \r\n", LeftLEDOnReading);
-        printf("\r\n Just saw LEFT on white, LEDOFF was %d \r\n", CenterLEDOffReading);
+        //        printf("\r\n Just saw LEFT on white, diff was %d \r\n", LeftLEDDiffReading);
+        //        printf("\r\n Just saw LEFT on white, LEDON was %d \r\n", LeftLEDOnReading);
+        //        printf("\r\n Just saw LEFT on white, LEDOFF was %d \r\n", LeftLEDOffReading);
     }
+
     if (CenterLEDDiffReading < CENTER_LIGHT_LOW_THRESHOLD && PrevMeasuredValues[1] == WHITE) {
         TapeValues[1] = BLACK;
-        //        printf("\r\n Just saw center on black, diff reading was %d \r\n", CenterLEDDiffReading);
+        //        printf("\r\n Just saw center on black, diff was %d \r\n", CenterLEDDiffReading);
         //        printf("\r\n Just saw center on black, LEDON was %d \r\n", CenterLEDOnReading);
         //        printf("\r\n Just saw center on black, LEDOFF was %d \r\n", CenterLEDOffReading);
     } else if (CenterLEDDiffReading > CENTER_LIGHT_HIGH_THRESHOLD && PrevMeasuredValues[1] == BLACK) {
         TapeValues[1] = WHITE;
-        //        printf("\r\n Just saw center on white, diff reading was %d \r\n", CenterLEDDiffReading);
+        //        printf("\r\n Just saw center on white, diff was %d \r\n", CenterLEDDiffReading);
         //        printf("\r\n Just saw center on white, LEDON was %d \r\n", CenterLEDOnReading);
         //        printf("\r\n Just saw center on white, LEDOFF was %d \r\n", CenterLEDOffReading);
     }
+
     if (RightLEDDiffReading < CORNER_LIGHT_LOW_THRESHOLD && PrevMeasuredValues[2] == WHITE) {
         TapeValues[2] = BLACK;
+        //        printf("\r\n Just saw RIGHT on black, diff was %d \r\n", RightLEDDiffReading);
+        //        printf("\r\n Just saw RIGHT on black, LEDON was %d \r\n", RightLEDOnReading);
+        //        printf("\r\n Just saw RIGHT on black, LEDOFF was %d \r\n", RightLEDOffReading);
     } else if (RightLEDDiffReading > CORNER_LIGHT_HIGH_THRESHOLD && PrevMeasuredValues[2] == BLACK) {
         TapeValues[2] = WHITE;
+        //        printf("\r\n Just saw RIGHT on white, diff was %d \r\n", RightLEDDiffReading);
+        //        printf("\r\n Just saw RIGHT on white, LEDON was %d \r\n", RightLEDOnReading);
+        //        printf("\r\n Just saw RIGHT on white, LEDOFF was %d \r\n", RightLEDOffReading);
     }
 
     CompareValue = memcmp(TapeValues, PrevMeasuredValues, NUM_TAPE_SENSORS * sizeof (int));

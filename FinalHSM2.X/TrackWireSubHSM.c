@@ -36,10 +36,7 @@ typedef enum {
     TargetFound,
     GetCloserToBeacon,
     StartCentering,
-    TapeCheck,
-
     RepositionOffTape,
-    reCenter,
     DriveToGetWithinRangeOfBeacon,
 
 } TemplateSubHSMState_t;
@@ -56,9 +53,7 @@ static const char *StateNames[] = {
 	"TargetFound",
 	"GetCloserToBeacon",
 	"StartCentering",
-	"TapeCheck",
 	"RepositionOffTape",
-	"reCenter",
 	"DriveToGetWithinRangeOfBeacon",
 };
 

@@ -51,7 +51,6 @@ typedef enum {
     CheckForBeaconTape,
     AlignWithTape,
     BeaconInWayAbort,
-
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
@@ -83,15 +82,15 @@ static TemplateSubHSMState_t CurrentState = InitPSubState; // <- change name to 
 static uint8_t MyPriority;
 static int pastTapeFlag;
 static int initTapeSensorStartupFlag;
+static int bumpedVar;
 static int bumpedTurnVar;
 static int lastTapeOnParam;
 static int checkForBeaconTapeTurnVar;
-static int BeaconFlag = 0;
-static int BeaconFlagTwo = 0;
+static int BeaconFlag;
+static int BeaconFlagTwo;
 static uint32_t firstBeaconTimer;
 static uint32_t secondBeaconTimer;
-static BeaconOnLineFlag = 0;
-static BeaconInWayFlag = 0;
+static int abortBackUpFlag;
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                            *
@@ -148,123 +147,136 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 // initial state
 
                 // now put the machine into the actual initial state
-                nextState = ScanningForBeacon;
+                nextState = TapeTracking;
                 makeTransition = TRUE;
                 ThisEvent.EventType = ES_NO_EVENT;
             }
             break;
 
-        case ScanningForBeacon:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    ES_Timer_InitTimer(1, 3400); // frustration timer, set to exactly 360 deg
-                    leftTankTurn(MEDIUM_MOTOR_SPEED);
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BEACON_DETECTED:
-                    if (BeaconFlag >= 0 && BeaconFlag < 3) {
-                        // full rotation NOT done
-                        BeaconFlag++;
-                        printf("\r\n JUST SAW A BEACON ON FIRST ROTATION \r\n");
-                    }
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BEACON_LOST:
-                    printf("\r\n ENTERING BEACON LOST, BEACONFLAG IS CURRENTLY %d \r\n", BeaconFlag);
-                    if (BeaconFlag == -2) {
-                        printf("\r\n ROBOT IS FINDING TWO BEACONS TO GO BETWEEN \r\n");
-                        // full rotation complete, start finding two beacons to go between
-                        if (firstBeaconTimer == 0) {
-                            printf("\r\n ROBOT FOUND 1ST BEACON \r\n");
-                            firstBeaconTimer = ES_Timer_GetTime();
-                        } else if (firstBeaconTimer != 0 && secondBeaconTimer == 0) {
-                            printf("\r\n ROBOT FOUND 2ND BEACON AND SET TIMER to %d \r\n",
-                                    (firstBeaconTimer - secondBeaconTimer) / 2);
-                            secondBeaconTimer = ES_Timer_GetTime();
-                            // you've seen two beacons and gotten the appropriate timers
-                            rightTankTurn(MEDIUM_MOTOR_SPEED);
-                            // I'm using the same timer a terrifying amount of times
-                            ES_Timer_InitTimer(1, (secondBeaconTimer - firstBeaconTimer) / 2);
-                        }
-                    } else if (BeaconFlag == -1) {
-                        printf("\r\n SETTING TIMER TO END TANK TURN (1 beacon scenario) \r\n");
-                        // you just lost the ONLY beacon you can see, keep rotation and then gtfo
-                        ES_Timer_InitTimer(1, 1500); // set a timer to avoid beacon
-                    }
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_TIMEOUT:
-                    if (ThisEvent.EventParam == 1) {
-                        printf("\r\n Frustration timer just expired, beaconFlag is %d \r\n", BeaconFlag);
-                        // Frustration timer expired
-                        if (BeaconFlag == 1) {
-                            // you saw ONE beacon, rotate accordingly
-                            BeaconFlag = -1;
-                            printf("\r\n ROBOT SAW ONE BEACON, beaconFlag is now %d \r\n", BeaconFlag);
-                        } else if (BeaconFlag == 2 || BeaconFlag == 3) {
-                            printf("\r\n ROBOT SAW TWO OR THREE BEACONS \r\n");
-                            // you saw multiple beacons, average the difference
-                            BeaconFlag = -2; // -2 indicates a full rotation has been completed AND 2+ beacons seen
-                        } else if (BeaconFlag == 0) {
-                            printf("\r\n ROBOT SAW NO BEACONS \r\n");
-                            // no beacons were seen, go ahead and drive randomly
-                            driveForward(MEDIUM_MOTOR_SPEED);
-                        } else if (BeaconFlag == -1) {
-                            // you're done turning after seeing only one beacon
-                            // drive forward
-                            printf("\r\n ROBOT FINISHED TURNING AFTER SEEING ONE BEACON \r\n");
-                            driveForward(MEDIUM_MOTOR_SPEED);
-                        } else if (BeaconFlag == -2) {
-                            printf("\r\n ROBOT JUST FINISHED A TANK TURN (TIMING THE SPACE BETWEEN TWO BEACONS) \r\n");
-                            // you've finished up a right tank turn after timing 
-                            // the space between two beacons
-                            driveForward(MEDIUM_MOTOR_SPEED);
-                        }
-                    } else if (ThisEvent.EventParam == BUMPED_TIMER) {
-                        // You're finished backing up from a bumped event, turn the 
-                        // appropriate direction 
-                        if (bumpedTurnVar == 1) {
-                            leftTankTurn(MEDIUM_MOTOR_SPEED);
-                        } else if (bumpedTurnVar == 2) {
-                            rightTankTurn(MEDIUM_MOTOR_SPEED);
-                        }
-                        //                        ES_Timer_InitTimer(BUMPED_TIMER, 400);
-                    }
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case FRONT_LEFT_BUMPER_HIT:
-                    // You've been bumped, back up
-                    driveBackward(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(BUMPED_TIMER, 400);
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    bumpedTurnVar = 1; // 1 = LEFT
-                    break;
-                case FRONT_RIGHT_BUMPER_HIT:
-                    // You've been bumped, back up
-                    // TODO: This is probably a bad thing, you might back up off the field
-                    driveBackward(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(BUMPED_TIMER, 500);
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    bumpedTurnVar = 2; // 2 = RIGHT
-                    break;
-                case TAPE_ON:
-                    if (ThisEvent.EventParam & 0x02) {
-                        printf("\r\n Just saw center tape, leaving beaconScanning \r\n");
-                        motorsOff();
-                        nextState = TapeTracking;
-                        makeTransition = TRUE;
-                    }
-                    // TODO: Grab side tape events as well?
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case FRONT_TRACK_WIRE_DETECTED:
-                case BACK_TRACK_WIRE_DETECTED:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                default:
-                    break;
-            }
-            break;
+//        case ScanningForBeacon:
+//            switch (ThisEvent.EventType) {
+//                case ES_ENTRY:
+//                    ES_Timer_InitTimer(1, 3400); // frustration timer, set to exactly 360 deg
+//                    leftTankTurn(MEDIUM_MOTOR_SPEED);
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    break;
+//                case BEACON_DETECTED:
+//                    if (BeaconFlag >= 0 && BeaconFlag < 3) {
+//                        // full rotation NOT done
+//                        BeaconFlag++;
+//                        printf("\r\n JUST SAW A BEACON ON FIRST ROTATION \r\n");
+//                    }
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    break;
+//                case BEACON_LOST:
+//                    printf("\r\n ENTERING BEACON LOST, BEACONFLAG IS CURRENTLY %d \r\n", BeaconFlag);
+//                    if (BeaconFlag == -2) {
+//                        printf("\r\n ROBOT IS FINDING TWO BEACONS TO GO BETWEEN \r\n");
+//                        // full rotation complete, start finding two beacons to go between
+//                        if (firstBeaconTimer == 0) {
+//                            printf("\r\n ROBOT FOUND 1ST BEACON \r\n");
+//                            firstBeaconTimer = ES_Timer_GetTime();
+//                        } else if (firstBeaconTimer != 0 && secondBeaconTimer == 0) {
+//                            printf("\r\n ROBOT FOUND 2ND BEACON AND SET TIMER to %d \r\n",
+//                                    (firstBeaconTimer - secondBeaconTimer) / 2);
+//                            secondBeaconTimer = ES_Timer_GetTime();
+//                            // you've seen two beacons and gotten the appropriate timers
+//                            rightTankTurn(MEDIUM_MOTOR_SPEED);
+//                            // I'm using the same timer a terrifying amount of times
+//                            ES_Timer_InitTimer(1, (secondBeaconTimer - firstBeaconTimer) / 2);
+//                        }
+//                    } else if (BeaconFlag == -1) {
+//                        printf("\r\n SETTING TIMER TO END TANK TURN (1 beacon scenario) \r\n");
+//                        // you just lost the ONLY beacon you can see, keep rotation and then gtfo
+//                        ES_Timer_InitTimer(1, 1500); // set a timer to avoid beacon
+//                    }
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    break;
+//                case ES_TIMEOUT:
+//                    if (ThisEvent.EventParam == 1) {
+//                        printf("\r\n Frustration timer just expired, beaconFlag is %d \r\n", BeaconFlag);
+//                        // Frustration timer expired
+//                        if (BeaconFlag == 1) {
+//                            // you saw ONE beacon, rotate accordingly
+//                            BeaconFlag = -1;
+//                            printf("\r\n ROBOT SAW ONE BEACON, beaconFlag is now %d \r\n", BeaconFlag);
+//                        } else if (BeaconFlag == 2 || BeaconFlag == 3) {
+//                            printf("\r\n ROBOT SAW TWO OR THREE BEACONS \r\n");
+//                            // you saw multiple beacons, average the difference
+//                            BeaconFlag = -2; // -2 indicates a full rotation has been completed AND 2+ beacons seen
+//                        } else if (BeaconFlag == 0) {
+//                            printf("\r\n ROBOT SAW NO BEACONS \r\n");
+//                            // no beacons were seen, go ahead and drive randomly
+//                            driveForward(MEDIUM_MOTOR_SPEED);
+//                        } else if (BeaconFlag == -1) {
+//                            // you're done turning after seeing only one beacon
+//                            // drive forward
+//                            printf("\r\n ROBOT FINISHED TURNING AFTER SEEING ONE BEACON \r\n");
+//                            driveForward(MEDIUM_MOTOR_SPEED);
+//                        } else if (BeaconFlag == -2) {
+//                            printf("\r\n ROBOT JUST FINISHED A TANK TURN (TIMING THE SPACE BETWEEN TWO BEACONS) \r\n");
+//                            // you've finished up a right tank turn after timing 
+//                            // the space between two beacons
+//                            driveForward(MEDIUM_MOTOR_SPEED);
+//                        }
+//                    } else if (ThisEvent.EventParam == BUMPED_TIMER) {
+//                        // You're finished backing up from a bumped event, turn the 
+//                        // appropriate direction 
+//                        if (bumpedTurnVar == 1) {
+//                            bumpedVar = 1;
+//                            bumpedTurnVar = 0;
+//                            leftTankTurn(MEDIUM_MOTOR_SPEED);
+//                            ES_Timer_InitTimer(BUMPED_TIMER, 500);
+//                        } else if (bumpedTurnVar == 2) {
+//                            bumpedVar = 1;
+//                            bumpedTurnVar = 0;
+//                            rightTankTurn(MEDIUM_MOTOR_SPEED);
+//                            ES_Timer_InitTimer(BUMPED_TIMER, 500);
+//                        }
+//                        if (bumpedVar == 1) {
+//                            bumpedVar = 0;
+//                            nextState = ScanningForBeacon;
+//                            makeTransition = TRUE;
+//                        }
+//                    }
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    break;
+//                case FRONT_LEFT_BUMPER_HIT:
+//                    printf("\r\n Just got bumped inside scanning for beacon \r\n");
+//                    // You've been bumped, back up
+//                    driveBackward(MEDIUM_MOTOR_SPEED);
+//                    ES_Timer_InitTimer(BUMPED_TIMER, 400);
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    bumpedTurnVar = 1; // 1 = LEFT
+//                    break;
+//                case FRONT_RIGHT_BUMPER_HIT:
+//                    // You've been bumped, back up
+//                    // TODO: This is probably a bad thing, you might back up off the field
+//                    printf("\r\n Just got bumped inside scanning for beacon \r\n");
+//                    driveBackward(MEDIUM_MOTOR_SPEED);
+//                    ES_Timer_InitTimer(BUMPED_TIMER, 400);
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    bumpedTurnVar = 2; // 2 = RIGHT
+//                    break;
+//                case TAPE_ON:
+//                    if (ThisEvent.EventParam & 0x02) {
+//                        printf("\r\n Just saw center tape, leaving beaconScanning \r\n");
+//                        motorsOff();
+//                        nextState = TapeTracking;
+//                        makeTransition = TRUE;
+//                    }
+//                    // TODO: Grab side tape events as well?
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    break;
+//                case FRONT_TRACK_WIRE_DETECTED:
+//                case BACK_TRACK_WIRE_DETECTED:
+//                    ThisEvent.EventType = ES_NO_EVENT;
+//                    break;
+//                default:
+//                    break;
+//            }
+//            break;
+            
         case TapeTracking:
             // This state handles the actual tracking of the tape and bump events while tracking    
             switch (ThisEvent.EventType) {
@@ -284,8 +296,7 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     } else if ((ThisEvent.EventParam & 0x04) == 0x04) {
                         // your right tape sensor is on. this is bad.
 
-
-                        /////////////////////CHANGES MADE HERE
+                        ///////////////////// CHANGES MADE HERE
 
 
                         nextState = BeaconInWayAbort;
@@ -345,43 +356,43 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
 
 
             /////////////////////////////////////////////////////CHANGES MADE HERE
-            //Back up
-            //rotate until beacon lost + 500ms
-            //try to find border tape again
+            // Back up
+            // rotate until beacon lost + 500ms
+            // try to find border tape again 
 
-            //if second beacon in path, keep rotating
+            // if second beacon in path, keep rotating
 
 
         case BeaconInWayAbort:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    ES_Timer_InitTimer(5, 800);
+                    printf("Entering ABORT STATE \r\n");
+                    ES_Timer_InitTimer(5, 500);
                     driveBackward(SLOW_MOTOR_SPEED);
                     break;
                 case TAPE_ON:
-                    nextState = TapeTracking;
-                    makeTransition = TRUE;
+                    if (abortBackUpFlag == 1) {
+                        nextState = TapeTracking;
+                        makeTransition = TRUE;
+                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
-                    rightTankTurn(SLOW_MOTOR_SPEED);
+                    rightTankTurn(MEDIUM_MOTOR_SPEED);
                     ES_Timer_StopTimer(5);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_LOST:
-                    ES_Timer_InitTimer(7, 500);
+                    ES_Timer_InitTimer(7, 1000);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 5) {
-                        rightTankTurn(SLOW_MOTOR_SPEED);
+                        rightTankTurn(MEDIUM_MOTOR_SPEED);
                         ES_Timer_InitTimer(6, 800);
                     }
-
-                    if (ThisEvent.EventParam == 6) {
-                        driveForward(MEDIUM_MOTOR_SPEED);
-                    }
-                    if (ThisEvent.EventParam == 7) {
+                    if (ThisEvent.EventParam == 6 || ThisEvent.EventParam == 7) {
+                        abortBackUpFlag = 1;
                         driveForward(MEDIUM_MOTOR_SPEED);
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -568,8 +579,6 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
         default: // all unhandled states fall into here
             break;
     } // end switch on Current State
-
-
 
     if (makeTransition == TRUE) { // making a state transition, send EXIT and ENTRY
         // recursively call the current state with an exit event

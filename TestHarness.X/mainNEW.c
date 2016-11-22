@@ -38,9 +38,12 @@ int main(void) {
     PWM_AddPins(LEFT_MOTOR_PWM_PIN | RIGHT_MOTOR_PWM_PIN);
     PWM_SetFrequency(PWM_DEFAULT_FREQUENCY);
 
-    // Tape Sensor Power High
     IO_PortsSetPortOutputs(PORTY, PIN8);
+
+    // Tape Sensor Power High
     IO_PortsSetPortBits(PORTY, PIN8);
+
+    // Tape Sensor Power Low
     //        IO_PortsClearPortBits(PORTY, PIN8);
 
     //    RC_AddPins(RC_PORTZ08);
@@ -58,10 +61,10 @@ int main(void) {
     //    printf("%f \r\n", tempVar2);
 
     while (1) {
-        driveBackward(MEDIUM_MOTOR_SPEED);
+        //        driveBackward(MEDIUM_MOTOR_SPEED);
         //        myDelay(LONG_DELAY);
         //        driveForward(MEDIUM_MOTOR_SPEED);
-        //        checkTapeSensors();
+        checkTapeSensors();
         myDelay(LONG_DELAY);
         //        driveBackward(MEDIUM_MOTOR_SPEED);
     }

@@ -250,3 +250,12 @@ void ninetyPercentLeftTurn(int dutyCycle);
  * @brief Sets left wheel to be 90% power, right wheel to be 100% power
  * @author Daniel Hunter, 19 Nov 2016 */
 char CustomPWM_SetDutyCycle(unsigned char Channel, unsigned int Duty);
+
+/**
+ * @Function variablePercentLeftTurn
+ * @param dutyCycle - the desired PWM duty cycle of the full speed wheel
+ * precentage - the ratio between the full speed wheel and the slower wheel
+ * @return None
+ * @brief Helper function used turn the robot gradually
+ * @author Daniel Hunter, 5 Nov 2016 */
+void variablePercentLeftTurn(int percentage, int dutyCycle);

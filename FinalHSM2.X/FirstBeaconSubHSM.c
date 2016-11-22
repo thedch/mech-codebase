@@ -42,6 +42,7 @@ typedef enum {
     InitPSubState,
     DroppingAmmoAtFirstBeacon,
     ScanningForSecondBeacon,
+    GoAroundFirstBeacon,
     DroppingAmmoAtSecondBeacon,
     GetCloserToBeacon,
     StartCentering,
@@ -58,6 +59,7 @@ static const char *StateNames[] = {
 	"InitPSubState",
 	"DroppingAmmoAtFirstBeacon",
 	"ScanningForSecondBeacon",
+	"GoAroundFirstBeacon",
 	"DroppingAmmoAtSecondBeacon",
 	"GetCloserToBeacon",
 	"StartCentering",
@@ -73,6 +75,8 @@ static const char *StateNames[] = {
 static int beaconTimerStart = 0;
 static int beaconTimerStop = 0;
 static int beaconTimerDelta = 0;
+static int beaconTurningFlag = 0;
+static int beaconLookingFlag = 0;
 
 /*******************************************************************************
  * PRIVATE FUNCTION PROTOTYPES                                                 *
@@ -244,27 +248,84 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
         case ScanningForSecondBeacon:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
+                    FirstBeaconLostFlag = 0;
                     driveBackward(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(7, 500);
+                    ES_Timer_InitTimer(7, 500); 
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
-                    // when timer expires, start turning and try to lose beacon
-                    rightTankTurn(SLOW_MOTOR_SPEED);
-                    FinishedBackingAwayFromFirstBeaconFlag = 1;
+                    if (ThisEvent.EventParam == 7) {
+                        // when timer expires, start turning and try to lose beacon
+                        rightTankTurn(SLOW_MOTOR_SPEED);
+                        FinishedBackingAwayFromFirstBeaconFlag = 1;
+                    } else if (ThisEvent.EventParam == 9) {
+                        // just finished first 180, turn back until you lose a beacon
+                        leftTankTurn(MEDIUM_MOTOR_SPEED);
+                        FirstBeaconLostFlag = 0; // reset flag so you don't trip on the original beacon
+                        beaconTurningFlag = 1;
+                    } else if (ThisEvent.EventParam == 10) {
+                        // just finished your 2nd 180, keep going until you see original beacon
+                        beaconTurningFlag = 2;
+                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
-                    if (FirstBeaconLostFlag) {
+                    // TODO: Add in code to make sure we didn't turn too far
+                    if (beaconTurningFlag == 2) {
+                        // go to a state to drive around the beacon
+                        nextState = GoAroundFirstBeacon;
+                        makeTransition = TRUE;
+                    } else if (FirstBeaconLostFlag == 1) {
                         nextState = StartCentering;
                         makeTransition = TRUE;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_LOST:
-                    if (FinishedBackingAwayFromFirstBeaconFlag) {
+                    if (FinishedBackingAwayFromFirstBeaconFlag == 1) {
                         FirstBeaconLostFlag = 1;
+                        ES_Timer_InitTimer(9, 1700); // Set a turn for 180 degrees
+                        FinishedBackingAwayFromFirstBeaconFlag = 0;
+                    } else if (beaconTurningFlag == 1) {
+                        // you just passed the beacon after the first 180
+                        FirstBeaconLostFlag = 1;
+                        ES_Timer_InitTimer(10, 1700); // Set a turn for another 180 degrees
                     }
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                default:
+                    break;
+            }
+            break;
+
+        case GoAroundFirstBeacon:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    rightTankTurn(MEDIUM_MOTOR_SPEED);
+                    ES_Timer_StopTimer(9);
+                    ES_Timer_InitTimer(9, 9.7 * 45); // Set a turn for 80 degrees
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_TIMEOUT:
+                    if (ThisEvent.EventParam == 9) {
+                        variablePercentLeftTurn(75, MEDIUM_MOTOR_SPEED);
+                        ES_Timer_StopTimer(10);
+                        ES_Timer_InitTimer(10, 3000); // timer to start long turn around beacon
+                    } else if (ThisEvent.EventParam == 10) {
+                        // just finished long left turn
+                        leftTankTurn(SLOW_MOTOR_SPEED);
+                        beaconLookingFlag = 1;
+                    }
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case BEACON_DETECTED:
+                    if (beaconLookingFlag == 1) {
+                        nextState = StartCentering;
+                        makeTransition = TRUE;
+                    }
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case BEACON_LOST:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default:
@@ -290,9 +351,8 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     if (ThisEvent.EventParam & 0x02) {
                         nextState = DroppingAmmoAtSecondBeacon;
                         makeTransition = TRUE;
-                    }else// treat this like center on white
-                    {
-                        
+                    } else { // treat this like center on white
+                        ;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -311,7 +371,6 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     nextState = BeaconFound;
                     makeTransition = TRUE;
                     break;
-
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }

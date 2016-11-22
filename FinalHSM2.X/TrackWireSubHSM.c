@@ -18,6 +18,8 @@
 #include "TrackWireSubHSM.h"
 #include "MyHelperFunctions.h"
 #include "RC_Servo.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /*******************************************************************************
  * MODULE #DEFINES                                                             *
@@ -35,7 +37,7 @@ typedef enum {
     GetCloserToBeacon,
     StartCentering,
     TapeCheck,
-    
+
     RepositionOffTape,
     reCenter,
     DriveToGetWithinRangeOfBeacon,
@@ -164,6 +166,9 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case TAPE_ON:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                case ALL_TAPE_WHITE:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                     // TODO: Bump detection
                 default: // all unhandled events pass the event back up to the next level
                     break;
@@ -191,6 +196,9 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case TAPE_ON:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                case ALL_TAPE_WHITE:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                     // TODO: Bump detection
                 default:
                     break;
@@ -209,7 +217,6 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     break;
                 case ES_TIMEOUT:
                     if (LoadAmmoFlag < 2) {
-                        //                        ES_Timer_InitTimer(4, 2500);
                         ThisEvent.EventType = ES_NO_EVENT;
                         nextState = FoundTrackWire;
                         makeTransition = TRUE;
@@ -226,12 +233,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case ES_NO_EVENT:
                     break;
                 case TAPE_ON:
-//                    if (ThisEvent.EventParam & 0x02) {
-//                        // TODO: Don't eat this event, maybe reverse or something
-//                        nextState = RepositionOffTape;
-//                        makeTransition = TRUE;
-//                    } 
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    ThisEvent.EventType = ES_NO_EVENT; // TODO: Should we have tape detection here?
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
@@ -258,11 +260,8 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case ES_NO_EVENT:
                     break;
                 case TAPE_ON:
-//                    if (ThisEvent.EventParam & 0x02) {
-//                        nextState = RepositionOffTape;
-//                        makeTransition = TRUE;
-//                    } 
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    nextState = RepositionOffTape;
+                    makeTransition = TRUE;
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
@@ -288,12 +287,8 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case ES_NO_EVENT:
                     break;
                 case TAPE_ON:
-//                    if (ThisEvent.EventParam & 0x02) {
-//                        nextState = RepositionOffTape;
-//                        makeTransition = TRUE;
-//                    } 
-                    
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    nextState = RepositionOffTape;
+                    makeTransition = TRUE;
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
@@ -321,13 +316,10 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-//                    if (ThisEvent.EventParam & 0x02) {
-//                        nextState = RepositionOffTape;
-//                        makeTransition = TRUE;
-//                    } 
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    nextState = RepositionOffTape;
+                    makeTransition = TRUE;
                     break;
-                default: // all unhandled events pass the event back up to the next level
+                default:
                     break;
             }
             break;
@@ -344,13 +336,9 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-//                    if (ThisEvent.EventParam & 0x02) {
-//                        nextState = RepositionOffTape;
-//                        makeTransition = TRUE;
-//                    } 
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    nextState = RepositionOffTape;
+                    makeTransition = TRUE;
                     break;
-
                 default:
                     break;
             }
@@ -370,6 +358,10 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     nextState = StartCentering;
                     makeTransition = TRUE;
                     break;
+                case TAPE_ON:
+                    nextState = RepositionOffTape;
+                    makeTransition = TRUE;
+                    break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }
@@ -386,11 +378,8 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     break;
                 case TAPE_ON:
-//                    if (ThisEvent.EventParam & 0x02) {
-//                        nextState = RepositionOffTape;
-//                        makeTransition = TRUE;
-//                    } 
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    nextState = RepositionOffTape;
+                    makeTransition = TRUE;
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
@@ -411,11 +400,8 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-//                    if (ThisEvent.EventParam & 0x02) {
-//                        nextState = RepositionOffTape;
-//                        makeTransition = TRUE;
-//                    } 
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    nextState = RepositionOffTape;
+                    makeTransition = TRUE;
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
@@ -434,33 +420,41 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     break;
                 case TAPE_ON:
-//                    if (ThisEvent.EventParam & 0x02) {
-//                        nextState = RepositionOffTape;
-//                        makeTransition = TRUE;
-//                    } 
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    nextState = RepositionOffTape;
+                    makeTransition = TRUE;
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }
             break;
-            
-            // TODO: What is this state for?
+
         case RepositionOffTape:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     driveBackward(SLOW_MOTOR_SPEED);
-                    //motorsOff();
-                    ES_Timer_InitTimer(6, 800);
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
-                    motorsOff();
-                    nextState = BeaconScanning;
-                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ALL_TAPE_WHITE:
+                    driveForward(SLOW_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    if ((ThisEvent.EventParam & 0x07) == 0x07) {
+                        // don't do anything, pass this event up
+                    } else if ((ThisEvent.EventParam & 0x01) == 0x01) {
+                        // Left sensor on, pull right wheel fwd
+                        rightMotor(FORWARD, MEDIUM_MOTOR_SPEED);
+                        printf("\r\n LEFT SENSOR ON, Right motor FWD \r\n");
+                        ThisEvent.EventType = ES_NO_EVENT;
+                    } else if ((ThisEvent.EventParam & 0x04) == 0x04) {
+                        // Right sensor on, pull left wheel fwd
+                        leftMotor(FORWARD, MEDIUM_MOTOR_SPEED);
+                        printf("\r\n RIGHT SENSOR ON, Left motor FWD \r\n");
+                        ThisEvent.EventType = ES_NO_EVENT;
+                    }
                     break;
 
                 default: // all unhandled events pass the event back up to the next level

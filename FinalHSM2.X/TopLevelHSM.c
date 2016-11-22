@@ -322,11 +322,17 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 case ES_NO_EVENT:
                     break;
                 case TAPE_ON:
-                    // TODO: How do we get all 3 sensors over tape?
-                    if (ThisEvent.EventParam & 0x07) {
+                    if ((ThisEvent.EventParam & 0x07) == 0x07) {
+                        ES_Timer_StopTimer(1); // kill any old timer 1
                         nextState = FirstBeacon;
                         makeTransition = TRUE;
+                        printf("\r\n ALL TAPE ON, DROPPING BALLS \r\n");
                     }
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ALL_TAPE_WHITE:
+                    // lost all the tape, drive forward
+                    driveForward(MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BATTERY_DISCONNECTED:

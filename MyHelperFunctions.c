@@ -239,7 +239,7 @@ char CustomPWM_SetDutyCycle(unsigned char Channel, unsigned int Duty) {
     }
     //    printf("You just set the PWM to be %d \r\n", newDuty);
     return (PWM_SetDutyCycle(Channel, newDuty));
-//    return 0;
+    //    return 0;
 }
 
 void variablePercentLeftTurn(int percentage, int dutyCycle) {
@@ -251,6 +251,19 @@ void variablePercentLeftTurn(int percentage, int dutyCycle) {
     PORTY11_BIT = 0;
     PORTY09_BIT = 0;
 
-    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, (dutyCycle * percentage/100));
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, (dutyCycle * percentage / 100));
     CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, dutyCycle);
+}
+
+void variablePercentRightTurn(int percentage, int dutyCycle) {
+    // this function currently has no error checking, and assumes PWM pins have
+    // been correctly set up. I will probably fix this.
+    PORTY11_TRIS = 0;
+    PORTY09_TRIS = 0;
+
+    PORTY11_BIT = 0;
+    PORTY09_BIT = 0;
+
+    CustomPWM_SetDutyCycle(LEFT_MOTOR_PWM_PIN, dutyCycle);
+    CustomPWM_SetDutyCycle(RIGHT_MOTOR_PWM_PIN, (dutyCycle * percentage / 100));
 }

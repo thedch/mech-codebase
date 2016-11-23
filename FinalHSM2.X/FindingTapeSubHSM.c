@@ -33,8 +33,11 @@
 #include "TopLevelHSM.h"
 #include "FindingTapeSubHSM.h"
 #include "MyHelperFunctions.h"
+#include "ES_Events.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <signal.h>
 
 /*******************************************************************************
  * MODULE #DEFINES                                                             *
@@ -46,6 +49,8 @@ typedef enum {
     TwoBeaconsFound,
     ThreeBeaconsFound,
     DriveToFindTape,
+    Bumped,
+            ON_EDGE,
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
@@ -55,6 +60,8 @@ static const char *StateNames[] = {
 	"TwoBeaconsFound",
 	"ThreeBeaconsFound",
 	"DriveToFindTape",
+	"Bumped",
+	"ON_EDGE",
 };
 
 
@@ -78,6 +85,8 @@ static int BeaconFlag;
 static uint32_t firstBeaconTimer;
 static uint32_t secondBeaconTimer;
 static uint32_t thirdBeaconTimer;
+static int timerDiffDivTwo;
+static int timerFlag;
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                            *
@@ -160,6 +169,8 @@ ES_Event RunFindingTapeSubHSM(ES_Event ThisEvent) {
                             nextState = TwoBeaconsFound;
                         } else if (BeaconFlag == 3) {
                             nextState = ThreeBeaconsFound;
+                        } else if (BeaconFlag == 0) {
+                            nextState = DriveToFindTape;
                         }
                         makeTransition = TRUE;
                     }
@@ -173,11 +184,46 @@ ES_Event RunFindingTapeSubHSM(ES_Event ThisEvent) {
                     printf("\r\n JUST SAW A BEACON ON FIRST ROTATION \r\n");
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                case FRONT_LEFT_BUMPER_HIT:
+                case FRONT_RIGHT_BUMPER_HIT:
+                    nextState = Bumped;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+/////////////////////////////
+                case TAPE_ON:
+                    nextState = ON_EDGE;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }
             break;
-
+////////////////////////////
+        case ON_EDGE:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    leftTankTurn(MEDIUM_MOTOR_SPEED);
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case BEACON_DETECTED:
+                    driveForward(MEDIUM_MOTOR_SPEED);
+                    ES_Timer_InitTimer(10, 1500);
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_TIMEOUT:
+                    if (ThisEvent.EventParam == 10) {
+                        nextState = Rotate360;
+                        makeTransition = TRUE;
+                    }
+                    ThisEvent.EventType = ES_NO_EVENT;
+                default: // all unhandled events pass the event back up to the next level
+                    break;
+            }
+            break;
+////////////////////////////////////
+            
         case OneBeaconFound:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
@@ -196,6 +242,12 @@ ES_Event RunFindingTapeSubHSM(ES_Event ThisEvent) {
                     ES_Timer_InitTimer(1, 1700); // approx 180 degrees
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                case FRONT_LEFT_BUMPER_HIT:
+                case FRONT_RIGHT_BUMPER_HIT:
+                    nextState = Bumped;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }
@@ -204,6 +256,7 @@ ES_Event RunFindingTapeSubHSM(ES_Event ThisEvent) {
         case TwoBeaconsFound:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
+                    timerFlag = 0;
                     firstBeaconTimer = 0;
                     secondBeaconTimer = 0;
                     rightTankTurn(MEDIUM_MOTOR_SPEED);
@@ -225,26 +278,40 @@ ES_Event RunFindingTapeSubHSM(ES_Event ThisEvent) {
                     // and turn that amount
                     // else, turn timediff
                     // then, drive forward
+
                     if (firstBeaconTimer == 0) {
                         firstBeaconTimer = ES_Timer_GetTime();
-                        printf("Just saw the first beacon at time %d", firstBeaconTimer);
+                        printf("\r\n Just saw the first beacon at time %d \r\n", firstBeaconTimer);
                     } else if (firstBeaconTimer != 0 && secondBeaconTimer == 0) {
                         secondBeaconTimer = ES_Timer_GetTime();
-                        printf("Just saw the second beacon at time %d", secondBeaconTimer);
+                        printf("\r\n Just saw the second beacon at time %d \r\n", secondBeaconTimer);
                     }
 
-                    if (secondBeaconTimer != 0 && firstBeaconTimer != 0) {
-                        if (((firstBeaconTimer - secondBeaconTimer) / 2) < 1500) {
-                            ES_Timer_InitTimer(1,
-                                    (3700 - ((firstBeaconTimer - secondBeaconTimer) / 2)));
-                            printf("CASE ONE: Set the timer to be %d", 
-                                    (3700 - ((firstBeaconTimer - secondBeaconTimer) / 2)));
-                        } else {
-                            ES_Timer_InitTimer(1, ((firstBeaconTimer - secondBeaconTimer) / 2));
-                            printf("CASE TWO: Set the timer to be %d", 
-                                    ((firstBeaconTimer - secondBeaconTimer) / 2));
+                    timerDiffDivTwo = abs((secondBeaconTimer - firstBeaconTimer) / 2);
+                    if (timerFlag == 0) {
+                        if (secondBeaconTimer != 0 && firstBeaconTimer != 0) {
+                            if (timerDiffDivTwo < 1500) {
+                                ES_Timer_InitTimer(1,
+                                        ((3700 / 2) - timerDiffDivTwo));
+                                printf("\r\n CASE ONE: Set the timer to be %d \r\n",
+                                        ((3700 / 2) - timerDiffDivTwo));
+                            } else {
+                                // you are at the end of a large arc
+                                // set the timer to be 3700 - arc size + half of arc size
+                                int timer = 3700 - (timerDiffDivTwo * 2);
+                                timer = timer + timerDiffDivTwo;
+                                ES_Timer_InitTimer(1, timer);
+                                printf("\r\n CASE TWO: Set the timer to be %d \r\n", timer);
+                            }
+                            timerFlag = 1;
                         }
                     }
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case FRONT_LEFT_BUMPER_HIT:
+                case FRONT_RIGHT_BUMPER_HIT:
+                    nextState = Bumped;
+                    makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default: // all unhandled events pass the event back up to the next level
@@ -282,6 +349,12 @@ ES_Event RunFindingTapeSubHSM(ES_Event ThisEvent) {
                     firstBeaconTimer = ES_Timer_GetTime();
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                case FRONT_LEFT_BUMPER_HIT:
+                case FRONT_RIGHT_BUMPER_HIT:
+                    nextState = Bumped;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }
@@ -301,10 +374,50 @@ ES_Event RunFindingTapeSubHSM(ES_Event ThisEvent) {
                 case TAPE_ON:
                     // let this event pass up to the top level
                     break;
+                case FRONT_LEFT_BUMPER_HIT:
+                case FRONT_RIGHT_BUMPER_HIT:
+                    nextState = Bumped;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }
             break;
+
+        case Bumped:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
+                    ES_Timer_InitTimer(1, 250);
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_TIMEOUT:
+                    if (ThisEvent.EventParam == 1) {
+                        driveForward(MEDIUM_MOTOR_SPEED);
+                    }
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case FRONT_LEFT_BUMPER_HIT:
+                case FRONT_RIGHT_BUMPER_HIT:
+                    nextState = Bumped;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case BEACON_DETECTED:
+                    // turn 90 degrees
+                    rightTankTurn(MEDIUM_MOTOR_SPEED);
+                    ES_Timer_InitTimer(1, 90 * 9.5);
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case TAPE_ON:
+                    // let this event pass up to the top level
+                    break;
+                default: // all unhandled events pass the event back up to the next level
+                    break;
+            }
+            break;
+
 
         default: // all unhandled states fall into here
             break;

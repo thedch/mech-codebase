@@ -112,7 +112,6 @@ uint8_t TapeSensorEventChecker(void) {
 
 uint8_t TapeSensorLEDOn(ES_Event ThisEvent) {
 
-    // TODO: Add isNewDataReady functionality to prevent garbage data input
     if (ThisEvent.EventType == ES_TIMEOUT) {
         //        printf("Entering TapeSensorLEDOn \r\n");
         // take a reading of the LED on reading 
@@ -154,7 +153,6 @@ uint8_t TapeSensorLEDOff(ES_Event ThisEvent) {
                 (CenterLEDOnReading > 0)&&
                 ((CenterLEDOffReading - CenterLEDOnReading) > 0)) {
             TapeSensorCompareHysteresis();
-
         }
         StartSampling = 0;
     }

@@ -162,7 +162,6 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 // Initialize all sub-state machines
 
                 // Init Code
-                // TODO: Move all this init code
                 PWM_Init();
                 PWM_SetFrequency(PWM_DEFAULT_FREQUENCY);
                 PWM_AddPins(LEFT_MOTOR_PWM_PIN | RIGHT_MOTOR_PWM_PIN);

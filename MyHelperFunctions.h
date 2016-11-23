@@ -259,3 +259,6 @@ char CustomPWM_SetDutyCycle(unsigned char Channel, unsigned int Duty);
  * @brief Helper function used turn the robot gradually
  * @author Daniel Hunter, 5 Nov 2016 */
 void variablePercentLeftTurn(int percentage, int dutyCycle);
+
+
+void variablePercentRightTurn(int percentage, int dutyCycle);

@@ -20,4 +20,5 @@ ES_Configure.h  \
 C:/CMPE118/include/BOARD.h  \
  C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TopLevelHSM.h  \
  C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/FindingTapeSubHSM.h  \
- C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.h 
+ C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.h  \
+ C:/CMPE118/include/ES_Events.h 

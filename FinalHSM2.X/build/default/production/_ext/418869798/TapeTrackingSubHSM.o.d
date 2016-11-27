@@ -23,4 +23,6 @@ C:/CMPE118/include/ES_Events.h  \
  C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/TapeTrackingSubHSM.h  \
  C:/Users/dchunter/MPLABXProjects/MyHelperFunctions.h  \
  C:/CMPE118/include/RC_Servo.h  \
-C:/CMPE118/include/ES_Timers.h 
+C:/CMPE118/include/ES_Timers.h  \
+ C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/AvoidBoxSubHSM.h  \
+ C:/Users/dchunter/MPLABXProjects/FinalHSM2.X/AvoidBeaconSubHSM.h 

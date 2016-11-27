@@ -34,6 +34,7 @@
 #include "FindingTapeSubHSM.h"
 #include "MyHelperFunctions.h"
 #include "ES_Events.h"
+#include "ES_Timers.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -45,23 +46,13 @@
 typedef enum {
     InitPSubState,
     Rotate360,
-    OneBeaconFound,
-    TwoBeaconsFound,
-    ThreeBeaconsFound,
-    DriveToFindTape,
-    Bumped,
-            ON_EDGE,
+    InitialTapeTracking,
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
 	"InitPSubState",
 	"Rotate360",
-	"OneBeaconFound",
-	"TwoBeaconsFound",
-	"ThreeBeaconsFound",
-	"DriveToFindTape",
-	"Bumped",
-	"ON_EDGE",
+	"InitialTapeTracking",
 };
 
 
@@ -81,12 +72,13 @@ static const char *StateNames[] = {
 static TemplateSubHSMState_t CurrentState = InitPSubState; // <- change name to match ENUM
 static uint8_t MyPriority;
 
+static int TapeTrackingCounter;
 static int BeaconFlag;
 static uint32_t firstBeaconTimer;
 static uint32_t secondBeaconTimer;
 static uint32_t thirdBeaconTimer;
 static int timerDiffDivTwo;
-static int timerFlag;
+static int isTimerRunningFlag;
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                            *
@@ -149,275 +141,87 @@ ES_Event RunFindingTapeSubHSM(ES_Event ThisEvent) {
             }
             break;
 
-        case Rotate360: // in the first state, replace this with correct names
+        case Rotate360:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     BeaconFlag = 0;
                     ES_Timer_InitTimer(1, 360 * 9.7); // frustration timer, set to exactly 360 deg
                     leftTankTurn(MEDIUM_MOTOR_SPEED);
+                    //                    printf("\r\n ENTERING ROTATE 360 \r\n");
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
-                    if (ThisEvent.EventParam == 1) {
-                        // Initial 360 turn has stopped, pause for a moment
-                        motorsOff();
-                        ES_Timer_InitTimer(2, 500);
-                    } else if (ThisEvent.EventParam == 2) {
-                        if (BeaconFlag == 1) {
-                            nextState = OneBeaconFound;
-                        } else if (BeaconFlag == 2) {
-                            nextState = TwoBeaconsFound;
-                        } else if (BeaconFlag == 3) {
-                            nextState = ThreeBeaconsFound;
-                        } else if (BeaconFlag == 0) {
-                            nextState = DriveToFindTape;
-                        }
-                        makeTransition = TRUE;
-                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
-                    BeaconFlag++;
-                    if (BeaconFlag == 3) {
-                        ES_Timer_InitTimer(1, 1); // set timer to be 1 ms to overwrite the older timer
-                    }
-                    printf("\r\n JUST SAW A BEACON ON FIRST ROTATION \r\n");
+                    BeaconFlag = 1;
+                    ES_Timer_StopTimer(1); // Kill timer 1, keep turning until you see tape
+                    //                    printf("\r\n BEACON DETECTED \r\n");
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case FRONT_LEFT_BUMPER_HIT:
-                case FRONT_RIGHT_BUMPER_HIT:
-                    nextState = Bumped;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-/////////////////////////////
                 case TAPE_ON:
-                    nextState = ON_EDGE;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                default: // all unhandled events pass the event back up to the next level
-                    break;
-            }
-            break;
-////////////////////////////
-        case ON_EDGE:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    leftTankTurn(MEDIUM_MOTOR_SPEED);
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BEACON_DETECTED:
-                    driveForward(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(10, 1500);
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_TIMEOUT:
-                    if (ThisEvent.EventParam == 10) {
-                        nextState = Rotate360;
-                        makeTransition = TRUE;
-                    }
-                    ThisEvent.EventType = ES_NO_EVENT;
-                default: // all unhandled events pass the event back up to the next level
-                    break;
-            }
-            break;
-////////////////////////////////////
-            
-        case OneBeaconFound:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    rightTankTurn(MEDIUM_MOTOR_SPEED);
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_TIMEOUT:
-                    if (ThisEvent.EventParam == 1) {
-                        nextState = DriveToFindTape;
+                    if ((ThisEvent.EventParam & 0x02 == 0x02) && (BeaconFlag == 1)) {
+                        // Center tape sensor is on
+                        // Go tape track
+                        BeaconFlag = 0;
+                        nextState = InitialTapeTracking;
                         makeTransition = TRUE;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case BEACON_DETECTED:
-                    // TODO: Drive to beacon, then drive away
-                    ES_Timer_InitTimer(1, 1700); // approx 180 degrees
+                case ALL_TAPE_WHITE:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case FRONT_LEFT_BUMPER_HIT:
-                case FRONT_RIGHT_BUMPER_HIT:
-                    nextState = Bumped;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
+                case ES_EXIT:
+                    //                    printf("\r\n LEAVING ROTATE 360 \r\n");
                     break;
-                default: // all unhandled events pass the event back up to the next level
+                default:
                     break;
             }
             break;
 
-        case TwoBeaconsFound:
+        case InitialTapeTracking:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    timerFlag = 0;
-                    firstBeaconTimer = 0;
-                    secondBeaconTimer = 0;
-                    rightTankTurn(MEDIUM_MOTOR_SPEED);
+                    isTimerRunningFlag = 0; // 0 means no
+                    leftMotor(FORWARD, MAX_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case ES_TIMEOUT:
-                    if (ThisEvent.EventParam == 1) {
-                        nextState = DriveToFindTape;
-                        makeTransition = TRUE;
+                case TAPE_ON:
+                    if ((ThisEvent.EventParam & 0x02) == 0x02) {
+                        leftMotor(FORWARD, MAX_MOTOR_SPEED);
+                    }
+                    break;
+                case ALL_TAPE_WHITE:
+                    if (isTimerRunningFlag == 1) {
+                        // timer is still running after a full cycle, go to smooth follow
+                        // don't consume the event here, it gets passed to top level
+                    } else {
+                        // continue with initial tape tracking
+                        //                        printf("\r\n SAW WHITE AND FLAG WAS LOW \r\n");
+                        rightMotor(FORWARD, MAX_MOTOR_SPEED);
                         ThisEvent.EventType = ES_NO_EVENT;
                     }
-                    break;
-                case BEACON_DETECTED:
-                    // find first beacon 
-                    // grab current time
-                    // scan for second beacon 
-                    // grab current time
-                    // if time diff is less than 1500, then take 3700 - time diff
-                    // and turn that amount
-                    // else, turn timediff
-                    // then, drive forward
-
-                    if (firstBeaconTimer == 0) {
-                        firstBeaconTimer = ES_Timer_GetTime();
-                        printf("\r\n Just saw the first beacon at time %d \r\n", firstBeaconTimer);
-                    } else if (firstBeaconTimer != 0 && secondBeaconTimer == 0) {
-                        secondBeaconTimer = ES_Timer_GetTime();
-                        printf("\r\n Just saw the second beacon at time %d \r\n", secondBeaconTimer);
-                    }
-
-                    timerDiffDivTwo = abs((secondBeaconTimer - firstBeaconTimer) / 2);
-                    if (timerFlag == 0) {
-                        if (secondBeaconTimer != 0 && firstBeaconTimer != 0) {
-                            if (timerDiffDivTwo < 1500) {
-                                ES_Timer_InitTimer(1,
-                                        ((3700 / 2) - timerDiffDivTwo));
-                                printf("\r\n CASE ONE: Set the timer to be %d \r\n",
-                                        ((3700 / 2) - timerDiffDivTwo));
-                            } else {
-                                // you are at the end of a large arc
-                                // set the timer to be 3700 - arc size + half of arc size
-                                int timer = 3700 - (timerDiffDivTwo * 2);
-                                timer = timer + timerDiffDivTwo;
-                                ES_Timer_InitTimer(1, timer);
-                                printf("\r\n CASE TWO: Set the timer to be %d \r\n", timer);
-                            }
-                            timerFlag = 1;
-                        }
-                    }
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case FRONT_LEFT_BUMPER_HIT:
-                case FRONT_RIGHT_BUMPER_HIT:
-                    nextState = Bumped;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                default: // all unhandled events pass the event back up to the next level
-                    break;
-            }
-            break;
-
-        case ThreeBeaconsFound:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    firstBeaconTimer = 0;
-                    secondBeaconTimer = 0;
-                    thirdBeaconTimer = 0;
-                    rightTankTurn(MEDIUM_MOTOR_SPEED);
-                    ThisEvent.EventType = ES_NO_EVENT;
+                    ES_Timer_InitTimer(1, 350);
+                    isTimerRunningFlag = 1;
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 1) {
-                        nextState = DriveToFindTape;
-                        makeTransition = TRUE;
+                        isTimerRunningFlag = 0;
+                        //                        printf("\r\n TIMER EXPIRED, SETTING FLAG LOW \r\n");
                     }
-                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
-                    printf("\r\n Just detected a beacon \r\n");
-                    if (firstBeaconTimer > (ES_Timer_GetTime() - (3700 / 3))) {
-                        // you've turned far enough, stop
-                        leftTankTurn(MEDIUM_MOTOR_SPEED);
-                        ES_Timer_InitTimer(1, 3700 / 6);
-                    } else {
-                        printf("\r\n first beacon timer wasn't big enough \r\n");
-                        printf("\r\n first beacon timer is %d, ES_get_time is %d \r\n",
-                                firstBeaconTimer, ES_Timer_GetTime());
-                    }
-                    firstBeaconTimer = ES_Timer_GetTime();
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case FRONT_LEFT_BUMPER_HIT:
-                case FRONT_RIGHT_BUMPER_HIT:
-                    nextState = Bumped;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
+                case ES_EXIT:
+                    ES_Timer_StopTimer(1);
+                    printf("\r\n Just killed timer 1 \r\n");
                     break;
                 default: // all unhandled events pass the event back up to the next level
                     break;
             }
             break;
-        case DriveToFindTape:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    driveForward(MEDIUM_MOTOR_SPEED);
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_TIMEOUT:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BEACON_DETECTED:
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case TAPE_ON:
-                    // let this event pass up to the top level
-                    break;
-                case FRONT_LEFT_BUMPER_HIT:
-                case FRONT_RIGHT_BUMPER_HIT:
-                    nextState = Bumped;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                default: // all unhandled events pass the event back up to the next level
-                    break;
-            }
-            break;
-
-        case Bumped:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    rightMotor(REVERSE, MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, 250);
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_TIMEOUT:
-                    if (ThisEvent.EventParam == 1) {
-                        driveForward(MEDIUM_MOTOR_SPEED);
-                    }
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case FRONT_LEFT_BUMPER_HIT:
-                case FRONT_RIGHT_BUMPER_HIT:
-                    nextState = Bumped;
-                    makeTransition = TRUE;
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BEACON_DETECTED:
-                    // turn 90 degrees
-                    rightTankTurn(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, 90 * 9.5);
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case TAPE_ON:
-                    // let this event pass up to the top level
-                    break;
-                default: // all unhandled events pass the event back up to the next level
-                    break;
-            }
-            break;
-
 
         default: // all unhandled states fall into here
             break;
@@ -439,3 +243,4 @@ ES_Event RunFindingTapeSubHSM(ES_Event ThisEvent) {
  * PRIVATE FUNCTIONS                                                           *
  ******************************************************************************/
 
+;

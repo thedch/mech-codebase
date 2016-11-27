@@ -35,10 +35,10 @@
 #include "TopLevelHSM.h"
 
 #include "TapeTrackingSubHSM.h" // #include all sub state machines called
-// #include "TrackWireSubHSM.h" // #include all sub state machines called
-#include "TrackWireSubHSM.h" // #include all sub state machines called
+#include "TrackWireSubHSM.h" 
 #include "FirstBeaconSubHSM.h"
 #include "FindingTapeSubHSM.h"
+#include "AvoidBoxSubHSM.h"
 
 #include "MyHelperFunctions.h"
 #include "RC_Servo.h"
@@ -197,6 +197,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 InitTrackWireSubHSM();
                 InitFirstBeaconSubHSM();
                 InitFindingTapeSubHSM();
+                InitAvoidBoxSubHSM();
                 // now put the machine into the actual initial state
                 nextState = WaitingToStart;
                 makeTransition = TRUE;
@@ -215,7 +216,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 4) {
-                        nextState = FindingTape;
+                        nextState = TapeTracking;
                         makeTransition = TRUE;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -259,7 +260,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 case ES_TIMEOUT:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case TAPE_ON:
+                case ALL_TAPE_WHITE:
                     nextState = TapeTracking;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -290,11 +291,6 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     break;
                 case FRONT_RIGHT_BUMPER_HIT:
                     ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BACK_BUMPER_HIT:
-                    //                    nextState = Bumped;
-                    //                    makeTransition = TRUE;
-                    //                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BACK_TRACK_WIRE_DETECTED:
                     nextState = FollowingTrackWire;

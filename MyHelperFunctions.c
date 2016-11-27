@@ -243,8 +243,6 @@ char CustomPWM_SetDutyCycle(unsigned char Channel, unsigned int Duty) {
 }
 
 void variablePercentLeftTurn(int percentage, int dutyCycle) {
-    // this function currently has no error checking, and assumes PWM pins have
-    // been correctly set up. I will probably fix this.
     PORTY11_TRIS = 0;
     PORTY09_TRIS = 0;
 
@@ -256,8 +254,6 @@ void variablePercentLeftTurn(int percentage, int dutyCycle) {
 }
 
 void variablePercentRightTurn(int percentage, int dutyCycle) {
-    // this function currently has no error checking, and assumes PWM pins have
-    // been correctly set up. I will probably fix this.
     PORTY11_TRIS = 0;
     PORTY09_TRIS = 0;
 

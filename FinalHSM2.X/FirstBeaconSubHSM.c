@@ -177,7 +177,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     ES_Timer_InitTimer(3, 550);
                     if (BallDropFlag < 4) {
                         toggleServo();
-                    } else if (BallDropFlag > 7) {
+                    } else if (BallDropFlag > 5) {
                         // done dropping balls, go find a new beacon
                         nextState = TurnRightScanning;
                         makeTransition = TRUE;

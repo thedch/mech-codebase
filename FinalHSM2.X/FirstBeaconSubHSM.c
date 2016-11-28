@@ -196,7 +196,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     FirstBeaconLostFlag = 0;
                     driveBackward(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(7, 1000);
+                    ES_Timer_InitTimer(7, 750);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
@@ -295,9 +295,9 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 9) {
-                        variablePercentLeftTurn(83, MEDIUM_MOTOR_SPEED);
+                        variablePercentLeftTurn(75, MEDIUM_MOTOR_SPEED);
                         ES_Timer_StopTimer(3);
-                        ES_Timer_InitTimer(3, 3000); // timer to start long turn around beacon
+                        ES_Timer_InitTimer(3, 4500); // timer to start long turn around beacon
                         beaconLookingFlag = 1;
                     } else if (ThisEvent.EventParam == 3) {
                         // just finished long left turn
@@ -327,8 +327,8 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
                 case FRONT_RIGHT_BUMPER_HIT:
-                    driveBackward(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(BUMPED_TIMER, 1000);
+                    nextState = GoAroundFirstBeaconOtherWay;
+                    makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_LOST:
@@ -350,7 +350,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 9) {
-                        variablePercentRightTurn(83, MEDIUM_MOTOR_SPEED);
+                        variablePercentRightTurn(80, MEDIUM_MOTOR_SPEED);
                         ES_Timer_StopTimer(3);
                         ES_Timer_InitTimer(3, 6000);
                         beaconLookingFlag = 1;
@@ -359,7 +359,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                         leftTankTurn(SLOW_MOTOR_SPEED);
                     } else if (ThisEvent.EventParam == BUMPED_TIMER) {
                         // finished backing up after a bump, reset the state and scan
-                        variablePercentRightTurn(83, MEDIUM_MOTOR_SPEED);
+                        variablePercentRightTurn(80, MEDIUM_MOTOR_SPEED);
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -471,7 +471,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     beaconTimerStop = ES_Timer_GetTime();
                     beaconTimerDelta = beaconTimerStop - beaconTimerStart;
                     nextState = TargetFound;
-                    makeTransition= TRUE;
+                    makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:

@@ -143,7 +143,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 ThisEvent.EventType = ES_NO_EVENT;
             }
             break;
-            
+
         case RotateToFindTrackWire:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
@@ -172,7 +172,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-            
+
         case FoundTrackWire:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
@@ -206,23 +206,27 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case LoadingAmmo:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    driveForward(MEDIUM_MOTOR_SPEED);
+                    driveForward(MAX_MOTOR_SPEED);
                     if (LoadAmmoFlag < 2) {
                         ES_Timer_InitTimer(1, 500);
                     } else {
-                        ES_Timer_InitTimer(1, 2000);
+                        ES_Timer_InitTimer(1, 1000);
                     }
                     break;
                 case ES_TIMEOUT:
-                    if (LoadAmmoFlag < 2) {
-                        ThisEvent.EventType = ES_NO_EVENT;
+                    if (ThisEvent.EventParam == 1) {
+                        if (LoadAmmoFlag < 2) {
+                            ES_Timer_InitTimer(2, 5000);
+                            motorsOff();
+                        } else {
+                            nextState = AntiJamPhaseOne;
+                            makeTransition = TRUE;
+                        }
+                    } else if (ThisEvent.EventParam == 2) {
                         nextState = FoundTrackWire;
                         makeTransition = TRUE;
-                    } else {
-                        ThisEvent.EventType = ES_NO_EVENT;
-                        nextState = AntiJamPhaseOne;
-                        makeTransition = TRUE;
                     }
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
                 case BEACON_LOST:
@@ -302,8 +306,6 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-
-            /////////////////// MOVE TO BEACON DETECT SUBHSM //////////////////////
 
         case BeaconScanning:
             switch (ThisEvent.EventType) {

@@ -163,7 +163,7 @@ ES_Event RunAvoidBoxSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     rightTankTurn(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, 37 * 9.7);
+                    ES_Timer_InitTimer(1, 30 * 9.7);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
@@ -189,7 +189,7 @@ ES_Event RunAvoidBoxSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     driveForward(MAX_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, 1500);
+                    ES_Timer_InitTimer(1, 1400);
                     // Drive out away from tape
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -200,7 +200,7 @@ ES_Event RunAvoidBoxSubHSM(ES_Event ThisEvent) {
                         leftTankTurn(MEDIUM_MOTOR_SPEED);
                     } else if (ThisEvent.EventParam == 2) {
                         // Drive parallel to tape
-                        ES_Timer_InitTimer(3, 1750);
+                        ES_Timer_InitTimer(3, 2100);
                         driveForward(MAX_MOTOR_SPEED);
                     } else if (ThisEvent.EventParam == 3) {
                         // Turn back to be facing tape
@@ -233,8 +233,7 @@ ES_Event RunAvoidBoxSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     leftMotor(FORWARD, MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(2, 300);
-                    
+                    ES_Timer_InitTimer(2, 200);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:

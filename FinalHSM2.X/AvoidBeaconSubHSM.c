@@ -41,7 +41,7 @@ typedef enum {
     InitPSubState,
     BackAwayFromBeacon,
     TurnToAvoidBeacon,
-    DriveForwardPastBeacon,
+    TapeTrackBeaconBorder,
     TurnToAlignWithTape,
 } TemplateSubHSMState_t;
 
@@ -49,7 +49,7 @@ static const char *StateNames[] = {
 	"InitPSubState",
 	"BackAwayFromBeacon",
 	"TurnToAvoidBeacon",
-	"DriveForwardPastBeacon",
+	"TapeTrackBeaconBorder",
 	"TurnToAlignWithTape",
 };
 
@@ -137,7 +137,7 @@ ES_Event RunAvoidBeaconSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     driveBackward(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(BUMPED_TIMER, 450);
+                    ES_Timer_InitTimer(BUMPED_TIMER, 300);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
@@ -161,12 +161,12 @@ ES_Event RunAvoidBeaconSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     rightTankTurn(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, 80 * 9.7);
+                    ES_Timer_InitTimer(1, 45 * 9.7);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 1) {
-                        nextState = DriveForwardPastBeacon;
+                        nextState = TapeTrackBeaconBorder;
                         makeTransition = TRUE;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -183,43 +183,30 @@ ES_Event RunAvoidBeaconSubHSM(ES_Event ThisEvent) {
             }
             break;
 
-        case DriveForwardPastBeacon:
+        case TapeTrackBeaconBorder:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    driveForward(MAX_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, 1300);
-                    // Drive out away from tape
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_TIMEOUT:
-                    if (ThisEvent.EventParam == 1) {
-                        // Turn to be parallel to tape
-                        ES_Timer_InitTimer(2, 9.7 * 85);
-                        leftTankTurn(MEDIUM_MOTOR_SPEED);
-                    } else if (ThisEvent.EventParam == 2) {
-                        // Drive parallel to tape
-                        ES_Timer_InitTimer(3, 1750);
-                        driveForward(MAX_MOTOR_SPEED);
-                    } else if (ThisEvent.EventParam == 3) {
-                        // Turn back to be facing tape
-                        ES_Timer_InitTimer(4, 9.7 * 70);
-                        leftTankTurn(MEDIUM_MOTOR_SPEED);
-                    } else if (ThisEvent.EventParam == 4) {
-                        // Drive toward tape
-                        driveForward(MAX_MOTOR_SPEED);
-                    }
+                    driveForward(MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-                    nextState = TurnToAlignWithTape;
-                    makeTransition = TRUE;
+                    if (ThisEvent.EventParam & 0x01 == 0x01) {
+                        // left sensor on
+                        rightMotor(REVERSE, MAX_MOTOR_SPEED);
+                    } else if (ThisEvent.EventParam & 0x04 == 0x04) {
+                        // right sensor on, you're finished going around the beacon
+                        // (or hit a different one, which is annoying)
+                        nextState = TurnToAlignWithTape;
+                        makeTransition = TRUE;
+                    }
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ALL_TAPE_WHITE:
+                    variablePercentLeftTurn(50, MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
                 case FRONT_RIGHT_BUMPER_HIT:
-                    ES_Timer_StopTimer(1);
-                    nextState = BackAwayFromBeacon;
-                    makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default:
@@ -232,7 +219,6 @@ ES_Event RunAvoidBeaconSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     leftMotor(FORWARD, MEDIUM_MOTOR_SPEED);
                     ES_Timer_InitTimer(2, 300);
-
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:

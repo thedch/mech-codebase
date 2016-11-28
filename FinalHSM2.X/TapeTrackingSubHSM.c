@@ -219,7 +219,6 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                         makeTransition = TRUE;
                     } else {
                         // continue with initial tape tracking
-                        //                        printf("\r\n SAW WHITE AND FLAG WAS LOW \r\n");
                         rightMotor(FORWARD, MAX_MOTOR_SPEED);
                         ThisEvent.EventType = ES_NO_EVENT;
                     }
@@ -308,13 +307,14 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
             break;
 
         case BeaconInWayAbort:
-            //motorsOff();
+            // motorsOff();
             ThisEvent = RunAvoidBeaconSubHSM(ThisEvent);
 
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     break;
                 case TAPE_ON:
+                    // You hit a second beacon, that's an issue
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:

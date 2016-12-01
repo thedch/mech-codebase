@@ -147,7 +147,6 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case RotateToFindTrackWire:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    // motorsOff();
                     rightTrackTurn(MEDIUM_MOTOR_SPEED); // changing this might screw it up
                     break;
                 case FRONT_TRACK_WIRE_DETECTED:
@@ -207,12 +206,12 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     driveForward(MAX_MOTOR_SPEED);
-                    //                    if (LoadAmmoFlag < 2) {
-                    //                        ES_Timer_InitTimer(1, 500);
-                    //                    } else {
-                    //                        ES_Timer_InitTimer(1, 1000);
-                    //                    }
-                    ES_Timer_InitTimer(1, 500);
+                    if (LoadAmmoFlag < 2) {
+                        ES_Timer_InitTimer(1, 500);
+                    } else {
+                        ES_Timer_InitTimer(1, 1000);
+                    }
+                    //                    ES_Timer_InitTimer(1, 500);
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 1) {
@@ -256,7 +255,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     driveBackward(MAX_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, 200);
+                    ES_Timer_InitTimer(1, 150);
                     break;
                 case ES_TIMEOUT:
                     AntiJamCounter++;
@@ -313,6 +312,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     rightTankTurn(MEDIUM_MOTOR_SPEED);
+                    printf("\r\n Entering Beacon Scanning \r\n");
                     ES_Timer_InitTimer(6, 9.7 * 360);
                     break;
                 case BEACON_DETECTED:
@@ -376,6 +376,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     driveForward(MEDIUM_MOTOR_SPEED);
                     break;
                 case BEACON_LOST:
+                    printf("\r\n I was driving to the beacon, but I lost it! \r\n");
                     nextState = BeaconScanning;
                     makeTransition = TRUE;
                     break;
@@ -402,6 +403,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     leftTankTurn(MEDIUM_MOTOR_SPEED);
+                    printf("\r\n Starting to center \r\n");
                     break;
                 case BEACON_LOST:
                     rightTankTurn(MEDIUM_MOTOR_SPEED);
@@ -436,6 +438,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_LOST:
+                    printf("\r\n Doing math with timers... \r\n");
                     beaconTimerStop = ES_Timer_GetTime();
                     beaconTimerDelta = beaconTimerStop - beaconTimerStart;
                     nextState = TargetFound;
@@ -534,7 +537,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case BEACON_DETECTED:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                    TAPE_ON:
+TAPE_ON:
                     nextState = RepositionOffTape;
                     makeTransition = TRUE;
                     // let this event pass up to the top level
@@ -579,8 +582,6 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     break;
             }
             break;
-
-            /////////////////////////////////////////////////////////////////////////////////////
 
 
         default: // all unhandled states fall into here

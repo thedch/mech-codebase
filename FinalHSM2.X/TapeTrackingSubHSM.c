@@ -194,7 +194,6 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_EXIT:
-                    //                    printf("\r\n LEAVING ROTATE 360 \r\n");
                     break;
                 default:
                     break;
@@ -222,13 +221,12 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                         rightMotor(FORWARD, MAX_MOTOR_SPEED);
                         ThisEvent.EventType = ES_NO_EVENT;
                     }
-                    ES_Timer_InitTimer(1, 375);
+                    ES_Timer_InitTimer(1, 375); // the lower this number, the 'harder' it is to go into regular line tracking
                     isTimerRunningFlag = 1;
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 1) {
                         isTimerRunningFlag = 0;
-                        //                        printf("\r\n TIMER EXPIRED, SETTING FLAG LOW \r\n");
                     }
                     break;
                 case BEACON_DETECTED:
@@ -265,7 +263,6 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 case TAPE_ON:
                     if ((ThisEvent.EventParam & 0x04) == 0x04) {
                         // go to beacon abort
-
                         nextState = BeaconInWayAbort;
                         makeTransition = TRUE;
                     } else if ((ThisEvent.EventParam & 0x02) == 0x02) {
@@ -307,14 +304,13 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
             break;
 
         case BeaconInWayAbort:
-            // motorsOff();
             ThisEvent = RunAvoidBeaconSubHSM(ThisEvent);
 
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     break;
                 case TAPE_ON:
-                    // You hit a second beacon, that's an issue
+                    // TODO: You hit a second beacon, that's an issue
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
@@ -437,7 +433,6 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 case FRONT_RIGHT_BUMPER_HIT:
                     printf("\r\n Just got a SECOND bump event \r\n");
                     // we hit a box while trying to find track wire
-                    // run a sub HSM here
                     InitAvoidBoxSubHSM(); // reset the sub HSM before using it
                     nextState = StateForAvoidBoxSubHSM;
                     makeTransition = TRUE;

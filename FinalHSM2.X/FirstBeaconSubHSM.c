@@ -36,6 +36,7 @@
 #include "TopLevelHSM.h"
 #include "FirstBeaconSubHSM.h"
 #include "MyHelperFunctions.h"
+#include "ES_Timers.h"
 
 /*******************************************************************************
  * MODULE #DEFINES                                                             *
@@ -171,114 +172,28 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     BallDropFlag = 0;
                     motorsOff();
-                    ES_Timer_InitTimer(9, 450);
+                    ES_Timer_InitTimer(3, 450);
                     break;
                 case ES_TIMEOUT:
-                    ES_Timer_InitTimer(3, 550);
-                    if (BallDropFlag < 4) {
-                        toggleServo();
-                    } else if (BallDropFlag > 5) {
-                        // done dropping balls, go find a new beacon
-                        nextState = TurnRightScanning;
+                    if (ThisEvent.EventParam == 3) {
+                        // timing the ball drops
+                        ES_Timer_InitTimer(3, 550);
+                        if (BallDropFlag < 4) {
+                            toggleServo();
+                        } else if (BallDropFlag > 5) {
+                            // done dropping balls, go find a new beacon
+                            ES_Timer_StopTimer(3);
+                            ES_Timer_InitTimer(4, 700);
+                            driveBackward(MEDIUM_MOTOR_SPEED);
+                        }
+                        BallDropFlag++;
+                    } else if (ThisEvent.EventParam == 4) {
+                        nextState = GoAroundFirstBeacon;
                         makeTransition = TRUE;
                         BallDropFlag = 0;
                     }
-                    BallDropFlag++;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                default:
-                    break;
-            }
-            break;
-
-        case TurnRightScanning:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    FirstBeaconLostFlag = 0;
-                    driveBackward(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(7, 750);
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_TIMEOUT:
-                    if (ThisEvent.EventParam == 7) {
-                        // when timer expires, start turning and try to lose beacon
-                        rightTankTurn(MEDIUM_MOTOR_SPEED);
-                        FinishedBackingAwayFromFirstBeaconFlag = 1;
-                        GetBackToFirstBeaconTimeOne = ES_Timer_GetTime();
-                    } else if (ThisEvent.EventParam == 9) {
-                        // just finished first 180
-                        motorsOff();
-                        printf(" \r\n GOING TO TURN LEFT SCANNING \r\n");
-                        GetBackToFirstBeaconTimeTwo = ES_Timer_GetTime();
-                        nextState = TurnLeftScanning;
-                        makeTransition = TRUE;
-                    } else if (ThisEvent.EventParam == 5) {
-                        // ignore beacon detected until beacon lost + 800ms
-                        FirstBeaconLostFlag = 1;
-                    }
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BEACON_DETECTED:
-                    // TODO: Add in code to make sure we didn't turn too far
-                    if (FirstBeaconLostFlag == 1) {
-                        nextState = StartCentering;
-                        makeTransition = TRUE;
-                    }
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BEACON_LOST:
-                    if (FinishedBackingAwayFromFirstBeaconFlag == 1) {
-                        ES_Timer_InitTimer(5, 500); // buffer timer
-                        ES_Timer_InitTimer(9, 1700); // Set a turn for 180 degrees
-                        FinishedBackingAwayFromFirstBeaconFlag = 0;
-                    }
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                default:
-                    break;
-            }
-            break;
-
-        case TurnLeftScanning:
-            switch (ThisEvent.EventType) {
-                case ES_ENTRY:
-                    beaconLookingFlag = 0;
-                    FirstBeaconLostFlag = 0;
-                    leftTankTurn(MEDIUM_MOTOR_SPEED); //This was the wrong fucking speed from right turn, Time elapsed became completely wrong
-                    elapsedTime = GetBackToFirstBeaconTimeTwo - GetBackToFirstBeaconTimeOne;
-                    ES_Timer_InitTimer(5, elapsedTime);
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case ES_TIMEOUT:
-                    if (ThisEvent.EventParam == 5) {
-                        // facing beacon now, set buffer timer
-                        ES_Timer_InitTimer(6, 500); //buffer timer
-                        ES_Timer_InitTimer(10, 1700); // Set a turn for 180 degrees
-                        printf("\r\n FACING FIRST BEACON, TIMER FIVE JUST EXPIRED LOLLLLLL \r\n");
-                    } else if (ThisEvent.EventParam == 6) {
-                        // done with buffer timer
-                        FirstBeaconLostFlag = 1;
-                    } else if (ThisEvent.EventParam == 10) {
-                        // done with the entire thing, go around beacon 
-                        beaconLookingFlag = 1; // this is frankly idiotic
-                    }
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-                case BEACON_DETECTED:
-                    if (FirstBeaconLostFlag == 1) {
-                        FirstBeaconLostFlag = 0;
-                        // you saw a beacon, change state
-                        nextState = StartCentering;
-                        makeTransition = TRUE;
-                    }
-                    if (beaconLookingFlag == 1) {
-                        // you're back to center, change state
-                        nextState = GoAroundFirstBeacon;
-                        makeTransition = TRUE;
-                    }
-                    ThisEvent.EventType = ES_NO_EVENT;
-                    break;
-
                 default:
                     break;
             }
@@ -289,7 +204,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     rightTankTurn(MEDIUM_MOTOR_SPEED);
                     ES_Timer_StopTimer(9);
-                    ES_Timer_InitTimer(9, 9.7 * 45); // Set a turn for 45 degrees
+                    ES_Timer_InitTimer(9, 9.7 * 90); // Set a turn for 90 degrees
                     beaconLookingFlag = 0;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -320,10 +235,6 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     nextState = GoAroundFirstBeaconOtherWay;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
-                    // TODO: If you see tape, back up and go the other way
-                    // Turn 180 degrees 
-                    // Do a large sweeping turn
-                    // Scan for beacons (probably need a new state)
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
                 case FRONT_RIGHT_BUMPER_HIT:
@@ -424,7 +335,6 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
         case StartCentering:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-
                     leftTankTurn(SLOW_MOTOR_SPEED);
                     break;
                 case BEACON_LOST:
@@ -450,8 +360,6 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     break;
                 case FRONT_RIGHT_BUMPER_HIT:
                     ES_Timer_InitTimer(BUMPED_TIMER, 200);
-
-
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_EXIT:
@@ -553,9 +461,10 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     if (BallDropFlag < 4) {
                         toggleServo();
                     } else if (BallDropFlag > 7) {
-                        nextState = TurnRightScanning;
-                        makeTransition = TRUE;
-                        ThisEvent.EventType = ES_NO_EVENT;
+                        //                        nextState = TurnRightScanning;
+                        //                        makeTransition = TRUE;
+                        //                        ThisEvent.EventType = ES_NO_EVENT;
+                        motorsOff();
                     }
                     BallDropFlag++;
                     break;

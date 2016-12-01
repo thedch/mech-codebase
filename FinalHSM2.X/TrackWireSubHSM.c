@@ -148,7 +148,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     // motorsOff();
-                    rightTrackTurn(SLOW_MOTOR_SPEED);
+                    rightTrackTurn(MEDIUM_MOTOR_SPEED); // changing this might screw it up
                     break;
                 case FRONT_TRACK_WIRE_DETECTED:
                     nextState = FoundTrackWire;
@@ -176,7 +176,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case FoundTrackWire:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    ES_Timer_InitTimer(4, 1000);
+                    ES_Timer_InitTimer(4, 750);
                     driveBackward(MEDIUM_MOTOR_SPEED);
                     LoadAmmoFlag++;
                     break;
@@ -207,16 +207,17 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     driveForward(MAX_MOTOR_SPEED);
-                    if (LoadAmmoFlag < 2) {
-                        ES_Timer_InitTimer(1, 500);
-                    } else {
-                        ES_Timer_InitTimer(1, 1000);
-                    }
+                    //                    if (LoadAmmoFlag < 2) {
+                    //                        ES_Timer_InitTimer(1, 500);
+                    //                    } else {
+                    //                        ES_Timer_InitTimer(1, 1000);
+                    //                    }
+                    ES_Timer_InitTimer(1, 500);
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 1) {
                         if (LoadAmmoFlag < 2) {
-                            ES_Timer_InitTimer(2, 5000);
+                            ES_Timer_InitTimer(2, 500);
                             motorsOff();
                         } else {
                             nextState = AntiJamPhaseOne;
@@ -235,6 +236,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case FRONT_LEFT_BUMPER_HIT:
                 case FRONT_RIGHT_BUMPER_HIT:
                     if (LoadAmmoFlag < 2) {
+                        // TODO: And then what?
                         driveBackward(MEDIUM_MOTOR_SPEED);
                     } else {
                         makeTransition = TRUE;
@@ -310,8 +312,8 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case BeaconScanning:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    rightTankTurn(SLOW_MOTOR_SPEED);
-                    ES_Timer_InitTimer(6, 5500);
+                    rightTankTurn(MEDIUM_MOTOR_SPEED);
+                    ES_Timer_InitTimer(6, 9.7 * 360);
                     break;
                 case BEACON_DETECTED:
                     nextState = StartCentering;
@@ -370,7 +372,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case GetCloserToBeacon:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    ES_Timer_InitTimer(1, 1300);
+                    ES_Timer_InitTimer(1, 2200);
                     driveForward(MEDIUM_MOTOR_SPEED);
                     break;
                 case BEACON_LOST:
@@ -399,10 +401,10 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case StartCentering:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    leftTankTurn(SLOW_MOTOR_SPEED);
+                    leftTankTurn(MEDIUM_MOTOR_SPEED);
                     break;
                 case BEACON_LOST:
-                    rightTankTurn(SLOW_MOTOR_SPEED);
+                    rightTankTurn(MEDIUM_MOTOR_SPEED);
                     nextState = BeaconFound;
                     makeTransition = TRUE;
                     break;
@@ -452,7 +454,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case TargetFound:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    leftTankTurn(SLOW_MOTOR_SPEED);
+                    leftTankTurn(MEDIUM_MOTOR_SPEED);
                     ES_Timer_InitTimer(1, BEACONTIMER_CENTERED);
                     break;
                 case ES_TIMEOUT:
@@ -488,12 +490,10 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     } else if ((ThisEvent.EventParam & 0x01) == 0x01) {
                         // Left sensor on, pull right wheel fwd
                         rightMotor(FORWARD, MEDIUM_MOTOR_SPEED);
-                        printf("\r\n LEFT SENSOR ON, Right motor FWD \r\n");
                         ThisEvent.EventType = ES_NO_EVENT;
                     } else if ((ThisEvent.EventParam & 0x04) == 0x04) {
                         // Right sensor on, pull left wheel fwd
                         leftMotor(FORWARD, MEDIUM_MOTOR_SPEED);
-                        printf("\r\n RIGHT SENSOR ON, Left motor FWD \r\n");
                         ThisEvent.EventType = ES_NO_EVENT;
                     }
                     break;
@@ -534,7 +534,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case BEACON_DETECTED:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-                case TAPE_ON:
+                    TAPE_ON:
                     nextState = RepositionOffTape;
                     makeTransition = TRUE;
                     // let this event pass up to the top level

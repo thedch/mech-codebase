@@ -33,6 +33,7 @@ static int GetOutFlag = 0;
 #define SLOW_MOTOR_SPEED 450
 
 #define MS_PER_DEGREE_TURN_MED_SPEED 8.55
+#define CIRCLE_BEACON_PERCENTAGE 55
 
 #define FORWARD 0
 #define REVERSE 1

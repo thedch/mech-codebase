@@ -148,7 +148,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case RotateToFindTrackWire:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    rightTrackTurn(MEDIUM_MOTOR_SPEED); // changing this might screw it up
+                    rightTrackTurn(SLOW_MOTOR_SPEED); // changing this might screw it up
                     break;
                 case FRONT_TRACK_WIRE_DETECTED:
                     nextState = FoundTrackWire;
@@ -266,6 +266,8 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     makeTransition = TRUE;
                     break;
                 case BEACON_DETECTED:
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                 case BEACON_LOST:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -287,15 +289,19 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     ES_Timer_InitTimer(1, 150);
                     break;
                 case ES_TIMEOUT:
-                    if (AntiJamCounter < 2) {
-                        nextState = AntiJamPhaseOne;
-                        ThisEvent.EventType = ES_NO_EVENT;
-                        makeTransition = TRUE;
-                    } else {
+                    if (ThisEvent.EventParam == 1) {
+                        if (AntiJamCounter < 2) {
+                            nextState = AntiJamPhaseOne;
+                            makeTransition = TRUE;
+                        } else {
+                            ES_Timer_InitTimer(2, 600);
+                            driveForward(MEDIUM_MOTOR_SPEED);
+                        }
+                    } else if (ThisEvent.EventParam == 2) {
                         nextState = BeaconScanning;
-                        ThisEvent.EventType = ES_NO_EVENT;
                         makeTransition = TRUE;
                     }
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_NO_EVENT:
                     break;
@@ -312,30 +318,46 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case BeaconScanning:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
+                    SeekingBeaconFlag = 0;
                     leftTankTurn(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(6, MS_PER_DEGREE_TURN_MED_SPEED * 360);
+                    ES_Timer_InitTimer(6, MS_PER_DEGREE_TURN_MED_SPEED * 380);
+                    ES_Timer_InitTimer(1, MS_PER_DEGREE_TURN_MED_SPEED * 180);
                     break;
                 case BEACON_DETECTED:
-                    ES_Timer_StopTimer(6); // Kill the frustration timer
-                    variablePercentRightTurn(50, MEDIUM_MOTOR_SPEED);
+                    if (SeekingBeaconFlag >= 1) {
+                        SeekingBeaconFlag = 2;
+                        ES_Timer_StopTimer(6); // Kill the frustration timer
+                        variablePercentRightTurn(50, MEDIUM_MOTOR_SPEED);
+                    }
                     // TODO: Add a timer here. Past about 3-4s, this won't be accurate. 
                     //                    nextState = StartCentering;
                     //                    makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_LOST:
-                    variablePercentLeftTurn(50, MEDIUM_MOTOR_SPEED);
+                    if (SeekingBeaconFlag >= 1) {
+                        variablePercentLeftTurn(50, MEDIUM_MOTOR_SPEED);
+                    }
                     ThisEvent.EventType = ES_NO_EVENT;
+                    break;
                 case ES_NO_EVENT:
                     break;
                 case ES_TIMEOUT:
-                    nextState = DriveToGetWithinRangeOfBeacon;
-                    makeTransition = TRUE;
+                    if (ThisEvent.EventParam == 1) {
+                        SeekingBeaconFlag = 1;
+                    } else if (ThisEvent.EventParam == 6) {
+                        nextState = DriveToGetWithinRangeOfBeacon;
+                        makeTransition = TRUE;
+                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-                    nextState = RepositionOffTape;
-                    makeTransition = TRUE;
+                    if (SeekingBeaconFlag >= 2) {
+                        printf("\r\n Just saw tape while driving towards a beacon \r\n");
+                        nextState = RepositionOffTape;
+                        makeTransition = TRUE;
+                    }
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
                 case FRONT_RIGHT_BUMPER_HIT:

@@ -40,7 +40,7 @@
 typedef enum {
     InitPSubState,
     BackAwayFromBeacon,
-    TurnToAvoidBeacon,
+    DriveAroundBeacon,
     TapeTrackBeaconBorder,
     TurnToAlignWithTape,
 } TemplateSubHSMState_t;
@@ -48,7 +48,7 @@ typedef enum {
 static const char *StateNames[] = {
 	"InitPSubState",
 	"BackAwayFromBeacon",
-	"TurnToAvoidBeacon",
+	"DriveAroundBeacon",
 	"TapeTrackBeaconBorder",
 	"TurnToAlignWithTape",
 };
@@ -137,12 +137,12 @@ ES_Event RunAvoidBeaconSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     driveBackward(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(BUMPED_TIMER, 300);
+                    ES_Timer_InitTimer(BUMPED_TIMER, 400);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == BUMPED_TIMER) {
-                        nextState = TurnToAvoidBeacon;
+                        nextState = DriveAroundBeacon;
                         makeTransition = TRUE;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -157,21 +157,44 @@ ES_Event RunAvoidBeaconSubHSM(ES_Event ThisEvent) {
             }
             break;
 
-        case TurnToAvoidBeacon:
+        case DriveAroundBeacon:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
+                    lookForTapeFlag = 0;
                     rightTankTurn(MEDIUM_MOTOR_SPEED);
-                    ES_Timer_InitTimer(1, 45 * 9.7);
+                    ES_Timer_InitTimer(1, 90 * MS_PER_DEGREE_TURN_MED_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 1) {
-                        nextState = TapeTrackBeaconBorder;
-                        makeTransition = TRUE;
+                        // Drive away from tape past beacon
+                        driveForward(MAX_MOTOR_SPEED);
+                        ES_Timer_InitTimer(2, 1100);
+                    } else if (ThisEvent.EventParam == 2) {
+                        // Turn to be parallel with tape
+                        ES_Timer_InitTimer(3, MS_PER_DEGREE_TURN_MED_SPEED * 90);
+                        leftTankTurn(MEDIUM_MOTOR_SPEED);
+                    } else if (ThisEvent.EventParam == 3) {
+                        // Drive parallel to tape
+                        lookForTapeFlag = 1;
+                        ES_Timer_InitTimer(4, 1500);
+                        driveForward(MAX_MOTOR_SPEED);
+                    } else if (ThisEvent.EventParam == 4) {
+                        // Turn to face the tape
+                        ES_Timer_InitTimer(5, MS_PER_DEGREE_TURN_MED_SPEED * 90);
+                        leftTankTurn(MEDIUM_MOTOR_SPEED);
+                    } else if (ThisEvent.EventParam == 5) {
+                        // Drive toward tape
+                        driveForward(MAX_MOTOR_SPEED);
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
+                    if (lookForTapeFlag == 1) {
+                        lookForTapeFlag = 0;
+                        nextState = TurnToAlignWithTape;
+                        makeTransition = TRUE;
+                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case FRONT_LEFT_BUMPER_HIT:

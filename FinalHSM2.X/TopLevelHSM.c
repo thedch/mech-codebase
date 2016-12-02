@@ -219,7 +219,7 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                         nextState = TapeTracking;
                         makeTransition = TRUE;
                         //                        leftTankTurn(MEDIUM_MOTOR_SPEED);
-                        //                        ES_Timer_InitTimer(1, 8.55 * 360);
+                        //                        ES_Timer_InitTimer(1, MS_PER_DEGREE_TURN_MED_SPEED * 360);
                     } else if (ThisEvent.EventParam == 1) {
                         motorsOff();
                     }
@@ -357,14 +357,25 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 case ES_NO_EVENT:
                     break;
                 case TAPE_ON:
-                    nextState = TapeTracking;
-                    makeTransition = TRUE;
+                    ES_Timer_InitTimer(9, 300);
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_TIMEOUT:
+                    if (ThisEvent.EventParam == 9) {
+                        nextState = TapeTracking;
+                        makeTransition = TRUE;
+                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BATTERY_DISCONNECTED:
                     nextState = WaitingToStart;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
+                case ES_EXIT:
+                    InitFirstBeaconSubHSM();
+                    InitTapeTrackingSubHSM();
+                    InitTrackWireSubHSM();
+                    break;
                 default:
                     break;
             }

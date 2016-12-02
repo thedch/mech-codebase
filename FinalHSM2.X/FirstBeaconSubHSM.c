@@ -276,7 +276,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 9) {
-                        variablePercentRightTurn(CIRCLE_BEACON_PERCENTAGE, MEDIUM_MOTOR_SPEED);
+                        variablePercentLeftTurn(CIRCLE_BEACON_PERCENTAGE, MEDIUM_MOTOR_SPEED * 1.15);
                         ES_Timer_StopTimer(3);
                         ES_Timer_InitTimer(3, 6000);
                         beaconLookingFlag = 1;
@@ -367,14 +367,19 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-                    nextState = RepositionOffTape;
-                    makeTransition = TRUE;
+                    //                    nextState = RepositionOffTape;
+                    //                    makeTransition = TRUE;
+                    fiftyPercentReverseRightTurn(SLOW_MOTOR_SPEED);
+                    ES_Timer_InitTimer(2, 600);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == BUMPED_TIMER) {
                         // timer expired, you're stuck
                         nextState = GetCloserToBeacon;
+                        makeTransition = TRUE;
+                    } else if (ThisEvent.EventParam == 2) {
+                        nextState = RepositionOffTape;
                         makeTransition = TRUE;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -441,26 +446,36 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
         case RepositionOffTape:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    driveBackward(SLOW_MOTOR_SPEED);
+                    ES_Timer_InitTimer(1, 2500);
+                    //                    driveBackward(SLOW_MOTOR_SPEED * 0.7);
+                    driveForward(SLOW_MOTOR_SPEED * 0.7);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
+                    if (ThisEvent.EventParam == 1) {
+                        driveBackward(MEDIUM_MOTOR_SPEED);
+                        ES_Timer_InitTimer(2, 500);
+                    } else if (ThisEvent.EventParam == 2) {
+                        nextState = RepositionOffTape;
+                        makeTransition = TRUE;
+                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ALL_TAPE_WHITE:
-                    driveForward(SLOW_MOTOR_SPEED);
+                    driveForward(SLOW_MOTOR_SPEED * 0.7);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
                     if ((ThisEvent.EventParam & 0x07) == 0x07) {
                         nextState = DroppingAmmoAtSecondBeacon;
                         makeTransition = TRUE;
+                        ES_Timer_StopTimer(1); // kill any old timer 1
                     } else if ((ThisEvent.EventParam & 0x01) == 0x01) {
                         // Left sensor on, pull right wheel fwd
-                        rightMotor(FORWARD, MEDIUM_MOTOR_SPEED);
+                        rightMotor(FORWARD, SLOW_MOTOR_SPEED * 0.7);
                     } else if ((ThisEvent.EventParam & 0x04) == 0x04) {
                         // Right sensor on, pull left wheel fwd
-                        leftMotor(FORWARD, MEDIUM_MOTOR_SPEED);
+                        leftMotor(FORWARD, SLOW_MOTOR_SPEED * 0.7);
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -479,9 +494,9 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     break;
                 case ES_TIMEOUT:
                     ES_Timer_InitTimer(3, 750);
-                    if (BallDropFlag < 4) {
+                    if (BallDropFlag < 6) {
                         toggleServo();
-                    } else if (BallDropFlag > 7) {
+                    } else if (BallDropFlag > 8) {
                         nextState = FindingTapeAfterSecondBeacon;
                         makeTransition = TRUE;
                         ThisEvent.EventType = ES_NO_EVENT;
@@ -506,16 +521,20 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 1) {
                         rightTankTurn(MEDIUM_MOTOR_SPEED);
-                        ES_Timer_InitTimer(2, 90 * MS_PER_DEGREE_TURN_MED_SPEED);
+                        ES_Timer_InitTimer(2, 75 * MS_PER_DEGREE_TURN_MED_SPEED);
                     } else if (ThisEvent.EventParam == 2) {
                         driveForward(MEDIUM_MOTOR_SPEED);
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
-                    InitTapeTrackingSubHSM();
-                    InitTrackWireSubHSM();
-                    // probably pass this up to the top level
+                    // pass this up to the top level
+                    break;
+                case FRONT_LEFT_BUMPER_HIT:
+                case FRONT_RIGHT_BUMPER_HIT:
+                    nextState = FindingTapeAfterSecondBeacon;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_EXIT:
                     BallDropFlag = 0;

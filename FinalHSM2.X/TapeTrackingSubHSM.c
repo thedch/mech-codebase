@@ -251,11 +251,9 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
                     variablePercentLeftTurn(85, MEDIUM_MOTOR_SPEED);
-                    printf("\r\n Entering gentle line tracking \r\n");
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ALL_TAPE_WHITE:
-                    printf("\r\n Saw white in Tape Tracking \r\n");
                     variablePercentLeftTurn(85, MEDIUM_MOTOR_SPEED);
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -265,14 +263,12 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                         nextState = BeaconInWayAbort;
                         makeTransition = TRUE;
                     } else if ((ThisEvent.EventParam & 0x02) == 0x02) {
-                        printf("\r\n Saw black in Tape Tracking \r\n");
                         // center on, continue line tracking
                         variablePercentRightTurn(85, MEDIUM_MOTOR_SPEED);
                     } else {
                         // treat this like tape white
                         printf("\r\n Saw white (kind of) in Tape Tracking \r\n");
                         variablePercentLeftTurn(85, MEDIUM_MOTOR_SPEED);
-                        ThisEvent.EventType = ES_NO_EVENT;
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;

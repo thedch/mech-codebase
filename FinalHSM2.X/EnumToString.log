@@ -88338,3 +88338,4943 @@ static const char *StateNames[] = {
 };
 
 
+[DEBUG]2016-12-01 19:32:10,204: <_sre.SRE_Match object; span=(1083, 2306), match='typedef enum {\n    ES_NO_EVENT, ES_ERROR, /* use>
+[DEBUG]2016-12-01 19:32:10,205: ['ES_NO_EVENT', 'ES_ERROR', 'ES_INIT', 'ES_ENTRY', 'ES_EXIT', 'ES_KEYINPUT', 'ES_LISTEVENTS', 'ES_TIMEOUT', 'ES_TIMERACTIVE', 'ES_TIMERSTOPPED', 'FRONT_LEFT_BUMPER_LOW', 'FRONT_LEFT_BUMPER_HIT', 'FRONT_RIGHT_BUMPER_HIT', 'FRONT_RIGHT_BUMPER_LOW', 'BACK_BUMPER_HIT', 'CENTER_TAPE_FOUND', 'CENTER_ON_WHITE', 'LEFT_TAPE_FOUND', 'LEFT_ON_WHITE', 'RIGHT_TAPE_FOUND', 'RIGHT_ON_WHITE', 'ALL_TAPE_WHITE', 'TAPE_ON', 'FRONT_TRACK_WIRE_DETECTED', 'BACK_TRACK_WIRE_DETECTED', 'BOTH_TRACK_WIRES_DETECTED', 'BEACON_DETECTED', 'BEACON_LOST', 'GET_OUT_TRACK', 'BACK_TRACK_WIRE_LOW', 'FRONT_TRACK_WIRE_LOW', 'BATTERY_CONNECTED', 'BATTERY_DISCONNECTED', 'NUMBEROFEVENTS']
+[DEBUG]2016-12-01 19:32:10,205: 
+static const char *EventNames[] = {
+	"ES_NO_EVENT",
+	"ES_ERROR",
+	"ES_INIT",
+	"ES_ENTRY",
+	"ES_EXIT",
+	"ES_KEYINPUT",
+	"ES_LISTEVENTS",
+	"ES_TIMEOUT",
+	"ES_TIMERACTIVE",
+	"ES_TIMERSTOPPED",
+	"FRONT_LEFT_BUMPER_LOW",
+	"FRONT_LEFT_BUMPER_HIT",
+	"FRONT_RIGHT_BUMPER_HIT",
+	"FRONT_RIGHT_BUMPER_LOW",
+	"BACK_BUMPER_HIT",
+	"CENTER_TAPE_FOUND",
+	"CENTER_ON_WHITE",
+	"LEFT_TAPE_FOUND",
+	"LEFT_ON_WHITE",
+	"RIGHT_TAPE_FOUND",
+	"RIGHT_ON_WHITE",
+	"ALL_TAPE_WHITE",
+	"TAPE_ON",
+	"FRONT_TRACK_WIRE_DETECTED",
+	"BACK_TRACK_WIRE_DETECTED",
+	"BOTH_TRACK_WIRES_DETECTED",
+	"BEACON_DETECTED",
+	"BEACON_LOST",
+	"GET_OUT_TRACK",
+	"BACK_TRACK_WIRE_LOW",
+	"FRONT_TRACK_WIRE_LOW",
+	"BATTERY_CONNECTED",
+	"BATTERY_DISCONNECTED",
+	"NUMBEROFEVENTS",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,207: None
+[DEBUG]2016-12-01 19:32:10,207: None
+[DEBUG]2016-12-01 19:32:10,208: None
+[DEBUG]2016-12-01 19:32:10,208: None
+[DEBUG]2016-12-01 19:32:10,208: None
+[DEBUG]2016-12-01 19:32:10,209: None
+[DEBUG]2016-12-01 19:32:10,209: None
+[DEBUG]2016-12-01 19:32:10,209: None
+[DEBUG]2016-12-01 19:32:10,209: None
+[DEBUG]2016-12-01 19:32:10,210: None
+[DEBUG]2016-12-01 19:32:10,210: None
+[DEBUG]2016-12-01 19:32:10,210: None
+[DEBUG]2016-12-01 19:32:10,210: None
+[DEBUG]2016-12-01 19:32:10,210: None
+[DEBUG]2016-12-01 19:32:10,212: None
+[DEBUG]2016-12-01 19:32:10,212: None
+[DEBUG]2016-12-01 19:32:10,212: None
+[DEBUG]2016-12-01 19:32:10,212: None
+[DEBUG]2016-12-01 19:32:10,212: None
+[DEBUG]2016-12-01 19:32:10,212: None
+[DEBUG]2016-12-01 19:32:10,213: None
+[DEBUG]2016-12-01 19:32:10,213: None
+[DEBUG]2016-12-01 19:32:10,213: None
+[DEBUG]2016-12-01 19:32:10,213: None
+[DEBUG]2016-12-01 19:32:10,213: None
+[DEBUG]2016-12-01 19:32:10,213: None
+[DEBUG]2016-12-01 19:32:10,213: None
+[DEBUG]2016-12-01 19:32:10,214: None
+[DEBUG]2016-12-01 19:32:10,214: None
+[DEBUG]2016-12-01 19:32:10,214: None
+[DEBUG]2016-12-01 19:32:10,214: None
+[DEBUG]2016-12-01 19:32:10,214: None
+[DEBUG]2016-12-01 19:32:10,214: None
+[DEBUG]2016-12-01 19:32:10,214: None
+[DEBUG]2016-12-01 19:32:10,214: None
+[DEBUG]2016-12-01 19:32:10,215: None
+[DEBUG]2016-12-01 19:32:10,215: None
+[DEBUG]2016-12-01 19:32:10,215: None
+[DEBUG]2016-12-01 19:32:10,215: None
+[DEBUG]2016-12-01 19:32:10,215: None
+[DEBUG]2016-12-01 19:32:10,215: None
+[DEBUG]2016-12-01 19:32:10,215: None
+[DEBUG]2016-12-01 19:32:10,215: None
+[DEBUG]2016-12-01 19:32:10,215: None
+[DEBUG]2016-12-01 19:32:10,216: None
+[DEBUG]2016-12-01 19:32:10,216: None
+[DEBUG]2016-12-01 19:32:10,216: None
+[DEBUG]2016-12-01 19:32:10,216: None
+[DEBUG]2016-12-01 19:32:10,216: None
+[DEBUG]2016-12-01 19:32:10,216: None
+[DEBUG]2016-12-01 19:32:10,216: None
+[DEBUG]2016-12-01 19:32:10,216: None
+[DEBUG]2016-12-01 19:32:10,216: None
+[DEBUG]2016-12-01 19:32:10,216: None
+[DEBUG]2016-12-01 19:32:10,218: None
+[DEBUG]2016-12-01 19:32:10,218: None
+[DEBUG]2016-12-01 19:32:10,218: None
+[DEBUG]2016-12-01 19:32:10,218: None
+[DEBUG]2016-12-01 19:32:10,218: None
+[DEBUG]2016-12-01 19:32:10,218: None
+[DEBUG]2016-12-01 19:32:10,218: None
+[DEBUG]2016-12-01 19:32:10,218: None
+[DEBUG]2016-12-01 19:32:10,218: None
+[DEBUG]2016-12-01 19:32:10,218: None
+[DEBUG]2016-12-01 19:32:10,218: None
+[DEBUG]2016-12-01 19:32:10,219: None
+[DEBUG]2016-12-01 19:32:10,219: None
+[DEBUG]2016-12-01 19:32:10,219: None
+[DEBUG]2016-12-01 19:32:10,219: None
+[DEBUG]2016-12-01 19:32:10,219: None
+[DEBUG]2016-12-01 19:32:10,219: None
+[DEBUG]2016-12-01 19:32:10,219: None
+[DEBUG]2016-12-01 19:32:10,219: None
+[DEBUG]2016-12-01 19:32:10,219: None
+[DEBUG]2016-12-01 19:32:10,219: None
+[DEBUG]2016-12-01 19:32:10,219: None
+[DEBUG]2016-12-01 19:32:10,219: None
+[DEBUG]2016-12-01 19:32:10,220: None
+[DEBUG]2016-12-01 19:32:10,220: None
+[DEBUG]2016-12-01 19:32:10,220: None
+[DEBUG]2016-12-01 19:32:10,220: None
+[DEBUG]2016-12-01 19:32:10,220: None
+[DEBUG]2016-12-01 19:32:10,220: None
+[DEBUG]2016-12-01 19:32:10,220: None
+[DEBUG]2016-12-01 19:32:10,220: None
+[DEBUG]2016-12-01 19:32:10,220: None
+[DEBUG]2016-12-01 19:32:10,220: None
+[DEBUG]2016-12-01 19:32:10,220: None
+[DEBUG]2016-12-01 19:32:10,220: None
+[DEBUG]2016-12-01 19:32:10,220: None
+[DEBUG]2016-12-01 19:32:10,222: None
+[DEBUG]2016-12-01 19:32:10,222: None
+[DEBUG]2016-12-01 19:32:10,222: None
+[DEBUG]2016-12-01 19:32:10,222: None
+[DEBUG]2016-12-01 19:32:10,222: None
+[DEBUG]2016-12-01 19:32:10,222: None
+[DEBUG]2016-12-01 19:32:10,222: None
+[DEBUG]2016-12-01 19:32:10,222: None
+[DEBUG]2016-12-01 19:32:10,222: None
+[DEBUG]2016-12-01 19:32:10,222: None
+[DEBUG]2016-12-01 19:32:10,222: None
+[DEBUG]2016-12-01 19:32:10,222: None
+[DEBUG]2016-12-01 19:32:10,222: None
+[DEBUG]2016-12-01 19:32:10,222: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,223: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,225: None
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,226: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,227: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,228: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,230: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,231: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,233: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,234: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,235: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,237: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,238: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,239: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,241: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,243: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,245: None
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,246: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,247: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,248: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,250: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,251: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,252: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,254: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,255: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:32:10,256: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,458: <_sre.SRE_Match object; span=(1083, 2306), match='typedef enum {\n    ES_NO_EVENT, ES_ERROR, /* use>
+[DEBUG]2016-12-01 19:50:58,458: ['ES_NO_EVENT', 'ES_ERROR', 'ES_INIT', 'ES_ENTRY', 'ES_EXIT', 'ES_KEYINPUT', 'ES_LISTEVENTS', 'ES_TIMEOUT', 'ES_TIMERACTIVE', 'ES_TIMERSTOPPED', 'FRONT_LEFT_BUMPER_LOW', 'FRONT_LEFT_BUMPER_HIT', 'FRONT_RIGHT_BUMPER_HIT', 'FRONT_RIGHT_BUMPER_LOW', 'BACK_BUMPER_HIT', 'CENTER_TAPE_FOUND', 'CENTER_ON_WHITE', 'LEFT_TAPE_FOUND', 'LEFT_ON_WHITE', 'RIGHT_TAPE_FOUND', 'RIGHT_ON_WHITE', 'ALL_TAPE_WHITE', 'TAPE_ON', 'FRONT_TRACK_WIRE_DETECTED', 'BACK_TRACK_WIRE_DETECTED', 'BOTH_TRACK_WIRES_DETECTED', 'BEACON_DETECTED', 'BEACON_LOST', 'GET_OUT_TRACK', 'BACK_TRACK_WIRE_LOW', 'FRONT_TRACK_WIRE_LOW', 'BATTERY_CONNECTED', 'BATTERY_DISCONNECTED', 'NUMBEROFEVENTS']
+[DEBUG]2016-12-01 19:50:58,458: 
+static const char *EventNames[] = {
+	"ES_NO_EVENT",
+	"ES_ERROR",
+	"ES_INIT",
+	"ES_ENTRY",
+	"ES_EXIT",
+	"ES_KEYINPUT",
+	"ES_LISTEVENTS",
+	"ES_TIMEOUT",
+	"ES_TIMERACTIVE",
+	"ES_TIMERSTOPPED",
+	"FRONT_LEFT_BUMPER_LOW",
+	"FRONT_LEFT_BUMPER_HIT",
+	"FRONT_RIGHT_BUMPER_HIT",
+	"FRONT_RIGHT_BUMPER_LOW",
+	"BACK_BUMPER_HIT",
+	"CENTER_TAPE_FOUND",
+	"CENTER_ON_WHITE",
+	"LEFT_TAPE_FOUND",
+	"LEFT_ON_WHITE",
+	"RIGHT_TAPE_FOUND",
+	"RIGHT_ON_WHITE",
+	"ALL_TAPE_WHITE",
+	"TAPE_ON",
+	"FRONT_TRACK_WIRE_DETECTED",
+	"BACK_TRACK_WIRE_DETECTED",
+	"BOTH_TRACK_WIRES_DETECTED",
+	"BEACON_DETECTED",
+	"BEACON_LOST",
+	"GET_OUT_TRACK",
+	"BACK_TRACK_WIRE_LOW",
+	"FRONT_TRACK_WIRE_LOW",
+	"BATTERY_CONNECTED",
+	"BATTERY_DISCONNECTED",
+	"NUMBEROFEVENTS",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,461: None
+[DEBUG]2016-12-01 19:50:58,461: None
+[DEBUG]2016-12-01 19:50:58,461: None
+[DEBUG]2016-12-01 19:50:58,461: None
+[DEBUG]2016-12-01 19:50:58,461: None
+[DEBUG]2016-12-01 19:50:58,462: None
+[DEBUG]2016-12-01 19:50:58,462: None
+[DEBUG]2016-12-01 19:50:58,462: None
+[DEBUG]2016-12-01 19:50:58,462: None
+[DEBUG]2016-12-01 19:50:58,463: None
+[DEBUG]2016-12-01 19:50:58,463: None
+[DEBUG]2016-12-01 19:50:58,463: None
+[DEBUG]2016-12-01 19:50:58,463: None
+[DEBUG]2016-12-01 19:50:58,463: None
+[DEBUG]2016-12-01 19:50:58,464: None
+[DEBUG]2016-12-01 19:50:58,464: None
+[DEBUG]2016-12-01 19:50:58,464: None
+[DEBUG]2016-12-01 19:50:58,464: None
+[DEBUG]2016-12-01 19:50:58,464: None
+[DEBUG]2016-12-01 19:50:58,464: None
+[DEBUG]2016-12-01 19:50:58,465: None
+[DEBUG]2016-12-01 19:50:58,465: None
+[DEBUG]2016-12-01 19:50:58,465: None
+[DEBUG]2016-12-01 19:50:58,465: None
+[DEBUG]2016-12-01 19:50:58,465: None
+[DEBUG]2016-12-01 19:50:58,465: None
+[DEBUG]2016-12-01 19:50:58,465: None
+[DEBUG]2016-12-01 19:50:58,467: None
+[DEBUG]2016-12-01 19:50:58,467: None
+[DEBUG]2016-12-01 19:50:58,467: None
+[DEBUG]2016-12-01 19:50:58,467: None
+[DEBUG]2016-12-01 19:50:58,467: None
+[DEBUG]2016-12-01 19:50:58,467: None
+[DEBUG]2016-12-01 19:50:58,467: None
+[DEBUG]2016-12-01 19:50:58,467: None
+[DEBUG]2016-12-01 19:50:58,468: None
+[DEBUG]2016-12-01 19:50:58,468: None
+[DEBUG]2016-12-01 19:50:58,468: None
+[DEBUG]2016-12-01 19:50:58,468: None
+[DEBUG]2016-12-01 19:50:58,468: None
+[DEBUG]2016-12-01 19:50:58,468: None
+[DEBUG]2016-12-01 19:50:58,468: None
+[DEBUG]2016-12-01 19:50:58,468: None
+[DEBUG]2016-12-01 19:50:58,468: None
+[DEBUG]2016-12-01 19:50:58,469: None
+[DEBUG]2016-12-01 19:50:58,469: None
+[DEBUG]2016-12-01 19:50:58,469: None
+[DEBUG]2016-12-01 19:50:58,469: None
+[DEBUG]2016-12-01 19:50:58,469: None
+[DEBUG]2016-12-01 19:50:58,469: None
+[DEBUG]2016-12-01 19:50:58,469: None
+[DEBUG]2016-12-01 19:50:58,469: None
+[DEBUG]2016-12-01 19:50:58,469: None
+[DEBUG]2016-12-01 19:50:58,469: None
+[DEBUG]2016-12-01 19:50:58,470: None
+[DEBUG]2016-12-01 19:50:58,470: None
+[DEBUG]2016-12-01 19:50:58,470: None
+[DEBUG]2016-12-01 19:50:58,470: None
+[DEBUG]2016-12-01 19:50:58,470: None
+[DEBUG]2016-12-01 19:50:58,470: None
+[DEBUG]2016-12-01 19:50:58,470: None
+[DEBUG]2016-12-01 19:50:58,470: None
+[DEBUG]2016-12-01 19:50:58,470: None
+[DEBUG]2016-12-01 19:50:58,470: None
+[DEBUG]2016-12-01 19:50:58,470: None
+[DEBUG]2016-12-01 19:50:58,472: None
+[DEBUG]2016-12-01 19:50:58,472: None
+[DEBUG]2016-12-01 19:50:58,472: None
+[DEBUG]2016-12-01 19:50:58,472: None
+[DEBUG]2016-12-01 19:50:58,472: None
+[DEBUG]2016-12-01 19:50:58,472: None
+[DEBUG]2016-12-01 19:50:58,472: None
+[DEBUG]2016-12-01 19:50:58,472: None
+[DEBUG]2016-12-01 19:50:58,472: None
+[DEBUG]2016-12-01 19:50:58,472: None
+[DEBUG]2016-12-01 19:50:58,472: None
+[DEBUG]2016-12-01 19:50:58,472: None
+[DEBUG]2016-12-01 19:50:58,473: None
+[DEBUG]2016-12-01 19:50:58,473: None
+[DEBUG]2016-12-01 19:50:58,473: None
+[DEBUG]2016-12-01 19:50:58,473: None
+[DEBUG]2016-12-01 19:50:58,473: None
+[DEBUG]2016-12-01 19:50:58,473: None
+[DEBUG]2016-12-01 19:50:58,473: None
+[DEBUG]2016-12-01 19:50:58,473: None
+[DEBUG]2016-12-01 19:50:58,473: None
+[DEBUG]2016-12-01 19:50:58,473: None
+[DEBUG]2016-12-01 19:50:58,473: None
+[DEBUG]2016-12-01 19:50:58,473: None
+[DEBUG]2016-12-01 19:50:58,473: None
+[DEBUG]2016-12-01 19:50:58,474: None
+[DEBUG]2016-12-01 19:50:58,474: None
+[DEBUG]2016-12-01 19:50:58,474: None
+[DEBUG]2016-12-01 19:50:58,474: None
+[DEBUG]2016-12-01 19:50:58,474: None
+[DEBUG]2016-12-01 19:50:58,474: None
+[DEBUG]2016-12-01 19:50:58,474: None
+[DEBUG]2016-12-01 19:50:58,474: None
+[DEBUG]2016-12-01 19:50:58,474: None
+[DEBUG]2016-12-01 19:50:58,474: None
+[DEBUG]2016-12-01 19:50:58,474: None
+[DEBUG]2016-12-01 19:50:58,474: None
+[DEBUG]2016-12-01 19:50:58,474: None
+[DEBUG]2016-12-01 19:50:58,474: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,476: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,477: None
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,479: <_sre.SRE_Match object; span=(1769, 2054), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: ['InitPSubState', 'Rotate360', 'InitialTapeTracking', 'ScanningForBeacon', 'TapeTracking', 'ReverseLineTracking', 'DrivingToFindTrackWire', 'CheckForBeaconTape', 'AlignWithTape', 'BeaconInWayAbort', 'StateForAvoidBoxSubHSM']
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,480: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+	"ScanningForBeacon",
+	"TapeTracking",
+	"ReverseLineTracking",
+	"DrivingToFindTrackWire",
+	"CheckForBeaconTape",
+	"AlignWithTape",
+	"BeaconInWayAbort",
+	"StateForAvoidBoxSubHSM",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,482: <_sre.SRE_Match object; span=(2322, 2488), match='typedef enum {\n    InitPState,\n    WaitingToSta>
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,483: ['InitPState', 'WaitingToStart', 'FindingTape', 'TapeTracking', 'FollowingTrackWire', 'FirstBeacon', 'SecondBeacon']
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,484: 
+static const char *StateNames[] = {
+	"InitPState",
+	"WaitingToStart",
+	"FindingTape",
+	"TapeTracking",
+	"FollowingTrackWire",
+	"FirstBeacon",
+	"SecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,486: <_sre.SRE_Match object; span=(970, 1330), match='typedef enum {\n    InitPSubState,\n    RotateToF>
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,487: ['InitPSubState', 'RotateToFindTrackWire', 'FoundTrackWire', 'LoadingAmmo', 'AntiJamPhaseOne', 'AntiJamPhaseTwo', 'BeaconScanning', 'BeaconFound', 'TargetFound', 'GetCloserToBeacon', 'StartCentering', 'RepositionOffTape', 'DriveToGetWithinRangeOfBeacon', 'Bumped_Forward', 'Bumped_Turning']
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,488: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"RotateToFindTrackWire",
+	"FoundTrackWire",
+	"LoadingAmmo",
+	"AntiJamPhaseOne",
+	"AntiJamPhaseTwo",
+	"BeaconScanning",
+	"BeaconFound",
+	"TargetFound",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"RepositionOffTape",
+	"DriveToGetWithinRangeOfBeacon",
+	"Bumped_Forward",
+	"Bumped_Turning",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,489: <_sre.SRE_Match object; span=(1760, 2118), match='typedef enum {\n    InitPSubState,\n    DroppingA>
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,490: ['InitPSubState', 'DroppingAmmoAtFirstBeacon', 'TurnRightScanning', 'TurnLeftScanning', 'GoAroundFirstBeacon', 'GoAroundFirstBeaconOtherWay', 'DroppingAmmoAtSecondBeacon', 'GetCloserToBeacon', 'StartCentering', 'BeaconFound', 'TargetFound', 'RepositionOffTape', 'FindingTapeAfterSecondBeacon']
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,491: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"DroppingAmmoAtFirstBeacon",
+	"TurnRightScanning",
+	"TurnLeftScanning",
+	"GoAroundFirstBeacon",
+	"GoAroundFirstBeaconOtherWay",
+	"DroppingAmmoAtSecondBeacon",
+	"GetCloserToBeacon",
+	"StartCentering",
+	"BeaconFound",
+	"TargetFound",
+	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,493: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,495: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,497: None
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,498: <_sre.SRE_Match object; span=(1727, 1825), match='typedef enum {\n    InitPSubState,\n    Rotate360>
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,499: ['InitPSubState', 'Rotate360', 'InitialTapeTracking']
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,500: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"Rotate360",
+	"InitialTapeTracking",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,502: <_sre.SRE_Match object; span=(1638, 1787), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,503: ['InitPSubState', 'BackAwayFromBox', 'TurnToAvoidBox', 'DriveForwardPastBox', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,504: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBox",
+	"TurnToAvoidBox",
+	"DriveForwardPastBox",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,506: <_sre.SRE_Match object; span=(1602, 1759), match='typedef enum {\n    InitPSubState,\n    BackAwayF>
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,507: ['InitPSubState', 'BackAwayFromBeacon', 'TurnToAvoidBeacon', 'TapeTrackBeaconBorder', 'TurnToAlignWithTape']
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+
+[DEBUG]2016-12-01 19:50:58,508: 
+static const char *StateNames[] = {
+	"InitPSubState",
+	"BackAwayFromBeacon",
+	"TurnToAvoidBeacon",
+	"TapeTrackBeaconBorder",
+	"TurnToAlignWithTape",
+};
+
+

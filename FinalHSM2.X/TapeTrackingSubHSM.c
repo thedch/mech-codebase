@@ -183,7 +183,6 @@ ES_Event RunTapeTrackingSubHSM(ES_Event ThisEvent) {
                 case TAPE_ON:
                     if ((ThisEvent.EventParam & 0x02 == 0x02) && (BeaconFlag == 1)) {
                         // Center tape sensor is on
-                        // Go tape track
                         BeaconFlag = 0;
                         nextState = InitialTapeTracking;
                         makeTransition = TRUE;

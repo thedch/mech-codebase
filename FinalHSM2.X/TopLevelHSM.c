@@ -218,11 +218,15 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                     if (ThisEvent.EventParam == 4) {
                         nextState = TapeTracking;
                         makeTransition = TRUE;
+                        //                        leftTankTurn(MEDIUM_MOTOR_SPEED);
+                        //                        ES_Timer_InitTimer(1, 8.55 * 360);
+                    } else if (ThisEvent.EventParam == 1) {
+                        motorsOff();
                     }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BATTERY_CONNECTED:
-                    ES_Timer_InitTimer(4, 2500);
+                    ES_Timer_InitTimer(4, 500); // TODO: Lower this timer
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_EXIT:
@@ -351,6 +355,11 @@ ES_Event RunTemplateHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     break;
                 case ES_NO_EVENT:
+                    break;
+                case TAPE_ON:
+                    nextState = TapeTracking;
+                    makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BATTERY_DISCONNECTED:
                     nextState = WaitingToStart;

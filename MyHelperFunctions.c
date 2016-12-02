@@ -230,14 +230,13 @@ char CustomPWM_SetDutyCycle(unsigned char Channel, unsigned int Duty) {
     newBatVoltage = (double) batVoltage;
     if (newBatVoltage != 0) {
         newBatVoltage = newBatVoltage / 1023 * 33; // = current actual battery voltage
-        //        printf("Current Actual Battery Voltage: %fV \r\n", newBatVoltage);
         newBatVoltage = newBatVoltage - 0.6; // account for diode loss
         newDuty = Duty / newBatVoltage * 9.9; // Modify the duty cycle as needed to account for a lower bat voltage   
     }
     if (newDuty > 1000) {
         newDuty = 1000; // if the duty cycle has exceeded the limits, trim it
     }
-    //    printf("You just set the PWM to be %d \r\n", newDuty);
+//    printf("\r\n Just set the PWM to be %d \r\n", newDuty);
     return (PWM_SetDutyCycle(Channel, newDuty));
     //    return 0;
 }

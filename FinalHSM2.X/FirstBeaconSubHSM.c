@@ -54,6 +54,7 @@ typedef enum {
     BeaconFound,
     TargetFound,
     RepositionOffTape,
+    FindingTapeAfterSecondBeacon,
 } TemplateSubHSMState_t;
 
 static const char *StateNames[] = {
@@ -69,6 +70,7 @@ static const char *StateNames[] = {
 	"BeaconFound",
 	"TargetFound",
 	"RepositionOffTape",
+	"FindingTapeAfterSecondBeacon",
 };
 
 #define PATROL_TIMER 3
@@ -172,19 +174,32 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     BallDropFlag = 0;
                     motorsOff();
+                    toggleServo(); // Prep the first ball drop
                     ES_Timer_InitTimer(3, 450);
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == 3) {
-                        // timing the ball drops
-                        ES_Timer_InitTimer(3, 550);
-                        if (BallDropFlag < 4) {
-                            toggleServo();
-                        } else if (BallDropFlag > 5) {
+                        if (BallDropFlag == 0) {
+                            toggleServo(); // 2nd Toggle servo, which drops the ball
+                            ES_Timer_InitTimer(3, 500); // Wait for the ball to clear the bot
+                        } else if (BallDropFlag == 1) {
+                            rightTankTurn(SLOW_MOTOR_SPEED); // Turn to slightly miss the first ball
+                            ES_Timer_InitTimer(3, 75);
+                        } else if (BallDropFlag == 2) {
+                            driveForward(SLOW_MOTOR_SPEED); // Pull forward to get close to target
+                            ES_Timer_InitTimer(3, 75);
+                        } else if (BallDropFlag == 3) {
+                            motorsOff();
+                            toggleServo(); // Toggle servo to prep second ball drop
+                            ES_Timer_InitTimer(3, 450);
+                        } else if (BallDropFlag == 4) {
+                            toggleServo(); // Drop second ball
+                            ES_Timer_InitTimer(3, 500); // Wait for the ball to clear the bot
+                        } else if (BallDropFlag == 5) {
                             // done dropping balls, go find a new beacon
+                            driveBackward(MEDIUM_MOTOR_SPEED);
                             ES_Timer_StopTimer(3);
                             ES_Timer_InitTimer(4, 700);
-                            driveBackward(MEDIUM_MOTOR_SPEED);
                         }
                         BallDropFlag++;
                     } else if (ThisEvent.EventParam == 4) {
@@ -192,6 +207,9 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                         makeTransition = TRUE;
                         BallDropFlag = 0;
                     }
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case TAPE_ON:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default:
@@ -204,7 +222,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case ES_ENTRY:
                     rightTankTurn(MEDIUM_MOTOR_SPEED);
                     ES_Timer_StopTimer(9);
-                    ES_Timer_InitTimer(9, 9.7 * 90); // Set a turn for 90 degrees
+                    ES_Timer_InitTimer(9, MS_PER_DEGREE_TURN_MED_SPEED * 90); // Set a turn for 90 degrees
                     beaconLookingFlag = 0;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
@@ -225,10 +243,10 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
-                    if (beaconLookingFlag == 1) {
-                        nextState = StartCentering;
-                        makeTransition = TRUE;
-                    }
+                    //                    if (beaconLookingFlag == 1) {
+                    nextState = StartCentering;
+                    makeTransition = TRUE;
+                    //                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case TAPE_ON:
@@ -256,7 +274,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     rightTankTurn(MEDIUM_MOTOR_SPEED);
                     beaconLookingFlag = 0;
                     ES_Timer_StopTimer(9);
-                    ES_Timer_InitTimer(9, 3700 / 2); // Set a turn for 180 degrees
+                    ES_Timer_InitTimer(9, 180 * MS_PER_DEGREE_TURN_MED_SPEED); // Set a turn for 180 degrees
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
@@ -275,7 +293,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
-                    if (beaconLookingFlag == 1) {
+                    if (beaconLookingFlag == 1) { // TODO: Kill this if statement?
                         nextState = StartCentering;
                         makeTransition = TRUE;
                     }
@@ -287,6 +305,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     // Turn 180 degrees 
                     // Do a large sweeping turn
                     // Scan for beacons (probably need a new state)
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
                 case FRONT_RIGHT_BUMPER_HIT:
@@ -305,7 +324,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
         case GetCloserToBeacon:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    ES_Timer_InitTimer(1, 1300);
+                    ES_Timer_InitTimer(1, 1750);
                     driveForward(MEDIUM_MOTOR_SPEED);
                     break;
                 case ES_TIMEOUT:
@@ -319,6 +338,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case TAPE_ON:
                     nextState = RepositionOffTape;
                     makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
                 case FRONT_RIGHT_BUMPER_HIT:
@@ -345,6 +365,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case TAPE_ON:
                     nextState = RepositionOffTape;
                     makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
                     if (ThisEvent.EventParam == BUMPED_TIMER) {
@@ -385,6 +406,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case TAPE_ON:
                     nextState = RepositionOffTape;
                     makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
 
                 default: // all unhandled events pass the event back up to the next level
@@ -406,6 +428,7 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                 case TAPE_ON:
                     nextState = RepositionOffTape;
                     makeTransition = TRUE;
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 default:
                     break;
@@ -430,18 +453,14 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                         //go to dropammo
                         nextState = DroppingAmmoAtSecondBeacon;
                         makeTransition = TRUE;
-                        ThisEvent.EventType = ES_NO_EVENT;
                     } else if ((ThisEvent.EventParam & 0x01) == 0x01) {
                         // Left sensor on, pull right wheel fwd
                         rightMotor(FORWARD, MEDIUM_MOTOR_SPEED);
-                        printf("\r\n LEFT SENSOR ON, Right motor FWD \r\n");
-                        ThisEvent.EventType = ES_NO_EVENT;
                     } else if ((ThisEvent.EventParam & 0x04) == 0x04) {
                         // Right sensor on, pull left wheel fwd
                         leftMotor(FORWARD, MEDIUM_MOTOR_SPEED);
-                        printf("\r\n RIGHT SENSOR ON, Left motor FWD \r\n");
-                        ThisEvent.EventType = ES_NO_EVENT;
                     }
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
 
                 default: // all unhandled events pass the event back up to the next level
@@ -455,18 +474,47 @@ ES_Event RunFirstBeaconSubHSM(ES_Event ThisEvent) {
                     BallDropFlag = 0;
                     motorsOff();
                     ES_Timer_InitTimer(3, 450);
+                    ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case ES_TIMEOUT:
                     ES_Timer_InitTimer(3, 750);
                     if (BallDropFlag < 4) {
                         toggleServo();
                     } else if (BallDropFlag > 7) {
-                        //                        nextState = TurnRightScanning;
-                        //                        makeTransition = TRUE;
-                        //                        ThisEvent.EventType = ES_NO_EVENT;
-                        motorsOff();
+                        nextState = FindingTapeAfterSecondBeacon;
+                        makeTransition = TRUE;
+                        ThisEvent.EventType = ES_NO_EVENT;
                     }
                     BallDropFlag++;
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case ES_EXIT:
+                    BallDropFlag = 0;
+                    break;
+                default:
+                    break;
+            }
+            break;
+
+        case FindingTapeAfterSecondBeacon:
+            switch (ThisEvent.EventType) {
+                case ES_ENTRY:
+                    driveBackward(MEDIUM_MOTOR_SPEED);
+                    ES_Timer_InitTimer(1, 250);
+                    break;
+                case ES_TIMEOUT:
+                    if (ThisEvent.EventParam == 1) {
+                        rightTankTurn(MEDIUM_MOTOR_SPEED);
+                        ES_Timer_InitTimer(2, 90 * MS_PER_DEGREE_TURN_MED_SPEED);
+                    } else if (ThisEvent.EventParam == 2) {
+                        driveForward(MEDIUM_MOTOR_SPEED);
+                    }
+                    ThisEvent.EventType = ES_NO_EVENT;
+                    break;
+                case TAPE_ON:
+                    InitTapeTrackingSubHSM();
+                    InitTrackWireSubHSM();
+                    // probably pass this up to the top level
                     break;
                 case ES_EXIT:
                     BallDropFlag = 0;

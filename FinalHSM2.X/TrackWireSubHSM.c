@@ -83,6 +83,7 @@ static int beaconTimerStop = 0;
 static int beaconTimerDelta = 0;
 static int LoadAmmoFlag = 0;
 static int BumpedTurnFlag = 0; // if 1, you were bumped while turning LEFT. if 2, RIGHT.
+static int SeekingBeaconFlag = 0;
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS                                                            *
@@ -175,7 +176,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case FoundTrackWire:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    ES_Timer_InitTimer(4, 750);
+                    ES_Timer_InitTimer(4, 850);
                     driveBackward(MEDIUM_MOTOR_SPEED);
                     LoadAmmoFlag++;
                     break;
@@ -205,27 +206,27 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case LoadingAmmo:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    driveForward(MAX_MOTOR_SPEED);
-                    if (LoadAmmoFlag < 2) {
-                        ES_Timer_InitTimer(1, 500);
-                    } else {
-                        ES_Timer_InitTimer(1, 1000);
-                    }
-                    //                    ES_Timer_InitTimer(1, 500);
+                    driveForward(MEDIUM_MOTOR_SPEED);
+                    //                    if (LoadAmmoFlag < 2) {
+                    ES_Timer_InitTimer(1, 750);
+                    //                    } else {
+                    //                        ES_Timer_InitTimer(1, 1000);
+                    //                    }
                     break;
                 case ES_TIMEOUT:
-                    if (ThisEvent.EventParam == 1) {
-                        if (LoadAmmoFlag < 2) {
-                            ES_Timer_InitTimer(2, 500);
-                            motorsOff();
-                        } else {
-                            nextState = AntiJamPhaseOne;
-                            makeTransition = TRUE;
-                        }
-                    } else if (ThisEvent.EventParam == 2) {
-                        nextState = FoundTrackWire;
-                        makeTransition = TRUE;
-                    }
+                    //                    if (ThisEvent.EventParam == 1) {
+                    //                        if (LoadAmmoFlag < 2) {
+                    //                            ES_Timer_InitTimer(2, 500);
+                    //                            motorsOff();
+                    //                        } else {
+                    nextState = AntiJamPhaseOne;
+                    makeTransition = TRUE;
+                    //                        }
+                    //                    } 
+                    //                    else if (ThisEvent.EventParam == 2) {
+                    //                        nextState = FoundTrackWire;
+                    //                        makeTransition = TRUE;
+                    //                    }
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_DETECTED:
@@ -311,15 +312,20 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
         case BeaconScanning:
             switch (ThisEvent.EventType) {
                 case ES_ENTRY:
-                    rightTankTurn(MEDIUM_MOTOR_SPEED);
-                    printf("\r\n Entering Beacon Scanning \r\n");
-                    ES_Timer_InitTimer(6, 9.7 * 360);
+                    leftTankTurn(MEDIUM_MOTOR_SPEED);
+                    ES_Timer_InitTimer(6, MS_PER_DEGREE_TURN_MED_SPEED * 360);
                     break;
                 case BEACON_DETECTED:
-                    nextState = StartCentering;
-                    makeTransition = TRUE;
+                    ES_Timer_StopTimer(6); // Kill the frustration timer
+                    variablePercentRightTurn(50, MEDIUM_MOTOR_SPEED);
+                    // TODO: Add a timer here. Past about 3-4s, this won't be accurate. 
+                    //                    nextState = StartCentering;
+                    //                    makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
+                case BEACON_LOST:
+                    variablePercentLeftTurn(50, MEDIUM_MOTOR_SPEED);
+                    ThisEvent.EventType = ES_NO_EVENT;
                 case ES_NO_EVENT:
                     break;
                 case ES_TIMEOUT:
@@ -333,7 +339,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     break;
                 case FRONT_LEFT_BUMPER_HIT:
                 case FRONT_RIGHT_BUMPER_HIT:
-                    nextState = Bumped_Turning;
+                    nextState = Bumped_Forward; // TODO: Account for the initial turn as well, need to make a Bumped_Turning transition based on flag
                     BumpedTurnFlag = 2;
                     makeTransition = TRUE;
                     ThisEvent.EventType = ES_NO_EVENT;
@@ -376,7 +382,6 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     driveForward(MEDIUM_MOTOR_SPEED);
                     break;
                 case BEACON_LOST:
-                    printf("\r\n I was driving to the beacon, but I lost it! \r\n");
                     nextState = BeaconScanning;
                     makeTransition = TRUE;
                     break;
@@ -438,7 +443,6 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
                 case BEACON_LOST:
-                    printf("\r\n Doing math with timers... \r\n");
                     beaconTimerStop = ES_Timer_GetTime();
                     beaconTimerDelta = beaconTimerStop - beaconTimerStart;
                     nextState = TargetFound;
@@ -537,7 +541,7 @@ ES_Event RunTrackWireSubHSM(ES_Event ThisEvent) {
                 case BEACON_DETECTED:
                     ThisEvent.EventType = ES_NO_EVENT;
                     break;
-TAPE_ON:
+                case TAPE_ON:
                     nextState = RepositionOffTape;
                     makeTransition = TRUE;
                     // let this event pass up to the top level

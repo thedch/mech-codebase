@@ -29,8 +29,10 @@ static int GetOutFlag = 0;
 
 // Motors
 #define MAX_MOTOR_SPEED 900
-#define MEDIUM_MOTOR_SPEED 600
+#define MEDIUM_MOTOR_SPEED 650
 #define SLOW_MOTOR_SPEED 450
+
+#define MS_PER_DEGREE_TURN_MED_SPEED 8.55
 
 #define FORWARD 0
 #define REVERSE 1

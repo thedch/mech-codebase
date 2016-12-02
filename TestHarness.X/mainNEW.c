@@ -59,12 +59,21 @@ int main(void) {
     //    float tempVar2 = (float) tempVar;
     //    printf("%d \r\n", tempVar);
     //    printf("%f \r\n", tempVar2);
+    int motorSpeed = MAX_MOTOR_SPEED;
+    
 
     while (1) {
         //        driveBackward(MEDIUM_MOTOR_SPEED);
         //        myDelay(LONG_DELAY);
-        //        driveForward(MEDIUM_MOTOR_SPEED);
-        checkTapeSensors();
+        printf("Current motor speed is %d \r\n", motorSpeed);
+        driveForward(motorSpeed);
+        // At 900 duty cycle, the is a noticeable drop in power in a cyclic fashion on the right wheel, creating a gentle turn in the right direction over time.
+        // This problem is only occasionally present, which makes for difficult debugging.
+        // At 600 duty cycle, the problem was not observed. There was still a slight right turn, but the power drop was constant, not cyclic. It was also a much
+        // more gradual right turn, which leads me to believe it is due to differences in the motors, which is to be expected. A tuning of the 'driveForward' function may be in order.
+        // At 700 duty cycle, the power drop was the same as 600 - constant and very subtle. 
+        // At 800 duty cycle, the power drop was the same as 600 - constant and very subtle. 
+        // 
         myDelay(LONG_DELAY);
         //        driveBackward(MEDIUM_MOTOR_SPEED);
     }

@@ -1,5 +1,7 @@
 # Final Project Code
 
+https://danielhunter.io/mechatronics/
+
 This repository holds the robot behavior state machine and sensor integration algorithms for the final project of CMPE 118, Mechatronics at UCSC. 
 
 Additionally, it holds a test harness project that was used to ensure hardware functionality. 
